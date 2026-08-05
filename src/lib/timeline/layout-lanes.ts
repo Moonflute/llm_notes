@@ -1,0 +1,10 @@
+import { createTimeScale } from "./scale";
+import type { LayoutNode, TimelineLane, TimelineNode, TimelineSubLane } from "./types";
+export interface TimelineLayout { width: number; height: number; nodes: LayoutNode[]; laneY: Record<string, number>; laneHeight: Record<string, number> }
+export function layoutTimeline(nodes: TimelineNode[], lanes: TimelineLane[], subLanes: TimelineSubLane[], start: string, end: string, pixelsPerMonth: number, zoom: 1 | 2 | 3): TimelineLayout {
+ const width = Math.max(1080, Math.ceil((new Date(`${end}-01`).getTime() - new Date(`${start}-01`).getTime()) / 2.628e9) * pixelsPerMonth);
+ const scale = createTimeScale(start, end, width - 150); const visibleLanes = lanes.filter(lane => nodes.some(node => node.laneId === lane.id)); let cursorY = 58; const laneY: Record<string, number> = {}; const laneHeight: Record<string, number> = {};
+ for (const lane of visibleLanes) { const count = Math.max(1, subLanes.filter(sub => sub.laneId === lane.id && nodes.some(node => node.subLaneId === sub.id)).length); laneY[lane.id] = cursorY; laneHeight[lane.id] = 72 + count * 34; cursorY += laneHeight[lane.id]; }
+ const occupied = new Map<string, Array<{x:number; band:0|1|2}>>(); const layoutNodes = nodes.map(node => { const x = 150 + scale.at(node.primaryDate.value); const laneNodes = occupied.get(node.laneId) ?? []; const labelWidth = Math.max(62, Math.min(160, node.titleKo.length * 9 + 24)); let band: 0|1|2 = 0; while (band < 2 && laneNodes.some(item => item.band === band && Math.abs(item.x - x) < labelWidth)) band = (band + 1) as 0|1|2; laneNodes.push({x,band}); occupied.set(node.laneId,laneNodes); const visible = zoom === 3 || node.importance >= (zoom === 1 ? 3 : 2); return { ...node, x, y: laneY[node.laneId] + 42 + band * 17, labelBand: band, labelVisible: visible }; });
+ return { width, height: cursorY + 36, nodes: layoutNodes, laneY, laneHeight };
+}

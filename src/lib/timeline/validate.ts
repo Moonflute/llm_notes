@@ -1,0 +1,8 @@
+import { compareTimelineDates } from "./dates";
+import type { TimelineLane, TimelineNode, TimelineRelation, TimelineSubLane } from "./types";
+export function validateTimelineGraph(nodes: TimelineNode[], lanes: TimelineLane[], subLanes: TimelineSubLane[], relations: TimelineRelation[]) {
+ const ids = new Set(nodes.map(node => node.id)); const laneIds = new Set(lanes.map(lane => lane.id)); const subLaneIds = new Set(subLanes.map(lane => lane.id));
+ const keys = new Set<string>();
+ for (const node of nodes) { if (!laneIds.has(node.laneId)) throw new Error(`${node.id}: unknown lane`); if (node.subLaneId && !subLaneIds.has(node.subLaneId)) throw new Error(`${node.id}: unknown sublane`); if (!node.sourceIds.length) throw new Error(`${node.id}: published node needs a source`); if (node.importance === 3 && !node.summaryKo.trim()) throw new Error(`${node.id}: important node needs a summary`); }
+ for (const relation of relations) { if (!ids.has(relation.fromId) || !ids.has(relation.toId)) throw new Error(`${relation.id}: missing endpoint`); if (relation.fromId === relation.toId) throw new Error(`${relation.id}: self relation`); if (!relation.sourceIds.length && !relation.noteKo) throw new Error(`${relation.id}: evidence missing`); const key = `${relation.fromId}:${relation.toId}:${relation.type}`; if (keys.has(key)) throw new Error(`${relation.id}: duplicate relation`); keys.add(key); if (relation.type === "next_release") { const from = nodes.find(node => node.id === relation.fromId)!; const to = nodes.find(node => node.id === relation.toId)!; if (compareTimelineDates(from.primaryDate.value, to.primaryDate.value) > 0) throw new Error(`${relation.id}: next release travels backwards`); } }
+}

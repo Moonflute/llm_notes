@@ -1,0 +1,4 @@
+import { compareTimelineDates } from "./dates";
+import type { TimelineFilters, TimelineNode } from "./types";
+export const defaultTimelineFilters: TimelineFilters = { org: [], track: [], importance: 3, field: [] };
+export function filterTimelineNodes(nodes: TimelineNode[], filters: TimelineFilters) { return nodes.filter(node => (!filters.org.length || filters.org.some(id => node.organizationIds.includes(id))) && (!filters.track.length || filters.track.includes(node.entityType)) && node.importance >= filters.importance && (!filters.from || compareTimelineDates(node.primaryDate.value, filters.from) >= 0) && (!filters.to || compareTimelineDates(node.primaryDate.value, filters.to) <= 0) && (!filters.field.length || filters.field.some(id => node.fieldIds.includes(id) || node.conceptIds.includes(id)))).sort((a,b) => compareTimelineDates(a.primaryDate.value,b.primaryDate.value) || b.importance-a.importance || a.slug.localeCompare(b.slug)); }

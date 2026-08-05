@@ -36,7 +36,8 @@
     "releaseSlugs": [
       "claude-3",
       "claude-4",
-      "claude-sonnet-5"
+      "claude-sonnet-5",
+      "claude-3-source"
     ]
   },
   {
@@ -118,7 +119,8 @@
       "deepseek-v3",
       "deepseek-r1",
       "deepseek-v3-2",
-      "deepseek-v4"
+      "deepseek-v4",
+      "deepseek-r1-paper"
     ]
   },
   {
@@ -330,6 +332,66 @@
     "releaseSlugs": [
       "meta-muse-spark",
       "meta-muse-image"
+    ]
+  },
+  {
+    "slug": "clip",
+    "titleKo": "CLIP",
+    "titleEn": "CLIP",
+    "organizationSlug": "openai",
+    "summary": "CLIP model family.",
+    "releaseSlugs": [
+      "clip"
+    ]
+  },
+  {
+    "slug": "lamda",
+    "titleKo": "LaMDA",
+    "titleEn": "Language Model for Dialogue Applications",
+    "organizationSlug": "google-deepmind",
+    "summary": "Language Model for Dialogue Applications model family.",
+    "releaseSlugs": [
+      "lamda"
+    ]
+  },
+  {
+    "slug": "codex",
+    "titleKo": "Codex",
+    "titleEn": "Codex",
+    "organizationSlug": "openai",
+    "summary": "Codex model family.",
+    "releaseSlugs": [
+      "codex"
+    ]
+  },
+  {
+    "slug": "sam",
+    "titleKo": "Segment Anything",
+    "titleEn": "Segment Anything Model",
+    "organizationSlug": "meta",
+    "summary": "Segment Anything Model model family.",
+    "releaseSlugs": [
+      "segment-anything"
+    ]
+  },
+  {
+    "slug": "openhermes",
+    "titleKo": "OpenHermes",
+    "titleEn": "OpenHermes",
+    "organizationSlug": "hugging-face",
+    "summary": "OpenHermes model family.",
+    "releaseSlugs": [
+      "openhermes"
+    ]
+  },
+  {
+    "slug": "smollm",
+    "titleKo": "SmolLM",
+    "titleEn": "SmolLM",
+    "organizationSlug": "hugging-face",
+    "summary": "SmolLM model family.",
+    "releaseSlugs": [
+      "smollm"
     ]
   }
 ]

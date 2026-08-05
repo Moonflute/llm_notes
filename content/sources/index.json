@@ -1,710 +1,845 @@
 [
-    {
-        "id":  "transformer",
-        "title":  "Attention Is All You Need",
-        "url":  "https://arxiv.org/abs/1706.03762",
-        "publisher":  "Google Research",
-        "year":  2017,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "bert",
-        "title":  "BERT",
-        "url":  "https://arxiv.org/abs/1810.04805",
-        "publisher":  "Google AI",
-        "year":  2018,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "gpt3",
-        "title":  "Language Models are Few-Shot Learners",
-        "url":  "https://arxiv.org/abs/2005.14165",
-        "publisher":  "OpenAI",
-        "year":  2020,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "instructgpt",
-        "title":  "Training language models to follow instructions",
-        "url":  "https://arxiv.org/abs/2203.02155",
-        "publisher":  "OpenAI",
-        "year":  2022,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "chatgpt",
-        "title":  "Introducing ChatGPT",
-        "url":  "https://openai.com/index/chatgpt/",
-        "publisher":  "OpenAI",
-        "year":  2022,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "gpt4",
-        "title":  "GPT-4 Technical Report",
-        "url":  "https://arxiv.org/abs/2303.08774",
-        "publisher":  "OpenAI",
-        "year":  2023,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "llama",
-        "title":  "Llama 2",
-        "url":  "https://arxiv.org/abs/2307.09288",
-        "publisher":  "Meta AI",
-        "year":  2023,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "claude",
-        "title":  "The Claude 3 Model Family",
-        "url":  "https://www.anthropic.com/news/claude-3-family",
-        "publisher":  "Anthropic",
-        "year":  2024,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "gemini",
-        "title":  "Gemini",
-        "url":  "https://arxiv.org/abs/2312.11805",
-        "publisher":  "Google DeepMind",
-        "year":  2023,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "rag",
-        "title":  "Retrieval-Augmented Generation",
-        "url":  "https://arxiv.org/abs/2005.11401",
-        "publisher":  "Meta AI",
-        "year":  2020,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "deepseek",
-        "title":  "DeepSeek-R1",
-        "url":  "https://arxiv.org/abs/2501.12948",
-        "publisher":  "DeepSeek",
-        "year":  2025,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "mistral",
-        "title":  "Mistral 7B",
-        "url":  "https://arxiv.org/abs/2310.06825",
-        "publisher":  "Mistral AI",
-        "year":  2023,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "elmo",
-        "title":  "Deep contextualized word representations",
-        "url":  "https://arxiv.org/abs/1802.05365",
-        "publisher":  "Allen Institute for AI",
-        "year":  2018,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "gpt-1",
-        "title":  "Improving Language Understanding by Generative Pre-Training",
-        "url":  "https://openai.com/research/language-unsupervised",
-        "publisher":  "OpenAI",
-        "year":  2018,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "gpt-2",
-        "title":  "Language Models are Unsupervised Multitask Learners",
-        "url":  "https://openai.com/index/better-language-models/",
-        "publisher":  "OpenAI",
-        "year":  2019,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "xlnet",
-        "title":  "XLNet: Generalized Autoregressive Pretraining",
-        "url":  "https://arxiv.org/abs/1906.08237",
-        "publisher":  "Google Brain and CMU",
-        "year":  2019,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "roberta",
-        "title":  "RoBERTa: A Robustly Optimized BERT Pretraining Approach",
-        "url":  "https://arxiv.org/abs/1907.11692",
-        "publisher":  "Meta AI",
-        "year":  2019,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "t5",
-        "title":  "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
-        "url":  "https://arxiv.org/abs/1910.10683",
-        "publisher":  "Google Research",
-        "year":  2019,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "megatron-lm",
-        "title":  "Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism",
-        "url":  "https://arxiv.org/abs/1909.08053",
-        "publisher":  "NVIDIA",
-        "year":  2019,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "scaling-laws",
-        "title":  "Scaling Laws for Neural Language Models",
-        "url":  "https://arxiv.org/abs/2001.08361",
-        "publisher":  "OpenAI",
-        "year":  2020,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "switch-transformer",
-        "title":  "Switch Transformers: Scaling to Trillion Parameter Models",
-        "url":  "https://arxiv.org/abs/2101.03961",
-        "publisher":  "Google Research",
-        "year":  2021,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "clip",
-        "title":  "Learning Transferable Visual Models From Natural Language Supervision",
-        "url":  "https://arxiv.org/abs/2103.00020",
-        "publisher":  "OpenAI",
-        "year":  2021,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "lamda",
-        "title":  "LaMDA: Language Models for Dialog Applications",
-        "url":  "https://arxiv.org/abs/2201.08239",
-        "publisher":  "Google",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "gopher",
-        "title":  "Scaling Language Models: Methods, Analysis and Insights from Training Gopher",
-        "url":  "https://arxiv.org/abs/2112.11446",
-        "publisher":  "DeepMind",
-        "year":  2021,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "chinchilla",
-        "title":  "Training Compute-Optimal Large Language Models",
-        "url":  "https://arxiv.org/abs/2203.15556",
-        "publisher":  "DeepMind",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "palm",
-        "title":  "PaLM: Scaling Language Modeling with Pathways",
-        "url":  "https://arxiv.org/abs/2204.02311",
-        "publisher":  "Google Research",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "dalle-2",
-        "title":  "Hierarchical Text-Conditional Image Generation with CLIP Latents",
-        "url":  "https://arxiv.org/abs/2204.06125",
-        "publisher":  "OpenAI",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "stable-diffusion",
-        "title":  "High-Resolution Image Synthesis with Latent Diffusion Models",
-        "url":  "https://arxiv.org/abs/2112.10752",
-        "publisher":  "CompVis",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "bloom",
-        "title":  "BLOOM: A 176B-Parameter Open-Access Multilingual Language Model",
-        "url":  "https://arxiv.org/abs/2211.05100",
-        "publisher":  "BigScience",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "whisper",
-        "title":  "Robust Speech Recognition via Large-Scale Weak Supervision",
-        "url":  "https://arxiv.org/abs/2212.04356",
-        "publisher":  "OpenAI",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "llama-original",
-        "title":  "LLaMA: Open and Efficient Foundation Language Models",
-        "url":  "https://arxiv.org/abs/2302.13971",
-        "publisher":  "Meta AI",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "toolformer",
-        "title":  "Toolformer: Language Models Can Teach Themselves to Use Tools",
-        "url":  "https://arxiv.org/abs/2302.04761",
-        "publisher":  "Meta AI",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "dpo",
-        "title":  "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
-        "url":  "https://arxiv.org/abs/2305.18290",
-        "publisher":  "Stanford University",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "mamba",
-        "title":  "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
-        "url":  "https://arxiv.org/abs/2312.00752",
-        "publisher":  "Princeton University",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "mixtral",
-        "title":  "Mixtral of Experts",
-        "url":  "https://arxiv.org/abs/2401.04088",
-        "publisher":  "Mistral AI",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "olmo",
-        "title":  "OLMo: Accelerating the Science of Language Models",
-        "url":  "https://arxiv.org/abs/2402.00838",
-        "publisher":  "AI2",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "gemma",
-        "title":  "Gemma: Open Models Based on Gemini Research and Technology",
-        "url":  "https://arxiv.org/abs/2403.08295",
-        "publisher":  "Google",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "claude-3-source",
-        "title":  "The Claude 3 Model Family",
-        "url":  "https://www.anthropic.com/news/claude-3-family",
-        "publisher":  "Anthropic",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "gemini-1-5",
-        "title":  "Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context",
-        "url":  "https://arxiv.org/abs/2403.05530",
-        "publisher":  "Google DeepMind",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "jamba",
-        "title":  "Jamba: A Hybrid Transformer-Mamba Language Model",
-        "url":  "https://arxiv.org/abs/2403.19887",
-        "publisher":  "AI21 Labs",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "phi-3",
-        "title":  "Phi-3 Technical Report",
-        "url":  "https://arxiv.org/abs/2404.14219",
-        "publisher":  "Microsoft",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "llama-3",
-        "title":  "Introducing Meta Llama 3",
-        "url":  "https://ai.meta.com/blog/meta-llama-3/",
-        "publisher":  "Meta",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "dbrx",
-        "title":  "Introducing DBRX: A New State-of-the-Art Open LLM",
-        "url":  "https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm",
-        "publisher":  "Databricks",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "gpt-4o",
-        "title":  "Hello GPT-4o",
-        "url":  "https://openai.com/index/hello-gpt-4o/",
-        "publisher":  "OpenAI",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "deepseek-v2",
-        "title":  "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model",
-        "url":  "https://arxiv.org/abs/2405.04434",
-        "publisher":  "DeepSeek",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "qwen2",
-        "title":  "Qwen2 Technical Report",
-        "url":  "https://arxiv.org/abs/2407.10671",
-        "publisher":  "Alibaba Cloud",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "llama-3-1",
-        "title":  "The Llama 3 Herd of Models",
-        "url":  "https://arxiv.org/abs/2407.21783",
-        "publisher":  "Meta",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "mistral-nemo",
-        "title":  "Mistral NeMo",
-        "url":  "https://mistral.ai/news/mistral-nemo",
-        "publisher":  "Mistral AI",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "o1",
-        "title":  "Learning to reason with LLMs",
-        "url":  "https://openai.com/index/learning-to-reason-with-llms/",
-        "publisher":  "OpenAI",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "deepseek-v3",
-        "title":  "DeepSeek-V3 Technical Report",
-        "url":  "https://arxiv.org/abs/2412.19437",
-        "publisher":  "DeepSeek",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "deepseek-r1-paper",
-        "title":  "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
-        "url":  "https://arxiv.org/abs/2501.12948",
-        "publisher":  "DeepSeek",
-        "year":  2025,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "qwen2-5",
-        "title":  "Qwen2.5 Technical Report",
-        "url":  "https://arxiv.org/abs/2412.15115",
-        "publisher":  "Alibaba Cloud",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "smollm",
-        "title":  "SmolLM: Blazing fast and remarkably powerful",
-        "url":  "https://huggingface.co/blog/smollm",
-        "publisher":  "Hugging Face",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "lora",
-        "title":  "LoRA: Low-Rank Adaptation of Large Language Models",
-        "url":  "https://arxiv.org/abs/2106.09685",
-        "publisher":  "Microsoft",
-        "year":  2021,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "flan",
-        "title":  "Finetuned Language Models Are Zero-Shot Learners",
-        "url":  "https://arxiv.org/abs/2109.01652",
-        "publisher":  "Google Research",
-        "year":  2021,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "react",
-        "title":  "ReAct: Synergizing Reasoning and Acting in Language Models",
-        "url":  "https://arxiv.org/abs/2210.03629",
-        "publisher":  "Princeton University",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "constitutional-ai",
-        "title":  "Constitutional AI: Harmlessness from AI Feedback",
-        "url":  "https://arxiv.org/abs/2212.08073",
-        "publisher":  "Anthropic",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "qlora",
-        "title":  "QLoRA: Efficient Finetuning of Quantized LLMs",
-        "url":  "https://arxiv.org/abs/2305.14314",
-        "publisher":  "University of Washington",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "vllm",
-        "title":  "Efficient Memory Management for Large Language Model Serving with PagedAttention",
-        "url":  "https://arxiv.org/abs/2309.06180",
-        "publisher":  "UC Berkeley",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "truthfulqa",
-        "title":  "TruthfulQA: Measuring How Models Mimic Human Falsehoods",
-        "url":  "https://arxiv.org/abs/2109.07958",
-        "publisher":  "OpenAI",
-        "year":  2021,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "mmlu",
-        "title":  "Measuring Massive Multitask Language Understanding",
-        "url":  "https://arxiv.org/abs/2009.03300",
-        "publisher":  "UC Berkeley",
-        "year":  2020,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "flamingo",
-        "title":  "Flamingo: a Visual Language Model for Few-Shot Learning",
-        "url":  "https://arxiv.org/abs/2204.14198",
-        "publisher":  "DeepMind",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "blip-2",
-        "title":  "BLIP-2: Bootstrapping Language-Image Pre-training",
-        "url":  "https://arxiv.org/abs/2301.12597",
-        "publisher":  "Salesforce Research",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "llava",
-        "title":  "Visual Instruction Tuning",
-        "url":  "https://arxiv.org/abs/2304.08485",
-        "publisher":  "University of Wisconsin-Madison",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "flashattention",
-        "title":  "FlashAttention: Fast and Memory-Efficient Exact Attention",
-        "url":  "https://arxiv.org/abs/2205.14135",
-        "publisher":  "Stanford University",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "speculative-decoding",
-        "title":  "Fast Inference from Transformers via Speculative Decoding",
-        "url":  "https://arxiv.org/abs/2211.17192",
-        "publisher":  "DeepMind",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "tool-use",
-        "title":  "Toolformer: Language Models Can Teach Themselves to Use Tools",
-        "url":  "https://arxiv.org/abs/2302.04761",
-        "publisher":  "Meta AI",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "self-rag",
-        "title":  "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
-        "url":  "https://arxiv.org/abs/2310.11511",
-        "publisher":  "University of Washington",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "segment-anything",
-        "title":  "Segment Anything",
-        "url":  "https://arxiv.org/abs/2304.02643",
-        "publisher":  "Meta AI",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "codex",
-        "title":  "Evaluating Large Language Models Trained on Code",
-        "url":  "https://arxiv.org/abs/2107.03374",
-        "publisher":  "OpenAI",
-        "year":  2021,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "alpha-code",
-        "title":  "Competition-Level Code Generation with AlphaCode",
-        "url":  "https://arxiv.org/abs/2203.07814",
-        "publisher":  "DeepMind",
-        "year":  2022,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "starcoder",
-        "title":  "StarCoder: may the source be with you",
-        "url":  "https://arxiv.org/abs/2305.06161",
-        "publisher":  "BigCode",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "code-llama",
-        "title":  "Code Llama: Open Foundation Models for Code",
-        "url":  "https://arxiv.org/abs/2308.12950",
-        "publisher":  "Meta AI",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "palm-2",
-        "title":  "PaLM 2 Technical Report",
-        "url":  "https://arxiv.org/abs/2305.10403",
-        "publisher":  "Google",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "ernie-3",
-        "title":  "ERNIE 3.0 Titan: Exploring Larger-scale Knowledge Enhanced Pre-training for Language Understanding and Generation",
-        "url":  "https://arxiv.org/abs/2112.12731",
-        "publisher":  "Baidu",
-        "year":  2021,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "command-r",
-        "title":  "Command R: A Scalable Retrieval-Augmented Generation Model",
-        "url":  "https://cohere.com/blog/command-r",
-        "publisher":  "Cohere",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "zephyr",
-        "title":  "Zephyr: Direct Distillation of LM Alignment",
-        "url":  "https://arxiv.org/abs/2310.16944",
-        "publisher":  "Hugging Face",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "openhermes",
-        "title":  "OpenHermes 2.5 Mistral 7B",
-        "url":  "https://huggingface.co/teknium/OpenHermes-2.5-Mistral-7B",
-        "publisher":  "Teknium",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "function-calling",
-        "title":  "Function calling and other API updates",
-        "url":  "https://openai.com/index/function-calling-and-other-api-updates/",
-        "publisher":  "OpenAI",
-        "year":  2023,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    },
-    {
-        "id":  "structured-output",
-        "title":  "Introducing Structured Outputs in the API",
-        "url":  "https://openai.com/index/introducing-structured-outputs-in-the-api/",
-        "publisher":  "OpenAI",
-        "year":  2024,
-        "tier":  1,
-        "verifiedAt":  "2026-08-05"
-    }
+  {
+    "id": "transformer",
+    "title": "Attention Is All You Need",
+    "url": "https://arxiv.org/abs/1706.03762",
+    "publisher": "Google Research",
+    "year": 2017,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "bert",
+    "title": "BERT",
+    "url": "https://arxiv.org/abs/1810.04805",
+    "publisher": "Google AI",
+    "year": 2018,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "elmo",
+    "title": "Deep contextualized word representations",
+    "url": "https://arxiv.org/abs/1802.05365",
+    "publisher": "Allen Institute for AI",
+    "year": 2018,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "gpt-1",
+    "title": "Improving Language Understanding by Generative Pre-Training",
+    "url": "https://openai.com/research/language-unsupervised",
+    "publisher": "OpenAI",
+    "year": 2018,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "gpt-2",
+    "title": "Language Models are Unsupervised Multitask Learners",
+    "url": "https://openai.com/index/better-language-models/",
+    "publisher": "OpenAI",
+    "year": 2019,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "megatron-lm",
+    "title": "Megatron-LM: Training Multi-Billion Parameter Language Models Using Model Parallelism",
+    "url": "https://arxiv.org/abs/1909.08053",
+    "publisher": "NVIDIA",
+    "year": 2019,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "roberta",
+    "title": "RoBERTa: A Robustly Optimized BERT Pretraining Approach",
+    "url": "https://arxiv.org/abs/1907.11692",
+    "publisher": "Meta AI",
+    "year": 2019,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "t5",
+    "title": "Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer",
+    "url": "https://arxiv.org/abs/1910.10683",
+    "publisher": "Google Research",
+    "year": 2019,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "xlnet",
+    "title": "XLNet: Generalized Autoregressive Pretraining",
+    "url": "https://arxiv.org/abs/1906.08237",
+    "publisher": "Google Brain and CMU",
+    "year": 2019,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "gpt3",
+    "title": "Language Models are Few-Shot Learners",
+    "url": "https://arxiv.org/abs/2005.14165",
+    "publisher": "OpenAI",
+    "year": 2020,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "mmlu",
+    "title": "Measuring Massive Multitask Language Understanding",
+    "url": "https://arxiv.org/abs/2009.03300",
+    "publisher": "UC Berkeley",
+    "year": 2020,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "rag",
+    "title": "Retrieval-Augmented Generation",
+    "url": "https://arxiv.org/abs/2005.11401",
+    "publisher": "Meta AI",
+    "year": 2020,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "scaling-laws",
+    "title": "Scaling Laws for Neural Language Models",
+    "url": "https://arxiv.org/abs/2001.08361",
+    "publisher": "OpenAI",
+    "year": 2020,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "clip",
+    "title": "Learning Transferable Visual Models From Natural Language Supervision",
+    "url": "https://arxiv.org/abs/2103.00020",
+    "publisher": "OpenAI",
+    "year": 2021,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "codex",
+    "title": "Evaluating Large Language Models Trained on Code",
+    "url": "https://arxiv.org/abs/2107.03374",
+    "publisher": "OpenAI",
+    "year": 2021,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "ernie-3",
+    "title": "ERNIE 3.0 Titan: Exploring Larger-scale Knowledge Enhanced Pre-training for Language Understanding and Generation",
+    "url": "https://arxiv.org/abs/2112.12731",
+    "publisher": "Baidu",
+    "year": 2021,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "flan",
+    "title": "Finetuned Language Models Are Zero-Shot Learners",
+    "url": "https://arxiv.org/abs/2109.01652",
+    "publisher": "Google Research",
+    "year": 2021,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "gopher",
+    "title": "Scaling Language Models: Methods, Analysis and Insights from Training Gopher",
+    "url": "https://arxiv.org/abs/2112.11446",
+    "publisher": "DeepMind",
+    "year": 2021,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "lora",
+    "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "url": "https://arxiv.org/abs/2106.09685",
+    "publisher": "Microsoft",
+    "year": 2021,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "switch-transformer",
+    "title": "Switch Transformers: Scaling to Trillion Parameter Models",
+    "url": "https://arxiv.org/abs/2101.03961",
+    "publisher": "Google Research",
+    "year": 2021,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "truthfulqa",
+    "title": "TruthfulQA: Measuring How Models Mimic Human Falsehoods",
+    "url": "https://arxiv.org/abs/2109.07958",
+    "publisher": "OpenAI",
+    "year": 2021,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "alpha-code",
+    "title": "Competition-Level Code Generation with AlphaCode",
+    "url": "https://arxiv.org/abs/2203.07814",
+    "publisher": "DeepMind",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "bloom",
+    "title": "BLOOM: A 176B-Parameter Open-Access Multilingual Language Model",
+    "url": "https://arxiv.org/abs/2211.05100",
+    "publisher": "BigScience",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "chatgpt",
+    "title": "Introducing ChatGPT",
+    "url": "https://openai.com/index/chatgpt/",
+    "publisher": "OpenAI",
+    "year": 2022,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "chinchilla",
+    "title": "Training Compute-Optimal Large Language Models",
+    "url": "https://arxiv.org/abs/2203.15556",
+    "publisher": "DeepMind",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "constitutional-ai",
+    "title": "Constitutional AI: Harmlessness from AI Feedback",
+    "url": "https://arxiv.org/abs/2212.08073",
+    "publisher": "Anthropic",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "dalle-2",
+    "title": "Hierarchical Text-Conditional Image Generation with CLIP Latents",
+    "url": "https://arxiv.org/abs/2204.06125",
+    "publisher": "OpenAI",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "flamingo",
+    "title": "Flamingo: a Visual Language Model for Few-Shot Learning",
+    "url": "https://arxiv.org/abs/2204.14198",
+    "publisher": "DeepMind",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "flashattention",
+    "title": "FlashAttention: Fast and Memory-Efficient Exact Attention",
+    "url": "https://arxiv.org/abs/2205.14135",
+    "publisher": "Stanford University",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "instructgpt",
+    "title": "Training language models to follow instructions",
+    "url": "https://arxiv.org/abs/2203.02155",
+    "publisher": "OpenAI",
+    "year": 2022,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "lamda",
+    "title": "LaMDA: Language Models for Dialog Applications",
+    "url": "https://arxiv.org/abs/2201.08239",
+    "publisher": "Google",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "palm",
+    "title": "PaLM: Scaling Language Modeling with Pathways",
+    "url": "https://arxiv.org/abs/2204.02311",
+    "publisher": "Google Research",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "react",
+    "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+    "url": "https://arxiv.org/abs/2210.03629",
+    "publisher": "Princeton University",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "speculative-decoding",
+    "title": "Fast Inference from Transformers via Speculative Decoding",
+    "url": "https://arxiv.org/abs/2211.17192",
+    "publisher": "DeepMind",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "stable-diffusion",
+    "title": "High-Resolution Image Synthesis with Latent Diffusion Models",
+    "url": "https://arxiv.org/abs/2112.10752",
+    "publisher": "CompVis",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "whisper",
+    "title": "Robust Speech Recognition via Large-Scale Weak Supervision",
+    "url": "https://arxiv.org/abs/2212.04356",
+    "publisher": "OpenAI",
+    "year": 2022,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "blip-2",
+    "title": "BLIP-2: Bootstrapping Language-Image Pre-training",
+    "url": "https://arxiv.org/abs/2301.12597",
+    "publisher": "Salesforce Research",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "code-llama",
+    "title": "Code Llama: Open Foundation Models for Code",
+    "url": "https://arxiv.org/abs/2308.12950",
+    "publisher": "Meta AI",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "dpo",
+    "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+    "url": "https://arxiv.org/abs/2305.18290",
+    "publisher": "Stanford University",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "function-calling",
+    "title": "Function calling and other API updates",
+    "url": "https://openai.com/index/function-calling-and-other-api-updates/",
+    "publisher": "OpenAI",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "gemini",
+    "title": "Gemini",
+    "url": "https://arxiv.org/abs/2312.11805",
+    "publisher": "Google DeepMind",
+    "year": 2023,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "gpt4",
+    "title": "GPT-4 Technical Report",
+    "url": "https://arxiv.org/abs/2303.08774",
+    "publisher": "OpenAI",
+    "year": 2023,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "llama",
+    "title": "Llama 2",
+    "url": "https://arxiv.org/abs/2307.09288",
+    "publisher": "Meta AI",
+    "year": 2023,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "llama-original",
+    "title": "LLaMA: Open and Efficient Foundation Language Models",
+    "url": "https://arxiv.org/abs/2302.13971",
+    "publisher": "Meta AI",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "llava",
+    "title": "Visual Instruction Tuning",
+    "url": "https://arxiv.org/abs/2304.08485",
+    "publisher": "University of Wisconsin-Madison",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "mamba",
+    "title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+    "url": "https://arxiv.org/abs/2312.00752",
+    "publisher": "Princeton University",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "mistral",
+    "title": "Mistral 7B",
+    "url": "https://arxiv.org/abs/2310.06825",
+    "publisher": "Mistral AI",
+    "year": 2023,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "openhermes",
+    "title": "OpenHermes 2.5 Mistral 7B",
+    "url": "https://huggingface.co/teknium/OpenHermes-2.5-Mistral-7B",
+    "publisher": "Teknium",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "palm-2",
+    "title": "PaLM 2 Technical Report",
+    "url": "https://arxiv.org/abs/2305.10403",
+    "publisher": "Google",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "qlora",
+    "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+    "url": "https://arxiv.org/abs/2305.14314",
+    "publisher": "University of Washington",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "segment-anything",
+    "title": "Segment Anything",
+    "url": "https://arxiv.org/abs/2304.02643",
+    "publisher": "Meta AI",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "self-rag",
+    "title": "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection",
+    "url": "https://arxiv.org/abs/2310.11511",
+    "publisher": "University of Washington",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "starcoder",
+    "title": "StarCoder: may the source be with you",
+    "url": "https://arxiv.org/abs/2305.06161",
+    "publisher": "BigCode",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "tool-use",
+    "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+    "url": "https://arxiv.org/abs/2302.04761",
+    "publisher": "Meta AI",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "toolformer",
+    "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+    "url": "https://arxiv.org/abs/2302.04761",
+    "publisher": "Meta AI",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "vllm",
+    "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+    "url": "https://arxiv.org/abs/2309.06180",
+    "publisher": "UC Berkeley",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "zephyr",
+    "title": "Zephyr: Direct Distillation of LM Alignment",
+    "url": "https://arxiv.org/abs/2310.16944",
+    "publisher": "Hugging Face",
+    "year": 2023,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "claude",
+    "title": "The Claude 3 Model Family",
+    "url": "https://www.anthropic.com/news/claude-3-family",
+    "publisher": "Anthropic",
+    "year": 2024,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "claude-3-source",
+    "title": "The Claude 3 Model Family",
+    "url": "https://www.anthropic.com/news/claude-3-family",
+    "publisher": "Anthropic",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "command-r",
+    "title": "Command R: A Scalable Retrieval-Augmented Generation Model",
+    "url": "https://cohere.com/blog/command-r",
+    "publisher": "Cohere",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "dbrx",
+    "title": "Introducing DBRX: A New State-of-the-Art Open LLM",
+    "url": "https://www.databricks.com/blog/introducing-dbrx-new-state-art-open-llm",
+    "publisher": "Databricks",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "deepseek-v2",
+    "title": "DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model",
+    "url": "https://arxiv.org/abs/2405.04434",
+    "publisher": "DeepSeek",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "deepseek-v3",
+    "title": "DeepSeek-V3 Technical Report",
+    "url": "https://arxiv.org/abs/2412.19437",
+    "publisher": "DeepSeek",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "gemini-1-5",
+    "title": "Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context",
+    "url": "https://arxiv.org/abs/2403.05530",
+    "publisher": "Google DeepMind",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "gemma",
+    "title": "Gemma: Open Models Based on Gemini Research and Technology",
+    "url": "https://arxiv.org/abs/2403.08295",
+    "publisher": "Google",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "gpt-4o",
+    "title": "Hello GPT-4o",
+    "url": "https://openai.com/index/hello-gpt-4o/",
+    "publisher": "OpenAI",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "jamba",
+    "title": "Jamba: A Hybrid Transformer-Mamba Language Model",
+    "url": "https://arxiv.org/abs/2403.19887",
+    "publisher": "AI21 Labs",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "llama-3",
+    "title": "Introducing Meta Llama 3",
+    "url": "https://ai.meta.com/blog/meta-llama-3/",
+    "publisher": "Meta",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "llama-3-1",
+    "title": "The Llama 3 Herd of Models",
+    "url": "https://arxiv.org/abs/2407.21783",
+    "publisher": "Meta",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "mistral-nemo",
+    "title": "Mistral NeMo",
+    "url": "https://mistral.ai/news/mistral-nemo",
+    "publisher": "Mistral AI",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "mixtral",
+    "title": "Mixtral of Experts",
+    "url": "https://arxiv.org/abs/2401.04088",
+    "publisher": "Mistral AI",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "o1",
+    "title": "Learning to reason with LLMs",
+    "url": "https://openai.com/index/learning-to-reason-with-llms/",
+    "publisher": "OpenAI",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "olmo",
+    "title": "OLMo: Accelerating the Science of Language Models",
+    "url": "https://arxiv.org/abs/2402.00838",
+    "publisher": "AI2",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "phi-3",
+    "title": "Phi-3 Technical Report",
+    "url": "https://arxiv.org/abs/2404.14219",
+    "publisher": "Microsoft",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "qwen2",
+    "title": "Qwen2 Technical Report",
+    "url": "https://arxiv.org/abs/2407.10671",
+    "publisher": "Alibaba Cloud",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "qwen2-5",
+    "title": "Qwen2.5 Technical Report",
+    "url": "https://arxiv.org/abs/2412.15115",
+    "publisher": "Alibaba Cloud",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "smollm",
+    "title": "SmolLM: Blazing fast and remarkably powerful",
+    "url": "https://huggingface.co/blog/smollm",
+    "publisher": "Hugging Face",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "structured-output",
+    "title": "Introducing Structured Outputs in the API",
+    "url": "https://openai.com/index/introducing-structured-outputs-in-the-api/",
+    "publisher": "OpenAI",
+    "year": 2024,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "anthropic-claude-4",
+    "title": "Introducing Claude 4",
+    "url": "https://www.anthropic.com/news/claude-4",
+    "publisher": "Anthropic",
+    "year": 2025,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "deepseek",
+    "title": "DeepSeek-R1",
+    "url": "https://arxiv.org/abs/2501.12948",
+    "publisher": "DeepSeek",
+    "year": 2025,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "deepseek-r1-paper",
+    "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+    "url": "https://arxiv.org/abs/2501.12948",
+    "publisher": "DeepSeek",
+    "year": 2025,
+    "tier": 1,
+    "verifiedAt": "2026-08-05"
+  },
+  {
+    "id": "deepseek-v3-2",
+    "title": "DeepSeek V3.2 model card",
+    "url": "https://fe-static.deepseek.com/chat/transparency/deepseek-v3.2-model-card-0414-EN.pdf",
+    "publisher": "DeepSeek",
+    "year": 2025,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "google-gemini-2-5",
+    "title": "Gemini 2.5: Our newest Gemini model with thinking",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/",
+    "publisher": "Google DeepMind",
+    "year": 2025,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "google-gemini-2-5-ga",
+    "title": "We?re expanding our Gemini 2.5 family of models",
+    "url": "https://blog.google/products-and-platforms/products/gemini/gemini-2-5-model-family-expands/",
+    "publisher": "Google DeepMind",
+    "year": 2025,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "meta-llama-4",
+    "title": "The Llama 4 herd: The beginning of a new era of natively multimodal AI innovation",
+    "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+    "publisher": "Meta AI",
+    "year": 2025,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-4-5",
+    "title": "Introducing GPT-4.5",
+    "url": "https://openai.com/index/introducing-gpt-4-5/",
+    "publisher": "OpenAI",
+    "year": 2025,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "openai-o3-o4-mini",
+    "title": "Introducing OpenAI o3 and o4-mini",
+    "url": "https://openai.com/index/introducing-o3-and-o4-mini/",
+    "publisher": "OpenAI",
+    "year": 2025,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-sonnet-5",
+    "title": "Introducing Claude Sonnet 5",
+    "url": "https://www.anthropic.com/news/claude-sonnet-5",
+    "publisher": "Anthropic",
+    "year": 2026,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-tag",
+    "title": "Introducing Claude Tag",
+    "url": "https://www.anthropic.com/news/introducing-claude-tag",
+    "publisher": "Anthropic",
+    "year": 2026,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "deepseek-v4",
+    "title": "DeepSeek Transparency Center",
+    "url": "https://www.deepseek.com/en/transparency/",
+    "publisher": "DeepSeek",
+    "year": 2026,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "meta-muse-image",
+    "title": "Introducing Muse Image and Muse Video",
+    "url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/",
+    "publisher": "Meta AI",
+    "year": 2026,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "meta-muse-spark",
+    "title": "Introducing Muse Spark: Scaling Towards Personal Superintelligence",
+    "url": "https://ai.meta.com/blog/introducing-muse-spark-msl/",
+    "publisher": "Meta AI",
+    "year": 2026,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-5-4",
+    "title": "Introducing GPT-5.4",
+    "url": "https://openai.com/index/introducing-gpt-5-4/",
+    "publisher": "OpenAI",
+    "year": 2026,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-5-5",
+    "title": "Introducing GPT-5.5",
+    "url": "https://openai.com/index/introducing-gpt-5-5/",
+    "publisher": "OpenAI",
+    "year": 2026,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-rosalind",
+    "title": "Introducing GPT-Rosalind for life sciences research",
+    "url": "https://openai.com/index/introducing-gpt-rosalind/",
+    "publisher": "OpenAI",
+    "year": 2026,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  }
 ]

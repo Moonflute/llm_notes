@@ -6,9 +6,9 @@
       "developer": "OpenAI",
       "released": "2020.05",
       "modalities": "텍스트",
-      "context": "확인된 수치 없음",
+      "context": "2,048 토큰",
       "variants": "확인된 수치 없음",
-      "parameters": "미공개",
+      "parameters": "175B",
       "access": "공식 자료 참조",
       "weights": "공식 자료 참조"
     },
@@ -18,12 +18,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "GPT-3은 OpenAI이 2020.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "GPT-3은 OpenAI이 2020.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 파라미터 1,750억 개를 공개하고, 얼쇄문 예시만으로 작업을 수행하는 in-context learning을 전면에 내세웠습니다.",
     "announcement": [
+      "파라미터 1,750억 개를 공개하고, 얼쇄문 예시만으로 작업을 수행하는 in-context learning을 전면에 내세웠습니다.",
       "공개 내용: GPT-3은 Scaling, In-context learning와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Language Models are Few-Shot Learners에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gpt",
@@ -32,7 +33,7 @@
       "developer": "OpenAI",
       "released": "2023.03",
       "modalities": "다양한 입출력",
-      "context": "확인된 수치 없음",
+      "context": "8K / 32K 토큰",
       "variants": "확인된 수치 없음",
       "parameters": "미공개",
       "access": "공식 자료 참조",
@@ -44,12 +45,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "GPT-4은 OpenAI이 2023.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "GPT-4은 OpenAI이 2023.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 텍스트와 이미지 입력을 받을 수 있도록 설계된 고성능 모델로 공개됐습니다.",
     "announcement": [
+      "텍스트와 이미지 입력을 받을 수 있도록 설계된 고성능 모델로 공개됐습니다.",
       "공개 내용: GPT-4은 Multimodality, Evaluation와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 GPT-4 Technical Report에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gpt",
@@ -70,12 +72,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "GPT-4.5은 OpenAI이 2025.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "GPT-4.5은 OpenAI이 2025.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Reasoning?Multimodality와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Reasoning?Multimodality와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: GPT-4.5은 Reasoning, Multimodality와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Introducing GPT-4.5에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gpt",
@@ -96,12 +99,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "OpenAI o3 ? o4-mini은 OpenAI이 2025.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "OpenAI o3 ? o4-mini은 OpenAI이 2025.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Reasoning?Tools와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Reasoning?Tools와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: OpenAI o3 ? o4-mini은 Reasoning, Tools와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Introducing OpenAI o3 and o4-mini에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gpt",
@@ -122,12 +126,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "GPT-5.4은 OpenAI이 2026.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "GPT-5.4은 OpenAI이 2026.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Reasoning?Agents?Programming와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Reasoning?Agents?Programming와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: GPT-5.4은 Reasoning, Agents, Programming와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Introducing GPT-5.4에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gpt",
@@ -148,12 +153,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "GPT-Rosalind은 OpenAI이 2026.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "GPT-Rosalind은 OpenAI이 2026.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Reasoning?Tools와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Reasoning?Tools와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: GPT-Rosalind은 Reasoning, Tools와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Introducing GPT-Rosalind for life sciences research에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gpt",
@@ -174,12 +180,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "GPT-5.5은 OpenAI이 2026.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "GPT-5.5은 OpenAI이 2026.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Reasoning?Agents?Programming와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Reasoning?Agents?Programming와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: GPT-5.5은 Reasoning, Agents, Programming와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Introducing GPT-5.5에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gemini",
@@ -206,12 +213,13 @@
         "url": "https://spectrum.ieee.org/google-gemini"
       }
     ],
-    "summaryKo": "Gemini은 Google DeepMind이 2023.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Gemini은 Google DeepMind이 2023.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 멀티모달을 중심으로 개발된 이 모델은 Multimodality?MoE와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "멀티모달을 중심으로 개발된 이 모델은 Multimodality?MoE와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Gemini은 Multimodality, MoE와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Gemini에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gemini",
@@ -232,12 +240,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Gemini 2.5 Pro은 Google DeepMind이 2025.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Gemini 2.5 Pro은 Google DeepMind이 2025.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Reasoning?Multimodality와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Reasoning?Multimodality와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Gemini 2.5 Pro은 Reasoning, Multimodality와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Gemini 2.5: Our newest Gemini model with thinking에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gemini",
@@ -258,12 +267,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Gemini 2.5 ?? ??은 Google DeepMind이 2025.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Gemini 2.5 ?? ??은 Google DeepMind이 2025.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Reasoning?Inference와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Reasoning?Inference와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Gemini 2.5 ?? ??은 Reasoning, Inference와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 We?re expanding our Gemini 2.5 family of models에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "claude",
@@ -272,7 +282,7 @@
       "developer": "Anthropic",
       "released": "2024.03",
       "modalities": "텍스트",
-      "context": "확인된 수치 없음",
+      "context": "200K 토큰",
       "variants": "확인된 수치 없음",
       "parameters": "미공개",
       "access": "공식 자료 참조",
@@ -290,12 +300,13 @@
         "url": "https://arstechnica.com/information-technology/2024/03/the-ai-wars-heat-up-with-claude-3-claimed-to-have-near-human-abilities/"
       }
     ],
-    "summaryKo": "Claude 3은 Anthropic이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Claude 3은 Anthropic이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. Haiku·Sonnet·Opus를 한 계열로 제시하며, 속도와 성능의 선택지를 나눈 점이 특징입니다.",
     "announcement": [
+      "Haiku·Sonnet·Opus를 한 계열로 제시하며, 속도와 성능의 선택지를 나눈 점이 특징입니다.",
       "공개 내용: Claude 3은 Model family, Safety와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 The Claude 3 Model Family에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "claude",
@@ -316,12 +327,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Claude 4은 Anthropic이 2025.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Claude 4은 Anthropic이 2025.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Reasoning?Agents와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Reasoning?Agents와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Claude 4은 Reasoning, Agents와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Introducing Claude 4에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "claude",
@@ -342,12 +354,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Claude Sonnet 5은 Anthropic이 2026.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Claude Sonnet 5은 Anthropic이 2026.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Reasoning?Agents?Programming와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Reasoning?Agents?Programming와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Claude Sonnet 5은 Reasoning, Agents, Programming와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Introducing Claude Sonnet 5에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "bert",
@@ -368,12 +381,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "BERT은 Google이 2018.10에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "BERT은 Google이 2018.10에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 Pretraining?Fine-tuning와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 Pretraining?Fine-tuning와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: BERT은 Pretraining, Fine-tuning와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 BERT에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "t5",
@@ -394,12 +408,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "T5은 Google Research이 2019.10에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "T5은 Google Research이 2019.10에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 Transformer?Transfer learning와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 Transformer?Transfer learning와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: T5은 Transformer, Transfer learning와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "palm",
@@ -420,12 +435,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "PaLM은 Google Research이 2022.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "PaLM은 Google Research이 2022.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 Scaling?Multilingual와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 Scaling?Multilingual와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: PaLM은 Scaling, Multilingual와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 PaLM: Scaling Language Modeling with Pathways에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "palm",
@@ -446,12 +462,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "PaLM 2은 Google이 2023.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "PaLM 2은 Google이 2023.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 Scaling?Multilingual와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 Scaling?Multilingual와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: PaLM 2은 Scaling, Multilingual와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 PaLM 2 Technical Report에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "llama",
@@ -472,12 +489,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "LLaMA은 Meta AI이 2023.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "LLaMA은 Meta AI이 2023.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 개방 가중치을 중심으로 개발된 이 모델은 Open weights?Scaling와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "개방 가중치을 중심으로 개발된 이 모델은 Open weights?Scaling와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: LLaMA은 Open weights, Scaling와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 LLaMA: Open and Efficient Foundation Language Models에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "llama",
@@ -486,9 +504,9 @@
       "developer": "Meta",
       "released": "2023.07",
       "modalities": "텍스트",
-      "context": "확인된 수치 없음",
+      "context": "4K 토큰",
       "variants": "확인된 수치 없음",
-      "parameters": "미공개",
+      "parameters": "7B / 13B / 70B",
       "access": "공식 자료 참조",
       "weights": "공식 자료 참조"
     },
@@ -498,12 +516,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Llama 2은 Meta이 2023.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Llama 2은 Meta이 2023.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 상업적 사용을 포함한 개방 접근성이 활용 생태계에 큰 영향을 주었습니다.",
     "announcement": [
+      "상업적 사용을 포함한 개방 접근성이 활용 생태계에 큰 영향을 주었습니다.",
       "공개 내용: Llama 2은 Open weights, Fine-tuning와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Llama 2에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "llama",
@@ -514,7 +533,7 @@
       "modalities": "텍스트",
       "context": "확인된 수치 없음",
       "variants": "확인된 수치 없음",
-      "parameters": "미공개",
+      "parameters": "8B / 70B",
       "access": "공식 자료 참조",
       "weights": "공식 자료 참조"
     },
@@ -530,12 +549,13 @@
         "url": "https://techcrunch.com/2024/04/18/meta-releases-llama-3-claims-its-among-the-best-open-models-available/"
       }
     ],
-    "summaryKo": "Llama 3은 Meta이 2024.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Llama 3은 Meta이 2024.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 소형과 대형 개방 모델을 함께 제시해 폐쇄형 모델 생태계에서의 경쟁을 강화했습니다.",
     "announcement": [
+      "소형과 대형 개방 모델을 함께 제시해 폐쇄형 모델 생태계에서의 경쟁을 강화했습니다.",
       "공개 내용: Llama 3은 Open weights, Model family와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Introducing Meta Llama 3에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "llama",
@@ -544,9 +564,9 @@
       "developer": "Meta",
       "released": "2024.07",
       "modalities": "텍스트",
-      "context": "확인된 수치 없음",
+      "context": "128K 토큰",
       "variants": "확인된 수치 없음",
-      "parameters": "미공개",
+      "parameters": "8B / 70B / 405B",
       "access": "공식 자료 참조",
       "weights": "공식 자료 참조"
     },
@@ -556,12 +576,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Llama 3.1은 Meta이 2024.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Llama 3.1은 Meta이 2024.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 405B 급 개방 모델과 128K 컨텍스트를 제시했습니다.",
     "announcement": [
+      "405B 급 개방 모델과 128K 컨텍스트를 제시했습니다.",
       "공개 내용: Llama 3.1은 Open weights, Multilingual와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 The Llama 3 Herd of Models에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "llama",
@@ -582,12 +603,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Llama 4은 Meta AI이 2025.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Llama 4은 Meta AI이 2025.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 멀티모달을 중심으로 개발된 이 모델은 Multimodality?Open weights와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "멀티모달을 중심으로 개발된 이 모델은 Multimodality?Open weights와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Llama 4은 Multimodality, Open weights와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 The Llama 4 herd: The beginning of a new era of natively multimodal AI innovation에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "mistral",
@@ -596,9 +618,9 @@
       "developer": "Mistral",
       "released": "2023.10",
       "modalities": "텍스트",
-      "context": "확인된 수치 없음",
+      "context": "8K 토큰",
       "variants": "확인된 수치 없음",
-      "parameters": "미공개",
+      "parameters": "7.3B",
       "access": "공식 자료 참조",
       "weights": "공식 자료 참조"
     },
@@ -608,12 +630,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Mistral 7B은 Mistral이 2023.10에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Mistral 7B은 Mistral이 2023.10에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 작은 크기와 개방 가중치로 연산 자원이 제한된 환경에서도 주목받았습니다.",
     "announcement": [
+      "작은 크기와 개방 가중치로 연산 자원이 제한된 환경에서도 주목받았습니다.",
       "공개 내용: Mistral 7B은 GQA, Open weights와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Mistral 7B에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "mistral",
@@ -622,9 +645,9 @@
       "developer": "Mistral AI",
       "released": "2023.12",
       "modalities": "텍스트",
-      "context": "확인된 수치 없음",
+      "context": "32K 토큰",
       "variants": "확인된 수치 없음",
-      "parameters": "미공개",
+      "parameters": "8 x 7B",
       "access": "공식 자료 참조",
       "weights": "공식 자료 참조"
     },
@@ -634,12 +657,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Mixtral 8x7B은 Mistral AI이 2023.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Mixtral 8x7B은 Mistral AI이 2023.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 토큰마다 일부 전문가만 활성화하는 MoE 구조로 성능과 추론 비용의 균형을 노렸습니다.",
     "announcement": [
+      "토큰마다 일부 전문가만 활성화하는 MoE 구조로 성능과 추론 비용의 균형을 노렸습니다.",
       "공개 내용: Mixtral 8x7B은 MoE, Open weights와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Mixtral of Experts에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 희소 전문가 혼합과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "mistral",
@@ -660,12 +684,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Mistral NeMo은 Mistral AI이 2024.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Mistral NeMo은 Mistral AI이 2024.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 개방 가중치을 중심으로 개발된 이 모델은 Open weights?Multilingual와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "개방 가중치을 중심으로 개발된 이 모델은 Open weights?Multilingual와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Mistral NeMo은 Open weights, Multilingual와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Mistral NeMo에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "qwen",
@@ -686,12 +711,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Qwen2은 Alibaba Cloud이 2024.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Qwen2은 Alibaba Cloud이 2024.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 개방 가중치을 중심으로 개발된 이 모델은 Open weights?Multilingual와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "개방 가중치을 중심으로 개발된 이 모델은 Open weights?Multilingual와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Qwen2은 Open weights, Multilingual와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Qwen2 Technical Report에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "qwen",
@@ -712,12 +738,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Qwen2.5은 Alibaba Cloud이 2024.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Qwen2.5은 Alibaba Cloud이 2024.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 개방 가중치을 중심으로 개발된 이 모델은 Open weights?Model family와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "개방 가중치을 중심으로 개발된 이 모델은 Open weights?Model family와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Qwen2.5은 Open weights, Model family와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Qwen2.5 Technical Report에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "deepseek",
@@ -738,12 +765,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "DeepSeek-V2은 DeepSeek이 2024.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "DeepSeek-V2은 DeepSeek이 2024.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 희소 전문가 혼합을 중심으로 개발된 이 모델은 MoE?Efficiency와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "희소 전문가 혼합을 중심으로 개발된 이 모델은 MoE?Efficiency와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: DeepSeek-V2은 MoE, Efficiency와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 희소 전문가 혼합과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "deepseek",
@@ -752,9 +780,9 @@
       "developer": "DeepSeek",
       "released": "2024.12",
       "modalities": "텍스트",
-      "context": "확인된 수치 없음",
+      "context": "128K 토큰",
       "variants": "확인된 수치 없음",
-      "parameters": "미공개",
+      "parameters": "671B 전체 / 37B 활성",
       "access": "공식 자료 참조",
       "weights": "공식 자료 참조"
     },
@@ -764,12 +792,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "DeepSeek-V3은 DeepSeek이 2024.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "DeepSeek-V3은 DeepSeek이 2024.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 대규모 MoE 설계와 추론 효율을 전면에 내세웠습니다.",
     "announcement": [
+      "대규모 MoE 설계와 추론 효율을 전면에 내세웠습니다.",
       "공개 내용: DeepSeek-V3은 MoE, Efficiency와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 DeepSeek-V3 Technical Report에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 희소 전문가 혼합과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "deepseek",
@@ -790,12 +819,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "DeepSeek-R1은 DeepSeek이 2025.01에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "DeepSeek-R1은 DeepSeek이 2025.01에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 과정의 강화학습과 개방 가중치를 통해 추론 모델 경쟁을 확대했습니다.",
     "announcement": [
+      "추론 과정의 강화학습과 개방 가중치를 통해 추론 모델 경쟁을 확대했습니다.",
       "공개 내용: DeepSeek-R1은 Reasoning, Reinforcement learning와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 DeepSeek-R1에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "deepseek",
@@ -816,12 +846,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "DeepSeek-V3.2은 DeepSeek이 2025.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "DeepSeek-V3.2은 DeepSeek이 2025.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Reasoning?Open weights와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Reasoning?Open weights와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: DeepSeek-V3.2은 Reasoning, Open weights와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 DeepSeek V3.2 model card에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "deepseek",
@@ -842,12 +873,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "DeepSeek-V4은 DeepSeek이 2026.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "DeepSeek-V4은 DeepSeek이 2026.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Reasoning?Open weights와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Reasoning?Open weights와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: DeepSeek-V4은 Reasoning, Open weights와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 DeepSeek Transparency Center에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "phi",
@@ -868,12 +900,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Phi-3은 Microsoft이 2024.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Phi-3은 Microsoft이 2024.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 소형 모델을 중심으로 개발된 이 모델은 Small language models?Data quality와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "소형 모델을 중심으로 개발된 이 모델은 Small language models?Data quality와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Phi-3은 Small language models, Data quality와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Phi-3 Technical Report에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 소형 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "command",
@@ -894,12 +927,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Command R은 Cohere이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Command R은 Cohere이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 RAG?Enterprise와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 RAG?Enterprise와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Command R은 RAG, Enterprise와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Command R: A Scalable Retrieval-Augmented Generation Model에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "ernie",
@@ -920,12 +954,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "ERNIE 3.0 Titan은 Baidu이 2021.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "ERNIE 3.0 Titan은 Baidu이 2021.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 Knowledge?Pretraining와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 Knowledge?Pretraining와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: ERNIE 3.0 Titan은 Knowledge, Pretraining와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 ERNIE 3.0 Titan: Exploring Larger-scale Knowledge Enhanced Pre-training for Language Understanding and Generation에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "olmo",
@@ -946,12 +981,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "OLMo은 AI2이 2024.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "OLMo은 AI2이 2024.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 개방 가중치을 중심으로 개발된 이 모델은 Open science?Language models와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "개방 가중치을 중심으로 개발된 이 모델은 Open science?Language models와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: OLMo은 Open science, Language models와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 OLMo: Accelerating the Science of Language Models에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gemma",
@@ -972,12 +1008,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Gemma은 Google이 2024.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Gemma은 Google이 2024.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 개방 가중치을 중심으로 개발된 이 모델은 Open weights?Small language models와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "개방 가중치을 중심으로 개발된 이 모델은 Open weights?Small language models와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Gemma은 Open weights, Small language models와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Gemma: Open Models Based on Gemini Research and Technology에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "starcoder",
@@ -998,12 +1035,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "StarCoder은 BigCode이 2023.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "StarCoder은 BigCode이 2023.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 코드 생성을 중심으로 개발된 이 모델은 Code?Open weights와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "코드 생성을 중심으로 개발된 이 모델은 Code?Open weights와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: StarCoder은 Code, Open weights와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 StarCoder: may the source be with you에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 코드 생성과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "code-llama",
@@ -1024,12 +1062,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Code Llama은 Meta AI이 2023.08에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Code Llama은 Meta AI이 2023.08에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 코드 생성을 중심으로 개발된 이 모델은 Code?Open weights와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "코드 생성을 중심으로 개발된 이 모델은 Code?Open weights와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Code Llama은 Code, Open weights와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Code Llama: Open Foundation Models for Code에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 코드 생성과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "flamingo",
@@ -1050,12 +1089,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Flamingo은 DeepMind이 2022.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Flamingo은 DeepMind이 2022.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 멀티모달을 중심으로 개발된 이 모델은 Multimodality?Few-shot learning와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "멀티모달을 중심으로 개발된 이 모델은 Multimodality?Few-shot learning와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Flamingo은 Multimodality, Few-shot learning와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Flamingo: a Visual Language Model for Few-Shot Learning에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "dalle",
@@ -1076,12 +1116,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "DALL-E 2은 OpenAI이 2022.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "DALL-E 2은 OpenAI이 2022.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 멀티모달을 중심으로 개발된 이 모델은 Image generation?Multimodality와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "멀티모달을 중심으로 개발된 이 모델은 Image generation?Multimodality와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: DALL-E 2은 Image generation, Multimodality와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Hierarchical Text-Conditional Image Generation with CLIP Latents에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "stable-diffusion",
@@ -1102,12 +1143,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Stable Diffusion은 CompVis이 2022.08에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Stable Diffusion은 CompVis이 2022.08에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 멀티모달을 중심으로 개발된 이 모델은 Diffusion?Image generation와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "멀티모달을 중심으로 개발된 이 모델은 Diffusion?Image generation와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Stable Diffusion은 Diffusion, Image generation와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 High-Resolution Image Synthesis with Latent Diffusion Models에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "whisper",
@@ -1128,12 +1170,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Whisper은 OpenAI이 2022.09에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Whisper은 OpenAI이 2022.09에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 멀티모달을 중심으로 개발된 이 모델은 Audio?Speech와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "멀티모달을 중심으로 개발된 이 모델은 Audio?Speech와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Whisper은 Audio, Speech와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Robust Speech Recognition via Large-Scale Weak Supervision에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "alpha-code",
@@ -1154,12 +1197,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "AlphaCode은 DeepMind이 2022.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "AlphaCode은 DeepMind이 2022.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 코드 생성을 중심으로 개발된 이 모델은 Code?Evaluation와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "코드 생성을 중심으로 개발된 이 모델은 Code?Evaluation와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: AlphaCode은 Code, Evaluation와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Competition-Level Code Generation with AlphaCode에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 코드 생성과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "blip",
@@ -1180,12 +1224,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "BLIP-2은 Salesforce Research이 2023.01에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "BLIP-2은 Salesforce Research이 2023.01에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 멀티모달을 중심으로 개발된 이 모델은 Multimodality?Vision language와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "멀티모달을 중심으로 개발된 이 모델은 Multimodality?Vision language와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: BLIP-2은 Multimodality, Vision language와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 BLIP-2: Bootstrapping Language-Image Pre-training에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "llava",
@@ -1206,12 +1251,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "LLaVA은 University of Wisconsin-Madison이 2023.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "LLaVA은 University of Wisconsin-Madison이 2023.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 멀티모달을 중심으로 개발된 이 모델은 Multimodality?Instruction tuning와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "멀티모달을 중심으로 개발된 이 모델은 Multimodality?Instruction tuning와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: LLaVA은 Multimodality, Instruction tuning와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Visual Instruction Tuning에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "mamba",
@@ -1232,12 +1278,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Mamba은 Princeton University이 2023.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Mamba은 Princeton University이 2023.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 State space models?Efficiency와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 State space models?Efficiency와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Mamba은 State space models, Efficiency와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Mamba: Linear-Time Sequence Modeling with Selective State Spaces에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "jamba",
@@ -1258,12 +1305,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Jamba은 AI21 Labs이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Jamba은 AI21 Labs이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 희소 전문가 혼합을 중심으로 개발된 이 모델은 Mamba?MoE와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "희소 전문가 혼합을 중심으로 개발된 이 모델은 Mamba?MoE와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Jamba은 Mamba, MoE와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Jamba: A Hybrid Transformer-Mamba Language Model에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 희소 전문가 혼합과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "dbrx",
@@ -1284,12 +1332,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "DBRX은 Databricks이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "DBRX은 Databricks이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 희소 전문가 혼합을 중심으로 개발된 이 모델은 MoE?Open weights와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "희소 전문가 혼합을 중심으로 개발된 이 모델은 MoE?Open weights와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: DBRX은 MoE, Open weights와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Introducing DBRX: A New State-of-the-Art Open LLM에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 희소 전문가 혼합과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "bloom",
@@ -1310,12 +1359,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "BLOOM은 BigScience이 2022.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "BLOOM은 BigScience이 2022.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 개방 가중치을 중심으로 개발된 이 모델은 Open weights?Multilingual와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "개방 가중치을 중심으로 개발된 이 모델은 Open weights?Multilingual와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: BLOOM은 Open weights, Multilingual와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 BLOOM: A 176B-Parameter Open-Access Multilingual Language Model에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gopher",
@@ -1336,12 +1386,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Gopher은 DeepMind이 2021.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Gopher은 DeepMind이 2021.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 Scaling?Evaluation와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 Scaling?Evaluation와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Gopher은 Scaling, Evaluation와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Scaling Language Models: Methods, Analysis and Insights from Training Gopher에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "instructgpt",
@@ -1362,12 +1413,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "InstructGPT은 OpenAI이 2022.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "InstructGPT은 OpenAI이 2022.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 RLHF?Alignment와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 RLHF?Alignment와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: InstructGPT은 RLHF, Alignment와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Training language models to follow instructions에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "muse",
@@ -1388,12 +1440,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Muse Spark은 Meta AI이 2026.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Muse Spark은 Meta AI이 2026.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Multimodality?Reasoning?Agents와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Multimodality?Reasoning?Agents와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Muse Spark은 Multimodality, Reasoning, Agents와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Introducing Muse Spark: Scaling Towards Personal Superintelligence에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "muse",
@@ -1414,12 +1467,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Muse Image ? Video은 Meta AI이 2026.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Muse Image ? Video은 Meta AI이 2026.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 멀티모달을 중심으로 개발된 이 모델은 Multimodality?Agents?Tools와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "멀티모달을 중심으로 개발된 이 모델은 Multimodality?Agents?Tools와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Muse Image ? Video은 Multimodality, Agents, Tools와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Introducing Muse Image and Muse Video에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gpt",
@@ -1440,12 +1494,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "GPT은 OpenAI이 2018.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "GPT은 OpenAI이 2018.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 Pretraining?Fine-tuning와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 Pretraining?Fine-tuning와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: GPT은 Pretraining, Fine-tuning와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Improving Language Understanding by Generative Pre-Training에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gpt",
@@ -1466,12 +1521,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "GPT-2은 OpenAI이 2019.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "GPT-2은 OpenAI이 2019.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 Scaling?Generation와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 Scaling?Generation와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: GPT-2은 Scaling, Generation와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Language Models are Unsupervised Multitask Learners에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gpt",
@@ -1480,7 +1536,7 @@
       "developer": "OpenAI",
       "released": "2024.05",
       "modalities": "다양한 입출력",
-      "context": "확인된 수치 없음",
+      "context": "128K 토큰",
       "variants": "확인된 수치 없음",
       "parameters": "미공개",
       "access": "공식 자료 참조",
@@ -1492,12 +1548,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "GPT-4o은 OpenAI이 2024.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "GPT-4o은 OpenAI이 2024.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 텍스트·이미지·음성·비디오를 하나의 모델에서 처리하는 상호작용을 제안했습니다.",
     "announcement": [
+      "텍스트·이미지·음성·비디오를 하나의 모델에서 처리하는 상호작용을 제안했습니다.",
       "공개 내용: GPT-4o은 Multimodality, Audio와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Hello GPT-4o에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gpt",
@@ -1518,12 +1575,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "OpenAI o1은 OpenAI이 2024.09에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "OpenAI o1은 OpenAI이 2024.09에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 강화학습으로 복잡한 문제에서 내부 추론 시간을 확보하는 접근을 공개했습니다.",
     "announcement": [
+      "강화학습으로 복잡한 문제에서 내부 추론 시간을 확보하는 접근을 공개했습니다.",
       "공개 내용: OpenAI o1은 Reasoning, Reinforcement learning와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Learning to reason with LLMs에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gemini",
@@ -1532,7 +1590,7 @@
       "developer": "Google DeepMind",
       "released": "2024.02",
       "modalities": "다양한 입출력",
-      "context": "확인된 수치 없음",
+      "context": "최대 1백만 토큰",
       "variants": "확인된 수치 없음",
       "parameters": "미공개",
       "access": "공식 자료 참조",
@@ -1544,12 +1602,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Gemini 1.5은 Google DeepMind이 2024.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Gemini 1.5은 Google DeepMind이 2024.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 긴 문서·영상·음성 자료를 한 번에 다루는 긴 컨텍스트를 전면에 내세웠습니다.",
     "announcement": [
+      "긴 문서·영상·음성 자료를 한 번에 다루는 긴 컨텍스트를 전면에 내세웠습니다.",
       "공개 내용: Gemini 1.5은 Long context, Multimodality와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "gemini",
@@ -1570,12 +1629,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Gemma은 Google이 2024.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Gemma은 Google이 2024.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 개방 가중치을 중심으로 개발된 이 모델은 Open weights?Small language models와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "개방 가중치을 중심으로 개발된 이 모델은 Open weights?Small language models와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Gemma은 Open weights, Small language models와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Gemma: Open Models Based on Gemini Research and Technology에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "claude",
@@ -1602,12 +1662,13 @@
         "url": "https://arstechnica.com/information-technology/2024/06/anthropics-latest-best-ai-model-is-twice-as-fast-and-still-terrible-at-dad-jokes/"
       }
     ],
-    "summaryKo": "claude-3-5은 Anthropic이 2024.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "claude-3-5은 Anthropic이 2024.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: claude-3-5은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "bert",
@@ -1628,12 +1689,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "RoBERTa은 Meta AI이 2019.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "RoBERTa은 Meta AI이 2019.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 Pretraining?Data와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 Pretraining?Data와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: RoBERTa은 Pretraining, Data와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 RoBERTa: A Robustly Optimized BERT Pretraining Approach에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "bert",
@@ -1654,12 +1716,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "XLNet은 Google Brain and CMU이 2019.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "XLNet은 Google Brain and CMU이 2019.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 Pretraining?Autoregressive models와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 Pretraining?Autoregressive models와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: XLNet은 Pretraining, Autoregressive models와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 XLNet: Generalized Autoregressive Pretraining에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "t5",
@@ -1680,12 +1743,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "t5-11b은 Google DeepMind이 2020.10에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "t5-11b은 Google DeepMind이 2020.10에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: t5-11b은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "palm",
@@ -1706,12 +1770,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "palm-2-large은 Google DeepMind이 2023.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "palm-2-large은 Google DeepMind이 2023.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: palm-2-large은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "mistral",
@@ -1732,12 +1797,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "mixtral-8x7b은 Mistral AI이 2023.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "mixtral-8x7b은 Mistral AI이 2023.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: mixtral-8x7b은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "qwen",
@@ -1758,12 +1824,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "qwen2-72b은 Alibaba Cloud이 2024.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "qwen2-72b은 Alibaba Cloud이 2024.06에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: qwen2-72b은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "deepseek",
@@ -1784,12 +1851,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "deepseek-v2-lite은 DeepSeek이 2024.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "deepseek-v2-lite은 DeepSeek이 2024.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: deepseek-v2-lite은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "deepseek",
@@ -1810,12 +1878,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "deepseek-v3-base은 DeepSeek이 2024.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "deepseek-v3-base은 DeepSeek이 2024.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: deepseek-v3-base은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "phi",
@@ -1836,12 +1905,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "phi-3-mini은 Microsoft이 2024.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "phi-3-mini은 Microsoft이 2024.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: phi-3-mini은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "command",
@@ -1862,12 +1932,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "command-r-plus은 Cohere이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "command-r-plus은 Cohere이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: command-r-plus은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "ernie",
@@ -1888,12 +1959,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "ernie-3-titan은 Baidu이 2021.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "ernie-3-titan은 Baidu이 2021.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: ernie-3-titan은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "starcoder",
@@ -1914,12 +1986,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "starcoder-base은 Hugging Face이 2023.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "starcoder-base은 Hugging Face이 2023.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: starcoder-base은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "code-llama",
@@ -1940,12 +2013,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "code-llama-34b은 Meta AI이 2023.08에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "code-llama-34b은 Meta AI이 2023.08에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: code-llama-34b은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "flamingo",
@@ -1966,12 +2040,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "flamingo-80b은 Google DeepMind이 2022.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "flamingo-80b은 Google DeepMind이 2022.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: flamingo-80b은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "dalle",
@@ -1992,12 +2067,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "dalle-2-preview은 OpenAI이 2022.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "dalle-2-preview은 OpenAI이 2022.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: dalle-2-preview은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "stable-diffusion",
@@ -2018,12 +2094,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "stable-diffusion-v1-5은 Hugging Face이 2022.08에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "stable-diffusion-v1-5은 Hugging Face이 2022.08에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: stable-diffusion-v1-5은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "whisper",
@@ -2044,12 +2121,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "whisper-large-v2은 OpenAI이 2022.09에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "whisper-large-v2은 OpenAI이 2022.09에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: whisper-large-v2은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "alpha-code",
@@ -2070,12 +2148,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "alpha-code-competition은 Google DeepMind이 2022.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "alpha-code-competition은 Google DeepMind이 2022.02에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: alpha-code-competition은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "blip",
@@ -2096,12 +2175,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "blip-2-flant5은 Salesforce AI Research이 2023.01에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "blip-2-flant5은 Salesforce AI Research이 2023.01에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: blip-2-flant5은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "mamba",
@@ -2122,12 +2202,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "mamba-130m은 Princeton University이 2023.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "mamba-130m은 Princeton University이 2023.12에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: mamba-130m은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "jamba",
@@ -2148,12 +2229,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "jamba-52b은 AI21 Labs이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "jamba-52b은 AI21 Labs이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: jamba-52b은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "dbrx",
@@ -2174,12 +2256,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "dbrx-base은 Databricks이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "dbrx-base은 Databricks이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: dbrx-base은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "bloom",
@@ -2200,12 +2283,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "bloom-176b은 Hugging Face이 2022.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "bloom-176b은 Hugging Face이 2022.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: bloom-176b은 모델와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료를 통해 공개 범위를 확인합니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "clip",
@@ -2226,12 +2310,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "CLIP은 OpenAI이 2021.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "CLIP은 OpenAI이 2021.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 멀티모달을 중심으로 개발된 이 모델은 Multimodality?Contrastive learning와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "멀티모달을 중심으로 개발된 이 모델은 Multimodality?Contrastive learning와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: CLIP은 Multimodality, Contrastive learning와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Learning Transferable Visual Models From Natural Language Supervision에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "lamda",
@@ -2252,12 +2337,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "LaMDA은 Google이 2021.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "LaMDA은 Google이 2021.05에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 기반 모델을 중심으로 개발된 이 모델은 Dialogue?Pretraining와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "기반 모델을 중심으로 개발된 이 모델은 Dialogue?Pretraining와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: LaMDA은 Dialogue, Pretraining와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 LaMDA: Language Models for Dialog Applications에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 기반 모델과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "codex",
@@ -2278,12 +2364,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Codex은 OpenAI이 2021.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Codex은 OpenAI이 2021.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 코드 생성을 중심으로 개발된 이 모델은 Code?Programming와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "코드 생성을 중심으로 개발된 이 모델은 Code?Programming와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Codex은 Code, Programming와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Evaluating Large Language Models Trained on Code에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 코드 생성과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "sam",
@@ -2304,12 +2391,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Segment Anything은 Meta AI이 2023.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Segment Anything은 Meta AI이 2023.04에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 멀티모달을 중심으로 개발된 이 모델은 Vision?Foundation models와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "멀티모달을 중심으로 개발된 이 모델은 Vision?Foundation models와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Segment Anything은 Vision, Foundation models와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 Segment Anything에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "openhermes",
@@ -2330,12 +2418,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "OpenHermes은 Teknium이 2023.11에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "OpenHermes은 Teknium이 2023.11에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 개방 가중치을 중심으로 개발된 이 모델은 Instruction tuning?Open weights와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "개방 가중치을 중심으로 개발된 이 모델은 Instruction tuning?Open weights와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: OpenHermes은 Instruction tuning, Open weights와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 OpenHermes 2.5 Mistral 7B에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "claude",
@@ -2356,12 +2445,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "Claude 3은 Anthropic이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "Claude 3은 Anthropic이 2024.03에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 멀티모달을 중심으로 개발된 이 모델은 Model family?Multimodality와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "멀티모달을 중심으로 개발된 이 모델은 Model family?Multimodality와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: Claude 3은 Model family, Multimodality와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 The Claude 3 Model Family에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 멀티모달과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "smollm",
@@ -2382,12 +2472,13 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "SmolLM은 Hugging Face이 2024.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "SmolLM은 Hugging Face이 2024.07에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 개방 가중치을 중심으로 개발된 이 모델은 Small language models?Open weights와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "개방 가중치을 중심으로 개발된 이 모델은 Small language models?Open weights와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: SmolLM은 Small language models, Open weights와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 SmolLM: Blazing fast and remarkably powerful에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 개방 가중치과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   },
   {
     "familySlug": "deepseek",
@@ -2408,11 +2499,12 @@
       "한계: 공개된 수치가 없는 항목은 미공개로 표기하여 추측과 사실을 구분했습니다."
     ],
     "coverage": [],
-    "summaryKo": "DeepSeek-R1은 DeepSeek이 2025.01에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다.",
+    "summaryKo": "DeepSeek-R1은 DeepSeek이 2025.01에 공개한 모델입니다. 공식 자료를 우선으로 정리했습니다. 추론 성능을 중심으로 개발된 이 모델은 Reasoning?Reinforcement learning와 연결된 기술적 흐름을 대표합니다.",
     "announcement": [
+      "추론 성능을 중심으로 개발된 이 모델은 Reasoning?Reinforcement learning와 연결된 기술적 흐름을 대표합니다.",
       "공개 내용: DeepSeek-R1은 Reasoning, Reinforcement learning와 연결된 모델입니다. 공개 범위와 제공 방식은 공식 자료를 기준으로 확인합니다.",
-      "성능 주장은 특정 평가 조건에 의존하므로, 실제 적용 시 자체 검증이 필요합니다."
+      "원자 자료 DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning에서 공개 범위를 확인할 수 있습니다."
     ],
-    "reception": "반응: 공개 후 시연과 성능 수치가 주목을 받지만, 외부 평가는 비교 조건과 실제 사용 경험을 함께 보아야 한다는 점을 강조했습니다."
+    "reception": "외부 반응: 추론 성능과 실제 사용 경험에 대한 평가를 보려면 반드시 비교 조건과 안전성, 태스크 적합성을 함께 검토해야 합니다."
   }
 ]

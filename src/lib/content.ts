@@ -1,4 +1,4 @@
-import sourceData from "../../content/sources/index.json";
+﻿import sourceData from "../../content/sources/index.json";
 import eventData from "../../content/events/index.json";
 import conceptData from "../../content/concepts/index.json";
 import organizationData from "../../content/organizations/index.json";
@@ -11,7 +11,7 @@ import modelProfileData from "../../content/model-profiles/index.json";
 import {conceptSchema,eventSchema,modelFamilySchema,organizationSchema,sourceSchema,validateReferences} from "@/lib/schemas/content";
 export type Source={id:string;title:string;url:string;publisher:string;year:number;tier?:1|2|3|4;verifiedAt?:string};
 export type Event={slug:string;date:string;year:number;organization:string;type:"research"|"model"|"product"|"method"|"benchmark";title:string;titleEn:string;summary:string;importance:1|2|3;concepts:string[];conceptIds:string[];sourceId:string};
-export type ConceptDocument={slug:string;titleKo:string;titleEn:string;summary:string;level:"입문"|"중급"|"심화";prerequisites:string[];next:string[];sourceIds:string[]};
+export type ConceptDocument={slug:string;titleKo:string;titleEn:string;summary:string;level:"?낅Ц"|"以묎툒"|"?ы솕";prerequisites:string[];next:string[];sourceIds:string[]};
 export type IssueDocument={slug:string;titleKo:string;summary:string;fact:string;unknown:string;conceptIds:string[];sourceIds:string[]};
 export type FrontierDocument={slug:string;titleKo:string;summary:string;shared:string;different:string;sourceIds:string[]};
 export type LearningPathDocument={slug:string;titleKo:string;summary:string;conceptIds:string[];sourceIds:string[]};
@@ -20,7 +20,7 @@ export type ModelFamily={slug:string;titleKo:string;titleEn:string;organizationS
 export type ModelRelease={familySlug:string;slug:string;date:string;title:string;titleEn:string;summary:string;sourceIds:string[];conceptIds:string[]};
 export type ModelSpec={developer:string;released:string;modalities:string;context:string;variants:string;parameters:string;access:string;weights:string};
 export type EditorialCoverage={outlet:string;title:string;url:string};
-export type ModelProfile={familySlug:string;releaseSlug:string;spec:ModelSpec;features:string[];coverage:EditorialCoverage[]};
+export type ModelProfile={familySlug:string;releaseSlug:string;summaryKo:string;spec:ModelSpec;features:string[];announcement:string[];reception:string;coverage:EditorialCoverage[]};
 export const sources=sourceData as Source[];
 
 export const conceptDocuments=conceptData as ConceptDocument[];
@@ -41,7 +41,7 @@ export const organizations=["OpenAI","Google DeepMind","Anthropic","Meta AI","Mi
 export const getSource=(id:string)=>sources.find(s=>s.id===id);
 export const getEvent=(slug:string)=>events.find(e=>e.slug===slug);
 sources.forEach(s=>sourceSchema.parse(s));
-events.forEach(e=>eventSchema.parse({...e,type:{research:"연구",model:"모델",product:"제품",method:"방법",benchmark:"벤치마크"}[e.type]}));
+events.forEach(e=>eventSchema.parse({...e,type:{research:"\uC5F0\uAD6C",model:"\uBAA8\uB378",product:"\uC81C\uD488",method:"\uBC29\uBC95",benchmark:"\uBCA4\uCE58\uB9C8\uD06C"}[e.type]}));
 organizationDocuments.forEach(o=>organizationSchema.parse(o));
 modelFamilies.forEach(m=>modelFamilySchema.parse(m));
 conceptDocuments.forEach(c=>conceptSchema.parse(c));

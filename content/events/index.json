@@ -1,1282 +1,1527 @@
 [
-    {
-        "slug":  "transformer",
-        "date":  "2017.06",
-        "year":  2017,
-        "organization":  "Google",
-        "type":  "research",
-        "title":  "Transformer",
-        "titleEn":  "Attention Is All You Need",
-        "summary":  "Attention centered architecture changed the standard for language models.",
-        "importance":  3,
-        "concepts":  [
-                         "Attention",
-                         "Transformer"
-                     ],
-        "sourceId":  "transformer"
-    },
-    {
-        "slug":  "bert",
-        "date":  "2018.10",
-        "year":  2018,
-        "organization":  "Google",
-        "type":  "model",
-        "title":  "BERT",
-        "titleEn":  "Bidirectional encoder",
-        "summary":  "Bidirectional pretraining accelerated transfer learning for NLP.",
-        "importance":  2,
-        "concepts":  [
-                         "Pretraining",
-                         "Fine-tuning"
-                     ],
-        "sourceId":  "bert"
-    },
-    {
-        "slug":  "gpt-3",
-        "date":  "2020.05",
-        "year":  2020,
-        "organization":  "OpenAI",
-        "type":  "model",
-        "title":  "GPT-3",
-        "titleEn":  "Few-shot learning",
-        "summary":  "A large language model demonstrated broad few-shot behavior.",
-        "importance":  3,
-        "concepts":  [
-                         "Scaling",
-                         "In-context learning"
-                     ],
-        "sourceId":  "gpt3"
-    },
-    {
-        "slug":  "rag",
-        "date":  "2020.05",
-        "year":  2020,
-        "organization":  "Meta",
-        "type":  "method",
-        "title":  "RAG",
-        "titleEn":  "Retrieval-Augmented Generation",
-        "summary":  "A pattern that retrieves external documents before generation.",
-        "importance":  2,
-        "concepts":  [
-                         "Embedding",
-                         "RAG"
-                     ],
-        "sourceId":  "rag"
-    },
-    {
-        "slug":  "instructgpt",
-        "date":  "2022.03",
-        "year":  2022,
-        "organization":  "OpenAI",
-        "type":  "method",
-        "title":  "InstructGPT",
-        "titleEn":  "RLHF",
-        "summary":  "Human preference feedback improved instruction following.",
-        "importance":  3,
-        "concepts":  [
-                         "RLHF",
-                         "Alignment"
-                     ],
-        "sourceId":  "instructgpt"
-    },
-    {
-        "slug":  "chatgpt",
-        "date":  "2022.11",
-        "year":  2022,
-        "organization":  "OpenAI",
-        "type":  "product",
-        "title":  "ChatGPT",
-        "titleEn":  "Conversational product",
-        "summary":  "A conversational interface expanded public use of generative AI.",
-        "importance":  3,
-        "concepts":  [
-                         "RLHF",
-                         "Prompt"
-                     ],
-        "sourceId":  "chatgpt"
-    },
-    {
-        "slug":  "gpt-4",
-        "date":  "2023.03",
-        "year":  2023,
-        "organization":  "OpenAI",
-        "type":  "model",
-        "title":  "GPT-4",
-        "titleEn":  "Large multimodal model",
-        "summary":  "A high capability multimodal model family with a technical report.",
-        "importance":  3,
-        "concepts":  [
-                         "Multimodality",
-                         "Evaluation"
-                     ],
-        "sourceId":  "gpt4"
-    },
-    {
-        "slug":  "llama-2",
-        "date":  "2023.07",
-        "year":  2023,
-        "organization":  "Meta",
-        "type":  "model",
-        "title":  "Llama 2",
-        "titleEn":  "Open weights",
-        "summary":  "Open model weights expanded the ecosystem.",
-        "importance":  3,
-        "concepts":  [
-                         "Open weights",
-                         "Fine-tuning"
-                     ],
-        "sourceId":  "llama"
-    },
-    {
-        "slug":  "mistral-7b",
-        "date":  "2023.10",
-        "year":  2023,
-        "organization":  "Mistral",
-        "type":  "model",
-        "title":  "Mistral 7B",
-        "titleEn":  "Efficient open model",
-        "summary":  "An efficient smaller open model design.",
-        "importance":  2,
-        "concepts":  [
-                         "GQA",
-                         "Open weights"
-                     ],
-        "sourceId":  "mistral"
-    },
-    {
-        "slug":  "gemini",
-        "date":  "2023.12",
-        "year":  2023,
-        "organization":  "Google DeepMind",
-        "type":  "model",
-        "title":  "Gemini",
-        "titleEn":  "Native multimodality",
-        "summary":  "A multimodal model family spanning text, images, audio and video.",
-        "importance":  3,
-        "concepts":  [
-                         "Multimodality",
-                         "MoE"
-                     ],
-        "sourceId":  "gemini"
-    },
-    {
-        "slug":  "claude-3",
-        "date":  "2024.03",
-        "year":  2024,
-        "organization":  "Anthropic",
-        "type":  "model",
-        "title":  "Claude 3",
-        "titleEn":  "Model family",
-        "summary":  "A model family with different capability and cost profiles.",
-        "importance":  2,
-        "concepts":  [
-                         "Model family",
-                         "Safety"
-                     ],
-        "sourceId":  "claude"
-    },
-    {
-        "slug":  "deepseek-r1",
-        "date":  "2025.01",
-        "year":  2025,
-        "organization":  "DeepSeek",
-        "type":  "model",
-        "title":  "DeepSeek-R1",
-        "titleEn":  "Reasoning capability",
-        "summary":  "A reasoning model approach using reinforcement learning and distillation.",
-        "importance":  3,
-        "concepts":  [
-                         "Reasoning",
-                         "Reinforcement learning"
-                     ],
-        "sourceId":  "deepseek"
-    },
-    {
-        "slug":  "elmo",
-        "date":  "2018.02",
-        "year":  2018,
-        "organization":  "Allen Institute for AI",
-        "type":  "research",
-        "title":  "ELMo",
-        "titleEn":  "Deep contextualized word representations",
-        "summary":  "Contextual word representations improved many language tasks.",
-        "importance":  2,
-        "concepts":  [
-                         "Contextual embeddings",
-                         "Pretraining"
-                     ],
-        "sourceId":  "elmo"
-    },
-    {
-        "slug":  "gpt-1",
-        "date":  "2018.06",
-        "year":  2018,
-        "organization":  "OpenAI",
-        "type":  "model",
-        "title":  "GPT",
-        "titleEn":  "Generative Pre-Training",
-        "summary":  "Generative pretraining was applied to language understanding tasks.",
-        "importance":  2,
-        "concepts":  [
-                         "Pretraining",
-                         "Fine-tuning"
-                     ],
-        "sourceId":  "gpt-1"
-    },
-    {
-        "slug":  "gpt-2",
-        "date":  "2019.02",
-        "year":  2019,
-        "organization":  "OpenAI",
-        "type":  "model",
-        "title":  "GPT-2",
-        "titleEn":  "Unsupervised multitask learners",
-        "summary":  "A larger generative language model demonstrated broad task behavior.",
-        "importance":  2,
-        "concepts":  [
-                         "Scaling",
-                         "Generation"
-                     ],
-        "sourceId":  "gpt-2"
-    },
-    {
-        "slug":  "xlnet",
-        "date":  "2019.06",
-        "year":  2019,
-        "organization":  "Google Brain and CMU",
-        "type":  "research",
-        "title":  "XLNet",
-        "titleEn":  "Generalized autoregressive pretraining",
-        "summary":  "A permutation based autoregressive pretraining objective was proposed.",
-        "importance":  2,
-        "concepts":  [
-                         "Pretraining",
-                         "Autoregressive models"
-                     ],
-        "sourceId":  "xlnet"
-    },
-    {
-        "slug":  "roberta",
-        "date":  "2019.07",
-        "year":  2019,
-        "organization":  "Meta AI",
-        "type":  "model",
-        "title":  "RoBERTa",
-        "titleEn":  "Robustly optimized BERT",
-        "summary":  "Training choices showed substantial effects on BERT style models.",
-        "importance":  2,
-        "concepts":  [
-                         "Pretraining",
-                         "Data"
-                     ],
-        "sourceId":  "roberta"
-    },
-    {
-        "slug":  "t5",
-        "date":  "2019.10",
-        "year":  2019,
-        "organization":  "Google Research",
-        "type":  "model",
-        "title":  "T5",
-        "titleEn":  "Text-to-text transfer Transformer",
-        "summary":  "A unified text-to-text framing compared transfer learning choices.",
-        "importance":  2,
-        "concepts":  [
-                         "Transformer",
-                         "Transfer learning"
-                     ],
-        "sourceId":  "t5"
-    },
-    {
-        "slug":  "megatron-lm",
-        "date":  "2019.09",
-        "year":  2019,
-        "organization":  "NVIDIA",
-        "type":  "research",
-        "title":  "Megatron-LM",
-        "titleEn":  "Model parallelism",
-        "summary":  "Model parallel training enabled larger Transformer language models.",
-        "importance":  2,
-        "concepts":  [
-                         "Scaling",
-                         "Distributed training"
-                     ],
-        "sourceId":  "megatron-lm"
-    },
-    {
-        "slug":  "scaling-laws",
-        "date":  "2020.01",
-        "year":  2020,
-        "organization":  "OpenAI",
-        "type":  "research",
-        "title":  "Scaling laws",
-        "titleEn":  "Neural language models",
-        "summary":  "Predictable relationships between loss, data, and compute were studied.",
-        "importance":  3,
-        "concepts":  [
-                         "Scaling",
-                         "Compute"
-                     ],
-        "sourceId":  "scaling-laws"
-    },
-    {
-        "slug":  "switch-transformer",
-        "date":  "2021.01",
-        "year":  2021,
-        "organization":  "Google Research",
-        "type":  "research",
-        "title":  "Switch Transformer",
-        "titleEn":  "Sparse expert models",
-        "summary":  "Sparse expert routing enabled scaling with lower per-token compute.",
-        "importance":  2,
-        "concepts":  [
-                         "MoE",
-                         "Scaling"
-                     ],
-        "sourceId":  "switch-transformer"
-    },
-    {
-        "slug":  "clip",
-        "date":  "2021.03",
-        "year":  2021,
-        "organization":  "OpenAI",
-        "type":  "model",
-        "title":  "CLIP",
-        "titleEn":  "Natural language supervision",
-        "summary":  "Text-image contrastive pretraining linked language and visual representations.",
-        "importance":  3,
-        "concepts":  [
-                         "Multimodality",
-                         "Contrastive learning"
-                     ],
-        "sourceId":  "clip"
-    },
-    {
-        "slug":  "lamda",
-        "date":  "2021.05",
-        "year":  2021,
-        "organization":  "Google",
-        "type":  "model",
-        "title":  "LaMDA",
-        "titleEn":  "Language models for dialogue",
-        "summary":  "A dialogue focused language model was introduced.",
-        "importance":  2,
-        "concepts":  [
-                         "Dialogue",
-                         "Pretraining"
-                     ],
-        "sourceId":  "lamda"
-    },
-    {
-        "slug":  "gopher",
-        "date":  "2021.12",
-        "year":  2021,
-        "organization":  "DeepMind",
-        "type":  "model",
-        "title":  "Gopher",
-        "titleEn":  "Scaling language models",
-        "summary":  "A large language model study examined scaling and evaluation.",
-        "importance":  2,
-        "concepts":  [
-                         "Scaling",
-                         "Evaluation"
-                     ],
-        "sourceId":  "gopher"
-    },
-    {
-        "slug":  "chinchilla",
-        "date":  "2022.03",
-        "year":  2022,
-        "organization":  "DeepMind",
-        "type":  "research",
-        "title":  "Chinchilla",
-        "titleEn":  "Compute optimal scaling",
-        "summary":  "Training token and parameter tradeoffs were studied for compute optimal models.",
-        "importance":  3,
-        "concepts":  [
-                         "Scaling",
-                         "Data"
-                     ],
-        "sourceId":  "chinchilla"
-    },
-    {
-        "slug":  "palm",
-        "date":  "2022.04",
-        "year":  2022,
-        "organization":  "Google Research",
-        "type":  "model",
-        "title":  "PaLM",
-        "titleEn":  "Pathways language model",
-        "summary":  "A large language model was trained with Pathways system infrastructure.",
-        "importance":  2,
-        "concepts":  [
-                         "Scaling",
-                         "Multilingual"
-                     ],
-        "sourceId":  "palm"
-    },
-    {
-        "slug":  "dalle-2",
-        "date":  "2022.04",
-        "year":  2022,
-        "organization":  "OpenAI",
-        "type":  "model",
-        "title":  "DALL-E 2",
-        "titleEn":  "Text conditional image generation",
-        "summary":  "Text-to-image generation used CLIP latent representations.",
-        "importance":  3,
-        "concepts":  [
-                         "Image generation",
-                         "Multimodality"
-                     ],
-        "sourceId":  "dalle-2"
-    },
-    {
-        "slug":  "stable-diffusion",
-        "date":  "2022.08",
-        "year":  2022,
-        "organization":  "CompVis",
-        "type":  "model",
-        "title":  "Stable Diffusion",
-        "titleEn":  "Latent diffusion models",
-        "summary":  "Latent diffusion made high resolution image synthesis more accessible.",
-        "importance":  3,
-        "concepts":  [
-                         "Diffusion",
-                         "Image generation"
-                     ],
-        "sourceId":  "stable-diffusion"
-    },
-    {
-        "slug":  "bloom",
-        "date":  "2022.07",
-        "year":  2022,
-        "organization":  "BigScience",
-        "type":  "model",
-        "title":  "BLOOM",
-        "titleEn":  "Open multilingual language model",
-        "summary":  "A multilingual open access language model was released by a research collective.",
-        "importance":  2,
-        "concepts":  [
-                         "Open weights",
-                         "Multilingual"
-                     ],
-        "sourceId":  "bloom"
-    },
-    {
-        "slug":  "whisper",
-        "date":  "2022.09",
-        "year":  2022,
-        "organization":  "OpenAI",
-        "type":  "model",
-        "title":  "Whisper",
-        "titleEn":  "Robust speech recognition",
-        "summary":  "Large scale weakly supervised speech recognition was released.",
-        "importance":  2,
-        "concepts":  [
-                         "Audio",
-                         "Speech"
-                     ],
-        "sourceId":  "whisper"
-    },
-    {
-        "slug":  "llama",
-        "date":  "2023.02",
-        "year":  2023,
-        "organization":  "Meta AI",
-        "type":  "model",
-        "title":  "LLaMA",
-        "titleEn":  "Open foundation language models",
-        "summary":  "A family of efficient foundation language models was published.",
-        "importance":  3,
-        "concepts":  [
-                         "Open weights",
-                         "Scaling"
-                     ],
-        "sourceId":  "llama-original"
-    },
-    {
-        "slug":  "toolformer",
-        "date":  "2023.02",
-        "year":  2023,
-        "organization":  "Meta AI",
-        "type":  "research",
-        "title":  "Toolformer",
-        "titleEn":  "Language models and tools",
-        "summary":  "A self-supervised approach for tool use by language models was proposed.",
-        "importance":  3,
-        "concepts":  [
-                         "Tools",
-                         "Agents"
-                     ],
-        "sourceId":  "toolformer"
-    },
-    {
-        "slug":  "dpo",
-        "date":  "2023.05",
-        "year":  2023,
-        "organization":  "Stanford University",
-        "type":  "research",
-        "title":  "DPO",
-        "titleEn":  "Direct preference optimization",
-        "summary":  "A simpler preference optimization objective was proposed.",
-        "importance":  3,
-        "concepts":  [
-                         "Alignment",
-                         "Preference optimization"
-                     ],
-        "sourceId":  "dpo"
-    },
-    {
-        "slug":  "mamba",
-        "date":  "2023.12",
-        "year":  2023,
-        "organization":  "Princeton University",
-        "type":  "research",
-        "title":  "Mamba",
-        "titleEn":  "Selective state spaces",
-        "summary":  "A selective state space architecture was proposed as an alternative sequence modeling approach.",
-        "importance":  2,
-        "concepts":  [
-                         "State space models",
-                         "Efficiency"
-                     ],
-        "sourceId":  "mamba"
-    },
-    {
-        "slug":  "mixtral",
-        "date":  "2023.12",
-        "year":  2023,
-        "organization":  "Mistral AI",
-        "type":  "model",
-        "title":  "Mixtral 8x7B",
-        "titleEn":  "Sparse mixture of experts",
-        "summary":  "A sparse mixture-of-experts model was released with open weights.",
-        "importance":  3,
-        "concepts":  [
-                         "MoE",
-                         "Open weights"
-                     ],
-        "sourceId":  "mixtral"
-    },
-    {
-        "slug":  "olmo",
-        "date":  "2024.02",
-        "year":  2024,
-        "organization":  "AI2",
-        "type":  "model",
-        "title":  "OLMo",
-        "titleEn":  "Open language model science",
-        "summary":  "A language model release included training data, code, and evaluation artifacts.",
-        "importance":  2,
-        "concepts":  [
-                         "Open science",
-                         "Language models"
-                     ],
-        "sourceId":  "olmo"
-    },
-    {
-        "slug":  "gemma",
-        "date":  "2024.02",
-        "year":  2024,
-        "organization":  "Google",
-        "type":  "model",
-        "title":  "Gemma",
-        "titleEn":  "Open models",
-        "summary":  "Open weight models based on Gemini research were released.",
-        "importance":  2,
-        "concepts":  [
-                         "Open weights",
-                         "Small language models"
-                     ],
-        "sourceId":  "gemma"
-    },
-    {
-        "slug":  "claude-3-source",
-        "date":  "2024.03",
-        "year":  2024,
-        "organization":  "Anthropic",
-        "type":  "model",
-        "title":  "Claude 3",
-        "titleEn":  "Model family",
-        "summary":  "A model family with different capability and cost profiles was announced.",
-        "importance":  3,
-        "concepts":  [
-                         "Model family",
-                         "Multimodality"
-                     ],
-        "sourceId":  "claude-3-source"
-    },
-    {
-        "slug":  "gemini-1-5",
-        "date":  "2024.02",
-        "year":  2024,
-        "organization":  "Google DeepMind",
-        "type":  "model",
-        "title":  "Gemini 1.5",
-        "titleEn":  "Long context multimodality",
-        "summary":  "A Gemini model line introduced long context multimodal capabilities.",
-        "importance":  3,
-        "concepts":  [
-                         "Long context",
-                         "Multimodality"
-                     ],
-        "sourceId":  "gemini-1-5"
-    },
-    {
-        "slug":  "jamba",
-        "date":  "2024.03",
-        "year":  2024,
-        "organization":  "AI21 Labs",
-        "type":  "model",
-        "title":  "Jamba",
-        "titleEn":  "Hybrid Transformer-Mamba",
-        "summary":  "A hybrid architecture combined Transformer and state space layers with MoE.",
-        "importance":  2,
-        "concepts":  [
-                         "Mamba",
-                         "MoE"
-                     ],
-        "sourceId":  "jamba"
-    },
-    {
-        "slug":  "phi-3",
-        "date":  "2024.04",
-        "year":  2024,
-        "organization":  "Microsoft",
-        "type":  "model",
-        "title":  "Phi-3",
-        "titleEn":  "Small language models",
-        "summary":  "A family of small language models was introduced with technical details.",
-        "importance":  2,
-        "concepts":  [
-                         "Small language models",
-                         "Data quality"
-                     ],
-        "sourceId":  "phi-3"
-    },
-    {
-        "slug":  "llama-3",
-        "date":  "2024.04",
-        "year":  2024,
-        "organization":  "Meta",
-        "type":  "model",
-        "title":  "Llama 3",
-        "titleEn":  "Open weight model family",
-        "summary":  "A new open weight Llama model family was announced.",
-        "importance":  3,
-        "concepts":  [
-                         "Open weights",
-                         "Model family"
-                     ],
-        "sourceId":  "llama-3"
-    },
-    {
-        "slug":  "dbrx",
-        "date":  "2024.03",
-        "year":  2024,
-        "organization":  "Databricks",
-        "type":  "model",
-        "title":  "DBRX",
-        "titleEn":  "Open mixture-of-experts",
-        "summary":  "An open mixture-of-experts language model was announced.",
-        "importance":  2,
-        "concepts":  [
-                         "MoE",
-                         "Open weights"
-                     ],
-        "sourceId":  "dbrx"
-    },
-    {
-        "slug":  "gpt-4o",
-        "date":  "2024.05",
-        "year":  2024,
-        "organization":  "OpenAI",
-        "type":  "model",
-        "title":  "GPT-4o",
-        "titleEn":  "Omni model",
-        "summary":  "A model was introduced for real-time text, vision and audio interaction.",
-        "importance":  3,
-        "concepts":  [
-                         "Multimodality",
-                         "Audio"
-                     ],
-        "sourceId":  "gpt-4o"
-    },
-    {
-        "slug":  "deepseek-v2",
-        "date":  "2024.05",
-        "year":  2024,
-        "organization":  "DeepSeek",
-        "type":  "model",
-        "title":  "DeepSeek-V2",
-        "titleEn":  "Efficient mixture-of-experts",
-        "summary":  "A mixture-of-experts language model with efficient attention was introduced.",
-        "importance":  2,
-        "concepts":  [
-                         "MoE",
-                         "Efficiency"
-                     ],
-        "sourceId":  "deepseek-v2"
-    },
-    {
-        "slug":  "qwen2",
-        "date":  "2024.06",
-        "year":  2024,
-        "organization":  "Alibaba Cloud",
-        "type":  "model",
-        "title":  "Qwen2",
-        "titleEn":  "Multilingual open model family",
-        "summary":  "A multilingual open model family was described in a technical report.",
-        "importance":  2,
-        "concepts":  [
-                         "Open weights",
-                         "Multilingual"
-                     ],
-        "sourceId":  "qwen2"
-    },
-    {
-        "slug":  "llama-3-1",
-        "date":  "2024.07",
-        "year":  2024,
-        "organization":  "Meta",
-        "type":  "model",
-        "title":  "Llama 3.1",
-        "titleEn":  "Large multilingual open models",
-        "summary":  "Large multilingual open models were released with weights.",
-        "importance":  3,
-        "concepts":  [
-                         "Open weights",
-                         "Multilingual"
-                     ],
-        "sourceId":  "llama-3-1"
-    },
-    {
-        "slug":  "mistral-nemo",
-        "date":  "2024.07",
-        "year":  2024,
-        "organization":  "Mistral AI",
-        "type":  "model",
-        "title":  "Mistral NeMo",
-        "titleEn":  "Open multilingual model",
-        "summary":  "An open multilingual model was announced.",
-        "importance":  2,
-        "concepts":  [
-                         "Open weights",
-                         "Multilingual"
-                     ],
-        "sourceId":  "mistral-nemo"
-    },
-    {
-        "slug":  "o1",
-        "date":  "2024.09",
-        "year":  2024,
-        "organization":  "OpenAI",
-        "type":  "model",
-        "title":  "OpenAI o1",
-        "titleEn":  "Reasoning models",
-        "summary":  "A new reasoning model series was announced.",
-        "importance":  3,
-        "concepts":  [
-                         "Reasoning",
-                         "Reinforcement learning"
-                     ],
-        "sourceId":  "o1"
-    },
-    {
-        "slug":  "deepseek-v3",
-        "date":  "2024.12",
-        "year":  2024,
-        "organization":  "DeepSeek",
-        "type":  "model",
-        "title":  "DeepSeek-V3",
-        "titleEn":  "Large mixture-of-experts",
-        "summary":  "A large mixture-of-experts language model technical report was released.",
-        "importance":  3,
-        "concepts":  [
-                         "MoE",
-                         "Efficiency"
-                     ],
-        "sourceId":  "deepseek-v3"
-    },
-    {
-        "slug":  "deepseek-r1-paper",
-        "date":  "2025.01",
-        "year":  2025,
-        "organization":  "DeepSeek",
-        "type":  "model",
-        "title":  "DeepSeek-R1",
-        "titleEn":  "Reasoning capability",
-        "summary":  "A reasoning model approach using reinforcement learning and distillation was published.",
-        "importance":  3,
-        "concepts":  [
-                         "Reasoning",
-                         "Reinforcement learning"
-                     ],
-        "sourceId":  "deepseek-r1-paper"
-    },
-    {
-        "slug":  "qwen2-5",
-        "date":  "2024.12",
-        "year":  2024,
-        "organization":  "Alibaba Cloud",
-        "type":  "model",
-        "title":  "Qwen2.5",
-        "titleEn":  "Open model family",
-        "summary":  "An updated open model family was reported.",
-        "importance":  2,
-        "concepts":  [
-                         "Open weights",
-                         "Model family"
-                     ],
-        "sourceId":  "qwen2-5"
-    },
-    {
-        "slug":  "smollm",
-        "date":  "2024.07",
-        "year":  2024,
-        "organization":  "Hugging Face",
-        "type":  "model",
-        "title":  "SmolLM",
-        "titleEn":  "Small language models",
-        "summary":  "Small language models were released for efficient local use.",
-        "importance":  2,
-        "concepts":  [
-                         "Small language models",
-                         "Open weights"
-                     ],
-        "sourceId":  "smollm"
-    },
-    {
-        "slug":  "lora",
-        "date":  "2021.06",
-        "year":  2021,
-        "organization":  "Microsoft",
-        "type":  "research",
-        "title":  "LoRA",
-        "titleEn":  "Low-rank adaptation",
-        "summary":  "Low-rank adapters reduced fine-tuning trainable parameters.",
-        "importance":  3,
-        "concepts":  [
-                         "Fine-tuning",
-                         "Efficiency"
-                     ],
-        "sourceId":  "lora"
-    },
-    {
-        "slug":  "flan",
-        "date":  "2021.09",
-        "year":  2021,
-        "organization":  "Google Research",
-        "type":  "research",
-        "title":  "FLAN",
-        "titleEn":  "Instruction tuning",
-        "summary":  "Instruction fine-tuning improved zero-shot task performance.",
-        "importance":  3,
-        "concepts":  [
-                         "Instruction tuning",
-                         "Fine-tuning"
-                     ],
-        "sourceId":  "flan"
-    },
-    {
-        "slug":  "react",
-        "date":  "2022.10",
-        "year":  2022,
-        "organization":  "Princeton University",
-        "type":  "research",
-        "title":  "ReAct",
-        "titleEn":  "Reasoning and acting",
-        "summary":  "Interleaving reasoning traces and actions was proposed for language agents.",
-        "importance":  3,
-        "concepts":  [
-                         "Agents",
-                         "Reasoning"
-                     ],
-        "sourceId":  "react"
-    },
-    {
-        "slug":  "constitutional-ai",
-        "date":  "2022.12",
-        "year":  2022,
-        "organization":  "Anthropic",
-        "type":  "research",
-        "title":  "Constitutional AI",
-        "titleEn":  "AI feedback",
-        "summary":  "A constitutional rule set was used for harmlessness training.",
-        "importance":  3,
-        "concepts":  [
-                         "Alignment",
-                         "RLAIF"
-                     ],
-        "sourceId":  "constitutional-ai"
-    },
-    {
-        "slug":  "qlora",
-        "date":  "2023.05",
-        "year":  2023,
-        "organization":  "University of Washington",
-        "type":  "research",
-        "title":  "QLoRA",
-        "titleEn":  "Quantized finetuning",
-        "summary":  "Quantization enabled efficient fine-tuning of large language models.",
-        "importance":  3,
-        "concepts":  [
-                         "Quantization",
-                         "Fine-tuning"
-                     ],
-        "sourceId":  "qlora"
-    },
-    {
-        "slug":  "vllm",
-        "date":  "2023.09",
-        "year":  2023,
-        "organization":  "UC Berkeley",
-        "type":  "research",
-        "title":  "vLLM",
-        "titleEn":  "PagedAttention",
-        "summary":  "Paged attention improved memory efficiency for language model serving.",
-        "importance":  3,
-        "concepts":  [
-                         "KV cache",
-                         "Serving"
-                     ],
-        "sourceId":  "vllm"
-    },
-    {
-        "slug":  "truthfulqa",
-        "date":  "2021.09",
-        "year":  2021,
-        "organization":  "OpenAI",
-        "type":  "benchmark",
-        "title":  "TruthfulQA",
-        "titleEn":  "Truthfulness benchmark",
-        "summary":  "A benchmark evaluated whether models reproduce common falsehoods.",
-        "importance":  2,
-        "concepts":  [
-                         "Hallucination",
-                         "Evaluation"
-                     ],
-        "sourceId":  "truthfulqa"
-    },
-    {
-        "slug":  "mmlu",
-        "date":  "2020.09",
-        "year":  2020,
-        "organization":  "UC Berkeley",
-        "type":  "benchmark",
-        "title":  "MMLU",
-        "titleEn":  "Multitask evaluation",
-        "summary":  "A benchmark measured knowledge across diverse academic subjects.",
-        "importance":  3,
-        "concepts":  [
-                         "Benchmark",
-                         "Evaluation"
-                     ],
-        "sourceId":  "mmlu"
-    },
-    {
-        "slug":  "flamingo",
-        "date":  "2022.04",
-        "year":  2022,
-        "organization":  "DeepMind",
-        "type":  "model",
-        "title":  "Flamingo",
-        "titleEn":  "Visual language model",
-        "summary":  "A visual language model demonstrated few-shot multimodal learning.",
-        "importance":  3,
-        "concepts":  [
-                         "Multimodality",
-                         "Few-shot learning"
-                     ],
-        "sourceId":  "flamingo"
-    },
-    {
-        "slug":  "blip-2",
-        "date":  "2023.01",
-        "year":  2023,
-        "organization":  "Salesforce Research",
-        "type":  "model",
-        "title":  "BLIP-2",
-        "titleEn":  "Language image pretraining",
-        "summary":  "A querying transformer connected image encoders and language models.",
-        "importance":  2,
-        "concepts":  [
-                         "Multimodality",
-                         "Vision language"
-                     ],
-        "sourceId":  "blip-2"
-    },
-    {
-        "slug":  "llava",
-        "date":  "2023.04",
-        "year":  2023,
-        "organization":  "University of Wisconsin-Madison",
-        "type":  "research",
-        "title":  "LLaVA",
-        "titleEn":  "Visual instruction tuning",
-        "summary":  "Visual instruction tuning was introduced for multimodal assistants.",
-        "importance":  3,
-        "concepts":  [
-                         "Multimodality",
-                         "Instruction tuning"
-                     ],
-        "sourceId":  "llava"
-    },
-    {
-        "slug":  "flashattention",
-        "date":  "2022.05",
-        "year":  2022,
-        "organization":  "Stanford University",
-        "type":  "research",
-        "title":  "FlashAttention",
-        "titleEn":  "Efficient attention",
-        "summary":  "An IO-aware implementation improved attention speed and memory use.",
-        "importance":  3,
-        "concepts":  [
-                         "Attention",
-                         "Efficiency"
-                     ],
-        "sourceId":  "flashattention"
-    },
-    {
-        "slug":  "speculative-decoding",
-        "date":  "2022.11",
-        "year":  2022,
-        "organization":  "DeepMind",
-        "type":  "research",
-        "title":  "Speculative decoding",
-        "titleEn":  "Fast inference",
-        "summary":  "A draft model was used to accelerate autoregressive decoding.",
-        "importance":  3,
-        "concepts":  [
-                         "Speculative decoding",
-                         "Inference"
-                     ],
-        "sourceId":  "speculative-decoding"
-    },
-    {
-        "slug":  "tool-use",
-        "date":  "2023.02",
-        "year":  2023,
-        "organization":  "Meta AI",
-        "type":  "research",
-        "title":  "Toolformer",
-        "titleEn":  "Language models and tools",
-        "summary":  "A self-supervised approach for tool use by language models was proposed.",
-        "importance":  3,
-        "concepts":  [
-                         "Tools",
-                         "Agents"
-                     ],
-        "sourceId":  "tool-use"
-    },
-    {
-        "slug":  "self-rag",
-        "date":  "2023.10",
-        "year":  2023,
-        "organization":  "University of Washington",
-        "type":  "research",
-        "title":  "Self-RAG",
-        "titleEn":  "Self reflective RAG",
-        "summary":  "Retrieval, generation and critique were combined in one framework.",
-        "importance":  2,
-        "concepts":  [
-                         "RAG",
-                         "Self reflection"
-                     ],
-        "sourceId":  "self-rag"
-    },
-    {
-        "slug":  "segment-anything",
-        "date":  "2023.04",
-        "year":  2023,
-        "organization":  "Meta AI",
-        "type":  "model",
-        "title":  "Segment Anything",
-        "titleEn":  "Promptable segmentation",
-        "summary":  "A promptable image segmentation foundation model was released.",
-        "importance":  2,
-        "concepts":  [
-                         "Vision",
-                         "Foundation models"
-                     ],
-        "sourceId":  "segment-anything"
-    },
-    {
-        "slug":  "codex",
-        "date":  "2021.07",
-        "year":  2021,
-        "organization":  "OpenAI",
-        "type":  "model",
-        "title":  "Codex",
-        "titleEn":  "Language models trained on code",
-        "summary":  "A language model trained on public code was evaluated.",
-        "importance":  3,
-        "concepts":  [
-                         "Code",
-                         "Programming"
-                     ],
-        "sourceId":  "codex"
-    },
-    {
-        "slug":  "alpha-code",
-        "date":  "2022.03",
-        "year":  2022,
-        "organization":  "DeepMind",
-        "type":  "model",
-        "title":  "AlphaCode",
-        "titleEn":  "Code generation",
-        "summary":  "A code generation system achieved competition-level results on selected programming contests.",
-        "importance":  2,
-        "concepts":  [
-                         "Code",
-                         "Evaluation"
-                     ],
-        "sourceId":  "alpha-code"
-    },
-    {
-        "slug":  "starcoder",
-        "date":  "2023.05",
-        "year":  2023,
-        "organization":  "BigCode",
-        "type":  "model",
-        "title":  "StarCoder",
-        "titleEn":  "Open code model",
-        "summary":  "An open code language model was released.",
-        "importance":  2,
-        "concepts":  [
-                         "Code",
-                         "Open weights"
-                     ],
-        "sourceId":  "starcoder"
-    },
-    {
-        "slug":  "code-llama",
-        "date":  "2023.08",
-        "year":  2023,
-        "organization":  "Meta AI",
-        "type":  "model",
-        "title":  "Code Llama",
-        "titleEn":  "Open code models",
-        "summary":  "Open foundation models for code were released.",
-        "importance":  3,
-        "concepts":  [
-                         "Code",
-                         "Open weights"
-                     ],
-        "sourceId":  "code-llama"
-    },
-    {
-        "slug":  "palm-2",
-        "date":  "2023.05",
-        "year":  2023,
-        "organization":  "Google",
-        "type":  "model",
-        "title":  "PaLM 2",
-        "titleEn":  "Language model family",
-        "summary":  "A new language model family was described in a technical report.",
-        "importance":  2,
-        "concepts":  [
-                         "Scaling",
-                         "Multilingual"
-                     ],
-        "sourceId":  "palm-2"
-    },
-    {
-        "slug":  "ernie-3",
-        "date":  "2021.12",
-        "year":  2021,
-        "organization":  "Baidu",
-        "type":  "model",
-        "title":  "ERNIE 3.0 Titan",
-        "titleEn":  "Knowledge enhanced pretraining",
-        "summary":  "Knowledge enhanced language pretraining was described.",
-        "importance":  2,
-        "concepts":  [
-                         "Knowledge",
-                         "Pretraining"
-                     ],
-        "sourceId":  "ernie-3"
-    },
-    {
-        "slug":  "command-r",
-        "date":  "2024.03",
-        "year":  2024,
-        "organization":  "Cohere",
-        "type":  "model",
-        "title":  "Command R",
-        "titleEn":  "Retrieval augmented generation",
-        "summary":  "A model family focused on retrieval augmented generation was announced.",
-        "importance":  2,
-        "concepts":  [
-                         "RAG",
-                         "Enterprise"
-                     ],
-        "sourceId":  "command-r"
-    },
-    {
-        "slug":  "zephyr",
-        "date":  "2023.10",
-        "year":  2023,
-        "organization":  "Hugging Face",
-        "type":  "research",
-        "title":  "Zephyr",
-        "titleEn":  "Alignment distillation",
-        "summary":  "Direct distillation was used for language model alignment.",
-        "importance":  2,
-        "concepts":  [
-                         "Alignment",
-                         "Distillation"
-                     ],
-        "sourceId":  "zephyr"
-    },
-    {
-        "slug":  "openhermes",
-        "date":  "2023.11",
-        "year":  2023,
-        "organization":  "Teknium",
-        "type":  "model",
-        "title":  "OpenHermes",
-        "titleEn":  "Open instruction model",
-        "summary":  "An open instruction tuned model was released.",
-        "importance":  2,
-        "concepts":  [
-                         "Instruction tuning",
-                         "Open weights"
-                     ],
-        "sourceId":  "openhermes"
-    },
-    {
-        "slug":  "function-calling",
-        "date":  "2023.06",
-        "year":  2023,
-        "organization":  "OpenAI",
-        "type":  "product",
-        "title":  "Function calling",
-        "titleEn":  "Tool interface",
-        "summary":  "Structured function calling was introduced in an API.",
-        "importance":  3,
-        "concepts":  [
-                         "Tools",
-                         "Structured output"
-                     ],
-        "sourceId":  "function-calling"
-    },
-    {
-        "slug":  "structured-output",
-        "date":  "2024.08",
-        "year":  2024,
-        "organization":  "OpenAI",
-        "type":  "product",
-        "title":  "Structured Outputs",
-        "titleEn":  "Schema constrained output",
-        "summary":  "Schema constrained model output was introduced in an API.",
-        "importance":  2,
-        "concepts":  [
-                         "Structured output",
-                         "Tools"
-                     ],
-        "sourceId":  "structured-output"
-    }
+  {
+    "slug": "transformer",
+    "date": "2017.06",
+    "year": 2017,
+    "organization": "Google",
+    "type": "research",
+    "title": "Transformer",
+    "titleEn": "Attention Is All You Need",
+    "summary": "Attention centered architecture changed the standard for language models.",
+    "importance": 3,
+    "concepts": [
+      "Attention",
+      "Transformer"
+    ],
+    "sourceId": "transformer"
+  },
+  {
+    "slug": "elmo",
+    "date": "2018.02",
+    "year": 2018,
+    "organization": "Allen Institute for AI",
+    "type": "research",
+    "title": "ELMo",
+    "titleEn": "Deep contextualized word representations",
+    "summary": "Contextual word representations improved many language tasks.",
+    "importance": 2,
+    "concepts": [
+      "Contextual embeddings",
+      "Pretraining"
+    ],
+    "sourceId": "elmo"
+  },
+  {
+    "slug": "gpt-1",
+    "date": "2018.06",
+    "year": 2018,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "GPT",
+    "titleEn": "Generative Pre-Training",
+    "summary": "Generative pretraining was applied to language understanding tasks.",
+    "importance": 2,
+    "concepts": [
+      "Pretraining",
+      "Fine-tuning"
+    ],
+    "sourceId": "gpt-1"
+  },
+  {
+    "slug": "bert",
+    "date": "2018.10",
+    "year": 2018,
+    "organization": "Google",
+    "type": "model",
+    "title": "BERT",
+    "titleEn": "Bidirectional encoder",
+    "summary": "Bidirectional pretraining accelerated transfer learning for NLP.",
+    "importance": 2,
+    "concepts": [
+      "Pretraining",
+      "Fine-tuning"
+    ],
+    "sourceId": "bert"
+  },
+  {
+    "slug": "gpt-2",
+    "date": "2019.02",
+    "year": 2019,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "GPT-2",
+    "titleEn": "Unsupervised multitask learners",
+    "summary": "A larger generative language model demonstrated broad task behavior.",
+    "importance": 2,
+    "concepts": [
+      "Scaling",
+      "Generation"
+    ],
+    "sourceId": "gpt-2"
+  },
+  {
+    "slug": "xlnet",
+    "date": "2019.06",
+    "year": 2019,
+    "organization": "Google Brain and CMU",
+    "type": "research",
+    "title": "XLNet",
+    "titleEn": "Generalized autoregressive pretraining",
+    "summary": "A permutation based autoregressive pretraining objective was proposed.",
+    "importance": 2,
+    "concepts": [
+      "Pretraining",
+      "Autoregressive models"
+    ],
+    "sourceId": "xlnet"
+  },
+  {
+    "slug": "roberta",
+    "date": "2019.07",
+    "year": 2019,
+    "organization": "Meta AI",
+    "type": "model",
+    "title": "RoBERTa",
+    "titleEn": "Robustly optimized BERT",
+    "summary": "Training choices showed substantial effects on BERT style models.",
+    "importance": 2,
+    "concepts": [
+      "Pretraining",
+      "Data"
+    ],
+    "sourceId": "roberta"
+  },
+  {
+    "slug": "megatron-lm",
+    "date": "2019.09",
+    "year": 2019,
+    "organization": "NVIDIA",
+    "type": "research",
+    "title": "Megatron-LM",
+    "titleEn": "Model parallelism",
+    "summary": "Model parallel training enabled larger Transformer language models.",
+    "importance": 2,
+    "concepts": [
+      "Scaling",
+      "Distributed training"
+    ],
+    "sourceId": "megatron-lm"
+  },
+  {
+    "slug": "t5",
+    "date": "2019.10",
+    "year": 2019,
+    "organization": "Google Research",
+    "type": "model",
+    "title": "T5",
+    "titleEn": "Text-to-text transfer Transformer",
+    "summary": "A unified text-to-text framing compared transfer learning choices.",
+    "importance": 2,
+    "concepts": [
+      "Transformer",
+      "Transfer learning"
+    ],
+    "sourceId": "t5"
+  },
+  {
+    "slug": "scaling-laws",
+    "date": "2020.01",
+    "year": 2020,
+    "organization": "OpenAI",
+    "type": "research",
+    "title": "Scaling laws",
+    "titleEn": "Neural language models",
+    "summary": "Predictable relationships between loss, data, and compute were studied.",
+    "importance": 3,
+    "concepts": [
+      "Scaling",
+      "Compute"
+    ],
+    "sourceId": "scaling-laws"
+  },
+  {
+    "slug": "gpt-3",
+    "date": "2020.05",
+    "year": 2020,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "GPT-3",
+    "titleEn": "Few-shot learning",
+    "summary": "A large language model demonstrated broad few-shot behavior.",
+    "importance": 3,
+    "concepts": [
+      "Scaling",
+      "In-context learning"
+    ],
+    "sourceId": "gpt3"
+  },
+  {
+    "slug": "rag",
+    "date": "2020.05",
+    "year": 2020,
+    "organization": "Meta",
+    "type": "method",
+    "title": "RAG",
+    "titleEn": "Retrieval-Augmented Generation",
+    "summary": "A pattern that retrieves external documents before generation.",
+    "importance": 2,
+    "concepts": [
+      "Embedding",
+      "RAG"
+    ],
+    "sourceId": "rag"
+  },
+  {
+    "slug": "mmlu",
+    "date": "2020.09",
+    "year": 2020,
+    "organization": "UC Berkeley",
+    "type": "benchmark",
+    "title": "MMLU",
+    "titleEn": "Multitask evaluation",
+    "summary": "A benchmark measured knowledge across diverse academic subjects.",
+    "importance": 3,
+    "concepts": [
+      "Benchmark",
+      "Evaluation"
+    ],
+    "sourceId": "mmlu"
+  },
+  {
+    "slug": "switch-transformer",
+    "date": "2021.01",
+    "year": 2021,
+    "organization": "Google Research",
+    "type": "research",
+    "title": "Switch Transformer",
+    "titleEn": "Sparse expert models",
+    "summary": "Sparse expert routing enabled scaling with lower per-token compute.",
+    "importance": 2,
+    "concepts": [
+      "MoE",
+      "Scaling"
+    ],
+    "sourceId": "switch-transformer"
+  },
+  {
+    "slug": "clip",
+    "date": "2021.03",
+    "year": 2021,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "CLIP",
+    "titleEn": "Natural language supervision",
+    "summary": "Text-image contrastive pretraining linked language and visual representations.",
+    "importance": 3,
+    "concepts": [
+      "Multimodality",
+      "Contrastive learning"
+    ],
+    "sourceId": "clip"
+  },
+  {
+    "slug": "lamda",
+    "date": "2021.05",
+    "year": 2021,
+    "organization": "Google",
+    "type": "model",
+    "title": "LaMDA",
+    "titleEn": "Language models for dialogue",
+    "summary": "A dialogue focused language model was introduced.",
+    "importance": 2,
+    "concepts": [
+      "Dialogue",
+      "Pretraining"
+    ],
+    "sourceId": "lamda"
+  },
+  {
+    "slug": "lora",
+    "date": "2021.06",
+    "year": 2021,
+    "organization": "Microsoft",
+    "type": "research",
+    "title": "LoRA",
+    "titleEn": "Low-rank adaptation",
+    "summary": "Low-rank adapters reduced fine-tuning trainable parameters.",
+    "importance": 3,
+    "concepts": [
+      "Fine-tuning",
+      "Efficiency"
+    ],
+    "sourceId": "lora"
+  },
+  {
+    "slug": "codex",
+    "date": "2021.07",
+    "year": 2021,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "Codex",
+    "titleEn": "Language models trained on code",
+    "summary": "A language model trained on public code was evaluated.",
+    "importance": 3,
+    "concepts": [
+      "Code",
+      "Programming"
+    ],
+    "sourceId": "codex"
+  },
+  {
+    "slug": "flan",
+    "date": "2021.09",
+    "year": 2021,
+    "organization": "Google Research",
+    "type": "research",
+    "title": "FLAN",
+    "titleEn": "Instruction tuning",
+    "summary": "Instruction fine-tuning improved zero-shot task performance.",
+    "importance": 3,
+    "concepts": [
+      "Instruction tuning",
+      "Fine-tuning"
+    ],
+    "sourceId": "flan"
+  },
+  {
+    "slug": "truthfulqa",
+    "date": "2021.09",
+    "year": 2021,
+    "organization": "OpenAI",
+    "type": "benchmark",
+    "title": "TruthfulQA",
+    "titleEn": "Truthfulness benchmark",
+    "summary": "A benchmark evaluated whether models reproduce common falsehoods.",
+    "importance": 2,
+    "concepts": [
+      "Hallucination",
+      "Evaluation"
+    ],
+    "sourceId": "truthfulqa"
+  },
+  {
+    "slug": "ernie-3",
+    "date": "2021.12",
+    "year": 2021,
+    "organization": "Baidu",
+    "type": "model",
+    "title": "ERNIE 3.0 Titan",
+    "titleEn": "Knowledge enhanced pretraining",
+    "summary": "Knowledge enhanced language pretraining was described.",
+    "importance": 2,
+    "concepts": [
+      "Knowledge",
+      "Pretraining"
+    ],
+    "sourceId": "ernie-3"
+  },
+  {
+    "slug": "gopher",
+    "date": "2021.12",
+    "year": 2021,
+    "organization": "DeepMind",
+    "type": "model",
+    "title": "Gopher",
+    "titleEn": "Scaling language models",
+    "summary": "A large language model study examined scaling and evaluation.",
+    "importance": 2,
+    "concepts": [
+      "Scaling",
+      "Evaluation"
+    ],
+    "sourceId": "gopher"
+  },
+  {
+    "slug": "alpha-code",
+    "date": "2022.03",
+    "year": 2022,
+    "organization": "DeepMind",
+    "type": "model",
+    "title": "AlphaCode",
+    "titleEn": "Code generation",
+    "summary": "A code generation system achieved competition-level results on selected programming contests.",
+    "importance": 2,
+    "concepts": [
+      "Code",
+      "Evaluation"
+    ],
+    "sourceId": "alpha-code"
+  },
+  {
+    "slug": "chinchilla",
+    "date": "2022.03",
+    "year": 2022,
+    "organization": "DeepMind",
+    "type": "research",
+    "title": "Chinchilla",
+    "titleEn": "Compute optimal scaling",
+    "summary": "Training token and parameter tradeoffs were studied for compute optimal models.",
+    "importance": 3,
+    "concepts": [
+      "Scaling",
+      "Data"
+    ],
+    "sourceId": "chinchilla"
+  },
+  {
+    "slug": "instructgpt",
+    "date": "2022.03",
+    "year": 2022,
+    "organization": "OpenAI",
+    "type": "method",
+    "title": "InstructGPT",
+    "titleEn": "RLHF",
+    "summary": "Human preference feedback improved instruction following.",
+    "importance": 3,
+    "concepts": [
+      "RLHF",
+      "Alignment"
+    ],
+    "sourceId": "instructgpt"
+  },
+  {
+    "slug": "dalle-2",
+    "date": "2022.04",
+    "year": 2022,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "DALL-E 2",
+    "titleEn": "Text conditional image generation",
+    "summary": "Text-to-image generation used CLIP latent representations.",
+    "importance": 3,
+    "concepts": [
+      "Image generation",
+      "Multimodality"
+    ],
+    "sourceId": "dalle-2"
+  },
+  {
+    "slug": "flamingo",
+    "date": "2022.04",
+    "year": 2022,
+    "organization": "DeepMind",
+    "type": "model",
+    "title": "Flamingo",
+    "titleEn": "Visual language model",
+    "summary": "A visual language model demonstrated few-shot multimodal learning.",
+    "importance": 3,
+    "concepts": [
+      "Multimodality",
+      "Few-shot learning"
+    ],
+    "sourceId": "flamingo"
+  },
+  {
+    "slug": "palm",
+    "date": "2022.04",
+    "year": 2022,
+    "organization": "Google Research",
+    "type": "model",
+    "title": "PaLM",
+    "titleEn": "Pathways language model",
+    "summary": "A large language model was trained with Pathways system infrastructure.",
+    "importance": 2,
+    "concepts": [
+      "Scaling",
+      "Multilingual"
+    ],
+    "sourceId": "palm"
+  },
+  {
+    "slug": "flashattention",
+    "date": "2022.05",
+    "year": 2022,
+    "organization": "Stanford University",
+    "type": "research",
+    "title": "FlashAttention",
+    "titleEn": "Efficient attention",
+    "summary": "An IO-aware implementation improved attention speed and memory use.",
+    "importance": 3,
+    "concepts": [
+      "Attention",
+      "Efficiency"
+    ],
+    "sourceId": "flashattention"
+  },
+  {
+    "slug": "bloom",
+    "date": "2022.07",
+    "year": 2022,
+    "organization": "BigScience",
+    "type": "model",
+    "title": "BLOOM",
+    "titleEn": "Open multilingual language model",
+    "summary": "A multilingual open access language model was released by a research collective.",
+    "importance": 2,
+    "concepts": [
+      "Open weights",
+      "Multilingual"
+    ],
+    "sourceId": "bloom"
+  },
+  {
+    "slug": "stable-diffusion",
+    "date": "2022.08",
+    "year": 2022,
+    "organization": "CompVis",
+    "type": "model",
+    "title": "Stable Diffusion",
+    "titleEn": "Latent diffusion models",
+    "summary": "Latent diffusion made high resolution image synthesis more accessible.",
+    "importance": 3,
+    "concepts": [
+      "Diffusion",
+      "Image generation"
+    ],
+    "sourceId": "stable-diffusion"
+  },
+  {
+    "slug": "whisper",
+    "date": "2022.09",
+    "year": 2022,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "Whisper",
+    "titleEn": "Robust speech recognition",
+    "summary": "Large scale weakly supervised speech recognition was released.",
+    "importance": 2,
+    "concepts": [
+      "Audio",
+      "Speech"
+    ],
+    "sourceId": "whisper"
+  },
+  {
+    "slug": "react",
+    "date": "2022.10",
+    "year": 2022,
+    "organization": "Princeton University",
+    "type": "research",
+    "title": "ReAct",
+    "titleEn": "Reasoning and acting",
+    "summary": "Interleaving reasoning traces and actions was proposed for language agents.",
+    "importance": 3,
+    "concepts": [
+      "Agents",
+      "Reasoning"
+    ],
+    "sourceId": "react"
+  },
+  {
+    "slug": "chatgpt",
+    "date": "2022.11",
+    "year": 2022,
+    "organization": "OpenAI",
+    "type": "product",
+    "title": "ChatGPT",
+    "titleEn": "Conversational product",
+    "summary": "A conversational interface expanded public use of generative AI.",
+    "importance": 3,
+    "concepts": [
+      "RLHF",
+      "Prompt"
+    ],
+    "sourceId": "chatgpt"
+  },
+  {
+    "slug": "speculative-decoding",
+    "date": "2022.11",
+    "year": 2022,
+    "organization": "DeepMind",
+    "type": "research",
+    "title": "Speculative decoding",
+    "titleEn": "Fast inference",
+    "summary": "A draft model was used to accelerate autoregressive decoding.",
+    "importance": 3,
+    "concepts": [
+      "Speculative decoding",
+      "Inference"
+    ],
+    "sourceId": "speculative-decoding"
+  },
+  {
+    "slug": "constitutional-ai",
+    "date": "2022.12",
+    "year": 2022,
+    "organization": "Anthropic",
+    "type": "research",
+    "title": "Constitutional AI",
+    "titleEn": "AI feedback",
+    "summary": "A constitutional rule set was used for harmlessness training.",
+    "importance": 3,
+    "concepts": [
+      "Alignment",
+      "RLAIF"
+    ],
+    "sourceId": "constitutional-ai"
+  },
+  {
+    "slug": "blip-2",
+    "date": "2023.01",
+    "year": 2023,
+    "organization": "Salesforce Research",
+    "type": "model",
+    "title": "BLIP-2",
+    "titleEn": "Language image pretraining",
+    "summary": "A querying transformer connected image encoders and language models.",
+    "importance": 2,
+    "concepts": [
+      "Multimodality",
+      "Vision language"
+    ],
+    "sourceId": "blip-2"
+  },
+  {
+    "slug": "llama",
+    "date": "2023.02",
+    "year": 2023,
+    "organization": "Meta AI",
+    "type": "model",
+    "title": "LLaMA",
+    "titleEn": "Open foundation language models",
+    "summary": "A family of efficient foundation language models was published.",
+    "importance": 3,
+    "concepts": [
+      "Open weights",
+      "Scaling"
+    ],
+    "sourceId": "llama-original"
+  },
+  {
+    "slug": "tool-use",
+    "date": "2023.02",
+    "year": 2023,
+    "organization": "Meta AI",
+    "type": "research",
+    "title": "Toolformer",
+    "titleEn": "Language models and tools",
+    "summary": "A self-supervised approach for tool use by language models was proposed.",
+    "importance": 3,
+    "concepts": [
+      "Tools",
+      "Agents"
+    ],
+    "sourceId": "tool-use"
+  },
+  {
+    "slug": "toolformer",
+    "date": "2023.02",
+    "year": 2023,
+    "organization": "Meta AI",
+    "type": "research",
+    "title": "Toolformer",
+    "titleEn": "Language models and tools",
+    "summary": "A self-supervised approach for tool use by language models was proposed.",
+    "importance": 3,
+    "concepts": [
+      "Tools",
+      "Agents"
+    ],
+    "sourceId": "toolformer"
+  },
+  {
+    "slug": "gpt-4",
+    "date": "2023.03",
+    "year": 2023,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "GPT-4",
+    "titleEn": "Large multimodal model",
+    "summary": "A high capability multimodal model family with a technical report.",
+    "importance": 3,
+    "concepts": [
+      "Multimodality",
+      "Evaluation"
+    ],
+    "sourceId": "gpt4"
+  },
+  {
+    "slug": "llava",
+    "date": "2023.04",
+    "year": 2023,
+    "organization": "University of Wisconsin-Madison",
+    "type": "research",
+    "title": "LLaVA",
+    "titleEn": "Visual instruction tuning",
+    "summary": "Visual instruction tuning was introduced for multimodal assistants.",
+    "importance": 3,
+    "concepts": [
+      "Multimodality",
+      "Instruction tuning"
+    ],
+    "sourceId": "llava"
+  },
+  {
+    "slug": "segment-anything",
+    "date": "2023.04",
+    "year": 2023,
+    "organization": "Meta AI",
+    "type": "model",
+    "title": "Segment Anything",
+    "titleEn": "Promptable segmentation",
+    "summary": "A promptable image segmentation foundation model was released.",
+    "importance": 2,
+    "concepts": [
+      "Vision",
+      "Foundation models"
+    ],
+    "sourceId": "segment-anything"
+  },
+  {
+    "slug": "dpo",
+    "date": "2023.05",
+    "year": 2023,
+    "organization": "Stanford University",
+    "type": "research",
+    "title": "DPO",
+    "titleEn": "Direct preference optimization",
+    "summary": "A simpler preference optimization objective was proposed.",
+    "importance": 3,
+    "concepts": [
+      "Alignment",
+      "Preference optimization"
+    ],
+    "sourceId": "dpo"
+  },
+  {
+    "slug": "palm-2",
+    "date": "2023.05",
+    "year": 2023,
+    "organization": "Google",
+    "type": "model",
+    "title": "PaLM 2",
+    "titleEn": "Language model family",
+    "summary": "A new language model family was described in a technical report.",
+    "importance": 2,
+    "concepts": [
+      "Scaling",
+      "Multilingual"
+    ],
+    "sourceId": "palm-2"
+  },
+  {
+    "slug": "qlora",
+    "date": "2023.05",
+    "year": 2023,
+    "organization": "University of Washington",
+    "type": "research",
+    "title": "QLoRA",
+    "titleEn": "Quantized finetuning",
+    "summary": "Quantization enabled efficient fine-tuning of large language models.",
+    "importance": 3,
+    "concepts": [
+      "Quantization",
+      "Fine-tuning"
+    ],
+    "sourceId": "qlora"
+  },
+  {
+    "slug": "starcoder",
+    "date": "2023.05",
+    "year": 2023,
+    "organization": "BigCode",
+    "type": "model",
+    "title": "StarCoder",
+    "titleEn": "Open code model",
+    "summary": "An open code language model was released.",
+    "importance": 2,
+    "concepts": [
+      "Code",
+      "Open weights"
+    ],
+    "sourceId": "starcoder"
+  },
+  {
+    "slug": "function-calling",
+    "date": "2023.06",
+    "year": 2023,
+    "organization": "OpenAI",
+    "type": "product",
+    "title": "Function calling",
+    "titleEn": "Tool interface",
+    "summary": "Structured function calling was introduced in an API.",
+    "importance": 3,
+    "concepts": [
+      "Tools",
+      "Structured output"
+    ],
+    "sourceId": "function-calling"
+  },
+  {
+    "slug": "llama-2",
+    "date": "2023.07",
+    "year": 2023,
+    "organization": "Meta",
+    "type": "model",
+    "title": "Llama 2",
+    "titleEn": "Open weights",
+    "summary": "Open model weights expanded the ecosystem.",
+    "importance": 3,
+    "concepts": [
+      "Open weights",
+      "Fine-tuning"
+    ],
+    "sourceId": "llama"
+  },
+  {
+    "slug": "code-llama",
+    "date": "2023.08",
+    "year": 2023,
+    "organization": "Meta AI",
+    "type": "model",
+    "title": "Code Llama",
+    "titleEn": "Open code models",
+    "summary": "Open foundation models for code were released.",
+    "importance": 3,
+    "concepts": [
+      "Code",
+      "Open weights"
+    ],
+    "sourceId": "code-llama"
+  },
+  {
+    "slug": "vllm",
+    "date": "2023.09",
+    "year": 2023,
+    "organization": "UC Berkeley",
+    "type": "research",
+    "title": "vLLM",
+    "titleEn": "PagedAttention",
+    "summary": "Paged attention improved memory efficiency for language model serving.",
+    "importance": 3,
+    "concepts": [
+      "KV cache",
+      "Serving"
+    ],
+    "sourceId": "vllm"
+  },
+  {
+    "slug": "mistral-7b",
+    "date": "2023.10",
+    "year": 2023,
+    "organization": "Mistral",
+    "type": "model",
+    "title": "Mistral 7B",
+    "titleEn": "Efficient open model",
+    "summary": "An efficient smaller open model design.",
+    "importance": 2,
+    "concepts": [
+      "GQA",
+      "Open weights"
+    ],
+    "sourceId": "mistral"
+  },
+  {
+    "slug": "self-rag",
+    "date": "2023.10",
+    "year": 2023,
+    "organization": "University of Washington",
+    "type": "research",
+    "title": "Self-RAG",
+    "titleEn": "Self reflective RAG",
+    "summary": "Retrieval, generation and critique were combined in one framework.",
+    "importance": 2,
+    "concepts": [
+      "RAG",
+      "Self reflection"
+    ],
+    "sourceId": "self-rag"
+  },
+  {
+    "slug": "zephyr",
+    "date": "2023.10",
+    "year": 2023,
+    "organization": "Hugging Face",
+    "type": "research",
+    "title": "Zephyr",
+    "titleEn": "Alignment distillation",
+    "summary": "Direct distillation was used for language model alignment.",
+    "importance": 2,
+    "concepts": [
+      "Alignment",
+      "Distillation"
+    ],
+    "sourceId": "zephyr"
+  },
+  {
+    "slug": "openhermes",
+    "date": "2023.11",
+    "year": 2023,
+    "organization": "Teknium",
+    "type": "model",
+    "title": "OpenHermes",
+    "titleEn": "Open instruction model",
+    "summary": "An open instruction tuned model was released.",
+    "importance": 2,
+    "concepts": [
+      "Instruction tuning",
+      "Open weights"
+    ],
+    "sourceId": "openhermes"
+  },
+  {
+    "slug": "gemini",
+    "date": "2023.12",
+    "year": 2023,
+    "organization": "Google DeepMind",
+    "type": "model",
+    "title": "Gemini",
+    "titleEn": "Native multimodality",
+    "summary": "A multimodal model family spanning text, images, audio and video.",
+    "importance": 3,
+    "concepts": [
+      "Multimodality",
+      "MoE"
+    ],
+    "sourceId": "gemini"
+  },
+  {
+    "slug": "mamba",
+    "date": "2023.12",
+    "year": 2023,
+    "organization": "Princeton University",
+    "type": "research",
+    "title": "Mamba",
+    "titleEn": "Selective state spaces",
+    "summary": "A selective state space architecture was proposed as an alternative sequence modeling approach.",
+    "importance": 2,
+    "concepts": [
+      "State space models",
+      "Efficiency"
+    ],
+    "sourceId": "mamba"
+  },
+  {
+    "slug": "mixtral",
+    "date": "2023.12",
+    "year": 2023,
+    "organization": "Mistral AI",
+    "type": "model",
+    "title": "Mixtral 8x7B",
+    "titleEn": "Sparse mixture of experts",
+    "summary": "A sparse mixture-of-experts model was released with open weights.",
+    "importance": 3,
+    "concepts": [
+      "MoE",
+      "Open weights"
+    ],
+    "sourceId": "mixtral"
+  },
+  {
+    "slug": "gemini-1-5",
+    "date": "2024.02",
+    "year": 2024,
+    "organization": "Google DeepMind",
+    "type": "model",
+    "title": "Gemini 1.5",
+    "titleEn": "Long context multimodality",
+    "summary": "A Gemini model line introduced long context multimodal capabilities.",
+    "importance": 3,
+    "concepts": [
+      "Long context",
+      "Multimodality"
+    ],
+    "sourceId": "gemini-1-5"
+  },
+  {
+    "slug": "gemma",
+    "date": "2024.02",
+    "year": 2024,
+    "organization": "Google",
+    "type": "model",
+    "title": "Gemma",
+    "titleEn": "Open models",
+    "summary": "Open weight models based on Gemini research were released.",
+    "importance": 2,
+    "concepts": [
+      "Open weights",
+      "Small language models"
+    ],
+    "sourceId": "gemma"
+  },
+  {
+    "slug": "olmo",
+    "date": "2024.02",
+    "year": 2024,
+    "organization": "AI2",
+    "type": "model",
+    "title": "OLMo",
+    "titleEn": "Open language model science",
+    "summary": "A language model release included training data, code, and evaluation artifacts.",
+    "importance": 2,
+    "concepts": [
+      "Open science",
+      "Language models"
+    ],
+    "sourceId": "olmo"
+  },
+  {
+    "slug": "claude-3",
+    "date": "2024.03",
+    "year": 2024,
+    "organization": "Anthropic",
+    "type": "model",
+    "title": "Claude 3",
+    "titleEn": "Model family",
+    "summary": "A model family with different capability and cost profiles.",
+    "importance": 2,
+    "concepts": [
+      "Model family",
+      "Safety"
+    ],
+    "sourceId": "claude"
+  },
+  {
+    "slug": "claude-3-source",
+    "date": "2024.03",
+    "year": 2024,
+    "organization": "Anthropic",
+    "type": "model",
+    "title": "Claude 3",
+    "titleEn": "Model family",
+    "summary": "A model family with different capability and cost profiles was announced.",
+    "importance": 3,
+    "concepts": [
+      "Model family",
+      "Multimodality"
+    ],
+    "sourceId": "claude-3-source"
+  },
+  {
+    "slug": "command-r",
+    "date": "2024.03",
+    "year": 2024,
+    "organization": "Cohere",
+    "type": "model",
+    "title": "Command R",
+    "titleEn": "Retrieval augmented generation",
+    "summary": "A model family focused on retrieval augmented generation was announced.",
+    "importance": 2,
+    "concepts": [
+      "RAG",
+      "Enterprise"
+    ],
+    "sourceId": "command-r"
+  },
+  {
+    "slug": "dbrx",
+    "date": "2024.03",
+    "year": 2024,
+    "organization": "Databricks",
+    "type": "model",
+    "title": "DBRX",
+    "titleEn": "Open mixture-of-experts",
+    "summary": "An open mixture-of-experts language model was announced.",
+    "importance": 2,
+    "concepts": [
+      "MoE",
+      "Open weights"
+    ],
+    "sourceId": "dbrx"
+  },
+  {
+    "slug": "jamba",
+    "date": "2024.03",
+    "year": 2024,
+    "organization": "AI21 Labs",
+    "type": "model",
+    "title": "Jamba",
+    "titleEn": "Hybrid Transformer-Mamba",
+    "summary": "A hybrid architecture combined Transformer and state space layers with MoE.",
+    "importance": 2,
+    "concepts": [
+      "Mamba",
+      "MoE"
+    ],
+    "sourceId": "jamba"
+  },
+  {
+    "slug": "llama-3",
+    "date": "2024.04",
+    "year": 2024,
+    "organization": "Meta",
+    "type": "model",
+    "title": "Llama 3",
+    "titleEn": "Open weight model family",
+    "summary": "A new open weight Llama model family was announced.",
+    "importance": 3,
+    "concepts": [
+      "Open weights",
+      "Model family"
+    ],
+    "sourceId": "llama-3"
+  },
+  {
+    "slug": "phi-3",
+    "date": "2024.04",
+    "year": 2024,
+    "organization": "Microsoft",
+    "type": "model",
+    "title": "Phi-3",
+    "titleEn": "Small language models",
+    "summary": "A family of small language models was introduced with technical details.",
+    "importance": 2,
+    "concepts": [
+      "Small language models",
+      "Data quality"
+    ],
+    "sourceId": "phi-3"
+  },
+  {
+    "slug": "deepseek-v2",
+    "date": "2024.05",
+    "year": 2024,
+    "organization": "DeepSeek",
+    "type": "model",
+    "title": "DeepSeek-V2",
+    "titleEn": "Efficient mixture-of-experts",
+    "summary": "A mixture-of-experts language model with efficient attention was introduced.",
+    "importance": 2,
+    "concepts": [
+      "MoE",
+      "Efficiency"
+    ],
+    "sourceId": "deepseek-v2"
+  },
+  {
+    "slug": "gpt-4o",
+    "date": "2024.05",
+    "year": 2024,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "GPT-4o",
+    "titleEn": "Omni model",
+    "summary": "A model was introduced for real-time text, vision and audio interaction.",
+    "importance": 3,
+    "concepts": [
+      "Multimodality",
+      "Audio"
+    ],
+    "sourceId": "gpt-4o"
+  },
+  {
+    "slug": "qwen2",
+    "date": "2024.06",
+    "year": 2024,
+    "organization": "Alibaba Cloud",
+    "type": "model",
+    "title": "Qwen2",
+    "titleEn": "Multilingual open model family",
+    "summary": "A multilingual open model family was described in a technical report.",
+    "importance": 2,
+    "concepts": [
+      "Open weights",
+      "Multilingual"
+    ],
+    "sourceId": "qwen2"
+  },
+  {
+    "slug": "llama-3-1",
+    "date": "2024.07",
+    "year": 2024,
+    "organization": "Meta",
+    "type": "model",
+    "title": "Llama 3.1",
+    "titleEn": "Large multilingual open models",
+    "summary": "Large multilingual open models were released with weights.",
+    "importance": 3,
+    "concepts": [
+      "Open weights",
+      "Multilingual"
+    ],
+    "sourceId": "llama-3-1"
+  },
+  {
+    "slug": "mistral-nemo",
+    "date": "2024.07",
+    "year": 2024,
+    "organization": "Mistral AI",
+    "type": "model",
+    "title": "Mistral NeMo",
+    "titleEn": "Open multilingual model",
+    "summary": "An open multilingual model was announced.",
+    "importance": 2,
+    "concepts": [
+      "Open weights",
+      "Multilingual"
+    ],
+    "sourceId": "mistral-nemo"
+  },
+  {
+    "slug": "smollm",
+    "date": "2024.07",
+    "year": 2024,
+    "organization": "Hugging Face",
+    "type": "model",
+    "title": "SmolLM",
+    "titleEn": "Small language models",
+    "summary": "Small language models were released for efficient local use.",
+    "importance": 2,
+    "concepts": [
+      "Small language models",
+      "Open weights"
+    ],
+    "sourceId": "smollm"
+  },
+  {
+    "slug": "structured-output",
+    "date": "2024.08",
+    "year": 2024,
+    "organization": "OpenAI",
+    "type": "product",
+    "title": "Structured Outputs",
+    "titleEn": "Schema constrained output",
+    "summary": "Schema constrained model output was introduced in an API.",
+    "importance": 2,
+    "concepts": [
+      "Structured output",
+      "Tools"
+    ],
+    "sourceId": "structured-output"
+  },
+  {
+    "slug": "o1",
+    "date": "2024.09",
+    "year": 2024,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "OpenAI o1",
+    "titleEn": "Reasoning models",
+    "summary": "A new reasoning model series was announced.",
+    "importance": 3,
+    "concepts": [
+      "Reasoning",
+      "Reinforcement learning"
+    ],
+    "sourceId": "o1"
+  },
+  {
+    "slug": "deepseek-v3",
+    "date": "2024.12",
+    "year": 2024,
+    "organization": "DeepSeek",
+    "type": "model",
+    "title": "DeepSeek-V3",
+    "titleEn": "Large mixture-of-experts",
+    "summary": "A large mixture-of-experts language model technical report was released.",
+    "importance": 3,
+    "concepts": [
+      "MoE",
+      "Efficiency"
+    ],
+    "sourceId": "deepseek-v3"
+  },
+  {
+    "slug": "qwen2-5",
+    "date": "2024.12",
+    "year": 2024,
+    "organization": "Alibaba Cloud",
+    "type": "model",
+    "title": "Qwen2.5",
+    "titleEn": "Open model family",
+    "summary": "An updated open model family was reported.",
+    "importance": 2,
+    "concepts": [
+      "Open weights",
+      "Model family"
+    ],
+    "sourceId": "qwen2-5"
+  },
+  {
+    "slug": "deepseek-r1",
+    "date": "2025.01",
+    "year": 2025,
+    "organization": "DeepSeek",
+    "type": "model",
+    "title": "DeepSeek-R1",
+    "titleEn": "Reasoning capability",
+    "summary": "A reasoning model approach using reinforcement learning and distillation.",
+    "importance": 3,
+    "concepts": [
+      "Reasoning",
+      "Reinforcement learning"
+    ],
+    "sourceId": "deepseek"
+  },
+  {
+    "slug": "deepseek-r1-paper",
+    "date": "2025.01",
+    "year": 2025,
+    "organization": "DeepSeek",
+    "type": "model",
+    "title": "DeepSeek-R1",
+    "titleEn": "Reasoning capability",
+    "summary": "A reasoning model approach using reinforcement learning and distillation was published.",
+    "importance": 3,
+    "concepts": [
+      "Reasoning",
+      "Reinforcement learning"
+    ],
+    "sourceId": "deepseek-r1-paper"
+  },
+  {
+    "slug": "gpt-4-5",
+    "date": "2025.02",
+    "year": 2025,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "GPT-4.5",
+    "titleEn": "OpenAI GPT-4.5",
+    "summary": "??? ????? ????? ??? ?? ??? ??? ??????.",
+    "importance": 3,
+    "concepts": [
+      "Reasoning",
+      "Multimodality"
+    ],
+    "sourceId": "openai-gpt-4-5"
+  },
+  {
+    "slug": "gemini-2-5-pro",
+    "date": "2025.03",
+    "year": 2025,
+    "organization": "Google DeepMind",
+    "type": "model",
+    "title": "Gemini 2.5 Pro",
+    "titleEn": "Gemini 2.5 Pro",
+    "summary": "?? ??? ???? Gemini 2.5 Pro ?? ??? ??????.",
+    "importance": 3,
+    "concepts": [
+      "Reasoning",
+      "Multimodality"
+    ],
+    "sourceId": "google-gemini-2-5"
+  },
+  {
+    "slug": "llama-4",
+    "date": "2025.04",
+    "year": 2025,
+    "organization": "Meta AI",
+    "type": "model",
+    "title": "Llama 4",
+    "titleEn": "Llama 4 Scout and Maverick",
+    "summary": "???? ???? MoE ??? Llama 4 Scout? Maverick? ??????.",
+    "importance": 3,
+    "concepts": [
+      "Multimodality",
+      "Open weights"
+    ],
+    "sourceId": "meta-llama-4"
+  },
+  {
+    "slug": "openai-o3-o4-mini",
+    "date": "2025.04",
+    "year": 2025,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "OpenAI o3 ? o4-mini",
+    "titleEn": "OpenAI o3 and o4-mini",
+    "summary": "?? ??? ?? ??? ??? o3? o4-mini? ??????.",
+    "importance": 3,
+    "concepts": [
+      "Reasoning",
+      "Tools"
+    ],
+    "sourceId": "openai-o3-o4-mini"
+  },
+  {
+    "slug": "claude-4",
+    "date": "2025.05",
+    "year": 2025,
+    "organization": "Anthropic",
+    "type": "model",
+    "title": "Claude 4",
+    "titleEn": "Claude Opus 4 and Sonnet 4",
+    "summary": "????? ??????? ??? ??? Claude Opus 4? Sonnet 4? ??????.",
+    "importance": 3,
+    "concepts": [
+      "Reasoning",
+      "Agents"
+    ],
+    "sourceId": "anthropic-claude-4"
+  },
+  {
+    "slug": "gemini-2-5-ga",
+    "date": "2025.06",
+    "year": 2025,
+    "organization": "Google DeepMind",
+    "type": "model",
+    "title": "Gemini 2.5 ?? ??",
+    "titleEn": "Gemini 2.5 family GA",
+    "summary": "Gemini 2.5 Pro? Flash? ?? ???? Flash-Lite ???? ??????.",
+    "importance": 2,
+    "concepts": [
+      "Reasoning",
+      "Inference"
+    ],
+    "sourceId": "google-gemini-2-5-ga"
+  },
+  {
+    "slug": "deepseek-v3-2",
+    "date": "2025.12",
+    "year": 2025,
+    "organization": "DeepSeek",
+    "type": "model",
+    "title": "DeepSeek-V3.2",
+    "titleEn": "DeepSeek-V3.2",
+    "summary": "DeepSeek? ?? ?? ??? V3.2? ??????.",
+    "importance": 2,
+    "concepts": [
+      "Reasoning",
+      "Open weights"
+    ],
+    "sourceId": "deepseek-v3-2"
+  },
+  {
+    "slug": "gpt-5-4",
+    "date": "2026.03",
+    "year": 2026,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "GPT-5.4",
+    "titleEn": "OpenAI GPT-5.4",
+    "summary": "?? ??? ?? ?????????? ????? ??? GPT-5.4? ??????.",
+    "importance": 3,
+    "concepts": [
+      "Reasoning",
+      "Agents",
+      "Programming"
+    ],
+    "sourceId": "openai-gpt-5-4"
+  },
+  {
+    "slug": "deepseek-v4",
+    "date": "2026.04",
+    "year": 2026,
+    "organization": "DeepSeek",
+    "type": "model",
+    "title": "DeepSeek-V4",
+    "titleEn": "DeepSeek-V4",
+    "summary": "DeepSeek? ?? ?? ??? V4.0? ??????.",
+    "importance": 3,
+    "concepts": [
+      "Reasoning",
+      "Open weights"
+    ],
+    "sourceId": "deepseek-v4"
+  },
+  {
+    "slug": "gpt-5-5",
+    "date": "2026.04",
+    "year": 2026,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "GPT-5.5",
+    "titleEn": "OpenAI GPT-5.5",
+    "summary": "????? ??? ?? ??? ??? GPT-5.5? ??????.",
+    "importance": 3,
+    "concepts": [
+      "Reasoning",
+      "Agents",
+      "Programming"
+    ],
+    "sourceId": "openai-gpt-5-5"
+  },
+  {
+    "slug": "gpt-rosalind",
+    "date": "2026.04",
+    "year": 2026,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "GPT-Rosalind",
+    "titleEn": "GPT-Rosalind",
+    "summary": "?????? ????? ?? ??? ???? ?? ?? ?? ??? ???? ??????.",
+    "importance": 2,
+    "concepts": [
+      "Reasoning",
+      "Tools"
+    ],
+    "sourceId": "openai-gpt-rosalind"
+  },
+  {
+    "slug": "meta-muse-spark",
+    "date": "2026.04",
+    "year": 2026,
+    "organization": "Meta AI",
+    "type": "model",
+    "title": "Muse Spark",
+    "titleEn": "Muse Spark",
+    "summary": "?? ??? ??? ??? ???? ???? ???? ?? ?? Muse Spark? ??????.",
+    "importance": 3,
+    "concepts": [
+      "Multimodality",
+      "Reasoning",
+      "Agents"
+    ],
+    "sourceId": "meta-muse-spark"
+  },
+  {
+    "slug": "claude-sonnet-5",
+    "date": "2026.06",
+    "year": 2026,
+    "organization": "Anthropic",
+    "type": "model",
+    "title": "Claude Sonnet 5",
+    "titleEn": "Claude Sonnet 5",
+    "summary": "?? ????? ????? ??? ??? Sonnet 5? ??????.",
+    "importance": 3,
+    "concepts": [
+      "Reasoning",
+      "Agents",
+      "Programming"
+    ],
+    "sourceId": "anthropic-claude-sonnet-5"
+  },
+  {
+    "slug": "claude-tag",
+    "date": "2026.06",
+    "year": 2026,
+    "organization": "Anthropic",
+    "type": "product",
+    "title": "Claude Tag",
+    "titleEn": "Claude Tag",
+    "summary": "Slack?? ?? Claude? ??? ??? ?????? ???? ??? ???? ??? ??? ??????.",
+    "importance": 2,
+    "concepts": [
+      "Agents",
+      "Tools"
+    ],
+    "sourceId": "anthropic-claude-tag"
+  },
+  {
+    "slug": "meta-muse-image",
+    "date": "2026.07",
+    "year": 2026,
+    "organization": "Meta AI",
+    "type": "model",
+    "title": "Muse Image ? Video",
+    "titleEn": "Muse Image and Muse Video",
+    "summary": "?? ??? ?? ??? ??? Muse Image? Muse Video ???? ??????.",
+    "importance": 2,
+    "concepts": [
+      "Multimodality",
+      "Agents",
+      "Tools"
+    ],
+    "sourceId": "meta-muse-image"
+  }
 ]

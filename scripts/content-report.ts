@@ -1,4 +1,0 @@
-import {conceptDocuments,events,frontierDocuments,issueDocuments,learningPathDocuments,modelFamilies,modelReleases,organizationDocuments,sources} from "../src/lib/content";
-const targets={events:80,organizations:12,modelFamilies:30,modelReleases:70,concepts:40,issues:12,frontiers:8,paths:5};
-const actual={events:events.length,organizations:organizationDocuments.length,modelFamilies:modelFamilies.length,modelReleases:modelReleases.length,concepts:conceptDocuments.length,issues:issueDocuments.length,frontiers:frontierDocuments.length,paths:learningPathDocuments.length};
-console.table(Object.entries(targets).map(([name,target])=>({name,target,actual:actual[name as keyof typeof actual],remaining:target-actual[name as keyof typeof actual]})));console.log(`Primary source records: ${sources.length}`);

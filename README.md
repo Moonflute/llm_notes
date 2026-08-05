@@ -28,3 +28,8 @@ npm.cmd run build
 - Separate verified facts from organization claims and forecasts in page copy.
 ## 품질 검증
 `npm run content-qa`, `npm run test`, `npm run lint`, `npm run build`, `npm run check-links`, `npm run check-static-quality`, `npm run test:e2e`를 실행합니다. 자세한 기준은 [docs/quality.md](docs/quality.md)를 참고하세요.
+
+
+## Release versioning
+
+Versioning starts at v0.0.0. Before every production deployment, increment only the final version segment by one, then update both package.json and src/lib/app-version.ts.

@@ -1702,5 +1702,165 @@
       "2022.07 ?? ???? ?? ??? ??? ?? ??????."
     ],
     "coverage": []
+  },
+  {
+    "familySlug": "clip",
+    "releaseSlug": "clip",
+    "spec": {
+      "developer": "OpenAI",
+      "released": "2021.03",
+      "modalities": "Official documentation does not provide a confirmed input/output summary.",
+      "context": "No context-window figure confirmed in the official material.",
+      "variants": "No officially confirmed submodel information.",
+      "parameters": "Undisclosed",
+      "access": "See the official source below.",
+      "weights": "See the official source for availability and license."
+    },
+    "features": [
+      "Text-image contrastive pretraining linked language and visual representations.",
+      "Key topics: Multimodality ? Contrastive learning.",
+      "2021.03 release information is linked to its primary source."
+    ],
+    "coverage": []
+  },
+  {
+    "familySlug": "lamda",
+    "releaseSlug": "lamda",
+    "spec": {
+      "developer": "Google",
+      "released": "2021.05",
+      "modalities": "Official documentation does not provide a confirmed input/output summary.",
+      "context": "No context-window figure confirmed in the official material.",
+      "variants": "No officially confirmed submodel information.",
+      "parameters": "Undisclosed",
+      "access": "See the official source below.",
+      "weights": "See the official source for availability and license."
+    },
+    "features": [
+      "A dialogue focused language model was introduced.",
+      "Key topics: Dialogue ? Pretraining.",
+      "2021.05 release information is linked to its primary source."
+    ],
+    "coverage": []
+  },
+  {
+    "familySlug": "codex",
+    "releaseSlug": "codex",
+    "spec": {
+      "developer": "OpenAI",
+      "released": "2021.07",
+      "modalities": "Official documentation does not provide a confirmed input/output summary.",
+      "context": "No context-window figure confirmed in the official material.",
+      "variants": "No officially confirmed submodel information.",
+      "parameters": "Undisclosed",
+      "access": "See the official source below.",
+      "weights": "See the official source for availability and license."
+    },
+    "features": [
+      "A language model trained on public code was evaluated.",
+      "Key topics: Code ? Programming.",
+      "2021.07 release information is linked to its primary source."
+    ],
+    "coverage": []
+  },
+  {
+    "familySlug": "sam",
+    "releaseSlug": "segment-anything",
+    "spec": {
+      "developer": "Meta AI",
+      "released": "2023.04",
+      "modalities": "Official documentation does not provide a confirmed input/output summary.",
+      "context": "No context-window figure confirmed in the official material.",
+      "variants": "No officially confirmed submodel information.",
+      "parameters": "Undisclosed",
+      "access": "See the official source below.",
+      "weights": "See the official source for availability and license."
+    },
+    "features": [
+      "A promptable image segmentation foundation model was released.",
+      "Key topics: Vision ? Foundation models.",
+      "2023.04 release information is linked to its primary source."
+    ],
+    "coverage": []
+  },
+  {
+    "familySlug": "openhermes",
+    "releaseSlug": "openhermes",
+    "spec": {
+      "developer": "Teknium",
+      "released": "2023.11",
+      "modalities": "Official documentation does not provide a confirmed input/output summary.",
+      "context": "No context-window figure confirmed in the official material.",
+      "variants": "No officially confirmed submodel information.",
+      "parameters": "Undisclosed",
+      "access": "See the official source below.",
+      "weights": "See the official source for availability and license."
+    },
+    "features": [
+      "An open instruction tuned model was released.",
+      "Key topics: Instruction tuning ? Open weights.",
+      "2023.11 release information is linked to its primary source."
+    ],
+    "coverage": []
+  },
+  {
+    "familySlug": "claude",
+    "releaseSlug": "claude-3-source",
+    "spec": {
+      "developer": "Anthropic",
+      "released": "2024.03",
+      "modalities": "Official documentation does not provide a confirmed input/output summary.",
+      "context": "No context-window figure confirmed in the official material.",
+      "variants": "No officially confirmed submodel information.",
+      "parameters": "Undisclosed",
+      "access": "See the official source below.",
+      "weights": "See the official source for availability and license."
+    },
+    "features": [
+      "A model family with different capability and cost profiles was announced.",
+      "Key topics: Model family ? Multimodality.",
+      "2024.03 release information is linked to its primary source."
+    ],
+    "coverage": []
+  },
+  {
+    "familySlug": "smollm",
+    "releaseSlug": "smollm",
+    "spec": {
+      "developer": "Hugging Face",
+      "released": "2024.07",
+      "modalities": "Official documentation does not provide a confirmed input/output summary.",
+      "context": "No context-window figure confirmed in the official material.",
+      "variants": "No officially confirmed submodel information.",
+      "parameters": "Undisclosed",
+      "access": "See the official source below.",
+      "weights": "See the official source for availability and license."
+    },
+    "features": [
+      "Small language models were released for efficient local use.",
+      "Key topics: Small language models ? Open weights.",
+      "2024.07 release information is linked to its primary source."
+    ],
+    "coverage": []
+  },
+  {
+    "familySlug": "deepseek",
+    "releaseSlug": "deepseek-r1-paper",
+    "spec": {
+      "developer": "DeepSeek",
+      "released": "2025.01",
+      "modalities": "Official documentation does not provide a confirmed input/output summary.",
+      "context": "No context-window figure confirmed in the official material.",
+      "variants": "No officially confirmed submodel information.",
+      "parameters": "Undisclosed",
+      "access": "See the official source below.",
+      "weights": "See the official source for availability and license."
+    },
+    "features": [
+      "A reasoning model approach using reinforcement learning and distillation was published.",
+      "Key topics: Reasoning ? Reinforcement learning.",
+      "2025.01 release information is linked to its primary source."
+    ],
+    "coverage": []
   }
 ]

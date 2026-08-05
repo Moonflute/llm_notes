@@ -1,312 +1,335 @@
 [
-    {
-        "slug":  "gpt",
-        "titleKo":  "GPT",
-        "titleEn":  "Generative Pre-trained Transformer",
-        "organizationSlug":  "openai",
-        "summary":  "OpenAI generative pretrained Transformer model family.",
-        "releaseSlugs":  [
-                             "gpt-3",
-                             "gpt-4"
-                         ]
-    },
-    {
-        "slug":  "gemini",
-        "titleKo":  "Gemini",
-        "titleEn":  "Gemini",
-        "organizationSlug":  "google-deepmind",
-        "summary":  "Google DeepMind multimodal model family.",
-        "releaseSlugs":  [
-                             "gemini"
-                         ]
-    },
-    {
-        "slug":  "claude",
-        "titleKo":  "Claude",
-        "titleEn":  "Claude",
-        "organizationSlug":  "anthropic",
-        "summary":  "Anthropic conversational AI model family.",
-        "releaseSlugs":  [
-                             "claude-3"
-                         ]
-    },
-    {
-        "slug":  "bert",
-        "titleKo":  "BERT",
-        "titleEn":  "Bidirectional Encoder Representations from Transformers",
-        "organizationSlug":  "google-deepmind",
-        "summary":  "Encoder language model family.",
-        "releaseSlugs":  [
-                             "bert"
-                         ]
-    },
-    {
-        "slug":  "t5",
-        "titleKo":  "T5",
-        "titleEn":  "Text-to-Text Transfer Transformer",
-        "organizationSlug":  "google-deepmind",
-        "summary":  "Text-to-text Transformer family.",
-        "releaseSlugs":  [
-                             "t5"
-                         ]
-    },
-    {
-        "slug":  "palm",
-        "titleKo":  "PaLM",
-        "titleEn":  "Pathways Language Model",
-        "organizationSlug":  "google-deepmind",
-        "summary":  "Large language model family.",
-        "releaseSlugs":  [
-                             "palm",
-                             "palm-2"
-                         ]
-    },
-    {
-        "slug":  "llama",
-        "titleKo":  "Llama",
-        "titleEn":  "Large Language Model Meta AI",
-        "organizationSlug":  "meta",
-        "summary":  "Open weight language model family.",
-        "releaseSlugs":  [
-                             "llama",
-                             "llama-2",
-                             "llama-3",
-                             "llama-3-1"
-                         ]
-    },
-    {
-        "slug":  "mistral",
-        "titleKo":  "Mistral",
-        "titleEn":  "Mistral Models",
-        "organizationSlug":  "mistral-ai",
-        "summary":  "Mistral open and commercial model family.",
-        "releaseSlugs":  [
-                             "mistral-7b",
-                             "mixtral",
-                             "mistral-nemo"
-                         ]
-    },
-    {
-        "slug":  "qwen",
-        "titleKo":  "Qwen",
-        "titleEn":  "Qwen Language Models",
-        "organizationSlug":  "alibaba-cloud",
-        "summary":  "Alibaba language model family.",
-        "releaseSlugs":  [
-                             "qwen2",
-                             "qwen2-5"
-                         ]
-    },
-    {
-        "slug":  "deepseek",
-        "titleKo":  "DeepSeek",
-        "titleEn":  "DeepSeek Models",
-        "organizationSlug":  "deepseek",
-        "summary":  "DeepSeek language and reasoning model family.",
-        "releaseSlugs":  [
-                             "deepseek-v2",
-                             "deepseek-v3",
-                             "deepseek-r1"
-                         ]
-    },
-    {
-        "slug":  "phi",
-        "titleKo":  "Phi",
-        "titleEn":  "Phi Small Language Models",
-        "organizationSlug":  "microsoft",
-        "summary":  "Microsoft small language model family.",
-        "releaseSlugs":  [
-                             "phi-3"
-                         ]
-    },
-    {
-        "slug":  "command",
-        "titleKo":  "Command",
-        "titleEn":  "Cohere Command Models",
-        "organizationSlug":  "cohere",
-        "summary":  "Enterprise language model family.",
-        "releaseSlugs":  [
-                             "command-r"
-                         ]
-    },
-    {
-        "slug":  "ernie",
-        "titleKo":  "ERNIE",
-        "titleEn":  "Enhanced Representation through Knowledge Integration",
-        "organizationSlug":  "baidu",
-        "summary":  "Knowledge enhanced language model family.",
-        "releaseSlugs":  [
-                             "ernie-3"
-                         ]
-    },
-    {
-        "slug":  "olmo",
-        "titleKo":  "OLMo",
-        "titleEn":  "Open Language Model",
-        "organizationSlug":  "ai2",
-        "summary":  "Open science language model family.",
-        "releaseSlugs":  [
-                             "olmo"
-                         ]
-    },
-    {
-        "slug":  "gemma",
-        "titleKo":  "Gemma",
-        "titleEn":  "Gemma Open Models",
-        "organizationSlug":  "google-deepmind",
-        "summary":  "Open model family based on Gemini research.",
-        "releaseSlugs":  [
-                             "gemma"
-                         ]
-    },
-    {
-        "slug":  "starcoder",
-        "titleKo":  "StarCoder",
-        "titleEn":  "Open Code Models",
-        "organizationSlug":  "hugging-face",
-        "summary":  "Open code model family.",
-        "releaseSlugs":  [
-                             "starcoder"
-                         ]
-    },
-    {
-        "slug":  "code-llama",
-        "titleKo":  "Code Llama",
-        "titleEn":  "Code Llama",
-        "organizationSlug":  "meta",
-        "summary":  "Open code model family.",
-        "releaseSlugs":  [
-                             "code-llama"
-                         ]
-    },
-    {
-        "slug":  "flamingo",
-        "titleKo":  "Flamingo",
-        "titleEn":  "Flamingo Vision Language Models",
-        "organizationSlug":  "google-deepmind",
-        "summary":  "Vision language model family.",
-        "releaseSlugs":  [
-                             "flamingo"
-                         ]
-    },
-    {
-        "slug":  "dalle",
-        "titleKo":  "DALL-E",
-        "titleEn":  "DALL-E Image Models",
-        "organizationSlug":  "openai",
-        "summary":  "Text-to-image model family.",
-        "releaseSlugs":  [
-                             "dalle-2"
-                         ]
-    },
-    {
-        "slug":  "stable-diffusion",
-        "titleKo":  "Stable Diffusion",
-        "titleEn":  "Stable Diffusion Models",
-        "organizationSlug":  "hugging-face",
-        "summary":  "Open latent diffusion model family.",
-        "releaseSlugs":  [
-                             "stable-diffusion"
-                         ]
-    },
-    {
-        "slug":  "whisper",
-        "titleKo":  "Whisper",
-        "titleEn":  "Whisper Speech Models",
-        "organizationSlug":  "openai",
-        "summary":  "Speech recognition model family.",
-        "releaseSlugs":  [
-                             "whisper"
-                         ]
-    },
-    {
-        "slug":  "alpha-code",
-        "titleKo":  "AlphaCode",
-        "titleEn":  "AlphaCode",
-        "organizationSlug":  "google-deepmind",
-        "summary":  "Code generation model family.",
-        "releaseSlugs":  [
-                             "alpha-code"
-                         ]
-    },
-    {
-        "slug":  "blip",
-        "titleKo":  "BLIP",
-        "titleEn":  "BLIP Vision Language Models",
-        "organizationSlug":  "salesforce",
-        "summary":  "Vision language model family.",
-        "releaseSlugs":  [
-                             "blip-2"
-                         ]
-    },
-    {
-        "slug":  "llava",
-        "titleKo":  "LLaVA",
-        "titleEn":  "Large Language and Vision Assistant",
-        "organizationSlug":  "meta",
-        "summary":  "Multimodal assistant family.",
-        "releaseSlugs":  [
-                             "llava"
-                         ]
-    },
-    {
-        "slug":  "mamba",
-        "titleKo":  "Mamba",
-        "titleEn":  "Selective State Space Models",
-        "organizationSlug":  "princeton",
-        "summary":  "Sequence model family based on state spaces.",
-        "releaseSlugs":  [
-                             "mamba"
-                         ]
-    },
-    {
-        "slug":  "jamba",
-        "titleKo":  "Jamba",
-        "titleEn":  "Hybrid Transformer Mamba Models",
-        "organizationSlug":  "ai21",
-        "summary":  "Hybrid language model family.",
-        "releaseSlugs":  [
-                             "jamba"
-                         ]
-    },
-    {
-        "slug":  "dbrx",
-        "titleKo":  "DBRX",
-        "titleEn":  "Databricks DBRX",
-        "organizationSlug":  "databricks",
-        "summary":  "Open mixture-of-experts model family.",
-        "releaseSlugs":  [
-                             "dbrx"
-                         ]
-    },
-    {
-        "slug":  "bloom",
-        "titleKo":  "BLOOM",
-        "titleEn":  "BigScience Large Open-science Open-access Multilingual",
-        "organizationSlug":  "hugging-face",
-        "summary":  "Open multilingual language model family.",
-        "releaseSlugs":  [
-                             "bloom"
-                         ]
-    },
-    {
-        "slug":  "gopher",
-        "titleKo":  "Gopher",
-        "titleEn":  "Gopher Language Models",
-        "organizationSlug":  "google-deepmind",
-        "summary":  "Scaling research language model family.",
-        "releaseSlugs":  [
-                             "gopher"
-                         ]
-    },
-    {
-        "slug":  "instructgpt",
-        "titleKo":  "InstructGPT",
-        "titleEn":  "InstructGPT",
-        "organizationSlug":  "openai",
-        "summary":  "Human feedback aligned language model family.",
-        "releaseSlugs":  [
-                             "instructgpt"
-                         ]
-    }
+  {
+    "slug": "gpt",
+    "titleKo": "GPT",
+    "titleEn": "Generative Pre-trained Transformer",
+    "organizationSlug": "openai",
+    "summary": "OpenAI generative pretrained Transformer model family.",
+    "releaseSlugs": [
+      "gpt-3",
+      "gpt-4",
+      "gpt-4-5",
+      "openai-o3-o4-mini",
+      "gpt-5-4",
+      "gpt-rosalind",
+      "gpt-5-5"
+    ]
+  },
+  {
+    "slug": "gemini",
+    "titleKo": "Gemini",
+    "titleEn": "Gemini",
+    "organizationSlug": "google-deepmind",
+    "summary": "Google DeepMind multimodal model family.",
+    "releaseSlugs": [
+      "gemini",
+      "gemini-2-5-pro",
+      "gemini-2-5-ga"
+    ]
+  },
+  {
+    "slug": "claude",
+    "titleKo": "Claude",
+    "titleEn": "Claude",
+    "organizationSlug": "anthropic",
+    "summary": "Anthropic conversational AI model family.",
+    "releaseSlugs": [
+      "claude-3",
+      "claude-4",
+      "claude-sonnet-5"
+    ]
+  },
+  {
+    "slug": "bert",
+    "titleKo": "BERT",
+    "titleEn": "Bidirectional Encoder Representations from Transformers",
+    "organizationSlug": "google-deepmind",
+    "summary": "Encoder language model family.",
+    "releaseSlugs": [
+      "bert"
+    ]
+  },
+  {
+    "slug": "t5",
+    "titleKo": "T5",
+    "titleEn": "Text-to-Text Transfer Transformer",
+    "organizationSlug": "google-deepmind",
+    "summary": "Text-to-text Transformer family.",
+    "releaseSlugs": [
+      "t5"
+    ]
+  },
+  {
+    "slug": "palm",
+    "titleKo": "PaLM",
+    "titleEn": "Pathways Language Model",
+    "organizationSlug": "google-deepmind",
+    "summary": "Large language model family.",
+    "releaseSlugs": [
+      "palm",
+      "palm-2"
+    ]
+  },
+  {
+    "slug": "llama",
+    "titleKo": "Llama",
+    "titleEn": "Large Language Model Meta AI",
+    "organizationSlug": "meta",
+    "summary": "Open weight language model family.",
+    "releaseSlugs": [
+      "llama",
+      "llama-2",
+      "llama-3",
+      "llama-3-1",
+      "llama-4"
+    ]
+  },
+  {
+    "slug": "mistral",
+    "titleKo": "Mistral",
+    "titleEn": "Mistral Models",
+    "organizationSlug": "mistral-ai",
+    "summary": "Mistral open and commercial model family.",
+    "releaseSlugs": [
+      "mistral-7b",
+      "mixtral",
+      "mistral-nemo"
+    ]
+  },
+  {
+    "slug": "qwen",
+    "titleKo": "Qwen",
+    "titleEn": "Qwen Language Models",
+    "organizationSlug": "alibaba-cloud",
+    "summary": "Alibaba language model family.",
+    "releaseSlugs": [
+      "qwen2",
+      "qwen2-5"
+    ]
+  },
+  {
+    "slug": "deepseek",
+    "titleKo": "DeepSeek",
+    "titleEn": "DeepSeek Models",
+    "organizationSlug": "deepseek",
+    "summary": "DeepSeek language and reasoning model family.",
+    "releaseSlugs": [
+      "deepseek-v2",
+      "deepseek-v3",
+      "deepseek-r1",
+      "deepseek-v3-2",
+      "deepseek-v4"
+    ]
+  },
+  {
+    "slug": "phi",
+    "titleKo": "Phi",
+    "titleEn": "Phi Small Language Models",
+    "organizationSlug": "microsoft",
+    "summary": "Microsoft small language model family.",
+    "releaseSlugs": [
+      "phi-3"
+    ]
+  },
+  {
+    "slug": "command",
+    "titleKo": "Command",
+    "titleEn": "Cohere Command Models",
+    "organizationSlug": "cohere",
+    "summary": "Enterprise language model family.",
+    "releaseSlugs": [
+      "command-r"
+    ]
+  },
+  {
+    "slug": "ernie",
+    "titleKo": "ERNIE",
+    "titleEn": "Enhanced Representation through Knowledge Integration",
+    "organizationSlug": "baidu",
+    "summary": "Knowledge enhanced language model family.",
+    "releaseSlugs": [
+      "ernie-3"
+    ]
+  },
+  {
+    "slug": "olmo",
+    "titleKo": "OLMo",
+    "titleEn": "Open Language Model",
+    "organizationSlug": "ai2",
+    "summary": "Open science language model family.",
+    "releaseSlugs": [
+      "olmo"
+    ]
+  },
+  {
+    "slug": "gemma",
+    "titleKo": "Gemma",
+    "titleEn": "Gemma Open Models",
+    "organizationSlug": "google-deepmind",
+    "summary": "Open model family based on Gemini research.",
+    "releaseSlugs": [
+      "gemma"
+    ]
+  },
+  {
+    "slug": "starcoder",
+    "titleKo": "StarCoder",
+    "titleEn": "Open Code Models",
+    "organizationSlug": "hugging-face",
+    "summary": "Open code model family.",
+    "releaseSlugs": [
+      "starcoder"
+    ]
+  },
+  {
+    "slug": "code-llama",
+    "titleKo": "Code Llama",
+    "titleEn": "Code Llama",
+    "organizationSlug": "meta",
+    "summary": "Open code model family.",
+    "releaseSlugs": [
+      "code-llama"
+    ]
+  },
+  {
+    "slug": "flamingo",
+    "titleKo": "Flamingo",
+    "titleEn": "Flamingo Vision Language Models",
+    "organizationSlug": "google-deepmind",
+    "summary": "Vision language model family.",
+    "releaseSlugs": [
+      "flamingo"
+    ]
+  },
+  {
+    "slug": "dalle",
+    "titleKo": "DALL-E",
+    "titleEn": "DALL-E Image Models",
+    "organizationSlug": "openai",
+    "summary": "Text-to-image model family.",
+    "releaseSlugs": [
+      "dalle-2"
+    ]
+  },
+  {
+    "slug": "stable-diffusion",
+    "titleKo": "Stable Diffusion",
+    "titleEn": "Stable Diffusion Models",
+    "organizationSlug": "hugging-face",
+    "summary": "Open latent diffusion model family.",
+    "releaseSlugs": [
+      "stable-diffusion"
+    ]
+  },
+  {
+    "slug": "whisper",
+    "titleKo": "Whisper",
+    "titleEn": "Whisper Speech Models",
+    "organizationSlug": "openai",
+    "summary": "Speech recognition model family.",
+    "releaseSlugs": [
+      "whisper"
+    ]
+  },
+  {
+    "slug": "alpha-code",
+    "titleKo": "AlphaCode",
+    "titleEn": "AlphaCode",
+    "organizationSlug": "google-deepmind",
+    "summary": "Code generation model family.",
+    "releaseSlugs": [
+      "alpha-code"
+    ]
+  },
+  {
+    "slug": "blip",
+    "titleKo": "BLIP",
+    "titleEn": "BLIP Vision Language Models",
+    "organizationSlug": "salesforce",
+    "summary": "Vision language model family.",
+    "releaseSlugs": [
+      "blip-2"
+    ]
+  },
+  {
+    "slug": "llava",
+    "titleKo": "LLaVA",
+    "titleEn": "Large Language and Vision Assistant",
+    "organizationSlug": "meta",
+    "summary": "Multimodal assistant family.",
+    "releaseSlugs": [
+      "llava"
+    ]
+  },
+  {
+    "slug": "mamba",
+    "titleKo": "Mamba",
+    "titleEn": "Selective State Space Models",
+    "organizationSlug": "princeton",
+    "summary": "Sequence model family based on state spaces.",
+    "releaseSlugs": [
+      "mamba"
+    ]
+  },
+  {
+    "slug": "jamba",
+    "titleKo": "Jamba",
+    "titleEn": "Hybrid Transformer Mamba Models",
+    "organizationSlug": "ai21",
+    "summary": "Hybrid language model family.",
+    "releaseSlugs": [
+      "jamba"
+    ]
+  },
+  {
+    "slug": "dbrx",
+    "titleKo": "DBRX",
+    "titleEn": "Databricks DBRX",
+    "organizationSlug": "databricks",
+    "summary": "Open mixture-of-experts model family.",
+    "releaseSlugs": [
+      "dbrx"
+    ]
+  },
+  {
+    "slug": "bloom",
+    "titleKo": "BLOOM",
+    "titleEn": "BigScience Large Open-science Open-access Multilingual",
+    "organizationSlug": "hugging-face",
+    "summary": "Open multilingual language model family.",
+    "releaseSlugs": [
+      "bloom"
+    ]
+  },
+  {
+    "slug": "gopher",
+    "titleKo": "Gopher",
+    "titleEn": "Gopher Language Models",
+    "organizationSlug": "google-deepmind",
+    "summary": "Scaling research language model family.",
+    "releaseSlugs": [
+      "gopher"
+    ]
+  },
+  {
+    "slug": "instructgpt",
+    "titleKo": "InstructGPT",
+    "titleEn": "InstructGPT",
+    "organizationSlug": "openai",
+    "summary": "Human feedback aligned language model family.",
+    "releaseSlugs": [
+      "instructgpt"
+    ]
+  },
+  {
+    "slug": "muse",
+    "titleKo": "Muse",
+    "titleEn": "Muse",
+    "organizationSlug": "meta",
+    "summary": "Meta Superintelligence Labs multimodal model family.",
+    "releaseSlugs": [
+      "meta-muse-spark",
+      "meta-muse-image"
+    ]
+  }
 ]

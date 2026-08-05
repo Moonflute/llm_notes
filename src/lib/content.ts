@@ -7,6 +7,7 @@ import issueData from "../../content/issues/index.json";
 import frontierData from "../../content/frontiers/index.json";
 import pathData from "../../content/paths/index.json";
 import modelReleaseData from "../../content/model-releases/index.json";
+import modelProfileData from "../../content/model-profiles/index.json";
 import {conceptSchema,eventSchema,modelFamilySchema,organizationSchema,sourceSchema,validateReferences} from "@/lib/schemas/content";
 export type Source={id:string;title:string;url:string;publisher:string;year:number;tier?:1|2|3|4;verifiedAt?:string};
 export type Event={slug:string;date:string;year:number;organization:string;type:"research"|"model"|"product"|"method"|"benchmark";title:string;titleEn:string;summary:string;importance:1|2|3;concepts:string[];conceptIds:string[];sourceId:string};
@@ -17,6 +18,9 @@ export type LearningPathDocument={slug:string;titleKo:string;summary:string;conc
 export type OrganizationDocument={slug:string;titleKo:string;titleEn:string;summary:string;founded:string;sourceIds:string[]};
 export type ModelFamily={slug:string;titleKo:string;titleEn:string;organizationSlug:string;summary:string;releaseSlugs:string[];sourceIds:string[]};
 export type ModelRelease={familySlug:string;slug:string;date:string;title:string;titleEn:string;summary:string;sourceIds:string[];conceptIds:string[]};
+export type ModelSpec={developer:string;released:string;modalities:string;context:string;variants:string;parameters:string;access:string;weights:string};
+export type EditorialCoverage={outlet:string;title:string;url:string};
+export type ModelProfile={familySlug:string;releaseSlug:string;spec:ModelSpec;features:string[];coverage:EditorialCoverage[]};
 export const sources=sourceData as Source[];
 
 export const conceptDocuments=conceptData as ConceptDocument[];
@@ -29,6 +33,8 @@ export const organizationDocuments=organizationData as OrganizationDocument[];
 const familySeed=familyData as Omit<ModelFamily,"sourceIds">[];
 const timelineModelReleases:ModelRelease[]=familySeed.flatMap(family=>family.releaseSlugs.flatMap(slug=>{const event=events.find(item=>item.slug===slug);return event?[{familySlug:family.slug,slug:event.slug,date:event.date,title:event.title,titleEn:event.titleEn,summary:event.summary,sourceIds:[event.sourceId],conceptIds:event.conceptIds}]:[]}));
 export const modelReleases=[...timelineModelReleases,...modelReleaseData as ModelRelease[]];
+export const modelProfiles=modelProfileData as ModelProfile[];
+export const getModelProfile=(familySlug:string,releaseSlug:string)=>modelProfiles.find(profile=>profile.familySlug===familySlug&&profile.releaseSlug===releaseSlug);
 export const modelFamilies=familySeed.map(family=>{const releases=modelReleases.filter(release=>release.familySlug===family.slug);return {...family,releaseSlugs:releases.map(release=>release.slug),sourceIds:[...new Set(releases.flatMap(release=>release.sourceIds))]};});
 export const concepts=conceptDocuments.map(({slug,titleEn,summary,level})=>[slug,titleEn,summary,level] as const);
 export const organizations=["OpenAI","Google DeepMind","Anthropic","Meta AI","Mistral AI","DeepSeek","Alibaba Cloud","Baidu","Cohere","Allen Institute for AI","Microsoft","Hugging Face"];
@@ -48,6 +54,8 @@ function validateDocument(slug:string,refs:{sourceIds:string[];conceptIds?:strin
 organizationDocuments.forEach(organization=>validateDocument(organization.slug,organization));
 modelReleases.forEach(release=>validateDocument(`${release.familySlug}/${release.slug}`,release));
 if(new Set(modelReleases.map(release=>`${release.familySlug}/${release.slug}`)).size!==modelReleases.length)throw new Error("Duplicate model release key");
+if(new Set(modelProfiles.map(profile=>`${profile.familySlug}/${profile.releaseSlug}`)).size!==modelProfiles.length)throw new Error("Duplicate model profile key");
+for(const release of modelReleases){const profile=getModelProfile(release.familySlug,release.slug);if(!profile)throw new Error(`Missing model profile for ${release.familySlug}/${release.slug}`);if(profile.features.length<2)throw new Error(`Insufficient model profile features for ${release.familySlug}/${release.slug}`);}
 modelFamilies.forEach(family=>{validateDocument(family.slug,family);if(!organizationIds.has(family.organizationSlug))throw new Error(`${family.slug} references missing organization ${family.organizationSlug}`);for(const release of family.releaseSlugs)if(!modelReleases.some(item=>item.familySlug===family.slug&&item.slug===release))throw new Error(`${family.slug} references missing release ${release}`)});
 issueDocuments.forEach(issue=>validateDocument(issue.slug,issue));
 frontierDocuments.forEach(frontier=>validateDocument(frontier.slug,frontier));

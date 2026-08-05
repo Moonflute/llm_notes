@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LLM History
 
-## Getting Started
+A Korean-first, static knowledge application for exploring the history, concepts, and debates around LLMs and generative AI.
 
-First, run the development server:
+## Run locally
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```powershell
+npm.cmd install
+npm.cmd run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Quality checks
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```powershell
+npm.cmd run lint
+npm.cmd run validate-content
+npm.cmd run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`npm.cmd run build` exports a server-free website to `out/`. Open `out/index.html` to view it locally.
 
-## Learn More
+## Content rules
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Use stable lowercase kebab-case IDs and slugs.
+- Every public event and concept must cite at least one source.
+- Dates, source IDs and relationships are validated during the build.
+- Mark unknown specifications as undisclosed; do not infer values.
+- Separate verified facts from organization claims and forecasts in page copy.
+## 품질 검증
+`npm run content-qa`, `npm run test`, `npm run lint`, `npm run build`, `npm run check-links`, `npm run check-static-quality`, `npm run test:e2e`를 실행합니다. 자세한 기준은 [docs/quality.md](docs/quality.md)를 참고하세요.

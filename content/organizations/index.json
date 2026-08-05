@@ -1,0 +1,125 @@
+[
+    {
+        "slug":  "openai",
+        "titleKo":  "OpenAI",
+        "titleEn":  "OpenAI",
+        "summary":  "Research and product organization behind the GPT family.",
+        "founded":  "2015",
+        "sourceIds":  [
+                          "chatgpt"
+                      ]
+    },
+    {
+        "slug":  "google-deepmind",
+        "titleKo":  "Google DeepMind",
+        "titleEn":  "Google DeepMind",
+        "summary":  "Google AI research organization behind Gemini.",
+        "founded":  "2023",
+        "sourceIds":  [
+                          "gemini"
+                      ]
+    },
+    {
+        "slug":  "anthropic",
+        "titleKo":  "Anthropic",
+        "titleEn":  "Anthropic",
+        "summary":  "AI research company with a focus on safe and reliable systems.",
+        "founded":  "2021",
+        "sourceIds":  [
+                          "claude"
+                      ]
+    },
+    {
+        "slug":  "meta",
+        "titleKo":  "Meta AI",
+        "titleEn":  "Meta AI",
+        "summary":  "AI research organization behind Llama and open model work.",
+        "founded":  "2004",
+        "sourceIds":  [
+                          "llama"
+                      ]
+    },
+    {
+        "slug":  "mistral-ai",
+        "titleKo":  "Mistral AI",
+        "titleEn":  "Mistral AI",
+        "summary":  "AI company developing open and commercial language models.",
+        "founded":  "2023",
+        "sourceIds":  [
+                          "mistral"
+                      ]
+    },
+    {
+        "slug":  "deepseek",
+        "titleKo":  "DeepSeek",
+        "titleEn":  "DeepSeek",
+        "summary":  "AI organization publishing efficient and reasoning language models.",
+        "founded":  "2023",
+        "sourceIds":  [
+                          "deepseek"
+                      ]
+    },
+    {
+        "slug":  "alibaba-cloud",
+        "titleKo":  "Alibaba Cloud",
+        "titleEn":  "Alibaba Cloud",
+        "summary":  "Cloud organization behind the Qwen model family.",
+        "founded":  "2009",
+        "sourceIds":  [
+                          "qwen2"
+                      ]
+    },
+    {
+        "slug":  "baidu",
+        "titleKo":  "Baidu",
+        "titleEn":  "Baidu",
+        "summary":  "Technology company developing ERNIE language models.",
+        "founded":  "2000",
+        "sourceIds":  [
+                          "ernie-3"
+                      ]
+    },
+    {
+        "slug":  "cohere",
+        "titleKo":  "Cohere",
+        "titleEn":  "Cohere",
+        "summary":  "Enterprise focused language model company.",
+        "founded":  "2019",
+        "sourceIds":  [
+                          "command-r"
+                      ]
+    },
+    {
+        "slug":  "ai2",
+        "titleKo":  "AI2",
+        "titleEn":  "Allen Institute for AI",
+        "summary":  "Nonprofit AI research institute behind OLMo.",
+        "founded":  "2014",
+        "sourceIds":  [
+                          "olmo"
+                      ]
+    },
+    {
+        "slug":  "microsoft",
+        "titleKo":  "Microsoft",
+        "titleEn":  "Microsoft",
+        "summary":  "Technology company publishing Phi models and AI research.",
+        "founded":  "1975",
+        "sourceIds":  [
+                          "phi-3"
+                      ]
+    },
+    {
+        "slug":  "hugging-face",
+        "titleKo":  "Hugging Face",
+        "titleEn":  "Hugging Face",
+        "summary":  "Open machine learning platform and model ecosystem.",
+        "founded":  "2016",
+        "sourceIds":  [
+                          "smollm"
+                      ]
+    },
+    {"slug":"salesforce","titleKo":"Salesforce AI Research","titleEn":"Salesforce AI Research","summary":"BLIP 계열을 포함한 시각 언어 모델 연구를 공개한 조직입니다.","founded":"1999","sourceIds":["blip-2"]},
+    {"slug":"princeton","titleKo":"Princeton University","titleEn":"Princeton University","summary":"Mamba 선택적 상태 공간 모델 연구에 참여한 연구 기관입니다.","founded":"1746","sourceIds":["mamba"]},
+    {"slug":"ai21","titleKo":"AI21 Labs","titleEn":"AI21 Labs","summary":"Jamba 하이브리드 언어 모델을 공개한 AI 연구 기업입니다.","founded":"2017","sourceIds":["jamba"]},
+    {"slug":"databricks","titleKo":"Databricks","titleEn":"Databricks","summary":"DBRX 전문가 혼합 모델을 공개한 데이터·AI 플랫폼 기업입니다.","founded":"2013","sourceIds":["dbrx"]}]

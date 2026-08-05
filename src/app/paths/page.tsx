@@ -1,0 +1,3 @@
+import Link from "next/link";
+import {learningPathDocuments} from "@/lib/content";
+export default function Paths(){return <main id="main-content" className="directory"><p className="sectionLabel">LEARNING PATHS</p><h1>학습 경로</h1><p className="intro">배경지식 없이도 흐름을 따라가며, 다음 개념으로 자연스럽게 이동합니다.</p><div className="directoryGrid">{learningPathDocuments.map(path=><Link className="directoryCard" href={`/paths/${path.slug}/`} key={path.slug}><span>{path.conceptIds.length}단계 경로</span><h2>{path.titleKo}</h2><p>{path.summary}</p><small>경로 시작하기 →</small></Link>)}</div></main>}

@@ -1,0 +1,3 @@
+import Link from "next/link";
+import {frontierDocuments} from "@/lib/content";
+export default function Frontiers(){return <main id="main-content" className="directory"><p className="sectionLabel">BEYOND LLM</p><h1>프런티어</h1><p className="intro">LLM을 모든 AI의 중심으로 보지 않기 위해, 공유점과 차이를 분리해 설명합니다.</p><div className="directoryGrid">{frontierDocuments.map(topic=><Link className="directoryCard" href={`/frontiers/${topic.slug}/`} key={topic.slug}><span>프런티어</span><h2>{topic.titleKo}</h2><p>{topic.summary}</p><small>LLM과의 관계 보기 →</small></Link>)}</div></main>}

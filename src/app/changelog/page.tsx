@@ -1,0 +1,1 @@
+export default function Changelog(){return <main id="main-content" className="detail"><p className="sectionLabel">CHANGELOG</p><h1>변경 로그</h1><section><h2>2026-08-05 · 초기 공개 기반</h2><p>정적 사이트, 콘텐츠 검증, 타임라인·엔티티·검색 라우트, sitemap과 품질 검사를 추가했습니다.</p></section></main>}

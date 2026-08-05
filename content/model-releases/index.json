@@ -1,0 +1,452 @@
+[
+    {
+        "familySlug":  "gpt",
+        "slug":  "gpt-1",
+        "date":  "2018.06",
+        "title":  "GPT",
+        "titleEn":  "Generative Pre-Training",
+        "summary":  "생성형 사전학습과 과제별 파인튜닝을 제시한 초기 GPT 릴리스입니다.",
+        "sourceIds":  [
+                          "gpt-1"
+                      ],
+        "conceptIds":  [
+                           "pretraining",
+                           "fine-tuning"
+                       ]
+    },
+    {
+        "familySlug":  "gpt",
+        "slug":  "gpt-2",
+        "date":  "2019.02",
+        "title":  "GPT-2",
+        "titleEn":  "GPT-2",
+        "summary":  "대규모 비지도 다중 과제 학습을 보고한 GPT 계열 릴리스입니다.",
+        "sourceIds":  [
+                          "gpt-2"
+                      ],
+        "conceptIds":  [
+                           "pretraining",
+                           "prompt-design"
+                       ]
+    },
+    {
+        "familySlug":  "gpt",
+        "slug":  "gpt-4o",
+        "date":  "2024.05",
+        "title":  "GPT-4o",
+        "titleEn":  "GPT-4o",
+        "summary":  "텍스트·음성·시각 상호작용을 통합한 GPT 계열 모델입니다.",
+        "sourceIds":  [
+                          "gpt-4o"
+                      ],
+        "conceptIds":  [
+                           "multimodality",
+                           "context-window"
+                       ]
+    },
+    {
+        "familySlug":  "gpt",
+        "slug":  "o1",
+        "date":  "2024.09",
+        "title":  "OpenAI o1",
+        "titleEn":  "o1",
+        "summary":  "강화학습 기반의 추론 성능을 강조한 GPT 계열 릴리스입니다.",
+        "sourceIds":  [
+                          "o1"
+                      ],
+        "conceptIds":  [
+                           "reasoning",
+                           "rlhf"
+                       ]
+    },
+    {
+        "familySlug":  "gemini",
+        "slug":  "gemini-1-5",
+        "date":  "2024.02",
+        "title":  "Gemini 1.5",
+        "titleEn":  "Gemini 1.5",
+        "summary":  "긴 컨텍스트와 멀티모달 이해를 강조한 Gemini 릴리스입니다.",
+        "sourceIds":  [
+                          "gemini-1-5"
+                      ],
+        "conceptIds":  [
+                           "long-context",
+                           "multimodality"
+                       ]
+    },
+    {
+        "familySlug":  "gemini",
+        "slug":  "gemma",
+        "date":  "2024.02",
+        "title":  "Gemma",
+        "titleEn":  "Gemma",
+        "summary":  "Gemini 연구를 바탕으로 공개된 경량 모델 계열입니다.",
+        "sourceIds":  [
+                          "gemma"
+                      ],
+        "conceptIds":  [
+                           "small-language-models",
+                           "pretraining"
+                       ]
+    },
+    {
+        "familySlug":  "claude",
+        "slug":  "claude-3-5",
+        "date":  "2024.06",
+        "title":  "Claude 3.5",
+        "titleEn":  "Claude 3.5",
+        "summary":  "Claude 3 이후의 성능·도구 사용 개선을 발표한 릴리스입니다.",
+        "sourceIds":  [
+                          "claude-3-source"
+                      ],
+        "conceptIds":  [
+                           "reasoning",
+                           "agents"
+                       ]
+    },
+    {
+        "familySlug":  "bert",
+        "slug":  "roberta",
+        "date":  "2019.07",
+        "title":  "RoBERTa",
+        "titleEn":  "RoBERTa",
+        "summary":  "BERT 사전학습 절차를 재검토해 개선한 인코더 모델입니다.",
+        "sourceIds":  [
+                          "roberta"
+                      ],
+        "conceptIds":  [
+                           "pretraining",
+                           "data-quality"
+                       ]
+    },
+    {
+        "familySlug":  "bert",
+        "slug":  "xlnet",
+        "date":  "2019.06",
+        "title":  "XLNet",
+        "titleEn":  "XLNet",
+        "summary":  "순열 기반 사전학습을 제시한 언어 모델 릴리스입니다.",
+        "sourceIds":  [
+                          "xlnet"
+                      ],
+        "conceptIds":  [
+                           "pretraining",
+                           "transformer"
+                       ]
+    },
+    {
+        "familySlug":  "t5",
+        "slug":  "t5-11b",
+        "date":  "2020.10",
+        "title":  "T5-11B",
+        "titleEn":  "T5-11B",
+        "summary":  "텍스트-투-텍스트 형식의 대규모 T5 릴리스입니다.",
+        "sourceIds":  [
+                          "t5"
+                      ],
+        "conceptIds":  [
+                           "transformer",
+                           "fine-tuning"
+                       ]
+    },
+    {
+        "familySlug":  "palm",
+        "slug":  "palm-2-large",
+        "date":  "2023.05",
+        "title":  "PaLM 2",
+        "titleEn":  "PaLM 2",
+        "summary":  "다언어·추론 과제를 강조한 PaLM 후속 릴리스입니다.",
+        "sourceIds":  [
+                          "palm-2"
+                      ],
+        "conceptIds":  [
+                           "scaling-laws",
+                           "reasoning"
+                       ]
+    },
+    {
+        "familySlug":  "mistral",
+        "slug":  "mixtral-8x7b",
+        "date":  "2023.12",
+        "title":  "Mixtral 8x7B",
+        "titleEn":  "Mixtral 8x7B",
+        "summary":  "희소 전문가 혼합 구조를 쓴 Mistral 계열 릴리스입니다.",
+        "sourceIds":  [
+                          "mixtral"
+                      ],
+        "conceptIds":  [
+                           "mixture-of-experts",
+                           "dense-vs-sparse"
+                       ]
+    },
+    {
+        "familySlug":  "qwen",
+        "slug":  "qwen2-72b",
+        "date":  "2024.06",
+        "title":  "Qwen2",
+        "titleEn":  "Qwen2",
+        "summary":  "다양한 크기와 언어 지원을 제공한 Qwen 계열 릴리스입니다.",
+        "sourceIds":  [
+                          "qwen2"
+                      ],
+        "conceptIds":  [
+                           "pretraining",
+                           "pretraining"
+                       ]
+    },
+    {
+        "familySlug":  "deepseek",
+        "slug":  "deepseek-v2-lite",
+        "date":  "2024.05",
+        "title":  "DeepSeek-V2",
+        "titleEn":  "DeepSeek-V2",
+        "summary":  "경제적인 전문가 혼합 구조를 제시한 DeepSeek 릴리스입니다.",
+        "sourceIds":  [
+                          "deepseek-v2"
+                      ],
+        "conceptIds":  [
+                           "mixture-of-experts",
+                           "inference-serving"
+                       ]
+    },
+    {
+        "familySlug":  "deepseek",
+        "slug":  "deepseek-v3-base",
+        "date":  "2024.12",
+        "title":  "DeepSeek-V3",
+        "titleEn":  "DeepSeek-V3",
+        "summary":  "효율적인 대규모 전문가 혼합 언어 모델 릴리스입니다.",
+        "sourceIds":  [
+                          "deepseek-v3"
+                      ],
+        "conceptIds":  [
+                           "mixture-of-experts",
+                           "scaling-laws"
+                       ]
+    },
+    {
+        "familySlug":  "phi",
+        "slug":  "phi-3-mini",
+        "date":  "2024.04",
+        "title":  "Phi-3",
+        "titleEn":  "Phi-3",
+        "summary":  "소형 언어 모델의 데이터·학습 전략을 다룬 Phi 릴리스입니다.",
+        "sourceIds":  [
+                          "phi-3"
+                      ],
+        "conceptIds":  [
+                           "small-language-models",
+                           "synthetic-data"
+                       ]
+    },
+    {
+        "familySlug":  "command",
+        "slug":  "command-r-plus",
+        "date":  "2024.03",
+        "title":  "Command R",
+        "titleEn":  "Command R",
+        "summary":  "검색 증강 업무를 겨냥한 Cohere 모델 릴리스입니다.",
+        "sourceIds":  [
+                          "command-r"
+                      ],
+        "conceptIds":  [
+                           "retrieval-augmented-generation",
+                           "grounding"
+                       ]
+    },
+    {
+        "familySlug":  "ernie",
+        "slug":  "ernie-3-titan",
+        "date":  "2021.12",
+        "title":  "ERNIE 3.0 Titan",
+        "titleEn":  "ERNIE 3.0 Titan",
+        "summary":  "지식 강화 사전학습을 다룬 ERNIE 릴리스입니다.",
+        "sourceIds":  [
+                          "ernie-3"
+                      ],
+        "conceptIds":  [
+                           "pretraining",
+                           "grounding"
+                       ]
+    },
+    {
+        "familySlug":  "starcoder",
+        "slug":  "starcoder-base",
+        "date":  "2023.05",
+        "title":  "StarCoder",
+        "titleEn":  "StarCoder",
+        "summary":  "공개 코드 데이터로 학습한 코드 생성 모델 릴리스입니다.",
+        "sourceIds":  [
+                          "starcoder"
+                      ],
+        "conceptIds":  [
+                           "agents",
+                           "pretraining"
+                       ]
+    },
+    {
+        "familySlug":  "code-llama",
+        "slug":  "code-llama-34b",
+        "date":  "2023.08",
+        "title":  "Code Llama",
+        "titleEn":  "Code Llama",
+        "summary":  "코드 생성과 완성을 겨냥한 Llama 기반 릴리스입니다.",
+        "sourceIds":  [
+                          "code-llama"
+                      ],
+        "conceptIds":  [
+                           "agents",
+                           "fine-tuning"
+                       ]
+    },
+    {
+        "familySlug":  "flamingo",
+        "slug":  "flamingo-80b",
+        "date":  "2022.04",
+        "title":  "Flamingo",
+        "titleEn":  "Flamingo",
+        "summary":  "소수 예시 시각 언어 학습을 제시한 멀티모달 릴리스입니다.",
+        "sourceIds":  [
+                          "flamingo"
+                      ],
+        "conceptIds":  [
+                           "multimodality",
+                           "vision-language-models"
+                       ]
+    },
+    {
+        "familySlug":  "dalle",
+        "slug":  "dalle-2-preview",
+        "date":  "2022.04",
+        "title":  "DALL-E 2",
+        "titleEn":  "DALL-E 2",
+        "summary":  "텍스트 조건 이미지 생성을 확장한 DALL-E 릴리스입니다.",
+        "sourceIds":  [
+                          "dalle-2"
+                      ],
+        "conceptIds":  [
+                           "multimodality",
+                           "embedding"
+                       ]
+    },
+    {
+        "familySlug":  "stable-diffusion",
+        "slug":  "stable-diffusion-v1-5",
+        "date":  "2022.08",
+        "title":  "Stable Diffusion",
+        "titleEn":  "Stable Diffusion",
+        "summary":  "잠재 확산 기반의 공개 이미지 생성 모델 릴리스입니다.",
+        "sourceIds":  [
+                          "stable-diffusion"
+                      ],
+        "conceptIds":  [
+                           "multimodality",
+                           "quantization"
+                       ]
+    },
+    {
+        "familySlug":  "whisper",
+        "slug":  "whisper-large-v2",
+        "date":  "2022.09",
+        "title":  "Whisper",
+        "titleEn":  "Whisper",
+        "summary":  "대규모 약지도 데이터로 학습한 음성 인식 릴리스입니다.",
+        "sourceIds":  [
+                          "whisper"
+                      ],
+        "conceptIds":  [
+                           "multimodality",
+                           "data-quality"
+                       ]
+    },
+    {
+        "familySlug":  "alpha-code",
+        "slug":  "alpha-code-competition",
+        "date":  "2022.02",
+        "title":  "AlphaCode",
+        "titleEn":  "AlphaCode",
+        "summary":  "경쟁 프로그래밍 문제 해결을 목표로 한 코드 모델 릴리스입니다.",
+        "sourceIds":  [
+                          "alpha-code"
+                      ],
+        "conceptIds":  [
+                           "reasoning",
+                           "agents"
+                       ]
+    },
+    {
+        "familySlug":  "blip",
+        "slug":  "blip-2-flant5",
+        "date":  "2023.01",
+        "title":  "BLIP-2",
+        "titleEn":  "BLIP-2",
+        "summary":  "시각 인코더와 언어 모델을 연결한 멀티모달 릴리스입니다.",
+        "sourceIds":  [
+                          "blip-2"
+                      ],
+        "conceptIds":  [
+                           "vision-language-models",
+                           "multimodality"
+                       ]
+    },
+    {
+        "familySlug":  "mamba",
+        "slug":  "mamba-130m",
+        "date":  "2023.12",
+        "title":  "Mamba",
+        "titleEn":  "Mamba",
+        "summary":  "선택적 상태 공간으로 긴 시퀀스 효율을 다룬 모델 릴리스입니다.",
+        "sourceIds":  [
+                          "mamba"
+                      ],
+        "conceptIds":  [
+                           "inference-serving",
+                           "transformer"
+                       ]
+    },
+    {
+        "familySlug":  "jamba",
+        "slug":  "jamba-52b",
+        "date":  "2024.03",
+        "title":  "Jamba",
+        "titleEn":  "Jamba",
+        "summary":  "트랜스포머와 Mamba를 결합한 하이브리드 언어 모델입니다.",
+        "sourceIds":  [
+                          "jamba"
+                      ],
+        "conceptIds":  [
+                           "transformer",
+                           "inference-serving"
+                       ]
+    },
+    {
+        "familySlug":  "dbrx",
+        "slug":  "dbrx-base",
+        "date":  "2024.03",
+        "title":  "DBRX",
+        "titleEn":  "DBRX",
+        "summary":  "전문가 혼합 구조를 공개한 Databricks 모델 릴리스입니다.",
+        "sourceIds":  [
+                          "dbrx"
+                      ],
+        "conceptIds":  [
+                           "mixture-of-experts",
+                           "dense-vs-sparse"
+                       ]
+    },
+    {
+        "familySlug":  "bloom",
+        "slug":  "bloom-176b",
+        "date":  "2022.07",
+        "title":  "BLOOM",
+        "titleEn":  "BLOOM",
+        "summary":  "다언어 공개 언어 모델을 지향한 BLOOM 릴리스입니다.",
+        "sourceIds":  [
+                          "bloom"
+                      ],
+        "conceptIds":  [
+                           "pretraining",
+                           "alignment"
+                       ]
+    }
+]

@@ -1,0 +1,5 @@
+"use client";
+import {useState} from "react";
+import Link from "next/link";
+type Step={slug:string;title:string;summary:string};
+export function PathProgress({pathSlug,steps}:{pathSlug:string;steps:Step[]}){const key=`llm-history:path:${pathSlug}`;const [done,setDone]=useState<string[]>(()=>{if(typeof window==="undefined")return [];try{const saved=JSON.parse(window.localStorage.getItem(key)??"[]");return Array.isArray(saved)?saved.filter((id):id is string=>typeof id==="string"):[]}catch{return []}});const toggle=(slug:string)=>setDone(current=>{const next=current.includes(slug)?current.filter(id=>id!==slug):[...current,slug];window.localStorage.setItem(key,JSON.stringify(next));return next});return <section><h2>단계</h2><p className="intro" aria-live="polite">{done.length}/{steps.length} 단계 완료 · 진행 상태는 이 브라우저에만 저장됩니다.</p>{steps.map((step,index)=><div className="pathProgress" key={step.slug}><button type="button" aria-pressed={done.includes(step.slug)} onClick={()=>toggle(step.slug)}>{done.includes(step.slug)?"완료":"완료 표시"}</button><p>{index+1}. <Link className="textLink" href={`/concepts/${step.slug}/`}>{step.title}</Link> — {step.summary}</p></div>)}</section>}

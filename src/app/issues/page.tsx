@@ -1,0 +1,3 @@
+import Link from "next/link";
+import {issueDocuments} from "@/lib/content";
+export default function Issues(){return <main id="main-content" className="directory"><p className="sectionLabel">WHAT IS DEBATED</p><h1>이슈</h1><p className="intro">합의가 높은 사실과 서로 다른 관점·전망을 분리해 읽습니다.</p><div className="directoryGrid">{issueDocuments.map(issue=><Link className="directoryCard" href={`/issues/${issue.slug}/`} key={issue.slug}><span>브리핑</span><h2>{issue.titleKo}</h2><p>{issue.summary}</p><small>근거와 반론 보기 →</small></Link>)}</div></main>}

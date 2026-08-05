@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound(){return <main id="main-content" className="state"><p className="sectionLabel">404</p><h1>찾는 페이지가 없습니다.</h1><p>주소가 바뀌었거나 아직 공개되지 않은 콘텐츠일 수 있습니다.</p><Link href="/">홈으로 돌아가기 →</Link></main>}

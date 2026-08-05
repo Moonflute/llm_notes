@@ -1,0 +1,10 @@
+[
+ {"slug":"multimodality","titleKo":"멀티모달 파운데이션 모델","summary":"텍스트·이미지·오디오 등 여러 표현을 함께 다루는 모델입니다.","shared":"대규모 표현 학습과 생성 모델의 평가·안전성 문제를 공유합니다.","different":"입력 형식과 오류 양상이 언어 전용 모델보다 넓습니다.","sourceIds":["gemini","flamingo"]},
+ {"slug":"agents","titleKo":"자율 에이전트와 도구 사용","summary":"언어 능력에 검색·코드·외부 도구를 결합하는 시스템입니다.","shared":"LLM이 계획과 언어 인터페이스의 중심 역할을 할 수 있습니다.","different":"성능은 모델뿐 아니라 도구·상태·실행 환경에 좌우됩니다.","sourceIds":["react","toolformer"]},
+ {"slug":"world-models","titleKo":"월드 모델","summary":"환경의 상태와 다음 변화를 학습하는 모델입니다.","shared":"표현 학습과 다음 상태 예측을 사용합니다.","different":"언어 텍스트 대신 물리·시뮬레이션 환경의 동역학이 핵심입니다.","sourceIds":["mamba","transformer"]},
+ {"slug":"agi","titleKo":"AGI와 초지능","summary":"일반 지능의 정의와 도달 가능성에 관한 열린 논쟁입니다.","shared":"LLM의 범용 과제 성능은 논의의 주요 증거 중 하나입니다.","different":"정의·측정·사회적 의미가 모델 성능보다 넓은 문제입니다.","sourceIds":["gpt4","mmlu"]},
+ {"slug":"robotics","titleKo":"체화 AI와 로보틱스","summary":"센서·행동·환경 피드백을 결합해 실제 세계에서 과업을 수행하는 연구입니다.","shared":"언어 지시와 시각 표현을 인터페이스로 활용할 수 있습니다.","different":"안전한 물리 행동과 실시간 제어가 필수입니다.","sourceIds":["flamingo","gemini"]},
+ {"slug":"scientific-discovery","titleKo":"과학 발견을 위한 AI","summary":"가설 생성·문헌 탐색·실험 설계에 AI를 쓰는 접근입니다.","shared":"문헌 이해와 도구 사용에서 LLM을 활용할 수 있습니다.","different":"검증은 실제 실험·도메인 지식·재현성에 달려 있습니다.","sourceIds":["toolformer","rag"]},
+ {"slug":"generative-media","titleKo":"생성 미디어","summary":"이미지·음성·영상 같은 비언어 콘텐츠를 생성·편집하는 모델 영역입니다.","shared":"대규모 데이터 학습과 프롬프트 기반 인터페이스를 공유합니다.","different":"시각·청각 품질, 저작권, 합성물 식별 문제가 중심입니다.","sourceIds":["dalle-2","stable-diffusion","whisper"]},
+ {"slug":"interpretability","titleKo":"해석 가능성과 내부 메커니즘","summary":"모델 내부 표현과 행동의 원인을 이해하려는 연구입니다.","shared":"트랜스포머 계열의 내부 상태와 어텐션을 분석 대상으로 삼습니다.","different":"좋은 설명의 기준과 실제 제어 가능성은 아직 논쟁적입니다.","sourceIds":["transformer","mamba"]}
+]

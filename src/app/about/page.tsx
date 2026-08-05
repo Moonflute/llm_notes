@@ -1,0 +1,1 @@
+export default function About(){return <main id="main-content" className="detail"><p className="sectionLabel">ABOUT</p><h1>LLM History</h1><p className="lead">생성형 AI의 역사·개념·논쟁을 한국어로 연결해 읽는 지식 앱입니다.</p><section><h2>목표</h2><p>모델명·제품명·연구 결과를 구분하고, 사건 사이의 연결과 원자료를 함께 제공합니다.</p></section></main>}

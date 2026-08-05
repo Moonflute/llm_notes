@@ -1,0 +1,2 @@
+export const metadata={title:"개인정보 안내",description:"LLM History의 개인정보 및 분석 안내"};
+export default function Privacy(){return <main id="main-content" className="detail"><p className="sectionLabel">PRIVACY</p><h1>개인정보 안내</h1><p className="lead">이 정적 사이트는 계정·댓글·개인화 추천 기능을 제공하지 않습니다.</p><section><h2>로컬 저장</h2><p>테마와 학습 경로 진행 상태처럼 화면 기능에 필요한 값은 사용자의 브라우저에만 저장될 수 있습니다. 서버로 전송하지 않습니다.</p></section><section><h2>분석과 외부 링크</h2><p>광고 추적기를 포함하지 않습니다. 출처 링크를 열면 해당 외부 사이트의 개인정보 정책이 적용됩니다.</p></section><section><h2>문의</h2><p>오류·정정 요청은 프로젝트의 기여 가이드에 따라 제안할 수 있습니다.</p></section></main>}

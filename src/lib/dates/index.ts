@@ -1,0 +1,3 @@
+export type DatePrecision="year"|"month"|"day";
+export function parseHistoricalDate(value:string):{value:string;precision:DatePrecision;sortKey:number}{if(!/^\d{4}(-\d{2})?(-\d{2})?$/.test(value))throw new Error(`Invalid historical date: ${value}`);const [year,month="01",day="01"]=value.split("-");return {value,precision:value.length===4?"year":value.length===7?"month":"day",sortKey:Number(`${year}${month}${day}`)}}
+export function sortHistoricalDates(values:string[]){return [...values].sort((a,b)=>parseHistoricalDate(a).sortKey-parseHistoricalDate(b).sortKey)}

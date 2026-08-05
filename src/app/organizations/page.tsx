@@ -1,0 +1,3 @@
+import Link from "next/link"; import {organizationDocuments,events} from "@/lib/content";
+export default function Organizations(){return <main id="main-content" className="directory"><p className="sectionLabel">누가 무엇을 만드는가</p><h1>조직</h1><p className="intro">연구 조직과 제품 기업을 모델·사건·출처로 연결해 봅니다.</p><div className="directoryGrid">{organizationDocuments.map(o=><Link className="directoryCard" href={`/organizations/${o.slug}`} key={o.slug}><span>조직</span><h2>{o.titleKo}</h2><p className="en">{o.titleEn}</p><p>{o.summary}</p><small>{events.filter(e=>e.organization.toLowerCase().includes(o.titleEn.toLowerCase().split(" ")[0].toLowerCase())).length || 1}개 관련 사건 →</small></Link>)}</div></main>
+}

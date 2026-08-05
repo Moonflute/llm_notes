@@ -1,0 +1,3 @@
+const aliases:Record<string,string[]>={rlhf:["reinforcement learning from human feedback","human feedback","human preference"],rag:["retrieval augmented generation","retrieval-augmented generation","검색 증강 생성"],"reinforcement learning from human feedback":["rlhf","강화학습 피드백"],"mixture of experts":["moe","전문가 혼합"]};
+export function normalizeSearch(value:string){return value.trim().toLowerCase().replace(/[-_\s]+/g," ")}
+export function matchesSearch(query:string,candidate:string){const q=normalizeSearch(query);const hay=normalizeSearch(candidate);return hay.includes(q)||(aliases[q]?.some(alias=>hay.includes(normalizeSearch(alias)))??false)||Object.entries(aliases).some(([term,terms])=>terms.some(x=>normalizeSearch(x)===q)&&hay.includes(term))}

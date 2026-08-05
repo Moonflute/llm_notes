@@ -4,51 +4,12 @@ import { ContentMeta } from "@/components/content/content-meta";
 import { conceptDocuments, getModelProfile, getSource, modelFamilies, modelReleases } from "@/lib/content";
 import { notFound } from "next/navigation";
 
-export function generateStaticParams() {
-  return modelReleases.map((item) => ({ family: item.familySlug, release: item.slug }));
-}
-
-export async function generateMetadata({ params }: { params: Promise<{ family: string; release: string }> }): Promise<Metadata> {
-  const { family, release } = await params;
-  const item = modelReleases.find((entry) => entry.familySlug === family && entry.slug === release);
-  return { title: item?.title ?? "모델 릴리스", description: item?.summary, alternates: { canonical: `/models/${family}/${release}/` } };
-}
+export function generateStaticParams() { return modelReleases.map((item) => ({ family: item.familySlug, release: item.slug })); }
+export async function generateMetadata({ params }: { params: Promise<{ family: string; release: string }> }): Promise<Metadata> { const { family, release } = await params; const item = modelReleases.find((entry) => entry.familySlug === family && entry.slug === release); return { title: item?.title ?? "Model", description: item?.summary, alternates: { canonical: "/models/" + family + "/" + release + "/" } }; }
 
 export default async function Release({ params }: { params: Promise<{ family: string; release: string }> }) {
-  const { family, release } = await params;
-  const modelFamily = modelFamilies.find((item) => item.slug === family);
-  const item = modelReleases.find((entry) => entry.familySlug === family && entry.slug === release);
-  const profile = getModelProfile(family, release);
-  if (!modelFamily || !item || !profile) notFound();
-
-  const familyReleases = modelReleases.filter((entry) => entry.familySlug === family).sort((a, b) => a.date.localeCompare(b.date));
-  const position = familyReleases.findIndex((entry) => entry.slug === release);
-  const previous = familyReleases[position - 1];
-  const next = familyReleases[position + 1];
-  const specs: [string, string][] = [
-    ["개발사", profile.spec.developer],
-    ["최초 공개", profile.spec.released],
-    ["입력 · 출력", profile.spec.modalities],
-    ["컨텍스트", profile.spec.context],
-    ["하위 모델", profile.spec.variants],
-    ["파라미터", profile.spec.parameters],
-    ["제공 방식", profile.spec.access],
-    ["가중치 · 라이선스", profile.spec.weights],
-  ];
-
-  return <main id="main-content" className="detail modelDetail">
-    <Link href={`/models/${family}/`} className="back">← {modelFamily.titleKo} 계열</Link>
-    <p className="sectionLabel">MODEL RELEASE · {item.date}</p>
-    <h1>{item.title}</h1>
-    <p className="detailEn">{item.titleEn}</p>
-    <ContentMeta />
-
-    <section><h2>요약</h2><p className="lead">{item.summary}</p></section>
-    <section><h2>스펙</h2><table className="specTable"><tbody>{specs.map(([label, value]) => <tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}</tbody></table></section>
-    <section><h2>특징</h2><ul className="featureList">{profile.features.map((feature) => <li key={feature}>{feature}</li>)}</ul></section>
-    <section><h2>계열 내 비교</h2><div className="releaseNav">{previous ? <Link className="textLink" href={`/models/${family}/${previous.slug}/`}>← 이전 · {previous.title}</Link> : <span>이전 릴리스 없음</span>}{next ? <Link className="textLink" href={`/models/${family}/${next.slug}/`}>다음 · {next.title} →</Link> : <span>다음 릴리스 없음</span>}</div></section>
-    <section><h2>관련 개념</h2><div className="tags">{item.conceptIds.map((id) => { const concept = conceptDocuments.find((entry) => entry.slug === id); return concept ? <Link href={`/concepts/${id}/`} key={id}>#{concept.titleKo}</Link> : null; })}</div></section>
-    <section><h2>공식 자료</h2>{item.sourceIds.map((id) => { const source = getSource(id); return source ? <a className="source" href={source.url} key={id} target="_blank" rel="noreferrer"><span>Tier {source.tier ?? 1} · {source.publisher}</span><b>{source.title} ↗</b><small>{source.year} · 최종 검증 {source.verifiedAt ?? "미확인"}</small></a> : null; })}</section>
-    {profile.coverage.length > 0 && <section><h2>관련 보도</h2>{profile.coverage.map((article) => <a className="source" href={article.url} key={article.url} target="_blank" rel="noreferrer"><span>{article.outlet}</span><b>{article.title} ↗</b><small>공식 발표를 보완하는 외부 보도</small></a>)}</section>}
-  </main>;
+ const { family, release } = await params; const modelFamily = modelFamilies.find((item) => item.slug === family); const item = modelReleases.find((entry) => entry.familySlug === family && entry.slug === release); const profile = getModelProfile(family, release); if (!modelFamily || !item || !profile) notFound();
+ const releases = modelReleases.filter((entry) => entry.familySlug === family).sort((a,b) => a.date.localeCompare(b.date)); const index = releases.findIndex((entry) => entry.slug === release); const previous = releases[index - 1]; const next = releases[index + 1];
+ const specs: [string,string][] = [["\uAC1C\uBC1C\uC0AC",profile.spec.developer],["\uCD5C\uCD08 \uACF5\uAC1C",profile.spec.released],["\uC785\uB825 \u00B7 \uCD9C\uB825",profile.spec.modalities],["\uCEE8\uD14D\uC2A4\uD2B8",profile.spec.context],["\uD558\uC704 \uBAA8\uB378",profile.spec.variants],["\uD30C\uB77C\uBBF8\uD130",profile.spec.parameters],["\uC81C\uACF5 \uBC29\uC2DD",profile.spec.access],["\uAC00\uC911\uCE58 \u00B7 \uB77C\uC774\uC120\uC2A4",profile.spec.weights]];
+ return <main id="main-content" className="detail modelDetail"><Link href={"/models/" + family + "/"} className="back">{ "\u2190 " + modelFamily.titleKo + " \uACC4\uC5F4" }</Link><p className="sectionLabel">MODEL RELEASE ? {item.date}</p><h1>{item.title}</h1><p className="detailEn">{item.titleEn}</p><ContentMeta /><section><h2>{"\uC694\uC57D"}</h2><p className="lead">{profile.summaryKo}</p></section><section><h2>{"\uC2A4\uD399"}</h2><table className="specTable"><tbody>{specs.map(([label,value])=><tr key={label}><th scope="row">{label}</th><td>{value}</td></tr>)}</tbody></table></section><section><h2>{"\uD2B9\uC9D5"}</h2><ul className="featureList">{profile.features.map((feature)=><li key={feature}>{feature}</li>)}</ul></section><section><h2>{"\uBC1C\uD45C \uB0B4\uC6A9\uACFC \uBC18\uC751"}</h2>{profile.announcement.map((paragraph)=><p key={paragraph}>{paragraph}</p>)}<p>{profile.reception}</p></section><section><h2>{"\uACC4\uC5F4 \uB0B4 \uBE44\uAD50"}</h2><div className="releaseNav">{previous?<Link className="textLink" href={"/models/"+family+"/"+previous.slug+"/"}>{"\uC774\uC804 ? "}{previous.title}</Link>:<span>{"\uC774\uC804 \uB9B4\uB9AC\uC988 \uC5C6\uC74C"}</span>}{next?<Link className="textLink" href={"/models/"+family+"/"+next.slug+"/"}>{"\uB2E4\uC74C ? "}{next.title}</Link>:<span>{"\uB2E4\uC74C \uB9B4\uB9AC\uC988 \uC5C6\uC74C"}</span>}</div></section><section><h2>{"\uAD00\uB828 \uAC1C\uB150"}</h2><div className="tags">{item.conceptIds.map((id)=>{const concept=conceptDocuments.find((entry)=>entry.slug===id);return concept?<Link href={"/concepts/"+id+"/"} key={id}>#{concept.titleKo}</Link>:null})}</div></section><section><h2>{"\uACF5\uC2DD \uC790\uB8CC"}</h2>{item.sourceIds.map((id)=>{const source=getSource(id);return source?<a className="source" href={source.url} key={id} target="_blank" rel="noreferrer"><span>Tier {source.tier??1} ? {source.publisher}</span><b>{source.title} ?</b><small>{source.year}</small></a>:null})}</section>{profile.coverage.length>0&&<section><h2>{"\uAD00\uB828 \uBCF4\uB3C4"}</h2>{profile.coverage.map((article)=><a className="source" href={article.url} key={article.url} target="_blank" rel="noreferrer"><span>{article.outlet}</span><b>{article.title} ?</b></a>)}</section>}</main>;
 }

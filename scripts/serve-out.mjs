@@ -1,5 +1,0 @@
-import {createReadStream,existsSync,statSync} from "node:fs";
-import {createServer} from "node:http";
-import {extname,join,normalize} from "node:path";
-const root=join(process.cwd(),"out");const types:Record<string,string>={".css":"text/css",".html":"text/html",".js":"text/javascript",".json":"application/json",".svg":"image/svg+xml",".xml":"application/xml",".txt":"text/plain"};
-createServer((request,response)=>{const raw=new URL(request.url??"/","http://localhost").pathname;const safe=normalize(raw).replace(/^([.][.][/\\])+/,"");let target=join(root,safe);if(raw.endsWith("/"))target=join(target,"index.html");else if(!extname(target))target=join(target,"index.html");if(!existsSync(target)||statSync(target).isDirectory()){response.writeHead(404);response.end("Not found");return}response.writeHead(200,{"content-type":types[extname(target)]??"application/octet-stream"});createReadStream(target).pipe(response)}).listen(Number(process.env.PORT??4173),"127.0.0.1");

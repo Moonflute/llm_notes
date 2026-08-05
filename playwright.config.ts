@@ -1,2 +1,0 @@
-import {defineConfig,devices} from "@playwright/test";
-export default defineConfig({testDir:"./tests/e2e",fullyParallel:true,timeout:30_000,retries:0,webServer:{command:"node scripts/serve-out.mjs",url:"http://127.0.0.1:4173",reuseExistingServer:true},use:{baseURL:"http://127.0.0.1:4173",trace:"retain-on-failure"},projects:[{name:"desktop",use:{...devices["Desktop Chrome"]}},{name:"mobile",use:{browserName:"chromium",viewport:{width:390,height:844},isMobile:true,hasTouch:true}}]});

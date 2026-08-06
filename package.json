@@ -1,11 +1,13 @@
 {
   "name": "llm-history",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "build": "npm run validate:content && next build",
+    "start": "next start",
+    "validate:content": "node scripts/validate-content.mjs",
+    "test": "npm run validate:content"
   },
   "dependencies": {
     "next": "16.3.0",

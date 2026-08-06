@@ -1287,7 +1287,7 @@
     "type": "model",
     "title": "GPT-4.5",
     "titleEn": "OpenAI GPT-4.5",
-    "summary": "??? ????? ????? ??? ?? ??? ??? ??????.",
+    "summary": "OpenAI가 비지도 사전학습과 규모 확장에 초점을 둔 GPT-4.5 연구 프리뷰를 공개했습니다.",
     "importance": 3,
     "concepts": [
       "Reasoning",
@@ -1303,7 +1303,7 @@
     "type": "model",
     "title": "Gemini 2.5 Pro",
     "titleEn": "Gemini 2.5 Pro",
-    "summary": "?? ??? ???? Gemini 2.5 Pro ?? ??? ??????.",
+    "summary": "Google이 응답 전 내부적으로 추론하는 사고형 모델 Gemini 2.5 Pro 실험 버전을 공개했습니다.",
     "importance": 3,
     "concepts": [
       "Reasoning",
@@ -1319,7 +1319,7 @@
     "type": "model",
     "title": "Llama 4",
     "titleEn": "Llama 4 Scout and Maverick",
-    "summary": "???? ???? MoE ??? Llama 4 Scout? Maverick? ??????.",
+    "summary": "Meta가 네이티브 멀티모달 MoE 모델인 Llama 4 Scout와 Maverick을 공개했습니다.",
     "importance": 3,
     "concepts": [
       "Multimodality",
@@ -1333,9 +1333,9 @@
     "year": 2025,
     "organization": "OpenAI",
     "type": "model",
-    "title": "OpenAI o3 ? o4-mini",
+    "title": "OpenAI o3 · o4-mini",
     "titleEn": "OpenAI o3 and o4-mini",
-    "summary": "?? ??? ?? ??? ??? o3? o4-mini? ??????.",
+    "summary": "OpenAI가 이미지도 추론 과정에 활용하고 도구를 자율적으로 호출하는 o3와 o4-mini를 공개했습니다.",
     "importance": 3,
     "concepts": [
       "Reasoning",
@@ -1351,7 +1351,7 @@
     "type": "model",
     "title": "Claude 4",
     "titleEn": "Claude Opus 4 and Sonnet 4",
-    "summary": "????? ??????? ??? ??? Claude Opus 4? Sonnet 4? ??????.",
+    "summary": "Anthropic이 장시간 코딩과 에이전트 작업을 겨냥한 Claude Opus 4와 Sonnet 4를 공개했습니다.",
     "importance": 3,
     "concepts": [
       "Reasoning",
@@ -1365,9 +1365,9 @@
     "year": 2025,
     "organization": "Google DeepMind",
     "type": "model",
-    "title": "Gemini 2.5 ?? ??",
+    "title": "Gemini 2.5 정식 출시",
     "titleEn": "Gemini 2.5 family GA",
-    "summary": "Gemini 2.5 Pro? Flash? ?? ???? Flash-Lite ???? ??????.",
+    "summary": "Gemini 2.5 Pro와 Flash가 정식 출시되고 비용 중심의 Flash-Lite 프리뷰가 추가됐습니다.",
     "importance": 2,
     "concepts": [
       "Reasoning",
@@ -1383,7 +1383,7 @@
     "type": "model",
     "title": "DeepSeek-V3.2",
     "titleEn": "DeepSeek-V3.2",
-    "summary": "DeepSeek? ?? ?? ??? V3.2? ??????.",
+    "summary": "DeepSeek가 장기 추론과 도구 사용을 개선한 V3.2 모델을 공개했습니다.",
     "importance": 2,
     "concepts": [
       "Reasoning",
@@ -1399,7 +1399,7 @@
     "type": "model",
     "title": "GPT-5.4",
     "titleEn": "OpenAI GPT-5.4",
-    "summary": "?? ??? ?? ?????????? ????? ??? GPT-5.4? ??????.",
+    "summary": "OpenAI가 전문 업무·코딩·컴퓨터 사용을 한 모델에 통합한 GPT-5.4와 GPT-5.4 Pro를 공개했습니다.",
     "importance": 3,
     "concepts": [
       "Reasoning",
@@ -1416,7 +1416,7 @@
     "type": "model",
     "title": "DeepSeek-V4",
     "titleEn": "DeepSeek-V4",
-    "summary": "DeepSeek? ?? ?? ??? V4.0? ??????.",
+    "summary": "DeepSeek가 차세대 주력 모델 V4.0의 공개 정보와 모델 카드를 투명성 센터에 게시했습니다.",
     "importance": 3,
     "concepts": [
       "Reasoning",
@@ -1432,7 +1432,7 @@
     "type": "model",
     "title": "GPT-5.5",
     "titleEn": "OpenAI GPT-5.5",
-    "summary": "????? ??? ?? ??? ??? GPT-5.5? ??????.",
+    "summary": "OpenAI가 에이전트 코딩·컴퓨터 사용·지식 노동·과학 성능을 확장한 GPT-5.5와 Pro를 공개했습니다.",
     "importance": 3,
     "concepts": [
       "Reasoning",
@@ -1449,7 +1449,7 @@
     "type": "model",
     "title": "GPT-Rosalind",
     "titleEn": "GPT-Rosalind",
-    "summary": "?????? ????? ?? ??? ???? ?? ?? ?? ??? ???? ??????.",
+    "summary": "OpenAI가 생명과학 연구를 위해 과학 도구 50여 개를 연결한 GPT-Rosalind 연구 프리뷰를 공개했습니다.",
     "importance": 2,
     "concepts": [
       "Reasoning",
@@ -1465,7 +1465,7 @@
     "type": "model",
     "title": "Muse Spark",
     "titleEn": "Muse Spark",
-    "summary": "?? ??? ??? ??? ???? ???? ???? ?? ?? Muse Spark? ??????.",
+    "summary": "Meta가 시각적 사고 과정과 도구 사용, 멀티에이전트 조율을 결합한 네이티브 멀티모달 모델 Muse Spark를 공개했습니다.",
     "importance": 3,
     "concepts": [
       "Multimodality",
@@ -1482,7 +1482,7 @@
     "type": "model",
     "title": "Claude Sonnet 5",
     "titleEn": "Claude Sonnet 5",
-    "summary": "?? ????? ????? ??? ??? Sonnet 5? ??????.",
+    "summary": "Anthropic이 계획·브라우저·터미널·도구 사용을 강화한 에이전트형 Sonnet 5를 공개했습니다.",
     "importance": 3,
     "concepts": [
       "Reasoning",
@@ -1499,7 +1499,7 @@
     "type": "product",
     "title": "Claude Tag",
     "titleEn": "Claude Tag",
-    "summary": "Slack?? ?? Claude? ??? ??? ?????? ???? ??? ???? ??? ??? ??????.",
+    "summary": "Anthropic이 Slack 채널에서 팀 맥락과 연결 도구를 활용해 비동기 업무를 수행하는 Claude Tag를 공개했습니다.",
     "importance": 2,
     "concepts": [
       "Agents",
@@ -1513,9 +1513,9 @@
     "year": 2026,
     "organization": "Meta AI",
     "type": "model",
-    "title": "Muse Image ? Video",
+    "title": "Muse Image · Muse Video",
     "titleEn": "Muse Image and Muse Video",
-    "summary": "?? ??? ?? ??? ??? Muse Image? Muse Video ???? ??????.",
+    "summary": "Meta가 검색·코드 도구로 결과를 개선하는 Muse Image와 네이티브 오디오를 지원하는 Muse Video 프리뷰를 공개했습니다.",
     "importance": 2,
     "concepts": [
       "Multimodality",

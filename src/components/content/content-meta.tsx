@@ -1,1 +1,1 @@
-export function ContentMeta({verifiedAt="2026-08-05"}:{verifiedAt?:string}){return <p className="contentMeta"><span>상태: 검증 완료</span><span>작성: LLM History 편집</span><span>검토: 콘텐츠 QA</span><span>최종 검증: {verifiedAt}</span></p>}
+export function ContentMeta({verifiedAt,status="근거 확인"}:{verifiedAt?:string;status?:"근거 확인"|"검토 중"}){return <p className="contentMeta"><span>상태: {status}</span><span>작성: LLM History 편집</span><span>{verifiedAt ? "출처 확인: "+verifiedAt : "출처 확인일 미기록"}</span></p>}

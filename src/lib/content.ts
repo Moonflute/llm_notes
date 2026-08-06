@@ -11,7 +11,7 @@ import modelProfileData from "../../content/model-profiles/index.json";
 import {conceptSchema,eventSchema,modelFamilySchema,organizationSchema,sourceSchema,validateReferences} from "@/lib/schemas/content";
 export type Source={id:string;title:string;url:string;publisher:string;year:number;tier?:1|2|3|4;verifiedAt?:string};
 export type Event={slug:string;date:string;year:number;organization:string;type:"research"|"model"|"product"|"method"|"benchmark";title:string;titleEn:string;summary:string;importance:1|2|3;concepts:string[];conceptIds:string[];sourceId:string};
-export type ConceptDocument={slug:string;titleKo:string;titleEn:string;summary:string;level:"?낅Ц"|"以묎툒"|"?ы솕";prerequisites:string[];next:string[];sourceIds:string[]};
+export type ConceptDocument={slug:string;titleKo:string;titleEn:string;summary:string;level:"입문"|"중급"|"심화";prerequisites:string[];next:string[];sourceIds:string[]};
 export type IssueDocument={slug:string;titleKo:string;summary:string;fact:string;unknown:string;conceptIds:string[];sourceIds:string[]};
 export type FrontierDocument={slug:string;titleKo:string;summary:string;shared:string;different:string;sourceIds:string[]};
 export type LearningPathDocument={slug:string;titleKo:string;summary:string;conceptIds:string[];sourceIds:string[]};
@@ -20,7 +20,8 @@ export type ModelFamily={slug:string;titleKo:string;titleEn:string;organizationS
 export type ModelRelease={familySlug:string;slug:string;date:string;title:string;titleEn:string;summary:string;sourceIds:string[];conceptIds:string[]};
 export type ModelSpec={developer:string;released:string;modalities:string;context:string;variants:string;parameters:string;access:string;weights:string};
 export type EditorialCoverage={outlet:string;title:string;url:string};
-export type ModelProfile={familySlug:string;releaseSlug:string;summaryKo:string;spec:ModelSpec;features:string[];announcement:string[];reception:string;coverage:EditorialCoverage[]};
+export type NotableEvent={date:string;title:string;description:string;sourceIds:string[]};
+export type ModelProfile={familySlug:string;releaseSlug:string;summaryKo:string;spec:ModelSpec;features:string[];announcement:string[];reception:string;notableEvents:NotableEvent[];coverage:EditorialCoverage[];verifiedAt:string};
 export const sources=sourceData as Source[];
 
 export const conceptDocuments=conceptData as ConceptDocument[];
@@ -55,7 +56,7 @@ organizationDocuments.forEach(organization=>validateDocument(organization.slug,o
 modelReleases.forEach(release=>validateDocument(`${release.familySlug}/${release.slug}`,release));
 if(new Set(modelReleases.map(release=>`${release.familySlug}/${release.slug}`)).size!==modelReleases.length)throw new Error("Duplicate model release key");
 if(new Set(modelProfiles.map(profile=>`${profile.familySlug}/${profile.releaseSlug}`)).size!==modelProfiles.length)throw new Error("Duplicate model profile key");
-for(const release of modelReleases){const profile=getModelProfile(release.familySlug,release.slug);if(!profile)throw new Error(`Missing model profile for ${release.familySlug}/${release.slug}`);if(profile.features.length<2)throw new Error(`Insufficient model profile features for ${release.familySlug}/${release.slug}`);}
+for(const release of modelReleases){const profile=getModelProfile(release.familySlug,release.slug);if(!profile)throw new Error(`Missing model profile for ${release.familySlug}/${release.slug}`);if(profile.features.length<3)throw new Error(`Insufficient model profile features for ${release.familySlug}/${release.slug}`);if(profile.notableEvents.length<1)throw new Error(`Missing notable event for ${release.familySlug}/${release.slug}`);for(const event of profile.notableEvents)validateDocument(`${release.familySlug}/${release.slug}/${event.title}`,{sourceIds:event.sourceIds});}
 modelFamilies.forEach(family=>{validateDocument(family.slug,family);if(!organizationIds.has(family.organizationSlug))throw new Error(`${family.slug} references missing organization ${family.organizationSlug}`);for(const release of family.releaseSlugs)if(!modelReleases.some(item=>item.familySlug===family.slug&&item.slug===release))throw new Error(`${family.slug} references missing release ${release}`)});
 issueDocuments.forEach(issue=>validateDocument(issue.slug,issue));
 frontierDocuments.forEach(frontier=>validateDocument(frontier.slug,frontier));

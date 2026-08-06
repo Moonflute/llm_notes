@@ -736,7 +736,7 @@
   },
   {
     "id": "google-gemini-2-5-ga",
-    "title": "We?re expanding our Gemini 2.5 family of models",
+    "title": "We're expanding our Gemini 2.5 family of models",
     "url": "https://blog.google/products-and-platforms/products/gemini/gemini-2-5-model-family-expands/",
     "publisher": "Google DeepMind",
     "year": 2025,
@@ -839,6 +839,51 @@
     "url": "https://openai.com/index/introducing-gpt-rosalind/",
     "publisher": "OpenAI",
     "year": 2026,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "lamda-sentience-wapo",
+    "title": "The Google engineer who thinks the company AI has come to life",
+    "url": "https://www.washingtonpost.com/technology/2022/06/11/google-ai-lamda-blake-lemoine/",
+    "publisher": "The Washington Post",
+    "year": 2022,
+    "tier": 2,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "llama-weights-leak-computing",
+    "title": "Meta's large language model LLaMA leaks online",
+    "url": "https://www.computing.co.uk/news/4077275/metas-language-model-llama-leaks-online",
+    "publisher": "Computing",
+    "year": 2023,
+    "tier": 2,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "llama-4-benchmark-techcrunch",
+    "title": "Meta's vanilla Maverick AI model ranks below rivals on a popular chat benchmark",
+    "url": "https://techcrunch.com/2025/04/11/metas-vanilla-maverick-ai-model-ranks-below-rivals-on-a-popular-chat-benchmark/",
+    "publisher": "TechCrunch",
+    "year": 2025,
+    "tier": 2,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-4-system-card",
+    "title": "Claude 4 System Card",
+    "url": "https://assets.anthropic.com/m/6c940a1b69ed6a1c/original/Claude-4-System-Card.pdf",
+    "publisher": "Anthropic",
+    "year": 2025,
+    "tier": 1,
+    "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "anthropic-agentic-misalignment",
+    "title": "Agentic Misalignment: How LLMs could be insider threats",
+    "url": "https://www.anthropic.com/research/agentic-misalignment",
+    "publisher": "Anthropic",
+    "year": 2025,
     "tier": 1,
     "verifiedAt": "2026-08-06"
   }

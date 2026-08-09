@@ -5,47 +5,60 @@ import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import { conceptDocuments, frontierDocuments, issueDocuments, modelFamilies, modelReleases, organizationDocuments } from "@/lib/content";
 
 type Tone = "models" | "concepts" | "organizations" | "history" | "issues" | "frontiers";
-type CosmosNode = {
+type AtlasNode = {
   id: string;
   label: string;
   kicker: string;
   summary: string;
   href?: string;
   tone: Tone;
-  children?: CosmosNode[];
-  utility?: boolean;
+  children?: AtlasNode[];
 };
+
+type Position = { x: number; y: number; scale: number; ring: "outer" | "inner" };
 
 const preferredModels = ["gpt", "gemini", "claude", "llama", "deepseek", "mistral", "qwen", "gemma"];
 const preferredConcepts = ["transformer", "attention", "pretraining", "rlhf", "retrieval-augmented-generation", "mixture-of-experts", "reasoning", "agents", "multimodality", "alignment"];
 const preferredOrganizations = ["openai", "google-deepmind", "anthropic", "meta", "mistral-ai", "deepseek", "alibaba-cloud", "ai2"];
 
-const historyNodes: CosmosNode[] = [
-  { id: "foundations", label: "기반 연구", kicker: "2017—2019", summary: "Transformer와 사전학습이 기반 구조를 만든 시기입니다.", href: "/timeline/?from=2017-01&to=2019-12", tone: "history" },
-  { id: "scaling", label: "스케일링", kicker: "2020—2021", summary: "규모·데이터·연산량의 관계가 모델 개발의 중심이 된 시기입니다.", href: "/timeline/?from=2020-01&to=2021-12", tone: "history" },
+const historyNodes: AtlasNode[] = [
+  { id: "foundations", label: "기반 연구", kicker: "2017—2019", summary: "Transformer와 사전학습이 오늘날 언어 모델의 기본 구조를 만든 시기입니다.", href: "/timeline/?from=2017-01&to=2019-12", tone: "history" },
+  { id: "scaling", label: "스케일링", kicker: "2020—2021", summary: "규모와 데이터, 연산량의 관계가 모델 개발의 중심축이 된 시기입니다.", href: "/timeline/?from=2020-01&to=2021-12", tone: "history" },
   { id: "chat", label: "대화형 AI", kicker: "2022", summary: "지시학습과 RLHF가 대화형 인터페이스로 이어진 시기입니다.", href: "/timeline/?from=2022-01&to=2022-12", tone: "history" },
-  { id: "multimodal", label: "멀티모달", kicker: "2023—2024", summary: "텍스트·이미지·음성을 함께 다루는 모델이 확산된 시기입니다.", href: "/timeline/?from=2023-01&to=2024-12", tone: "history" },
-  { id: "reasoning-agents", label: "추론·에이전트", kicker: "2024—현재", summary: "긴 추론과 도구 사용, 자율 실행이 경쟁 축으로 떠오른 시기입니다.", href: "/timeline/?from=2024-01&to=2026-12", tone: "history" },
-  { id: "all-history", label: "전체 타임라인", kicker: "2017—2026", summary: "모델·연구·제품의 전체 계보를 가로형 지도에서 확인합니다.", href: "/timeline/", tone: "history", utility: true },
+  { id: "multimodal", label: "멀티모달", kicker: "2023—2024", summary: "텍스트와 이미지, 음성을 함께 다루는 모델이 빠르게 확산된 시기입니다.", href: "/timeline/?from=2023-01&to=2024-12", tone: "history" },
+  { id: "reasoning-agents", label: "추론과 에이전트", kicker: "2024—현재", summary: "긴 추론과 도구 사용, 자율 실행이 새로운 경쟁축으로 떠오른 시기입니다.", href: "/timeline/?from=2024-01&to=2026-12", tone: "history" },
+  { id: "all-history", label: "전체 타임라인", kicker: "2017—2026", summary: "연구와 제품, 모델의 전체 계보를 가로형 시간 지도에서 확인합니다.", href: "/timeline/", tone: "history" },
 ];
 
-function layoutNodes(count: number) {
-  if (count <= 6) return Array.from({ length: count }, (_, index) => {
-    const angle = -Math.PI / 2 + index * Math.PI * 2 / count;
-    return { x: 50 + Math.cos(angle) * 39, y: 50 + Math.sin(angle) * 36, ring: "outer" as const };
-  });
-  const outerCount = Math.min(8, Math.ceil(count * .62));
-  return Array.from({ length: count }, (_, index) => {
-    const outer = index < outerCount;
-    const ringIndex = outer ? index : index - outerCount;
-    const ringCount = outer ? outerCount : count - outerCount;
-    const angle = -Math.PI / 2 + ringIndex * Math.PI * 2 / ringCount + (outer ? 0 : Math.PI / Math.max(3, ringCount));
-    return { x: 50 + Math.cos(angle) * (outer ? 38 : 25), y: 50 + Math.sin(angle) * (outer ? 37 : 23), ring: outer ? "outer" as const : "inner" as const };
-  });
+function positionRing(index: number, count: number, ring: "outer" | "inner", offset: number): Position {
+  const angle = offset + index * Math.PI * 2 / count;
+  const radiusX = ring === "outer" ? 43 : 28;
+  const radiusY = ring === "outer" ? 22 : 14;
+  const rawX = Math.cos(angle) * radiusX;
+  const rawY = Math.sin(angle) * radiusY;
+  const tilt = -0.14;
+  const x = 50 + rawX * Math.cos(tilt) - rawY * Math.sin(tilt);
+  const y = 51 + rawX * Math.sin(tilt) + rawY * Math.cos(tilt);
+  return { x, y, scale: .86 + y / 245, ring };
+}
+
+function layoutNodes(count: number): Position[] {
+  if (count <= 7) return Array.from({ length: count }, (_, index) => positionRing(index, count, "outer", -2.72));
+  const outerCount = Math.ceil(count * .62);
+  return Array.from({ length: count }, (_, index) => index < outerCount
+    ? positionRing(index, outerCount, "outer", -2.72)
+    : positionRing(index - outerCount, count - outerCount, "inner", -2.15));
+}
+
+function connectionPath(position: Position, index: number) {
+  const bend = index % 2 ? 3.2 : -3.2;
+  const middleX = (50 + position.x) / 2;
+  const middleY = (51 + position.y) / 2 + bend;
+  return `M 50 51 Q ${middleX} ${middleY} ${position.x} ${position.y}`;
 }
 
 export function KnowledgeCosmos() {
-  const roots = useMemo<CosmosNode[]>(() => {
+  const roots = useMemo<AtlasNode[]>(() => {
     const modelNodes = preferredModels.flatMap(slug => {
       const family = modelFamilies.find(item => item.slug === slug);
       if (!family) return [];
@@ -60,69 +73,112 @@ export function KnowledgeCosmos() {
         children: releases.map(release => ({ id: release.slug, label: release.title, kicker: release.date, summary: release.summary, href: `/models/${family.slug}/${release.slug}/`, tone: "models" as const })),
       }];
     });
-    const conceptNodes = preferredConcepts.flatMap(slug => { const item = conceptDocuments.find(entry => entry.slug === slug); return item ? [{ id: item.slug, label: item.titleKo, kicker: item.level, summary: item.summary, href: `/concepts/${item.slug}/`, tone: "concepts" as const }] : []; });
-    const organizationNodes = preferredOrganizations.flatMap(slug => { const item = organizationDocuments.find(entry => entry.slug === slug); return item ? [{ id: item.slug, label: item.titleKo, kicker: `${item.founded} 설립`, summary: item.summary, href: `/organizations/${item.slug}/`, tone: "organizations" as const }] : []; });
-    const issueNodes = issueDocuments.slice(0, 9).map(item => ({ id: item.slug, label: item.titleKo, kicker: "이슈 브리핑", summary: item.summary, href: `/issues/${item.slug}/`, tone: "issues" as const }));
-    const frontierNodes = frontierDocuments.map(item => ({ id: item.slug, label: item.titleKo, kicker: "프런티어", summary: item.summary, href: `/frontiers/${item.slug}/`, tone: "frontiers" as const }));
+    const concepts = preferredConcepts.flatMap(slug => {
+      const item = conceptDocuments.find(entry => entry.slug === slug);
+      return item ? [{ id: item.slug, label: item.titleKo, kicker: item.level, summary: item.summary, href: `/concepts/${item.slug}/`, tone: "concepts" as const }] : [];
+    });
+    const organizations = preferredOrganizations.flatMap(slug => {
+      const item = organizationDocuments.find(entry => entry.slug === slug);
+      return item ? [{ id: item.slug, label: item.titleKo, kicker: `${item.founded} 설립`, summary: item.summary, href: `/organizations/${item.slug}/`, tone: "organizations" as const }] : [];
+    });
+    const issues = issueDocuments.slice(0, 9).map(item => ({ id: item.slug, label: item.titleKo, kicker: "ISSUE", summary: item.summary, href: `/issues/${item.slug}/`, tone: "issues" as const }));
+    const frontiers = frontierDocuments.map(item => ({ id: item.slug, label: item.titleKo, kicker: "FRONTIER", summary: item.summary, href: `/frontiers/${item.slug}/`, tone: "frontiers" as const }));
     return [
-      { id: "models", label: "모델", kicker: "MODEL FAMILIES", summary: "주요 모델 계열과 각 릴리스를 탐색합니다.", href: "/models/", tone: "models", children: modelNodes },
-      { id: "concepts", label: "용어·개념", kicker: "CONCEPTS", summary: "구조·학습·추론·배포에 필요한 핵심 용어입니다.", href: "/concepts/", tone: "concepts", children: conceptNodes },
-      { id: "organizations", label: "회사·연구소", kicker: "ORGANIZATIONS", summary: "모델과 연구 흐름을 만든 조직을 탐색합니다.", href: "/organizations/", tone: "organizations", children: organizationNodes },
-      { id: "history", label: "역사", kicker: "TIMELINE", summary: "주요 시대를 거쳐 전체 AI 계보 지도로 이동합니다.", href: "/timeline/", tone: "history", children: historyNodes },
-      { id: "issues", label: "이슈·논쟁", kicker: "ISSUES", summary: "환각·저작권·평가·안전처럼 합의되지 않은 질문들입니다.", href: "/issues/", tone: "issues", children: issueNodes },
-      { id: "frontiers", label: "프런티어", kicker: "FRONTIERS", summary: "에이전트·월드 모델·AGI 등 다음 연구 영역입니다.", href: "/frontiers/", tone: "frontiers", children: frontierNodes },
+      { id: "models", label: "모델", kicker: "MODEL FAMILIES", summary: "GPT, Gemini, Claude를 비롯한 주요 모델 계열과 개별 릴리스를 따라갑니다.", href: "/models/", tone: "models", children: modelNodes },
+      { id: "concepts", label: "용어·개념", kicker: "CONCEPTS", summary: "구조, 학습, 추론과 배포를 이해하는 데 필요한 핵심 개념을 연결합니다.", href: "/concepts/", tone: "concepts", children: concepts },
+      { id: "organizations", label: "회사·연구소", kicker: "ORGANIZATIONS", summary: "모델과 연구 흐름을 만들어 온 주요 조직을 살펴봅니다.", href: "/organizations/", tone: "organizations", children: organizations },
+      { id: "history", label: "역사", kicker: "TIMELINE", summary: "기반 연구에서 추론형 모델까지, 생성형 AI의 변화를 시대별로 탐색합니다.", href: "/timeline/", tone: "history", children: historyNodes },
+      { id: "issues", label: "이슈·논쟁", kicker: "ISSUES", summary: "환각, 저작권, 평가와 안전처럼 아직 합의되지 않은 질문을 검토합니다.", href: "/issues/", tone: "issues", children: issues },
+      { id: "frontiers", label: "프런티어", kicker: "FRONTIERS", summary: "에이전트, 월드 모델과 AGI 논의 등 다음 연구 경계를 살펴봅니다.", href: "/frontiers/", tone: "frontiers", children: frontiers },
     ];
   }, []);
 
-  const [path, setPath] = useState<CosmosNode[]>([]);
-  const [selected, setSelected] = useState<CosmosNode | null>(null);
-
-  useEffect(() => {
-    const closePanel = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setSelected(null);
-    };
-    window.addEventListener("keydown", closePanel);
-    return () => window.removeEventListener("keydown", closePanel);
-  }, []);
-
+  const [path, setPath] = useState<AtlasNode[]>([]);
+  const [selectedLeaf, setSelectedLeaf] = useState<AtlasNode | null>(null);
+  const [motion, setMotion] = useState({ serial: 0, direction: "rest", x: 50, y: 51 });
   const current = path.at(-1);
   const nodes = current?.children ?? roots;
   const positions = layoutNodes(nodes.length);
-  const centerLabel = current?.label ?? "LLM History";
-  const centerKicker = current?.kicker ?? "KNOWLEDGE COSMOS";
 
-  const enter = (node: CosmosNode) => {
-    if (!node.children?.length) return;
+  useEffect(() => {
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      if (selectedLeaf) setSelectedLeaf(null);
+      else if (path.length) retreat(path.length - 2);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  });
+
+  const dive = (node: AtlasNode, position: Position) => {
+    if (!node.children?.length) {
+      setSelectedLeaf(node);
+      return;
+    }
+    setSelectedLeaf(null);
+    setMotion(previous => ({ serial: previous.serial + 1, direction: "in", x: position.x, y: position.y }));
     setPath(previous => [...previous, node]);
-    setSelected(null);
   };
-  const moveTo = (index: number) => {
-    setPath(previous => previous.slice(0, index + 1));
-    setSelected(null);
-  };
-  const reset = () => { setPath([]); setSelected(null); };
 
-  return <section className="cosmosStage" aria-label="LLM History 지식 우주">
+  const retreat = (index: number) => {
+    setSelectedLeaf(null);
+    setMotion(previous => ({ serial: previous.serial + 1, direction: "out", x: 50, y: 51 }));
+    setPath(previous => previous.slice(0, index + 1));
+  };
+
+  const reset = () => retreat(-1);
+  const sceneStyle = { "--origin-x": `${motion.x}%`, "--origin-y": `${motion.y}%` } as CSSProperties;
+
+  return <section className="cosmosStage" aria-label="LLM 지식 지도">
     <header className="cosmosToolbar">
-      <nav aria-label="지식 우주 현재 위치"><button type="button" onClick={reset} aria-current={!path.length ? "page" : undefined}>전체</button>{path.map((item, index) => <span key={item.id}><i>›</i><button type="button" onClick={() => moveTo(index)} aria-current={index === path.length - 1 ? "page" : undefined}>{item.label}</button></span>)}</nav>
-      <p>{nodes.length}개 항목</p>
+      <nav aria-label="현재 지도 위치">
+        <button type="button" onClick={reset} aria-current={!path.length ? "page" : undefined}>전체 지도</button>
+        {path.map((item, index) => <span key={item.id}><i>/</i><button type="button" onClick={() => retreat(index)} aria-current={index === path.length - 1 ? "page" : undefined}>{item.label}</button></span>)}
+      </nav>
+      {path.length ? <button className="cosmosBack" type="button" onClick={() => retreat(path.length - 2)}>− 축소</button> : <p>이름을 눌러 확대하세요</p>}
     </header>
-    <div className={`cosmosCanvas level-${path.length}`}>
-      <div className="cosmosOrbit orbitOuter" aria-hidden="true" />
-      {nodes.length > 6 && <div className="cosmosOrbit orbitInner" aria-hidden="true" />}
-      <svg className="cosmosConnections" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">{positions.map((position, index) => <line key={nodes[index].id} x1="50" y1="50" x2={position.x} y2={position.y} className={selected?.id === nodes[index].id ? "active" : ""} />)}</svg>
-      <button className="cosmosCenter" type="button" onClick={() => current ? setSelected(current) : setSelected(null)}><span>{centerKicker}</span><b>{centerLabel}</b><i>{path.length ? "현재 영역" : "대분류"}</i></button>
-      {nodes.map((node, index) => {
-        const position = positions[index];
-        const style = { "--x": `${position.x}%`, "--y": `${position.y}%`, "--delay": `${(index % 5) * -.7}s` } as CSSProperties;
-        return <button type="button" key={`${path.map(item => item.id).join("-")}-${node.id}`} style={style} className={`cosmosNode tone-${node.tone} ${position.ring} ${node.utility ? "utility" : ""} ${selected && selected.id !== node.id ? "muted" : ""} ${selected?.id === node.id ? "selected" : ""}`} aria-pressed={selected?.id === node.id} onClick={() => setSelected(node)}><span className="cosmosNodeBody"><small>{node.kicker}</small><b>{node.label}</b>{node.children?.length ? <i>{node.children.length}</i> : null}</span></button>;
-      })}
-      <p className="cosmosHint">항목을 선택하세요</p>
+
+    <div key={`${path.map(item => item.id).join("-")}-${motion.serial}`} className={`cosmosWorld motion-${motion.direction}`} style={sceneStyle}>
+      <div className="cosmosCaption">
+        <p>{current?.kicker ?? "AN ATLAS OF GENERATIVE AI"}</p>
+        <h2>{current?.label ?? "LLM 지식 지도"}</h2>
+        <span>{current?.summary ?? "모델과 개념, 조직과 사건이 어떻게 연결되는지 한 장의 지도에서 따라가 보세요."}</span>
+        {current?.href ? <Link href={current.href}>이 항목 전체 읽기 ↗</Link> : null}
+      </div>
+
+      <div className="cosmosCanvas">
+        <svg className="cosmosOrbits" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <ellipse cx="50" cy="51" rx="45" ry="22" transform="rotate(-8 50 51)" />
+          <ellipse className="orbitEcho" cx="50" cy="51" rx="44.4" ry="21.4" transform="rotate(-7.4 50 51)" />
+          {nodes.length > 7 ? <ellipse className="orbitInner" cx="50" cy="51" rx="29" ry="14" transform="rotate(-8 50 51)" /> : null}
+          {positions.map((position, index) => <path key={nodes[index].id} d={connectionPath(position, index)} />)}
+        </svg>
+
+        <div className="cosmosCenter" aria-hidden="true"><span>{path.length ? String(path.length).padStart(2, "0") : "AI"}</span><b>{current?.label ?? "LLM"}</b><i>{nodes.length}개의 갈래</i></div>
+
+        {nodes.map((node, index) => {
+          const position = positions[index];
+          const nodeStyle = { "--x": `${position.x}%`, "--y": `${position.y}%`, "--node-scale": position.scale } as CSSProperties;
+          return <button
+            type="button"
+            key={node.id}
+            style={nodeStyle}
+            data-side={position.x > 66 ? "left" : "right"}
+            className={`cosmosNode tone-${node.tone} ${position.ring} ${selectedLeaf?.id === node.id ? "selected" : ""}`}
+            onClick={() => dive(node, position)}
+            aria-expanded={node.children?.length ? false : undefined}
+          >
+            <span className="inkMark" aria-hidden="true"><i /></span>
+            <span className="cosmosNodeBody"><small>{node.kicker}</small><b>{node.label}</b>{node.children?.length ? <em>확대 · {node.children.length}</em> : <em>주석 보기</em>}</span>
+          </button>;
+        })}
+      </div>
+
+      {selectedLeaf ? <aside className={`cosmosNote tone-${selectedLeaf.tone}`} aria-live="polite">
+        <button type="button" onClick={() => setSelectedLeaf(null)} aria-label="주석 닫기">×</button>
+        <p>{selectedLeaf.kicker}</p><h3>{selectedLeaf.label}</h3><div>{selectedLeaf.summary}</div>
+        {selectedLeaf.href ? <Link href={selectedLeaf.href}>상세 문서로 이동 ↗</Link> : null}
+      </aside> : null}
     </div>
-    {selected && <aside className={`cosmosPanel tone-${selected.tone}`} aria-live="polite">
-      <button className="cosmosPanelClose" type="button" onClick={() => setSelected(null)} aria-label="설명 닫기">×</button>
-      <p>{selected.kicker}</p><h2>{selected.label}</h2><div>{selected.summary}</div>
-      <nav>{selected.children?.length ? <button type="button" onClick={() => enter(selected)}>안으로 들어가기 <span>→</span></button> : null}{selected.href ? <Link href={selected.href}>상세 페이지 <span>↗</span></Link> : null}</nav>
-    </aside>}
   </section>;
 }

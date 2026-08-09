@@ -53,6 +53,23 @@ function layoutNodes(count: number): Position[] {
     : positionRing(index - outerCount, count - outerCount, "inner", -2.15));
 }
 
+const rootPositions: Position[] = [
+  { x: 62, y: 47, scale: 1.16, ring: "inner" },
+  { x: 34, y: 18, scale: 1.04, ring: "outer" },
+  { x: 81, y: 23, scale: 1, ring: "outer" },
+  { x: 18, y: 53, scale: 1.05, ring: "outer" },
+  { x: 38, y: 78, scale: 1, ring: "outer" },
+  { x: 79, y: 72, scale: 1.06, ring: "outer" },
+];
+
+const rootRelations: [number, number][] = [[1, 0], [2, 0], [3, 0], [4, 0], [5, 0], [3, 1], [4, 5]];
+
+function relationPath(from: Position, to: Position, index: number) {
+  const middleX = (from.x + to.x) / 2;
+  const middleY = (from.y + to.y) / 2 + (index % 2 ? 2.4 : -2.4);
+  return `M ${from.x} ${from.y} Q ${middleX} ${middleY} ${to.x} ${to.y}`;
+}
+
 function layoutSequence(count: number): Position[] {
   const columns = Math.min(5, Math.max(3, Math.ceil(Math.sqrt(count * 1.8))));
   const rows = Math.ceil(count / columns);
@@ -213,8 +230,10 @@ export function KnowledgeCosmos() {
   const [motion, setMotion] = useState({ serial: 0, direction: "rest", x: 50, y: 51 });
   const current = path.at(-1);
   const nodes = current?.children ?? roots;
+  const rootMap = !current;
   const sequence = Boolean(current && (current.id === "history" || preferredModels.includes(current.id)));
-  const positions = sequence ? layoutSequence(nodes.length) : layoutNodes(nodes.length);
+  const positions = rootMap ? rootPositions : sequence ? layoutSequence(nodes.length) : layoutNodes(nodes.length);
+  const layoutMode = rootMap ? "root" : sequence ? "sequence" : "orbit";
 
   useEffect(() => {
     const handleKey = (event: KeyboardEvent) => {
@@ -254,7 +273,7 @@ export function KnowledgeCosmos() {
       {path.length ? <button className="cosmosBack" type="button" onClick={() => retreat(path.length - 2)}>− 축소</button> : <p>이름을 눌러 확대하세요</p>}
     </header>
 
-    <div key={`${path.map(item => item.id).join("-")}-${motion.serial}`} className={`cosmosWorld layout-${sequence ? "sequence" : "orbit"} motion-${motion.direction}`} style={sceneStyle}>
+    <div key={`${path.map(item => item.id).join("-")}-${motion.serial}`} className={`cosmosWorld layout-${layoutMode} motion-${motion.direction}`} style={sceneStyle}>
       <div className="cosmosCaption">
         <p>{current?.kicker ?? "AN ATLAS OF GENERATIVE AI"}</p>
         <h2 title={current?.label}>{compactLabel(current?.label ?? "LLM 지식 지도", 22)}</h2>
@@ -264,7 +283,9 @@ export function KnowledgeCosmos() {
 
       <div className="cosmosCanvas">
         <svg className="cosmosOrbits" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          {sequence ? <>
+          {rootMap ? <>
+            {rootRelations.map(([from, to], index) => <path className="rootRelation" key={`${from}-${to}`} d={relationPath(positions[from], positions[to], index)} />)}
+          </> : sequence ? <>
             <polyline className="sequenceTrail" points={positions.map(position => `${position.x},${position.y}`).join(" ")} />
             <polyline className="sequenceTrailEcho" points={positions.map(position => `${position.x},${position.y + .7}`).join(" ")} />
           </> : <>

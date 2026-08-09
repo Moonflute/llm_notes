@@ -342,6 +342,36 @@ footer{max-width:var(--content);margin:auto;padding:34px 28px 25px;display:flex;
 .pathProgress button{min-height:40px;padding:0 12px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--ink);white-space:nowrap;cursor:pointer}
 .pathProgress button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 
+/* Home knowledge cosmos */
+.cosmosHome{min-height:calc(100svh - 68px);padding:18px;background:#0e1f18;color:#f4f0e6;overflow:hidden}
+.cosmosStage{position:relative;isolation:isolate;width:min(1480px,100%);height:calc(100svh - 126px);min-height:690px;max-height:940px;margin:auto;border:1px solid #b8c9bc33;border-radius:18px;background:radial-gradient(circle at 50% 48%,#29443888 0,#162e2466 25%,transparent 55%),radial-gradient(circle at 20% 20%,#e0a34713 0 1px,transparent 2px),radial-gradient(circle at 75% 35%,#f5e9c614 0 1px,transparent 2px),linear-gradient(145deg,#13291f,#0b1913 66%,#13271f);box-shadow:inset 0 0 100px #020a06aa,0 30px 80px #06100b66;overflow:hidden}
+.cosmosStage::before,.cosmosStage::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(circle,#f8efd8 0 1px,transparent 1.4px);background-size:73px 73px;opacity:.16}
+.cosmosStage::after{background-size:113px 113px;background-position:27px 39px;opacity:.1;transform:rotate(8deg)}
+.cosmosToolbar{position:relative;z-index:30;min-height:58px;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:0 20px;border-bottom:1px solid #dbe6dc22;background:#08130ea8;backdrop-filter:blur(12px)}
+.cosmosToolbar nav{display:flex;align-items:center;gap:8px;min-width:0;overflow:auto;white-space:nowrap}.cosmosToolbar nav span{display:flex;align-items:center;gap:8px}
+.cosmosToolbar button{min-height:36px;padding:0 8px;border:0;background:transparent;color:#aebeb5;font-size:13px;font-weight:680;cursor:pointer}.cosmosToolbar button[aria-current="page"]{color:#fff}
+.cosmosToolbar i{color:#63766c;font-style:normal}.cosmosToolbar>p{flex:none;margin:0;color:#879a90;font-family:var(--mono);font-size:11px}
+.cosmosCanvas{position:absolute;inset:58px 0 0;overflow:hidden}.cosmosCanvas::before{content:"";position:absolute;left:50%;top:50%;width:36%;height:30%;border-radius:50%;background:#ca8a3212;filter:blur(55px);transform:translate(-50%,-50%)}
+.cosmosOrbit{position:absolute;left:50%;top:50%;border:1px solid #c6d8c72d;border-radius:50%;transform:translate(-50%,-50%) rotate(-4deg);box-shadow:0 0 28px #e8c27808}.orbitOuter{width:82%;height:76%}.orbitInner{width:50%;height:46%;border-color:#c6d8c720;transform:translate(-50%,-50%) rotate(9deg)}
+.cosmosConnections{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.cosmosConnections line{stroke:#b6c7b833;stroke-width:.14;vector-effect:non-scaling-stroke;transition:stroke .2s,stroke-width .2s}.cosmosConnections line.active{stroke:#f2b64aa8;stroke-width:.3}
+.cosmosCenter{position:absolute;left:50%;top:50%;z-index:8;width:160px;height:160px;padding:22px;border:1px solid #f0d59380;border-radius:50%;background:radial-gradient(circle at 42% 36%,#f5d895,#d38c36 45%,#6d401d 78%,#18291f 100%);color:#142019;box-shadow:0 0 0 12px #e3ab4920,0 0 70px #e3aa4855,inset -12px -15px 30px #69401888;transform:translate(-50%,-50%);cursor:pointer;text-align:center}
+.cosmosCenter span,.cosmosCenter i{display:block;font-family:var(--mono);font-size:9px;font-style:normal;letter-spacing:.08em;opacity:.72}.cosmosCenter b{display:block;margin:7px 0;font-size:21px;line-height:1.08;letter-spacing:-.045em;word-break:keep-all}
+.cosmosNode{--tone:#e9bf70;position:absolute;left:var(--x);top:var(--y);z-index:10;width:112px;height:112px;padding:0;border:0;background:transparent;color:#f8f5ed;transform:translate(-50%,-50%);cursor:pointer;text-align:center;transition:opacity .2s,filter .2s}
+.cosmosNodeBody{position:relative;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 10px;border:1px solid color-mix(in srgb,var(--tone) 66%,transparent);border-radius:50%;background:radial-gradient(circle at 36% 30%,color-mix(in srgb,var(--tone) 28%,#25382f),#12251c 64%,#09140f);box-shadow:0 0 0 6px color-mix(in srgb,var(--tone) 7%,transparent),0 10px 28px #01060488,inset -8px -10px 20px #0005;animation:cosmosFloat 6s ease-in-out infinite;animation-delay:var(--delay);transition:transform .2s,border-color .2s,box-shadow .2s}
+.cosmosNode.inner{width:94px;height:94px}.cosmosNode.inner .cosmosNodeBody{padding:10px 8px}
+.cosmosNode small{display:block;color:color-mix(in srgb,var(--tone) 72%,#fff);font-family:var(--mono);font-size:8px;line-height:1.2;letter-spacing:.04em;text-transform:uppercase}.cosmosNode b{display:block;margin-top:6px;font-size:15px;line-height:1.17;letter-spacing:-.035em;word-break:keep-all}
+.cosmosNode i{position:absolute;right:3px;top:3px;display:grid;place-items:center;width:24px;height:24px;border:1px solid color-mix(in srgb,var(--tone) 55%,transparent);border-radius:50%;background:#0b1812;color:#eaf0eb;font-family:var(--mono);font-size:9px;font-style:normal}
+.cosmosNode:hover .cosmosNodeBody,.cosmosNode:focus-visible .cosmosNodeBody,.cosmosNode.selected .cosmosNodeBody{border-color:var(--tone);box-shadow:0 0 0 7px color-mix(in srgb,var(--tone) 14%,transparent),0 0 40px color-mix(in srgb,var(--tone) 28%,transparent),inset -8px -10px 20px #0004;transform:scale(1.08)}
+.cosmosNode.muted{opacity:.28;filter:saturate(.5)}.cosmosNode.utility .cosmosNodeBody{border-style:dashed;background:#0d1d16}
+.tone-models{--tone:#ef7b58}.tone-concepts{--tone:#b79be5}.tone-organizations{--tone:#73aee7}.tone-history{--tone:#e9bd69}.tone-issues{--tone:#df7182}.tone-frontiers{--tone:#65c4aa}
+.cosmosHint{position:absolute;left:50%;bottom:14px;margin:0;color:#8fa097;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;transform:translateX(-50%)}
+.cosmosPanel{--tone:#e9bd69;position:absolute;right:24px;top:82px;z-index:40;width:min(390px,calc(100% - 48px));padding:25px 26px 24px;border:1px solid color-mix(in srgb,var(--tone) 50%,#fff0);border-top:4px solid var(--tone);border-radius:13px;background:#f5f1e8;color:#17201c;box-shadow:0 25px 70px #010603aa}
+.cosmosPanel>p{margin:0;color:color-mix(in srgb,var(--tone) 72%,#2b342f);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}.cosmosPanel h2{margin:8px 36px 12px 0;font-size:30px;line-height:1.12;letter-spacing:-.055em}.cosmosPanel>div{color:#3f4944;font-size:15px;line-height:1.7}
+.cosmosPanel nav{display:flex;gap:8px;margin-top:21px}.cosmosPanel nav button,.cosmosPanel nav a{min-height:44px;display:inline-flex;align-items:center;justify-content:space-between;gap:16px;padding:0 14px;border:1px solid #aeb8b0;border-radius:7px;background:transparent;color:#18201c;font-size:13px;font-weight:760;cursor:pointer}.cosmosPanel nav button{background:#18261f;color:#fff;border-color:#18261f}
+.cosmosPanelClose{position:absolute;right:12px;top:11px;width:38px;height:38px;border:0;background:transparent;color:#4f5b54;font-size:25px;cursor:pointer}
+.cosmosFooter{max-width:1480px!important;padding:12px 6px 0!important;color:#91a199!important}
+@keyframes cosmosFloat{0%,100%{translate:0 0}50%{translate:0 -4px}}
+
 @media(max-width:1320px){.readingRail{display:none}.detail{max-width:850px}}
 
 @media(max-width:900px){
@@ -405,6 +435,20 @@ footer{max-width:var(--content);margin:auto;padding:34px 28px 25px;display:flex;
   .event{grid-template-columns:74px 24px 1fr 20px;gap:7px}.event h2,.event h3{font-size:20px}
   .timelineControls .toggle,.filters .toggle{width:100%;margin-left:0}
   .pathProgress{display:block}.pathProgress button{margin-bottom:10px}
+  .cosmosHome{min-height:calc(100svh - 60px);padding:0;background:#0e1f18}
+  .cosmosStage{width:100%;height:calc(100svh - 60px);min-height:620px;max-height:none;border:0;border-radius:0;box-shadow:inset 0 0 70px #020a06aa}
+  .cosmosToolbar{min-height:52px;padding:0 12px;gap:8px}.cosmosToolbar button{padding-inline:4px;font-size:12px}.cosmosToolbar>p{display:none}
+  .cosmosCanvas{inset:52px 0 0}
+  .cosmosCenter{width:98px;height:98px;padding:10px;box-shadow:0 0 0 8px #e3ab4918,0 0 42px #e3aa4844,inset -8px -10px 20px #69401866}
+  .cosmosCenter span{font-size:7px}.cosmosCenter b{margin:4px 0;font-size:16px}.cosmosCenter i{font-size:7px}
+  .cosmosNode{width:78px;height:78px}.cosmosNode.inner{width:68px;height:68px}
+  .cosmosNodeBody{padding:8px 6px;box-shadow:0 0 0 4px color-mix(in srgb,var(--tone) 7%,transparent),0 7px 18px #01060488,inset -5px -7px 12px #0005}
+  .cosmosNode small{font-size:7px;letter-spacing:0}.cosmosNode b{margin-top:3px;font-size:12px;line-height:1.08}.cosmosNode i{right:-2px;top:-2px;width:19px;height:19px;font-size:7px}
+  .cosmosNode:hover .cosmosNodeBody,.cosmosNode:focus-visible .cosmosNodeBody,.cosmosNode.selected .cosmosNodeBody{box-shadow:0 0 0 5px color-mix(in srgb,var(--tone) 14%,transparent),0 0 25px color-mix(in srgb,var(--tone) 25%,transparent)}
+  .orbitOuter{width:82%;height:78%}.orbitInner{width:50%;height:46%}.cosmosHint{bottom:8px;font-size:8px}
+  .cosmosPanel{position:absolute;left:0;right:0;top:auto;bottom:0;width:100%;padding:21px 20px 18px;border-inline:0;border-bottom:0;border-radius:16px 16px 0 0;box-shadow:0 -18px 60px #010603bb}
+  .cosmosPanel h2{margin:6px 34px 8px 0;font-size:25px}.cosmosPanel>div{font-size:14px;line-height:1.55}.cosmosPanel nav{margin-top:15px}.cosmosPanel nav button,.cosmosPanel nav a{flex:1}
+  .cosmosFooter{display:none}
 }
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}

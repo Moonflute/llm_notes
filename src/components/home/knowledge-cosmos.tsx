@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
 import { conceptDocuments, frontierDocuments, issueDocuments, modelFamilies, modelReleases, organizationDocuments } from "@/lib/content";
 
 type Tone = "models" | "concepts" | "organizations" | "history" | "issues" | "frontiers";
@@ -16,6 +16,7 @@ type AtlasNode = {
 };
 
 type Position = { x: number; y: number; scale: number; ring: "outer" | "inner" };
+type Offset = { x: number; y: number };
 
 const preferredModels = ["gpt", "gemini", "claude", "llama", "deepseek", "mistral", "qwen", "gemma"];
 const preferredConcepts = ["transformer", "attention", "pretraining", "rlhf", "retrieval-augmented-generation", "mixture-of-experts", "reasoning", "agents", "multimodality", "alignment"];
@@ -50,11 +51,123 @@ function layoutNodes(count: number): Position[] {
     : positionRing(index - outerCount, count - outerCount, "inner", -2.15));
 }
 
+function layoutSequence(count: number): Position[] {
+  const columns = Math.min(5, Math.max(3, Math.ceil(Math.sqrt(count * 1.8))));
+  const rows = Math.ceil(count / columns);
+  return Array.from({ length: count }, (_, index) => {
+    const row = Math.floor(index / columns);
+    const columnInRow = index % columns;
+    const rowCount = Math.min(columns, count - row * columns);
+    const column = row % 2 ? rowCount - 1 - columnInRow : columnInRow;
+    const x = rowCount === 1 ? 50 : 13 + column * 74 / (rowCount - 1);
+    const y = rows === 1 ? 52 : 28 + row * 48 / Math.max(1, rows - 1);
+    return { x, y: y + Math.sin(index * 1.35) * 2.2, scale: 1, ring: "outer" as const };
+  });
+}
+
+function compactLabel(label: string, limit = 17) {
+  return label.length > limit ? `${label.slice(0, limit).trim()}…` : label;
+}
+
 function connectionPath(position: Position, index: number) {
   const bend = index % 2 ? 3.2 : -3.2;
   const middleX = (50 + position.x) / 2;
   const middleY = (51 + position.y) / 2 + bend;
   return `M 50 51 Q ${middleX} ${middleY} ${position.x} ${position.y}`;
+}
+
+function DriftingNode({ node, position, index, sequence, selected, onOpen }: { node: AtlasNode; position: Position; index: number; sequence: boolean; selected: boolean; onOpen: () => void }) {
+  const [offset, setOffset] = useState<Offset>({ x: 0, y: 0 });
+  const offsetRef = useRef<Offset>({ x: 0, y: 0 });
+  const velocityRef = useRef<Offset>({ x: 0, y: 0 });
+  const frameRef = useRef<number | null>(null);
+  const dragRef = useRef<{ pointerId: number; startX: number; startY: number; originX: number; originY: number; moved: boolean } | null>(null);
+
+  useEffect(() => () => { if (frameRef.current !== null) cancelAnimationFrame(frameRef.current); }, []);
+
+  const updateOffset = (next: Offset) => {
+    offsetRef.current = next;
+    setOffset(next);
+  };
+
+  const returnHome = () => {
+    if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
+    const tick = () => {
+      const current = offsetRef.current;
+      const velocity = velocityRef.current;
+      const nextVelocity = {
+        x: (velocity.x - current.x * .028) * .9,
+        y: (velocity.y - current.y * .028) * .9,
+      };
+      const next = { x: current.x + nextVelocity.x, y: current.y + nextVelocity.y };
+      velocityRef.current = nextVelocity;
+      if (Math.abs(next.x) + Math.abs(next.y) + Math.abs(nextVelocity.x) + Math.abs(nextVelocity.y) < .35) {
+        velocityRef.current = { x: 0, y: 0 };
+        updateOffset({ x: 0, y: 0 });
+        frameRef.current = null;
+        return;
+      }
+      updateOffset(next);
+      frameRef.current = requestAnimationFrame(tick);
+    };
+    frameRef.current = requestAnimationFrame(tick);
+  };
+
+  const beginPush = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
+    frameRef.current = null;
+    velocityRef.current = { x: 0, y: 0 };
+    dragRef.current = { pointerId: event.pointerId, startX: event.clientX, startY: event.clientY, originX: offsetRef.current.x, originY: offsetRef.current.y, moved: false };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const push = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    const drag = dragRef.current;
+    if (!drag || drag.pointerId !== event.pointerId) return;
+    const dx = event.clientX - drag.startX;
+    const dy = event.clientY - drag.startY;
+    if (Math.hypot(dx, dy) > 5) drag.moved = true;
+    const next = { x: Math.max(-90, Math.min(90, drag.originX + dx)), y: Math.max(-70, Math.min(70, drag.originY + dy)) };
+    velocityRef.current = { x: (next.x - offsetRef.current.x) * .58, y: (next.y - offsetRef.current.y) * .58 };
+    updateOffset(next);
+  };
+
+  const release = (event: ReactPointerEvent<HTMLButtonElement>, cancelled = false) => {
+    const drag = dragRef.current;
+    if (!drag || drag.pointerId !== event.pointerId) return;
+    dragRef.current = null;
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+    if (!cancelled && !drag.moved) onOpen();
+    else returnHome();
+  };
+
+  const nodeStyle = {
+    "--x": `${position.x}%`,
+    "--y": `${position.y}%`,
+    "--node-scale": position.scale,
+    "--push-x": `${offset.x}px`,
+    "--push-y": `${offset.y}px`,
+    "--drift-delay": `${index * -.47}s`,
+  } as CSSProperties;
+
+  return <button
+    type="button"
+    style={nodeStyle}
+    title={node.label}
+    data-side={sequence ? "center" : position.x > 66 ? "left" : "right"}
+    className={`cosmosNode tone-${node.tone} ${position.ring} ${sequence ? "sequenceNode" : ""} ${selected ? "selected" : ""}`}
+    onPointerDown={beginPush}
+    onPointerMove={push}
+    onPointerUp={event => release(event)}
+    onPointerCancel={event => release(event, true)}
+    onClick={event => { if (event.detail === 0) onOpen(); }}
+  >
+    <span className="cosmosNodeDrift">
+      {sequence ? <span className="sequenceIndex" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span> : null}
+      <span className="inkMark" aria-hidden="true"><i /></span>
+      <span className="cosmosNodeBody"><small>{node.kicker}</small><b>{compactLabel(node.label)}</b>{node.children?.length ? <em>확대 · {node.children.length}</em> : <em>주석 보기</em>}</span>
+    </span>
+  </button>;
 }
 
 export function KnowledgeCosmos() {
@@ -98,7 +211,8 @@ export function KnowledgeCosmos() {
   const [motion, setMotion] = useState({ serial: 0, direction: "rest", x: 50, y: 51 });
   const current = path.at(-1);
   const nodes = current?.children ?? roots;
-  const positions = layoutNodes(nodes.length);
+  const sequence = Boolean(current && (current.id === "history" || preferredModels.includes(current.id)));
+  const positions = sequence ? layoutSequence(nodes.length) : layoutNodes(nodes.length);
 
   useEffect(() => {
     const handleKey = (event: KeyboardEvent) => {
@@ -138,45 +252,37 @@ export function KnowledgeCosmos() {
       {path.length ? <button className="cosmosBack" type="button" onClick={() => retreat(path.length - 2)}>− 축소</button> : <p>이름을 눌러 확대하세요</p>}
     </header>
 
-    <div key={`${path.map(item => item.id).join("-")}-${motion.serial}`} className={`cosmosWorld motion-${motion.direction}`} style={sceneStyle}>
+    <div key={`${path.map(item => item.id).join("-")}-${motion.serial}`} className={`cosmosWorld layout-${sequence ? "sequence" : "orbit"} motion-${motion.direction}`} style={sceneStyle}>
       <div className="cosmosCaption">
         <p>{current?.kicker ?? "AN ATLAS OF GENERATIVE AI"}</p>
-        <h2>{current?.label ?? "LLM 지식 지도"}</h2>
+        <h2 title={current?.label}>{compactLabel(current?.label ?? "LLM 지식 지도", 22)}</h2>
         <span>{current?.summary ?? "모델과 개념, 조직과 사건이 어떻게 연결되는지 한 장의 지도에서 따라가 보세요."}</span>
         {current?.href ? <Link href={current.href}>이 항목 전체 읽기 ↗</Link> : null}
       </div>
 
       <div className="cosmosCanvas">
         <svg className="cosmosOrbits" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <ellipse cx="50" cy="51" rx="45" ry="22" transform="rotate(-8 50 51)" />
-          <ellipse className="orbitEcho" cx="50" cy="51" rx="44.4" ry="21.4" transform="rotate(-7.4 50 51)" />
-          {nodes.length > 7 ? <ellipse className="orbitInner" cx="50" cy="51" rx="29" ry="14" transform="rotate(-8 50 51)" /> : null}
-          {positions.map((position, index) => <path key={nodes[index].id} d={connectionPath(position, index)} />)}
+          {sequence ? <>
+            <polyline className="sequenceTrail" points={positions.map(position => `${position.x},${position.y}`).join(" ")} />
+            <polyline className="sequenceTrailEcho" points={positions.map(position => `${position.x},${position.y + .7}`).join(" ")} />
+          </> : <>
+            <ellipse cx="50" cy="51" rx="45" ry="22" transform="rotate(-8 50 51)" />
+            <ellipse className="orbitEcho" cx="50" cy="51" rx="44.4" ry="21.4" transform="rotate(-7.4 50 51)" />
+            {nodes.length > 7 ? <ellipse className="orbitInner" cx="50" cy="51" rx="29" ry="14" transform="rotate(-8 50 51)" /> : null}
+            {positions.map((position, index) => <path key={nodes[index].id} d={connectionPath(position, index)} />)}
+          </>}
         </svg>
 
-        <div className="cosmosCenter" aria-hidden="true"><span>{path.length ? String(path.length).padStart(2, "0") : "AI"}</span><b>{current?.label ?? "LLM"}</b><i>{nodes.length}개의 갈래</i></div>
+        {!sequence ? <div className="cosmosCenter" aria-hidden="true"><span>{path.length ? String(path.length).padStart(2, "0") : "AI"}</span><b>{compactLabel(current?.label ?? "LLM", 13)}</b><i>{nodes.length}개의 갈래</i></div> : <p className="sequenceDirection" aria-hidden="true">앞선 모델 <span>→</span> 다음 모델</p>}
 
-        {nodes.map((node, index) => {
-          const position = positions[index];
-          const nodeStyle = { "--x": `${position.x}%`, "--y": `${position.y}%`, "--node-scale": position.scale } as CSSProperties;
-          return <button
-            type="button"
-            key={node.id}
-            style={nodeStyle}
-            data-side={position.x > 66 ? "left" : "right"}
-            className={`cosmosNode tone-${node.tone} ${position.ring} ${selectedLeaf?.id === node.id ? "selected" : ""}`}
-            onClick={() => dive(node, position)}
-            aria-expanded={node.children?.length ? false : undefined}
-          >
-            <span className="inkMark" aria-hidden="true"><i /></span>
-            <span className="cosmosNodeBody"><small>{node.kicker}</small><b>{node.label}</b>{node.children?.length ? <em>확대 · {node.children.length}</em> : <em>주석 보기</em>}</span>
-          </button>;
-        })}
+        {nodes.map((node, index) => <DriftingNode key={node.id} node={node} position={positions[index]} index={index} sequence={sequence} selected={selectedLeaf?.id === node.id} onOpen={() => dive(node, positions[index])} />)}
       </div>
+
+      {path.length ? <button className="cosmosZoomOut" type="button" onClick={() => retreat(path.length - 2)}><b>↖</b><span>이전 지도</span><small>{path.length > 1 ? compactLabel(path[path.length - 2].label, 12) : "전체 보기"}</small></button> : null}
 
       {selectedLeaf ? <aside className={`cosmosNote tone-${selectedLeaf.tone}`} aria-live="polite">
         <button type="button" onClick={() => setSelectedLeaf(null)} aria-label="주석 닫기">×</button>
-        <p>{selectedLeaf.kicker}</p><h3>{selectedLeaf.label}</h3><div>{selectedLeaf.summary}</div>
+        <p>{selectedLeaf.kicker}</p><h3 title={selectedLeaf.label}>{compactLabel(selectedLeaf.label, 28)}</h3><div>{selectedLeaf.summary}</div>
         {selectedLeaf.href ? <Link href={selectedLeaf.href}>상세 문서로 이동 ↗</Link> : null}
       </aside> : null}
     </div>

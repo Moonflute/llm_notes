@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AppVersion } from "@/components/app-version";
+import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
 const assetPath = process.env.GITHUB_ACTIONS ? "/llm_notes" : "";
@@ -23,5 +24,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="ko" suppressHydrationWarning><body><a className="skipLink" href="#main-content">본문으로 건너뛰기</a>{children}<AppVersion /></body></html>;
+  return <html lang="ko" suppressHydrationWarning><body><a className="skipLink" href="#main-content">본문으로 건너뛰기</a><SiteHeader />{children}<AppVersion /></body></html>;
 }

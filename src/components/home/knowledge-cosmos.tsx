@@ -62,6 +62,15 @@ const rootPositions: Position[] = [
   { x: 79, y: 72, scale: 1.06, ring: "outer" },
 ];
 
+const rootMobilePositions: Position[] = [
+  { x: 90, y: 42, scale: 1, ring: "inner" },
+  { x: 10, y: 12, scale: 1, ring: "outer" },
+  { x: 90, y: 21, scale: 1, ring: "outer" },
+  { x: 10, y: 42, scale: 1, ring: "outer" },
+  { x: 10, y: 80, scale: 1, ring: "outer" },
+  { x: 90, y: 70, scale: 1, ring: "outer" },
+];
+
 const rootRelations: [number, number][] = [[1, 0], [2, 0], [3, 0], [4, 0], [5, 0], [3, 1], [4, 5]];
 
 function relationPath(from: Position, to: Position, index: number) {
@@ -95,7 +104,7 @@ function connectionPath(position: Position, index: number) {
   return `M 50 51 Q ${middleX} ${middleY} ${position.x} ${position.y}`;
 }
 
-function DriftingNode({ node, position, index, sequence, selected, onOpen }: { node: AtlasNode; position: Position; index: number; sequence: boolean; selected: boolean; onOpen: () => void }) {
+function DriftingNode({ node, position, mobilePosition, index, sequence, selected, onOpen }: { node: AtlasNode; position: Position; mobilePosition?: Position; index: number; sequence: boolean; selected: boolean; onOpen: () => void }) {
   const [offset, setOffset] = useState<Offset>({ x: 0, y: 0 });
   const offsetRef = useRef<Offset>({ x: 0, y: 0 });
   const velocityRef = useRef<Offset>({ x: 0, y: 0 });
@@ -163,6 +172,8 @@ function DriftingNode({ node, position, index, sequence, selected, onOpen }: { n
   const nodeStyle = {
     "--x": `${position.x}%`,
     "--y": `${position.y}%`,
+    "--mobile-x": `${mobilePosition?.x ?? position.x}%`,
+    "--mobile-y": `${mobilePosition?.y ?? position.y}%`,
     "--node-scale": position.scale,
     "--push-x": `${offset.x}px`,
     "--push-y": `${offset.y}px`,
@@ -174,6 +185,7 @@ function DriftingNode({ node, position, index, sequence, selected, onOpen }: { n
     style={nodeStyle}
     title={node.label}
     data-side={sequence ? "center" : position.x > 66 ? "left" : "right"}
+    data-mobile-side={mobilePosition && mobilePosition.x > 50 ? "left" : "right"}
     className={`cosmosNode tone-${node.tone} ${position.ring} ${sequence ? "sequenceNode" : ""} ${selected ? "selected" : ""}`}
     onPointerDown={beginPush}
     onPointerMove={push}
@@ -284,7 +296,8 @@ export function KnowledgeCosmos() {
       <div className="cosmosCanvas">
         <svg className="cosmosOrbits" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           {rootMap ? <>
-            {rootRelations.map(([from, to], index) => <path className="rootRelation" key={`${from}-${to}`} d={relationPath(positions[from], positions[to], index)} />)}
+            {rootRelations.map(([from, to], index) => <path className="rootRelation desktopRootRelation" key={`${from}-${to}`} d={relationPath(positions[from], positions[to], index)} />)}
+            {rootRelations.slice(0, 5).map(([from, to], index) => <path className="rootRelation mobileRootRelation" key={`mobile-${from}-${to}`} d={relationPath(rootMobilePositions[from], rootMobilePositions[to], index)} />)}
           </> : sequence ? <>
             <polyline className="sequenceTrail" points={positions.map(position => `${position.x},${position.y}`).join(" ")} />
             <polyline className="sequenceTrailEcho" points={positions.map(position => `${position.x},${position.y + .7}`).join(" ")} />
@@ -298,7 +311,7 @@ export function KnowledgeCosmos() {
 
         {!sequence ? <div className="cosmosCenter" aria-hidden="true"><span>{path.length ? String(path.length).padStart(2, "0") : "AI"}</span><b>{compactLabel(current?.label ?? "LLM", 13)}</b><i>{nodes.length}개의 갈래</i></div> : <p className="sequenceDirection" aria-hidden="true">앞선 모델 <span>→</span> 다음 모델</p>}
 
-        {nodes.map((node, index) => <DriftingNode key={node.id} node={node} position={positions[index]} index={index} sequence={sequence} selected={selectedLeaf?.id === node.id} onOpen={() => dive(node, positions[index])} />)}
+        {nodes.map((node, index) => <DriftingNode key={node.id} node={node} position={positions[index]} mobilePosition={rootMap ? rootMobilePositions[index] : undefined} index={index} sequence={sequence} selected={selectedLeaf?.id === node.id} onOpen={() => dive(node, positions[index])} />)}
       </div>
 
       {path.length ? <button className="cosmosZoomOut" type="button" onClick={() => retreat(path.length - 2)}><b>↖</b><span>이전 지도</span><small>{path.length > 1 ? compactLabel(path[path.length - 2].label, 12) : "전체 보기"}</small></button> : null}

@@ -886,5 +886,14 @@
     "year": 2025,
     "tier": 1,
     "verifiedAt": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-5-6",
+    "title": "GPT-5.6 Sol Model",
+    "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+    "publisher": "OpenAI Developers",
+    "year": 2026,
+    "tier": 1,
+    "verifiedAt": "2026-08-09"
   }
 ]

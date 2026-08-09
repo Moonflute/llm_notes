@@ -1523,5 +1523,23 @@
       "Tools"
     ],
     "sourceId": "meta-muse-image"
+  },
+  {
+    "slug": "gpt-5-6",
+    "date": "2026.08",
+    "year": 2026,
+    "organization": "OpenAI",
+    "type": "model",
+    "title": "GPT-5.6",
+    "titleEn": "GPT-5.6 model family",
+    "summary": "GPT-5.6은 Sol·Terra·Luna로 구성된 OpenAI의 추론·도구 사용 모델 계열입니다.",
+    "importance": 3,
+    "concepts": [
+      "Reasoning",
+      "Tools",
+      "Multimodality",
+      "Inference"
+    ],
+    "sourceId": "openai-gpt-5-6"
   }
 ]

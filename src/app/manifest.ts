@@ -12,8 +12,8 @@ export default function manifest(): MetadataRoute.Manifest {
     start_url: `${assetPath}/`,
     scope: `${assetPath}/`,
     display: "standalone",
-    background_color: "#f6f5f0",
-    theme_color: "#f6f5f0",
+    background_color: "#f4f2ec",
+    theme_color: "#f4f2ec",
     icons: [
       { src: `${assetPath}/icons/llm-note-192.png`, sizes: "192x192", type: "image/png", purpose: "any" },
       { src: `${assetPath}/icons/llm-note-512.png`, sizes: "512x512", type: "image/png", purpose: "maskable" },

@@ -33,7 +33,9 @@ const historyNodes: AtlasNode[] = [
 
 function positionRing(index: number, count: number, ring: "outer" | "inner", offset: number): Position {
   const angle = offset + index * Math.PI * 2 / count;
-  const radiusX = ring === "outer" ? 43 : 28;
+  // SVG 궤도(rx 45 / 29, ry 22 / 14, -8°)와 동일한 좌표를 쓴다.
+  // 노드의 기준점(원형 마커)이 궤도선 위에 정확히 놓인다.
+  const radiusX = ring === "outer" ? 45 : 29;
   const radiusY = ring === "outer" ? 22 : 14;
   const rawX = Math.cos(angle) * radiusX;
   const rawY = Math.sin(angle) * radiusY;

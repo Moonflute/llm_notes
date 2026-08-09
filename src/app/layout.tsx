@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { AppVersion } from "@/components/app-version";
 import { SiteHeader } from "@/components/site-header";
+import { ReadingRail } from "@/components/reading-rail";
 import "./globals.css";
+
+const pretendard = localFont({ src: "./fonts/PretendardVariable.woff2", variable: "--font-pretendard", display: "swap", weight: "45 920" });
 
 const assetPath = process.env.GITHUB_ACTIONS ? "/llm_notes" : "";
 
@@ -24,5 +28,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="ko" suppressHydrationWarning><body><a className="skipLink" href="#main-content">본문으로 건너뛰기</a><SiteHeader />{children}<AppVersion /></body></html>;
+  return <html lang="ko" className={pretendard.variable} suppressHydrationWarning><body><a className="skipLink" href="#main-content">본문으로 건너뛰기</a><SiteHeader />{children}<ReadingRail /><AppVersion /></body></html>;
 }

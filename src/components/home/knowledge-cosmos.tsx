@@ -15,7 +15,7 @@ type AtlasNode = {
   children?: AtlasNode[];
 };
 
-type Position = { x: number; y: number; scale: number; ring: "outer" | "inner" };
+type Position = { x: number; y: number; scale: number; ring: "outer" | "middle" | "inner" };
 type Offset = { x: number; y: number };
 
 const preferredModels = ["gpt", "gemini", "claude", "llama", "deepseek", "mistral", "qwen", "gemma"];
@@ -54,31 +54,22 @@ function layoutNodes(count: number): Position[] {
 }
 
 const rootPositions: Position[] = [
-  { x: 84, y: 49, scale: 1.12, ring: "outer" },
-  { x: 26, y: 16, scale: 1.04, ring: "outer" },
-  { x: 86, y: 18, scale: 1, ring: "outer" },
-  { x: 12, y: 52, scale: 1.05, ring: "outer" },
-  { x: 29, y: 83, scale: 1, ring: "outer" },
-  { x: 82, y: 80, scale: 1.04, ring: "outer" },
+  { x: 74.8, y: 49.6, scale: 1.12, ring: "inner" },
+  { x: 25.2, y: 54.4, scale: 1.03, ring: "inner" },
+  { x: 69.8, y: 36.6, scale: 1, ring: "middle" },
+  { x: 30.3, y: 67.5, scale: 1.04, ring: "middle" },
+  { x: 12.1, y: 43.7, scale: .98, ring: "outer" },
+  { x: 88.1, y: 60.1, scale: 1.03, ring: "outer" },
 ];
 
 const rootMobilePositions: Position[] = [
-  { x: 90, y: 42, scale: 1, ring: "inner" },
-  { x: 10, y: 12, scale: 1, ring: "outer" },
-  { x: 90, y: 21, scale: 1, ring: "outer" },
-  { x: 10, y: 42, scale: 1, ring: "outer" },
-  { x: 10, y: 80, scale: 1, ring: "outer" },
-  { x: 90, y: 70, scale: 1, ring: "outer" },
+  { x: 89, y: 50, scale: 1, ring: "inner" },
+  { x: 11, y: 60, scale: 1, ring: "inner" },
+  { x: 80, y: 33, scale: 1, ring: "middle" },
+  { x: 20, y: 76, scale: 1, ring: "middle" },
+  { x: 7, y: 27, scale: 1, ring: "outer" },
+  { x: 93, y: 78, scale: 1, ring: "outer" },
 ];
-
-const desktopRootCenter = { x: 50, y: 52 };
-const mobileRootCenter = { x: 50, y: 56 };
-
-function rootSpokePath(from: { x: number; y: number }, to: Position, index: number) {
-  const middleX = (from.x + to.x) / 2;
-  const middleY = (from.y + to.y) / 2 + (index % 2 ? 1.4 : -1.4);
-  return `M ${from.x} ${from.y} Q ${middleX} ${middleY} ${to.x} ${to.y}`;
-}
 
 function layoutSequence(count: number): Position[] {
   const columns = Math.min(5, Math.max(3, Math.ceil(Math.sqrt(count * 1.8))));
@@ -179,6 +170,7 @@ function DriftingNode({ node, position, mobilePosition, index, sequence, selecte
     "--push-x": `${offset.x}px`,
     "--push-y": `${offset.y}px`,
     "--drift-delay": `${index * -.47}s`,
+    "--drift-duration": `${13 + index * 1.7}s`,
   } as CSSProperties;
 
   return <button
@@ -297,8 +289,17 @@ export function KnowledgeCosmos() {
       <div className="cosmosCanvas">
         <svg className="cosmosOrbits" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           {rootMap ? <>
-            {positions.map((position, index) => <path className={`rootRelation rootSpoke desktopRootRelation ${index === 0 ? "primaryRootSpoke" : ""}`} key={`root-${nodes[index].id}`} d={rootSpokePath(desktopRootCenter, position, index)} />)}
-            {rootMobilePositions.map((position, index) => <path className={`rootRelation rootSpoke mobileRootRelation ${index === 0 ? "primaryRootSpoke" : ""}`} key={`mobile-${nodes[index].id}`} d={rootSpokePath(mobileRootCenter, position, index)} />)}
+            <g className="desktopRootOrbits">
+              <ellipse className="rootOrbit rootOrbitInner" cx="50" cy="52" rx="25" ry="11" transform="rotate(-8 50 52)" />
+              <ellipse className="rootOrbit rootOrbitMiddle" cx="50" cy="52" rx="35" ry="16" transform="rotate(-8 50 52)" />
+              <ellipse className="rootOrbit rootOrbitOuter" cx="50" cy="52" rx="46" ry="22" transform="rotate(-8 50 52)" />
+              <ellipse className="rootOrbitEcho" cx="50" cy="52" rx="45.4" ry="21.4" transform="rotate(-7.3 50 52)" />
+            </g>
+            <g className="mobileRootOrbits">
+              <ellipse className="rootOrbit rootOrbitInner" cx="50" cy="55" rx="39" ry="8" transform="rotate(-7 50 55)" />
+              <ellipse className="rootOrbit rootOrbitMiddle" cx="50" cy="55" rx="41" ry="23" transform="rotate(-7 50 55)" />
+              <ellipse className="rootOrbit rootOrbitOuter" cx="50" cy="53" rx="46" ry="34" transform="rotate(-7 50 53)" />
+            </g>
           </> : sequence ? <>
             <polyline className="sequenceTrail" points={positions.map(position => `${position.x},${position.y}`).join(" ")} />
             <polyline className="sequenceTrailEcho" points={positions.map(position => `${position.x},${position.y + .7}`).join(" ")} />

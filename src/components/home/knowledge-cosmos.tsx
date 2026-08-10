@@ -54,12 +54,12 @@ function layoutNodes(count: number): Position[] {
 }
 
 const rootPositions: Position[] = [
-  { x: 62, y: 47, scale: 1.16, ring: "inner" },
-  { x: 34, y: 18, scale: 1.04, ring: "outer" },
-  { x: 81, y: 23, scale: 1, ring: "outer" },
-  { x: 18, y: 53, scale: 1.05, ring: "outer" },
-  { x: 38, y: 78, scale: 1, ring: "outer" },
-  { x: 79, y: 72, scale: 1.06, ring: "outer" },
+  { x: 84, y: 49, scale: 1.12, ring: "outer" },
+  { x: 26, y: 16, scale: 1.04, ring: "outer" },
+  { x: 86, y: 18, scale: 1, ring: "outer" },
+  { x: 12, y: 52, scale: 1.05, ring: "outer" },
+  { x: 29, y: 83, scale: 1, ring: "outer" },
+  { x: 82, y: 80, scale: 1.04, ring: "outer" },
 ];
 
 const rootMobilePositions: Position[] = [
@@ -71,11 +71,12 @@ const rootMobilePositions: Position[] = [
   { x: 90, y: 70, scale: 1, ring: "outer" },
 ];
 
-const rootRelations: [number, number][] = [[1, 0], [2, 0], [3, 0], [4, 0], [5, 0], [3, 1], [4, 5]];
+const desktopRootCenter = { x: 50, y: 52 };
+const mobileRootCenter = { x: 50, y: 56 };
 
-function relationPath(from: Position, to: Position, index: number) {
+function rootSpokePath(from: { x: number; y: number }, to: Position, index: number) {
   const middleX = (from.x + to.x) / 2;
-  const middleY = (from.y + to.y) / 2 + (index % 2 ? 2.4 : -2.4);
+  const middleY = (from.y + to.y) / 2 + (index % 2 ? 1.4 : -1.4);
   return `M ${from.x} ${from.y} Q ${middleX} ${middleY} ${to.x} ${to.y}`;
 }
 
@@ -296,8 +297,8 @@ export function KnowledgeCosmos() {
       <div className="cosmosCanvas">
         <svg className="cosmosOrbits" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           {rootMap ? <>
-            {rootRelations.map(([from, to], index) => <path className="rootRelation desktopRootRelation" key={`${from}-${to}`} d={relationPath(positions[from], positions[to], index)} />)}
-            {rootRelations.slice(0, 5).map(([from, to], index) => <path className="rootRelation mobileRootRelation" key={`mobile-${from}-${to}`} d={relationPath(rootMobilePositions[from], rootMobilePositions[to], index)} />)}
+            {positions.map((position, index) => <path className={`rootRelation rootSpoke desktopRootRelation ${index === 0 ? "primaryRootSpoke" : ""}`} key={`root-${nodes[index].id}`} d={rootSpokePath(desktopRootCenter, position, index)} />)}
+            {rootMobilePositions.map((position, index) => <path className={`rootRelation rootSpoke mobileRootRelation ${index === 0 ? "primaryRootSpoke" : ""}`} key={`mobile-${nodes[index].id}`} d={rootSpokePath(mobileRootCenter, position, index)} />)}
           </> : sequence ? <>
             <polyline className="sequenceTrail" points={positions.map(position => `${position.x},${position.y}`).join(" ")} />
             <polyline className="sequenceTrailEcho" points={positions.map(position => `${position.x},${position.y + .7}`).join(" ")} />

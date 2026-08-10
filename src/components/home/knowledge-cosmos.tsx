@@ -85,15 +85,21 @@ function layoutSequence(count: number): Position[] {
   });
 }
 
-function compactLabel(label: string, limit = 17) {
-  return label.length > limit ? `${label.slice(0, limit).trim()}…` : label;
+function sequenceTrailPath(positions: Position[]) {
+  if (!positions.length) return "";
+  return positions.slice(1).reduce((path, position, index) => {
+    const previous = positions[index];
+    const rowTurn = Math.abs(previous.x - position.x) < 1 && Math.abs(previous.y - position.y) > 10;
+    if (rowTurn) {
+      const controlX = previous.x > 50 ? 96 : 4;
+      return `${path} Q ${controlX} ${(previous.y + position.y) / 2} ${position.x} ${position.y}`;
+    }
+    return `${path} Q ${(previous.x + position.x) / 2} ${(previous.y + position.y) / 2 + (index % 2 ? .55 : -.55)} ${position.x} ${position.y}`;
+  }, `M ${positions[0].x} ${positions[0].y}`);
 }
 
-function connectionPath(position: Position, index: number) {
-  const bend = index % 2 ? 3.2 : -3.2;
-  const middleX = (50 + position.x) / 2;
-  const middleY = (51 + position.y) / 2 + bend;
-  return `M 50 51 Q ${middleX} ${middleY} ${position.x} ${position.y}`;
+function compactLabel(label: string, limit = 17) {
+  return label.length > limit ? `${label.slice(0, limit).trim()}…` : label;
 }
 
 function DriftingNode({ node, position, mobilePosition, index, sequence, selected, onOpen }: { node: AtlasNode; position: Position; mobilePosition?: Position; index: number; sequence: boolean; selected: boolean; onOpen: () => void }) {
@@ -293,7 +299,6 @@ export function KnowledgeCosmos() {
               <ellipse className="rootOrbit rootOrbitInner" cx="50" cy="52" rx="25" ry="11" transform="rotate(-8 50 52)" />
               <ellipse className="rootOrbit rootOrbitMiddle" cx="50" cy="52" rx="35" ry="16" transform="rotate(-8 50 52)" />
               <ellipse className="rootOrbit rootOrbitOuter" cx="50" cy="52" rx="46" ry="22" transform="rotate(-8 50 52)" />
-              <ellipse className="rootOrbitEcho" cx="50" cy="52" rx="45.4" ry="21.4" transform="rotate(-7.3 50 52)" />
             </g>
             <g className="mobileRootOrbits">
               <ellipse className="rootOrbit rootOrbitInner" cx="50" cy="55" rx="39" ry="8" transform="rotate(-7 50 55)" />
@@ -301,13 +306,10 @@ export function KnowledgeCosmos() {
               <ellipse className="rootOrbit rootOrbitOuter" cx="50" cy="53" rx="46" ry="34" transform="rotate(-7 50 53)" />
             </g>
           </> : sequence ? <>
-            <polyline className="sequenceTrail" points={positions.map(position => `${position.x},${position.y}`).join(" ")} />
-            <polyline className="sequenceTrailEcho" points={positions.map(position => `${position.x},${position.y + .7}`).join(" ")} />
+            <path className="sequenceTrail" d={sequenceTrailPath(positions)} />
           </> : <>
             <ellipse cx="50" cy="51" rx="45" ry="22" transform="rotate(-8 50 51)" />
-            <ellipse className="orbitEcho" cx="50" cy="51" rx="44.4" ry="21.4" transform="rotate(-7.4 50 51)" />
             {nodes.length > 7 ? <ellipse className="orbitInner" cx="50" cy="51" rx="29" ry="14" transform="rotate(-8 50 51)" /> : null}
-            {positions.map((position, index) => <path key={nodes[index].id} d={connectionPath(position, index)} />)}
           </>}
         </svg>
 

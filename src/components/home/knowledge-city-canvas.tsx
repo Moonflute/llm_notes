@@ -1,21 +1,25 @@
 "use client";
 
-import {CameraControls,ContactShadows,Html} from "@react-three/drei";
+import {CameraControls,ContactShadows} from "@react-three/drei";
 import {Canvas} from "@react-three/fiber";
 import {useRouter} from "next/navigation";
 import {useCallback,useEffect,useMemo,useRef,useState,type RefObject} from "react";
 import type CameraControlsImpl from "camera-controls";
 import {BoxGeometry,MeshStandardMaterial,Vector3,type Vector3Tuple} from "three";
-import {KnowledgeBuilding} from "@/components/home/knowledge-building";
+import {CityScenery,KnowledgeBuilding} from "@/components/home/knowledge-building";
 import type {CameraSnapshot,CityHistoryState,CityNode,CityTone} from "@/components/home/knowledge-city-types";
 
 const STORAGE_KEY="llm-history:knowledge-city-3d";
-const DEFAULT_CAMERA:CameraSnapshot={position:[17,17,21],target:[0,.8,0]};
-const ROOT_POSITIONS:Record<CityTone,Vector3Tuple>={concepts:[-6.7,0,-2.1],models:[6.1,0,-1.6],history:[0,0,5.8],organizations:[7.5,0,5.3],issues:[-7.2,0,5.1],frontiers:[2.1,0,-7.1]};
+const DEFAULT_CAMERA:CameraSnapshot={position:[18.5,14.5,21.5],target:[0,.72,0]};
+const ROOT_POSITIONS:Record<CityTone,Vector3Tuple>={concepts:[-5.8,0,-1.5],models:[5.3,0,-1.35],history:[0,0,5.15],organizations:[6.35,0,4.35],issues:[-5.8,0,4.45],frontiers:[1.8,0,-6]};
 const BOX=new BoxGeometry(1,1,1);
-const groundMaterial=new MeshStandardMaterial({color:"#eeece4",roughness:1,metalness:0});
-const roadMaterial=new MeshStandardMaterial({color:"#c9c7bf",roughness:1,metalness:0});
-const railMaterial=new MeshStandardMaterial({color:"#6f746f",roughness:.86,metalness:.05});
+const groundMaterial=new MeshStandardMaterial({color:"#f3f1e9",roughness:1});
+const mainRoadMaterial=new MeshStandardMaterial({color:"#d5d1c7",roughness:1});
+const secondaryRoadMaterial=new MeshStandardMaterial({color:"#e0ddd5",roughness:1});
+const pathMaterial=new MeshStandardMaterial({color:"#e9e6df",roughness:1});
+const curbMaterial=new MeshStandardMaterial({color:"#bdb9ae",roughness:1});
+const railMaterial=new MeshStandardMaterial({color:"#696f6b",roughness:.84,metalness:.04});
+const districtMaterials:Record<CityTone,MeshStandardMaterial>={concepts:new MeshStandardMaterial({color:"#eeedf1",roughness:1}),models:new MeshStandardMaterial({color:"#f0ebe7",roughness:1}),history:new MeshStandardMaterial({color:"#eeeade",roughness:1}),organizations:new MeshStandardMaterial({color:"#e9efed",roughness:1}),issues:new MeshStandardMaterial({color:"#f0e9ea",roughness:1}),frontiers:new MeshStandardMaterial({color:"#e8eee9",roughness:1})};
 
 type PositionedNode={node:CityNode;position:Vector3Tuple;depth:number;key:string};
 
@@ -40,14 +44,13 @@ function resolvePath(data:CityNode[],ids:string[]){
 
 function CityGround(){
   return <group dispose={null}>
-    <mesh geometry={BOX} position={[0,-.25,0]} scale={[29,.42,24]} material={groundMaterial}/>
-    <mesh geometry={BOX} position={[0,.015,5.8]} scale={[27,.035,1.45]} material={roadMaterial}/>
-    <mesh geometry={BOX} position={[-1.2,.02,.1]} rotation={[0,.35,0]} scale={[1.05,.045,22]} material={roadMaterial}/>
-    <mesh geometry={BOX} position={[5,.025,1.4]} rotation={[0,-.58,0]} scale={[.7,.05,16]} material={roadMaterial}/>
-    <mesh geometry={BOX} position={[-5.2,.025,1.2]} rotation={[0,.7,0]} scale={[.62,.05,14]} material={roadMaterial}/>
-    <mesh geometry={BOX} position={[0,.07,5.45]} scale={[25,.06,.055]} material={railMaterial}/>
-    <mesh geometry={BOX} position={[0,.07,6.15]} scale={[25,.06,.055]} material={railMaterial}/>
-    {[-10,-6,-2,2,6,10].map(x=><mesh key={x} geometry={BOX} position={[x,.075,5.8]} scale={[.08,.06,.92]} material={railMaterial}/>)}
+    <mesh geometry={BOX} position={[0,-.2,0]} scale={[25.5,.36,21]} material={groundMaterial}/>
+    <mesh geometry={BOX} position={[-5.8,.01,-1.5]} scale={[6.8,.08,6]} material={districtMaterials.concepts}/><mesh geometry={BOX} position={[5.3,.01,-1.35]} scale={[6.4,.08,5.8]} material={districtMaterials.models}/><mesh geometry={BOX} position={[6.35,.01,4.35]} scale={[5.1,.08,4.5]} material={districtMaterials.organizations}/><mesh geometry={BOX} position={[-5.8,.01,4.45]} scale={[5,.08,4.2]} material={districtMaterials.issues}/><mesh geometry={BOX} position={[1.8,.01,-6]} scale={[5.2,.08,4.2]} material={districtMaterials.frontiers}/>
+    <mesh geometry={BOX} position={[0,.045,5.15]} scale={[24,.09,1.5]} material={mainRoadMaterial}/><mesh geometry={BOX} position={[0,.095,4.36]} scale={[24,.08,.075]} material={curbMaterial}/><mesh geometry={BOX} position={[0,.095,5.94]} scale={[24,.08,.075]} material={curbMaterial}/>
+    <mesh geometry={BOX} position={[-.8,.04,-.05]} rotation={[0,.34,0]} scale={[.9,.08,19]} material={secondaryRoadMaterial}/><mesh geometry={BOX} position={[4.45,.045,1.15]} rotation={[0,-.6,0]} scale={[.62,.08,14.5]} material={secondaryRoadMaterial}/><mesh geometry={BOX} position={[-4.6,.045,1.35]} rotation={[0,.72,0]} scale={[.55,.08,12]} material={secondaryRoadMaterial}/>
+    <mesh geometry={BOX} position={[0,.055,.15]} scale={[12,.05,.24]} material={pathMaterial}/><mesh geometry={BOX} position={[0,.055,-4.5]} scale={[9,.05,.22]} material={pathMaterial}/><mesh geometry={BOX} position={[-5.7,.06,4.45]} scale={[4.1,.06,3.2]} material={pathMaterial}/>
+    <mesh geometry={BOX} position={[0,.105,4.85]} scale={[23,.055,.045]} material={railMaterial}/><mesh geometry={BOX} position={[0,.105,5.45]} scale={[23,.055,.045]} material={railMaterial}/>
+    {[-10,-6,-2,2,6,10].map(x=><mesh key={x} geometry={BOX} position={[x,.11,5.15]} scale={[.075,.055,.78]} material={railMaterial}/>)}
   </group>;
 }
 
@@ -57,14 +60,13 @@ function SceneContent({data,path,hovered,onHover,onSelect,controlsRef,onCameraEn
   const layers=useMemo(()=>entries.map((entry,index)=>({entry,children:entry.node.children??[],positions:childPositions(entry.position,entry.node.children?.length??0,index+1)})),[entries]);
   useEffect(()=>{const controls=controlsRef.current;if(!controls)return;controls.setLookAt(...restoreCamera.position,...restoreCamera.target,!reducedMotion)},[controlsRef,restoreCamera,reducedMotion]);
   return <>
-    <color attach="background" args={["#f7f5ef"]}/><fog attach="fog" args={["#f7f5ef",25,52]}/>
-    <ambientLight intensity={1.55}/><directionalLight position={[10,18,9]} intensity={2.15}/>
-    <CityGround/>
-    {data.map(node=>{const position=ROOT_POSITIONS[node.tone];const key=node.id;return <KnowledgeBuilding key={key} kind={node.building} tone={node.tone} label={node.label} kicker={node.kicker} position={position} scale={node.id==="concepts"||node.id==="models"?1:.86} hovered={hovered===key} active={path[0]===node.id} onHover={value=>onHover(value?key:null)} onSelect={()=>onSelect({node,position,depth:0,key})}/>})}
-    {layers.map(({entry,children,positions},layerIndex)=>children.map((node,index)=>{const key=`${entry.key}/${node.id}`;const selected=path[layerIndex+1]===node.id;const visible=layerIndex===path.length-1||selected;return visible?<KnowledgeBuilding key={key} kind={node.building} tone={node.tone} label={node.label} kicker={node.kicker} position={positions[index]} scale={layerIndex===0 ? .54 : .4} hovered={hovered===key} active={selected} onHover={value=>onHover(value?key:null)} onSelect={()=>onSelect({node,position:positions[index],depth:layerIndex+1,key})}/>:null}))}
-    <ContactShadows position={[0,.02,0]} opacity={.2} scale={34} blur={2.4} far={13} frames={1} color="#59615c"/>
+    <color attach="background" args={["#faf9f5"]}/><fog attach="fog" args={["#faf9f5",27,48]}/>
+    <hemisphereLight intensity={1.35} color="#fffdf6" groundColor="#c7c4ba"/><directionalLight position={[11,17,8]} intensity={1.85}/>
+    <CityGround/><CityScenery/>
+    {data.map(node=>{const position=ROOT_POSITIONS[node.tone];const key=node.id;const scale=node.id==="concepts"?1:node.id==="models"?.94:node.id==="history"?.88:.9;return <KnowledgeBuilding key={key} kind={node.building} tone={node.tone} label={node.label} kicker={node.kicker} variant={node.id} position={position} scale={scale} hovered={hovered===key} active={path[0]===node.id} muted={Boolean(path.length&&path[0]!==node.id)} onHover={value=>onHover(value?key:null)} onSelect={()=>onSelect({node,position,depth:0,key})}/>})}
+    {layers.map(({entry,children,positions},layerIndex)=>children.map((node,index)=>{const key=`${entry.key}/${node.id}`;const selected=path[layerIndex+1]===node.id;const visible=layerIndex===path.length-1||selected;return visible?<KnowledgeBuilding key={key} kind={node.building} tone={node.tone} label={node.label} kicker={node.kicker} variant={node.id} position={positions[index]} scale={layerIndex===0 ? .52 : .4} hovered={hovered===key} active={selected} muted={layerIndex<path.length-1&&!selected} onHover={value=>onHover(value?key:null)} onSelect={()=>onSelect({node,position:positions[index],depth:layerIndex+1,key})}/>:null}))}
+    <ContactShadows position={[0,.02,0]} opacity={.24} scale={31} blur={2} far={10} frames={1} color="#68706b"/>
     <CameraControls ref={controlsRef} makeDefault minDistance={6.5} maxDistance={36} minPolarAngle={.55} maxPolarAngle={1.13} minAzimuthAngle={-1.45} maxAzimuthAngle={.88} smoothTime={reducedMotion ? .05 : .38} draggingSmoothTime={reducedMotion ? .04 : .16} dollyToCursor truckSpeed={.72} onEnd={onCameraEnd}/>
-    {current?<Html position={[current.position[0],.05,current.position[2]]} style={{display:"none"}}>{current.node.label}</Html>:null}
   </>;
 }
 
@@ -97,8 +99,8 @@ export default function KnowledgeCityCanvas({data,onReady}:{data:CityNode[];onRe
   },[departing,path,persist,reducedMotion,router]);
   const overview=()=>{const next=DEFAULT_CAMERA;setPath([]);setCamera(next);persist([],next,"push")};
   const cameraEnd=useCallback(()=>{if(!ready)return;const next=snapshot();persist(path,next,"replace")},[path,persist,ready,snapshot]);
-  return <section className="knowledgeCity3d" data-ready={ready} data-departing={departing} aria-label="3D LLM 지식 도시">
-    <Canvas frameloop="demand" dpr={[1,1.45]} camera={{position:DEFAULT_CAMERA.position,fov:42,near:.1,far:100}} gl={{antialias:true,alpha:false,powerPreference:"high-performance"}} fallback={<div className="cityWebglFallback">3D renderer unavailable</div>} onCreated={()=>{setReady(true);onReady?.()}}>
+  return <section className="knowledgeCity3d" data-ready={ready} data-departing={departing} data-depth={path.length} aria-label="3D LLM 지식 도시">
+    <Canvas frameloop="demand" dpr={[1,1.45]} camera={{position:DEFAULT_CAMERA.position,fov:36,near:.1,far:100}} gl={{antialias:true,alpha:false,powerPreference:"high-performance"}} fallback={<div className="cityWebglFallback">3D renderer unavailable</div>} onCreated={()=>{setReady(true);onReady?.()}}>
       <SceneContent data={data} path={path} hovered={hovered} onHover={setHovered} onSelect={select} controlsRef={controlsRef} onCameraEnd={cameraEnd} restoreCamera={camera} reducedMotion={reducedMotion}/>
     </Canvas>
     <header className="city3dIntro"><p>{current?.kicker??"AN ATLAS OF GENERATIVE AI"}</p><h1>{current?.label??"LLM Knowledge City"}</h1><span>{current?.summary??"도시를 내려다보고, 건물 사이를 이동하며 생성형 AI의 구조를 탐색하세요."}</span></header>

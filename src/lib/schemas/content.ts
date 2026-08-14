@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const contentStatus = z.enum(["verified", "draft", "index", "needs-review"]);
+export const contentStatus = z.enum(["verified", "study-guide", "draft", "index", "needs-review"]);
 export const contentDepth = z.enum(["full", "partial", "stub"]);
 export const contentMetadataSchema = z.object({
   status: contentStatus,

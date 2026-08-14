@@ -3,7 +3,7 @@ import Link from "next/link";
 import {ContentMeta} from "@/components/content/content-meta";
 import {DirectionalLink} from "@/components/motion/directional-link";
 import {conceptDocuments,events,getSource,issueDocuments} from "@/lib/content";
-import {getConceptStudyGuide} from "@/lib/concept-study-guides";
+import {getConceptContentState} from "@/lib/concept-study-guides";
 import {buildContentMetadata} from "@/lib/content-metadata";
 import {notFound} from "next/navigation";
 
@@ -19,7 +19,7 @@ export default async function Concept({params}:{params:Promise<{slug:string}>}){
   const {slug}=await params;
   const concept=conceptDocuments.find(item=>item.slug===slug);
   if(!concept)notFound();
-  const guide=getConceptStudyGuide(slug);
+  const {guide,status,contentDepth}=getConceptContentState(slug);
   const relatedEvents=events.filter(event=>event.conceptIds.includes(slug)).slice(0,8);
   const relatedIssues=issueDocuments.filter(issue=>issue.conceptIds.includes(slug));
   const conceptIndex=conceptDocuments.findIndex(item=>item.slug===slug);
@@ -32,7 +32,7 @@ export default async function Concept({params}:{params:Promise<{slug:string}>}){
     <h1 style={{viewTransitionName:"concept-title"}}>{concept.titleKo}</h1>
     <p className="detailEn">{concept.titleEn}</p>
     <p className="lead">{concept.summary}</p>
-    <ContentMeta metadata={buildContentMetadata({status:guide?"draft":"index",contentDepth:guide?"full":"stub",sourceIds:concept.sourceIds})}/>
+    <ContentMeta metadata={buildContentMetadata({status,contentDepth,sourceIds:concept.sourceIds})}/>
 
     {guide ? <>
       <aside className="studyBrief" aria-label="학습 목표">

@@ -16,7 +16,6 @@ type AtlasNode = {
 };
 
 type Position = { x: number; y: number; scale: number; ring: "outer" | "middle" | "inner" };
-type Offset = { x: number; y: number };
 
 const preferredModels = ["gpt", "gemini", "claude", "llama", "deepseek", "mistral", "qwen", "gemma"];
 const preferredConcepts = ["transformer", "attention", "pretraining", "rlhf", "retrieval-augmented-generation", "mixture-of-experts", "reasoning", "agents", "multimodality", "alignment"];
@@ -103,78 +102,14 @@ function compactLabel(label: string, limit = 17) {
 }
 
 function DriftingNode({ node, position, mobilePosition, index, sequence, selected, onOpen }: { node: AtlasNode; position: Position; mobilePosition?: Position; index: number; sequence: boolean; selected: boolean; onOpen: () => void }) {
-  const [offset, setOffset] = useState<Offset>({ x: 0, y: 0 });
-  const offsetRef = useRef<Offset>({ x: 0, y: 0 });
-  const velocityRef = useRef<Offset>({ x: 0, y: 0 });
-  const frameRef = useRef<number | null>(null);
-  const dragRef = useRef<{ pointerId: number; startX: number; startY: number; originX: number; originY: number; moved: boolean } | null>(null);
-
-  useEffect(() => () => { if (frameRef.current !== null) cancelAnimationFrame(frameRef.current); }, []);
-
-  const updateOffset = (next: Offset) => {
-    offsetRef.current = next;
-    setOffset(next);
-  };
-
-  const returnHome = () => {
-    if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
-    const tick = () => {
-      const current = offsetRef.current;
-      const velocity = velocityRef.current;
-      const nextVelocity = {
-        x: (velocity.x - current.x * .028) * .9,
-        y: (velocity.y - current.y * .028) * .9,
-      };
-      const next = { x: current.x + nextVelocity.x, y: current.y + nextVelocity.y };
-      velocityRef.current = nextVelocity;
-      if (Math.abs(next.x) + Math.abs(next.y) + Math.abs(nextVelocity.x) + Math.abs(nextVelocity.y) < .35) {
-        velocityRef.current = { x: 0, y: 0 };
-        updateOffset({ x: 0, y: 0 });
-        frameRef.current = null;
-        return;
-      }
-      updateOffset(next);
-      frameRef.current = requestAnimationFrame(tick);
-    };
-    frameRef.current = requestAnimationFrame(tick);
-  };
-
-  const beginPush = (event: ReactPointerEvent<HTMLButtonElement>) => {
-    if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
-    frameRef.current = null;
-    velocityRef.current = { x: 0, y: 0 };
-    dragRef.current = { pointerId: event.pointerId, startX: event.clientX, startY: event.clientY, originX: offsetRef.current.x, originY: offsetRef.current.y, moved: false };
-    event.currentTarget.setPointerCapture(event.pointerId);
-  };
-
-  const push = (event: ReactPointerEvent<HTMLButtonElement>) => {
-    const drag = dragRef.current;
-    if (!drag || drag.pointerId !== event.pointerId) return;
-    const dx = event.clientX - drag.startX;
-    const dy = event.clientY - drag.startY;
-    if (Math.hypot(dx, dy) > 5) drag.moved = true;
-    const next = { x: Math.max(-90, Math.min(90, drag.originX + dx)), y: Math.max(-70, Math.min(70, drag.originY + dy)) };
-    velocityRef.current = { x: (next.x - offsetRef.current.x) * .58, y: (next.y - offsetRef.current.y) * .58 };
-    updateOffset(next);
-  };
-
-  const release = (event: ReactPointerEvent<HTMLButtonElement>, cancelled = false) => {
-    const drag = dragRef.current;
-    if (!drag || drag.pointerId !== event.pointerId) return;
-    dragRef.current = null;
-    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
-    if (!cancelled && !drag.moved) onOpen();
-    else returnHome();
-  };
-
   const nodeStyle = {
     "--x": `${position.x}%`,
     "--y": `${position.y}%`,
     "--mobile-x": `${mobilePosition?.x ?? position.x}%`,
     "--mobile-y": `${mobilePosition?.y ?? position.y}%`,
     "--node-scale": position.scale,
-    "--push-x": `${offset.x}px`,
-    "--push-y": `${offset.y}px`,
+    "--push-x": "0px",
+    "--push-y": "0px",
     "--drift-delay": `${index * -.47}s`,
     "--drift-duration": `${13 + index * 1.7}s`,
   } as CSSProperties;
@@ -186,16 +121,13 @@ function DriftingNode({ node, position, mobilePosition, index, sequence, selecte
     data-side={sequence ? "center" : position.x > 66 ? "left" : "right"}
     data-mobile-side={mobilePosition && mobilePosition.x > 50 ? "left" : "right"}
     className={`cosmosNode tone-${node.tone} ${position.ring} ${sequence ? "sequenceNode" : ""} ${selected ? "selected" : ""}`}
-    onPointerDown={beginPush}
-    onPointerMove={push}
-    onPointerUp={event => release(event)}
-    onPointerCancel={event => release(event, true)}
-    onClick={event => { if (event.detail === 0) onOpen(); }}
+    data-cosmos-interactive="true"
+    onClick={onOpen}
   >
     <span className="cosmosNodeDrift">
       {sequence ? <span className="sequenceIndex" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span> : null}
       <span className="inkMark" aria-hidden="true"><i /></span>
-      <span className="cosmosNodeBody"><small>{node.kicker}</small><b>{compactLabel(node.label)}</b>{node.children?.length ? <em>확대 · {node.children.length}</em> : <em>주석 보기</em>}</span>
+      <span className="cosmosNodeBody"><small>{node.kicker}</small><b>{compactLabel(node.label)}</b></span>
     </span>
   </button>;
 }
@@ -243,6 +175,8 @@ export function KnowledgeCosmos() {
   const cameraRef = useRef(camera);
   const cameraDrag = useRef<{pointerId:number;startX:number;startY:number;originX:number;originY:number;lastX:number;lastY:number;lastTime:number;velocityX:number;velocityY:number}|null>(null);
   const cameraFrame = useRef<number|null>(null);
+  const cameraTransitionTimer = useRef<number|null>(null);
+  const canvasRef = useRef<HTMLDivElement>(null);
   const current = path.at(-1);
   const nodes = current?.children ?? roots;
   const rootMap = !current;
@@ -259,12 +193,14 @@ export function KnowledgeCosmos() {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   });
-  useEffect(()=>()=>{if(cameraFrame.current!==null)cancelAnimationFrame(cameraFrame.current)},[]);
+  useEffect(()=>()=>{if(cameraFrame.current!==null)cancelAnimationFrame(cameraFrame.current);if(cameraTransitionTimer.current!==null)window.clearTimeout(cameraTransitionTimer.current)},[]);
 
   const updateCamera=(next:{x:number;y:number;scale:number})=>{cameraRef.current=next;setCamera(next)};
   const resetCamera=()=>updateCamera({x:0,y:0,scale:1});
   const beginCameraDrag=(event:ReactPointerEvent<HTMLDivElement>)=>{
-    if(event.target!==event.currentTarget||window.matchMedia("(max-width: 700px)").matches)return;
+    if(window.matchMedia("(max-width: 700px)").matches)return;
+    const target=event.target as HTMLElement;
+    if(target.closest("[data-cosmos-interactive],a,button"))return;
     if(cameraFrame.current!==null)cancelAnimationFrame(cameraFrame.current);
     const now=performance.now();cameraDrag.current={pointerId:event.pointerId,startX:event.clientX,startY:event.clientY,originX:cameraRef.current.x,originY:cameraRef.current.y,lastX:event.clientX,lastY:event.clientY,lastTime:now,velocityX:0,velocityY:0};
     event.currentTarget.setPointerCapture(event.pointerId);
@@ -293,16 +229,21 @@ export function KnowledgeCosmos() {
       return;
     }
     setSelectedLeaf(null);
-    resetCamera();
     setMotion(previous => ({ serial: previous.serial + 1, direction: "in", x: position.x, y: position.y }));
-    setPath(previous => [...previous, node]);
+    const rect=canvasRef.current?.getBoundingClientRect();
+    const targetCamera=rect&&!window.matchMedia("(max-width: 700px)").matches?{x:(50-position.x)/100*rect.width,y:(51-position.y)/100*rect.height,scale:1.34}:{x:0,y:0,scale:1.08};
+    updateCamera(targetCamera);
+    if(cameraTransitionTimer.current!==null)window.clearTimeout(cameraTransitionTimer.current);
+    cameraTransitionTimer.current=window.setTimeout(()=>{setPath(previous=>[...previous,node]);updateCamera({x:0,y:0,scale:1.08});cameraTransitionTimer.current=null},360);
   };
 
   const retreat = (index: number) => {
     setSelectedLeaf(null);
-    resetCamera();
     setMotion(previous => ({ serial: previous.serial + 1, direction: "out", x: 50, y: 51 }));
     setPath(previous => previous.slice(0, index + 1));
+    updateCamera({x:0,y:0,scale:.9});
+    if(cameraTransitionTimer.current!==null)window.clearTimeout(cameraTransitionTimer.current);
+    cameraTransitionTimer.current=window.setTimeout(()=>{updateCamera({x:0,y:0,scale:1});cameraTransitionTimer.current=null},20);
   };
 
   const reset = () => retreat(-1);
@@ -315,10 +256,10 @@ export function KnowledgeCosmos() {
         <button type="button" onClick={reset} aria-current={!path.length ? "page" : undefined}>전체 지도</button>
         {path.map((item, index) => <span key={item.id}><i>/</i><button type="button" onClick={() => retreat(index)} aria-current={index === path.length - 1 ? "page" : undefined}>{item.label}</button></span>)}
       </nav>
-      {path.length ? <button className="cosmosBack" type="button" onClick={() => retreat(path.length - 2)}>− 축소</button> : <p>이름을 눌러 확대하세요</p>}
+      {path.length ? <button className="cosmosBack" type="button" onClick={() => retreat(path.length - 2)}>− 축소</button> : null}
     </header>
 
-    <div key={`${path.map(item => item.id).join("-")}-${motion.serial}`} className={`cosmosWorld layout-${layoutMode} motion-${motion.direction}`} style={sceneStyle}>
+    <div className={`cosmosWorld layout-${layoutMode} motion-${motion.direction}`} style={sceneStyle}>
       <div className="cosmosCaption">
         <p>{current?.kicker ?? "AN ATLAS OF GENERATIVE AI"}</p>
         <h2 title={current?.label}>{compactLabel(current?.label ?? "LLM 지식 지도", 22)}</h2>
@@ -326,7 +267,8 @@ export function KnowledgeCosmos() {
         {current?.href ? <Link href={current.href}>이 항목 전체 읽기 ↗</Link> : null}
       </div>
 
-      <div className="cosmosCanvas" style={cameraStyle} onPointerDown={beginCameraDrag} onPointerMove={moveCamera} onPointerUp={endCameraDrag} onPointerCancel={endCameraDrag} onWheel={zoomCamera}>
+      <div ref={canvasRef} className="cosmosViewport" onPointerDown={beginCameraDrag} onPointerMove={moveCamera} onPointerUp={endCameraDrag} onPointerCancel={endCameraDrag} onWheel={zoomCamera}>
+      <div className="cosmosCanvas" style={cameraStyle}>
         <svg className="cosmosOrbits" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           {rootMap ? <>
             <g className="desktopRootOrbits">
@@ -347,9 +289,10 @@ export function KnowledgeCosmos() {
           </>}
         </svg>
 
-        {!sequence ? <div className="cosmosCenter" aria-hidden="true"><span>{path.length ? String(path.length).padStart(2, "0") : "AI"}</span><b>{compactLabel(current?.label ?? "LLM", 13)}</b><i>{nodes.length}개의 갈래</i></div> : <p className="sequenceDirection" aria-hidden="true">앞선 모델 <span>→</span> 다음 모델</p>}
+        {!sequence ? <div className="cosmosCenter" aria-hidden="true"><span>{path.length ? String(path.length).padStart(2, "0") : "AI"}</span><b>{compactLabel(current?.label ?? "LLM", 13)}</b></div> : <p className="sequenceDirection" aria-hidden="true">앞선 모델 <span>→</span> 다음 모델</p>}
 
         {nodes.map((node, index) => <DriftingNode key={node.id} node={node} position={positions[index]} mobilePosition={rootMap ? rootMobilePositions[index] : undefined} index={index} sequence={sequence} selected={selectedLeaf?.id === node.id} onOpen={() => dive(node, positions[index])} />)}
+      </div>
       </div>
 
       {!path.length?<div className="cosmosCameraControls" aria-label="지도 보기 조절"><button type="button" onClick={()=>updateCamera({...cameraRef.current,scale:Math.max(.82,cameraRef.current.scale-.12)})} aria-label="축소">−</button><button type="button" onClick={resetCamera} aria-label="전체 지도">◎</button><button type="button" onClick={()=>updateCamera({...cameraRef.current,scale:Math.min(1.42,cameraRef.current.scale+.12)})} aria-label="확대">＋</button></div>:null}

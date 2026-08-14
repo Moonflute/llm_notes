@@ -10,9 +10,25 @@ export function DirectionalLink({href,direction,children,className=""}:{href:str
     event.preventDefault();
     const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if(reduced){router.push(href);return}
-    document.documentElement.dataset.routeDirection=direction;
-    document.documentElement.classList.add("routeLeaving");
-    window.setTimeout(()=>{router.push(href);document.documentElement.classList.remove("routeLeaving");delete document.documentElement.dataset.routeDirection},170);
+    const root=document.documentElement;
+    root.dataset.routeDirection=direction;
+    const startViewTransition=(document as Document&{startViewTransition?:(update:()=>Promise<void>)=>{finished:Promise<void>}}).startViewTransition;
+    if(startViewTransition){
+      const transition=startViewTransition.call(document,()=>new Promise<void>(resolve=>{
+        const previousPath=window.location.pathname;
+        router.push(href);
+        const started=performance.now();
+        const waitForRoute=()=>{
+          if(window.location.pathname!==previousPath||performance.now()-started>900){window.requestAnimationFrame(()=>resolve());return}
+          window.requestAnimationFrame(waitForRoute);
+        };
+        window.requestAnimationFrame(waitForRoute);
+      }));
+      transition.finished.finally(()=>{delete root.dataset.routeDirection});
+      return;
+    }
+    root.classList.add("routeLeaving");
+    window.setTimeout(()=>{router.push(href);root.classList.remove("routeLeaving");delete root.dataset.routeDirection},220);
   };
   return <a href={href} className={className} data-direction={direction} onClick={navigate}>{children}</a>;
 }

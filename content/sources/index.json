@@ -2070,13 +2070,13 @@
     "publisher": "DeepSeek",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05",
+    "verifiedAt": "2026-08-14",
     "sourceType": "paper-or-technical-report",
     "authorOrOrganization": "DeepSeek",
     "publicationDate": "2024",
-    "verificationDate": "2026-08-05",
+    "verificationDate": "2026-08-14",
     "classification": "primary",
-    "validationStatus": "linked-not-claim-verified",
+    "validationStatus": "claim-verified",
     "supportsClaims": [
       {
         "id": "evt-deepseek-v2:summary",
@@ -2093,6 +2093,10 @@
       {
         "id": "profile-deepseek-deepseek-v2-lite:236B 전체 중 토큰당 21B만 활성화합니다.",
         "claim": "236B 전체 중 토큰당 21B만 활성화합니다."
+      },
+      {
+        "id": "concept-mla:mechanism",
+        "claim": "DeepSeek-V2는 KV 캐시를 잠재 벡터로 압축하는 Multi-head Latent Attention을 제시했다."
       }
     ]
   },
@@ -3304,5 +3308,21 @@
     "classification": "primary",
     "validationStatus": "claim-verified",
     "supportsClaims": [{"id": "frontier-scientific-discovery:coscientist", "claim": "Coscientist 연구는 LLM 기반 시스템이 문헌·장비 문서를 탐색하고 cloud laboratory의 도구를 사용해 화학 과제를 계획·실행하는 사례를 평가했다."}]
+  },
+  {
+    "id": "mcp-spec-2026",
+    "title": "MCP Specification 2026-07-28: Authorization, Statelessness, and Extensions",
+    "url": "https://blog.modelcontextprotocol.io/posts/2026-07-28/",
+    "publisher": "Model Context Protocol",
+    "year": 2026,
+    "tier": 1,
+    "verifiedAt": "2026-08-14",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Model Context Protocol maintainers",
+    "publicationDate": "2026-07-28",
+    "verificationDate": "2026-08-14",
+    "classification": "primary",
+    "validationStatus": "claim-verified",
+    "supportsClaims": [{"id": "concept-mcp:current-spec", "claim": "2026-07-28 MCP 사양은 stateless protocol core, multi round-trip requests, header routing, cacheable list results와 authorization hardening을 도입했다."}]
   }
 ]

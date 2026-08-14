@@ -1,7 +1,7 @@
 import { contentMetadataSchema } from "@/lib/schemas/content";
 import { sources } from "@/lib/content";
 
-export type ContentStatus = "verified" | "draft" | "index" | "needs-review";
+export type ContentStatus = "verified" | "study-guide" | "draft" | "index" | "needs-review";
 export type ContentDepth = "full" | "partial" | "stub";
 export type ContentMetadata = {
   status: ContentStatus;
@@ -29,6 +29,7 @@ export function buildContentMetadata({
 
 export const contentStatusLabels: Record<ContentStatus, string> = {
   verified: "검증 완료",
+  "study-guide": "학습 가이드",
   draft: "편집·검증 중",
   index: "개념 색인",
   "needs-review": "출처 재검토 필요",

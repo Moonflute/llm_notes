@@ -26,10 +26,10 @@ export function PathProgress({pathSlug,steps}:{pathSlug:string;steps:Step[]}){
       {steps.map((step,index)=>{
         const complete=done.includes(step.slug);
         return <article className="learningStep" data-complete={complete} key={step.slug}>
-          <span>{String(index+1).padStart(2,"0")}</span>
+          <div className="learningStepMarker" aria-hidden="true"><i/><span>{String(index+1).padStart(2,"0")}</span></div>
           <h3>{step.title}</h3>
           <p>{step.summary}</p>
-          <div><button type="button" aria-pressed={complete} onClick={()=>toggle(step.slug)}>{complete?"완료됨":"완료 표시"}</button><Link href={`/concepts/${step.slug}/`}>학습 문서 열기 →</Link></div>
+          <div className="learningStepActions"><button type="button" aria-pressed={complete} onClick={()=>toggle(step.slug)}>{complete?"이 단계 학습 완료":"학습 후 완료 기록"}</button><Link href={`/concepts/${step.slug}/`}>학습 문서 열기 →</Link></div>
         </article>;
       })}
     </KineticRail>

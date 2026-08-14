@@ -29,7 +29,7 @@ export default async function Release({params}:{params:Promise<{slug:string;rele
 
   return <main id="main-content" className="detail modelDetail">
     <nav className="breadcrumb" aria-label="현재 위치"><Link href="/models/">모델</Link><span>›</span><Link href={`/models/${family}/`}>{modelFamily.titleKo}</Link><span>›</span><b>{item.title}</b></nav>
-    <p className="sectionLabel">모델 릴리스 · {item.date}</p><h1>{item.title}</h1>
+    <p className="sectionLabel">모델 릴리스 · {item.date}</p><h1 style={{viewTransitionName:"model-title"}}>{item.title}</h1>
     <ContentMeta metadata={buildContentMetadata({status:"draft",contentDepth:"partial",sourceIds:allSourceIds,lastReviewed:profile.verifiedAt})}/>
 
     <section className="releaseDelta">

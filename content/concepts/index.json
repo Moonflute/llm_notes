@@ -689,5 +689,25 @@
     "prerequisites": ["transformer"],
     "next": ["long-context"],
     "sourceIds": ["mamba"]
+  },
+  {
+    "slug": "mla",
+    "titleKo": "멀티헤드 잠재 어텐션",
+    "titleEn": "Multi-head Latent Attention",
+    "summary": "키·값 상태를 저차원 잠재 표현으로 압축해 긴 문맥 디코딩의 KV 캐시 비용을 줄이는 어텐션 구조입니다.",
+    "level": "심화",
+    "prerequisites": ["attention-variants", "kv-cache"],
+    "next": ["inference-serving"],
+    "sourceIds": ["deepseek-v2"]
+  },
+  {
+    "slug": "mcp",
+    "titleKo": "모델 컨텍스트 프로토콜",
+    "titleEn": "Model Context Protocol",
+    "summary": "AI 애플리케이션이 도구와 외부 컨텍스트 제공자에 연결되는 메시지·기능 협상·보안 경계를 표준화하는 공개 프로토콜입니다.",
+    "level": "중급",
+    "prerequisites": ["function-calling", "structured-output"],
+    "next": ["agents"],
+    "sourceIds": ["mcp-spec-2026"]
   }
 ]

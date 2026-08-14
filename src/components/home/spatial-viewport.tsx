@@ -121,7 +121,7 @@ export const SpatialViewport=forwardRef<SpatialViewportHandle,{
     if(next){event.preventDefault();onCameraCommit(update(next))}
   };
   const worldStyle={"--camera-x":`${camera.x}px`,"--camera-y":`${camera.y}px`,"--camera-scale":camera.scale} as CSSProperties;
-  return <div ref={viewport} className="spatialViewport" tabIndex={0} aria-label="LLM 지식 공간. 빈 공간을 끌어 이동하고 휠로 확대하거나 축소할 수 있습니다." onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={pointerEnd} onWheel={wheel} onKeyDown={keyboard}>
+  return <div ref={viewport} className="spatialViewport" tabIndex={0} aria-label="LLM 지식 도시 지도. 빈 공간을 끌어 이동하고 휠로 확대하거나 축소할 수 있습니다." onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerEnd} onPointerCancel={pointerEnd} onWheel={wheel} onKeyDown={keyboard}>
     <div className="spatialWorld" style={worldStyle}>{children}</div>
   </div>;
 });

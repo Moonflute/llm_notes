@@ -21,13 +21,19 @@ const curbMaterial=new MeshStandardMaterial({color:"#bdb9ae",roughness:1});
 const railMaterial=new MeshStandardMaterial({color:"#696f6b",roughness:.84,metalness:.04});
 const districtMaterials:Record<CityTone,MeshStandardMaterial>={concepts:new MeshStandardMaterial({color:"#eeedf1",roughness:1}),models:new MeshStandardMaterial({color:"#f0ebe7",roughness:1}),history:new MeshStandardMaterial({color:"#eeeade",roughness:1}),organizations:new MeshStandardMaterial({color:"#e9efed",roughness:1}),issues:new MeshStandardMaterial({color:"#f0e9ea",roughness:1}),frontiers:new MeshStandardMaterial({color:"#e8eee9",roughness:1})};
 
-type PositionedNode={node:CityNode;position:Vector3Tuple;depth:number;key:string};
+type PositionedNode={node:CityNode;position:Vector3Tuple;depth:number;key:string;parentPosition?:Vector3Tuple;ancestors?:string[]};
 
 function childPositions(parent:Vector3Tuple,count:number,depth:number):Vector3Tuple[]{
   const near:[number,number][]=[[-3.7,-2.9],[0,-3.5],[3.7,-2.6],[-4,.5],[0,.2],[4,.8],[-2.8,3.6],[2.4,3.5],[5,3.4],[-5,3.2]];
   const close:[number,number][]=[[-2.5,-2],[-.3,-2.5],[2.1,-1.9],[-2.8,.3],[-.4,.1],[2.4,.5],[-1.9,2.5],[.6,2.7],[3,2.4],[-3.2,2.8]];
   const grid=depth===1?near:close;
   return Array.from({length:count},(_,index)=>{const [x,z]=grid[index%grid.length];const cycle=Math.floor(index/grid.length);return [parent[0]+x+cycle*.45,0,parent[2]+z+cycle*.45];});
+}
+function semanticChildPositions(parentNode:CityNode,parent:Vector3Tuple,count:number,depth:number):Vector3Tuple[]{
+  if(parentNode.tone==="history")return Array.from({length:count},(_,index)=>[parent[0]+(index-(count-1)/2)*1.5,0,parent[2]] as Vector3Tuple);
+  if(parentNode.tone==="models"&&parentNode.id!=="models")return Array.from({length:count},(_,index)=>[parent[0]+(index-(count-1)/2)*1.25,0,parent[2]+(index%2?-.28:.28)] as Vector3Tuple);
+  if(parentNode.tone==="issues")return Array.from({length:count},(_,index)=>{const angle=(index/count)*Math.PI*2-.7;const radius=count>6?3.35:2.75;return [parent[0]+Math.cos(angle)*radius,0,parent[2]+Math.sin(angle)*radius] as Vector3Tuple});
+  return childPositions(parent,count,depth);
 }
 function cameraFor(position:Vector3Tuple,depth:number):CameraSnapshot{
   if(depth===0)return DEFAULT_CAMERA;
@@ -37,10 +43,20 @@ function cameraFor(position:Vector3Tuple,depth:number):CameraSnapshot{
 function compact(value:string,limit=24){return value.length>limit?`${value.slice(0,limit).trim()}…`:value}
 
 function resolvePath(data:CityNode[],ids:string[]){
-  const entries:PositionedNode[]=[];let options=data;let parent:Vector3Tuple|null=null;
-  ids.forEach((id,depth)=>{const index=options.findIndex(node=>node.id===id);if(index<0)return;const node=options[index];const position=depth===0?ROOT_POSITIONS[node.tone]:childPositions(parent!,options.length,depth)[index];entries.push({node,position,depth,key:ids.slice(0,depth+1).join("/")});parent=position;options=node.children??[];});
+  const entries:PositionedNode[]=[];let options=data;let parent:Vector3Tuple|null=null;let parentNode:CityNode|null=null;
+  ids.forEach((id,depth)=>{const index=options.findIndex(node=>node.id===id);if(index<0)return;const node=options[index];const position=depth===0?ROOT_POSITIONS[node.tone]:semanticChildPositions(parentNode!,parent!,options.length,depth)[index];entries.push({node,position,depth,key:ids.slice(0,depth+1).join("/")});parent=position;parentNode=node;options=node.children??[];});
   return entries;
 }
+
+function flattenWorld(data:CityNode[]){
+  const items:PositionedNode[]=[];
+  const visit=(nodes:CityNode[],parent:Vector3Tuple|null,parentNode:CityNode|null,depth:number,ancestors:string[])=>{const positions=parent&&parentNode?semanticChildPositions(parentNode,parent,nodes.length,depth):null;nodes.forEach((node,index)=>{const position=positions?.[index]??ROOT_POSITIONS[node.tone];const key=[...ancestors,node.id].join("/");items.push({node,position,depth,key,parentPosition:parent??position,ancestors});if(node.children?.length)visit(node.children,position,node,depth+1,[...ancestors,node.id])})};
+  visit(data,null,null,0,[]);return items;
+}
+
+function fallbackSemantic(node:CityNode){if(node.building==="station")return "rail-axis" as const;if(node.building==="plaza")return "forum" as const;if(node.building==="observatory")return "observatory" as const;if(node.building==="towers")return "lineage" as const;if(node.building==="institute")return "institute" as const;if(node.building==="library")return "library" as const;return "headquarters" as const}
+
+function RelationshipPaths({parent,children}:{parent:Vector3Tuple;children:Vector3Tuple[]}){return <group>{children.map((child,index)=>{const dx=child[0]-parent[0],dz=child[2]-parent[2],length=Math.hypot(dx,dz);return <mesh key={index} geometry={BOX} position={[(parent[0]+child[0])/2,.1,(parent[2]+child[2])/2]} rotation={[0,Math.atan2(dx,dz),0]} scale={[.055,.025,length]} material={pathMaterial}/>})}</group>}
 
 function CityGround(){
   return <group dispose={null}>
@@ -57,14 +73,15 @@ function CityGround(){
 function SceneContent({data,path,hovered,onHover,onSelect,controlsRef,onCameraEnd,restoreCamera,reducedMotion}:{data:CityNode[];path:string[];hovered:string|null;onHover:(key:string|null)=>void;onSelect:(item:PositionedNode)=>void;controlsRef:RefObject<CameraControlsImpl|null>;onCameraEnd:()=>void;restoreCamera:CameraSnapshot;reducedMotion:boolean}){
   const entries=useMemo(()=>resolvePath(data,path),[data,path]);
   const current=entries.at(-1);
-  const layers=useMemo(()=>entries.map((entry,index)=>({entry,children:entry.node.children??[],positions:childPositions(entry.position,entry.node.children?.length??0,index+1)})),[entries]);
+  const world=useMemo(()=>flattenWorld(data),[data]);
+  const currentChildren=useMemo(()=>current?.node.children?.length?semanticChildPositions(current.node,current.position,current.node.children.length,current.depth+1):[],[current]);
   useEffect(()=>{const controls=controlsRef.current;if(!controls)return;controls.setLookAt(...restoreCamera.position,...restoreCamera.target,!reducedMotion)},[controlsRef,restoreCamera,reducedMotion]);
   return <>
-    <color attach="background" args={["#faf9f5"]}/><fog attach="fog" args={["#faf9f5",27,48]}/>
+    <color attach="background" args={["#faf9f5"]}/><fog attach="fog" args={["#faf9f5",48,86]}/>
     <hemisphereLight intensity={1.35} color="#fffdf6" groundColor="#c7c4ba"/><directionalLight position={[11,17,8]} intensity={1.85}/>
     <CityGround/><CityScenery/>
-    {data.map(node=>{const position=ROOT_POSITIONS[node.tone];const key=node.id;const scale=node.id==="concepts"?1:node.id==="models"?.94:node.id==="history"?.88:.9;return <KnowledgeBuilding key={key} kind={node.building} tone={node.tone} label={node.label} kicker={node.kicker} variant={node.id} position={position} scale={scale} hovered={hovered===key} active={path[0]===node.id} muted={Boolean(path.length&&path[0]!==node.id)} onHover={value=>onHover(value?key:null)} onSelect={()=>onSelect({node,position,depth:0,key})}/>})}
-    {layers.map(({entry,children,positions},layerIndex)=>children.map((node,index)=>{const key=`${entry.key}/${node.id}`;const selected=path[layerIndex+1]===node.id;const visible=layerIndex===path.length-1||selected;return visible?<KnowledgeBuilding key={key} kind={node.building} tone={node.tone} label={node.label} kicker={node.kicker} variant={node.id} position={positions[index]} scale={layerIndex===0 ? .52 : .4} hovered={hovered===key} active={selected} muted={layerIndex<path.length-1&&!selected} onHover={value=>onHover(value?key:null)} onSelect={()=>onSelect({node,position:positions[index],depth:layerIndex+1,key})}/>:null}))}
+    {current&&currentChildren.length?<RelationshipPaths parent={current.position} children={currentChildren}/>:null}
+    {world.map(item=>{const {node,key,position,depth}=item;const ancestors=item.ancestors??[];const lineageActive=ancestors.every((id,index)=>path[index]===id);const revealed=depth===0||lineageActive;const active=lineageActive&&path[depth]===node.id;const interactive=revealed&&depth===path.length;const labelVisible=depth===0?(path.length===0||active):(revealed&&depth===path.length);const scale=depth===0?(node.id==="concepts"?1:node.id==="models"?.94:node.id==="history"?.88:.9):depth===1?.5:.32;const parent=item.parentPosition??position;const collapsed:[number,number,number]=[parent[0]+(position[0]-parent[0])*.12,.04,parent[2]+(position[2]-parent[2])*.12];return <KnowledgeBuilding key={key} kind={node.building} semanticForm={node.semanticForm??fallbackSemantic(node)} tone={node.tone} label={node.label} kicker={node.kicker} variant={node.id} position={position} collapsedPosition={collapsed} scale={scale} level={depth} revealed={revealed} labelVisible={labelVisible} interactive={interactive} hovered={hovered===key} active={active} muted={Boolean(path.length&&!lineageActive)} reducedMotion={reducedMotion} onHover={value=>onHover(value?key:null)} onSelect={()=>onSelect(item)}/>})}
     <ContactShadows position={[0,.02,0]} opacity={.24} scale={31} blur={2} far={10} frames={1} color="#68706b"/>
     <CameraControls ref={controlsRef} makeDefault minDistance={6.5} maxDistance={36} minPolarAngle={.55} maxPolarAngle={1.13} minAzimuthAngle={-1.45} maxAzimuthAngle={.88} smoothTime={reducedMotion ? .05 : .38} draggingSmoothTime={reducedMotion ? .04 : .16} dollyToCursor truckSpeed={.72} onEnd={onCameraEnd}/>
   </>;
@@ -105,6 +122,6 @@ export default function KnowledgeCityCanvas({data,onReady}:{data:CityNode[];onRe
     </Canvas>
     <header className="city3dIntro"><p>{current?.kicker??"AN ATLAS OF GENERATIVE AI"}</p><h1>{current?.label??"LLM Knowledge City"}</h1><span>{current?.summary??"도시를 내려다보고, 건물 사이를 이동하며 생성형 AI의 구조를 탐색하세요."}</span></header>
     <div className="city3dChrome"><nav aria-label="현재 3D 도시 위치"><button type="button" onClick={overview}>City</button>{entries.map(entry=><span key={entry.key}><i>/</i><button type="button" aria-current={entry.node.id===current?.id?"page":undefined} onClick={()=>{const targetDepth=entry.depth;const steps=path.length-targetDepth-1;if(steps>0)window.history.go(-steps)}}>{compact(entry.node.label,15)}</button></span>)}</nav><div><button type="button" onClick={()=>window.history.back()} disabled={!path.length} aria-label="이전 시점">←</button><button type="button" onClick={overview} aria-label="도시 전체 보기">⌂</button></div></div>
-    <nav className="city3dAccessibleNav" aria-label={current?`${current.label} 하위 영역`:"지식 도시 주요 구역"}>{contextual.slice(0,10).map((node,index)=>{const parent=entries.at(-1);const positions=parent?childPositions(parent.position,contextual.length,path.length):null;const item:PositionedNode={node,position:positions?.[index]??ROOT_POSITIONS[node.tone],depth:path.length,key:[...path,node.id].join("/")};return <button type="button" key={node.id} onClick={()=>select(item)}><small>{node.kicker}</small><b>{node.label}</b></button>})}</nav>
+    <nav className="city3dAccessibleNav" aria-label={current?`${current.label} 하위 영역`:"지식 도시 주요 구역"}>{contextual.slice(0,10).map((node,index)=>{const parent=entries.at(-1);const positions=parent?semanticChildPositions(parent.node,parent.position,contextual.length,path.length):null;const item:PositionedNode={node,position:positions?.[index]??ROOT_POSITIONS[node.tone],depth:path.length,key:[...path,node.id].join("/")};return <button type="button" key={node.id} onClick={()=>select(item)}><small>{node.kicker}</small><b>{node.label}</b></button>})}</nav>
   </section>;
 }

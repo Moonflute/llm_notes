@@ -1,10 +1,10 @@
 "use client";
 
 import {Edges,Html} from "@react-three/drei";
-import {useThree} from "@react-three/fiber";
-import {useLayoutEffect,useRef} from "react";
-import {BoxGeometry,BufferGeometry,CylinderGeometry,Float32BufferAttribute,InstancedMesh,MeshStandardMaterial,Object3D,SphereGeometry,type Euler,type Vector3Tuple} from "three";
-import type {BuildingKind,CityTone} from "@/components/home/knowledge-city-types";
+import {useFrame,useThree} from "@react-three/fiber";
+import {useEffect,useLayoutEffect,useRef,useState} from "react";
+import {BoxGeometry,BufferGeometry,CylinderGeometry,Float32BufferAttribute,Group,InstancedMesh,MathUtils,MeshStandardMaterial,Object3D,SphereGeometry,type Euler,type Vector3Tuple} from "three";
+import type {BuildingKind,CityTone,SemanticForm} from "@/components/home/knowledge-city-types";
 
 const BOX=new BoxGeometry(1,1,1);
 const CYLINDER=new CylinderGeometry(1,1,1,12);
@@ -69,18 +69,91 @@ function SmallBuilding({kind,tone,active}:{kind:BuildingKind;tone:CityTone;activ
   return <group><InkMesh tone={tone} active={active} position={[0,.16,0]} scale={[2.1,.32,1.65]} edge="strong"/><InkMesh tone={tone} active={active} position={[0,.32+height/2,-.12]} scale={[1.45,height,1.15]} edge="strong"/><InkMesh geometry={kind==="library"?ROOF:BOX} tone={tone} active={active} surface="roof" position={[0,height+.42,-.12]} scale={[kind==="library"?1.7:1,.36,1.28]}/><Bands tone={tone} items={[-.42,0,.42].map(x=>({position:[x,.8,-.7],scale:[.18,.3,.03]}))}/><Portal tone={tone} active={active} position={[0,.36,.86]}/>{kind==="lab"?<InkMesh geometry={CYLINDER} tone={tone} active={active} surface="accent" position={[.38,height+1,-.2]} scale={[.08,.8,.08]}/>:null}</group>;
 }
 
+function Workshop({tone,active}:{tone:CityTone;active:boolean}){
+  return <group><InkMesh tone={tone} active={active} position={[-.8,.55,0]} scale={[1.35,1.1,2.2]} edge="strong"/><InkMesh tone={tone} active={active} position={[.85,.55,0]} scale={[1.35,1.1,2.2]} edge="strong"/><InkMesh geometry={ROOF} tone={tone} active={active} surface="roof" position={[-.8,1.35,0]} scale={[1.55,.55,2.45]}/><InkMesh geometry={ROOF} tone={tone} active={active} surface="roof" position={[.85,1.35,0]} scale={[1.55,.55,2.45]}/><InkMesh tone={tone} active={active} surface="accent" position={[0,1.05,-.55]} scale={[.3,1.7,.3]}/><Portal tone={tone} active={active} position={[0,.38,1.25]}/></group>;
+}
+function Refinery({tone,active}:{tone:CityTone;active:boolean}){
+  return <group><InkMesh tone={tone} active={active} position={[-.75,.75,0]} scale={[1.7,1.5,1.8]} edge="strong"/><InkMesh tone={tone} active={active} position={[1.15,.48,.25]} scale={[1.2,.96,1.35]} edge="strong"/><InkMesh tone={tone} active={active} surface="glass" position={[.22,1.05,.05]} scale={[1.1,.18,.35]}/><InkMesh tone={tone} active={active} surface="accent" position={[1.15,1.15,.25]} scale={[.7,.18,.72]}/><Portal tone={tone} active={active} position={[-.75,.35,1]}/></group>;
+}
+function Multiwing({tone,active}:{tone:CityTone;active:boolean}){
+  const wings:[Vector3Tuple,Vector3Tuple][]=[[[0,.55,-1.2],[1.25,1.1,1.65]],[[1.25,.45,.45],[1.55,.9,.9]],[[-1.25,.45,.45],[1.55,.9,.9]]];
+  return <group><InkMesh geometry={CYLINDER} tone={tone} active={active} position={[0,.8,0]} scale={[.72,1.6,.72]} edge="strong"/>{wings.map(([position,scale],index)=><InkMesh key={index} tone={tone} active={active} position={position} scale={scale} edge="medium"/>)}<InkMesh geometry={DOME} tone={tone} active={active} surface="accent" position={[0,1.72,0]} scale={[.72,.45,.72]}/></group>;
+}
+function Checkpoint({tone,active}:{tone:CityTone;active:boolean}){
+  return <group><InkMesh tone={tone} active={active} position={[0,.12,0]} scale={[3.5,.24,1.55]} edge="strong"/><InkMesh tone={tone} active={active} position={[-1.15,.75,0]} scale={[.35,1.5,.55]}/><InkMesh tone={tone} active={active} position={[1.15,.75,0]} scale={[.35,1.5,.55]}/><InkMesh tone={tone} active={active} surface="accent" position={[0,1.38,0]} scale={[2.65,.22,.58]}/><InkMesh tone={tone} active={active} surface="inset" position={[0,.7,0]} scale={[1.75,.08,.08]}/></group>;
+}
+function ModularStack({tone,active}:{tone:CityTone;active:boolean}){
+  return <group><InkMesh tone={tone} active={active} position={[0,.12,0]} scale={[2.3,.24,1.7]} edge="strong"/>{[0,1,2,3].map(index=><group key={index} position={[0,.48+index*.55,0]}><InkMesh tone={tone} active={active} position={[0,0,0]} scale={[1.65,.38,1.15]} edge={index===3?"strong":"medium"}/><InkMesh tone={tone} active={active} surface="accent" position={[-.88,0,0]} scale={[.08,.28,1.16]} edges={false}/></group>)}</group>;
+}
+function AttentionHub({tone,active}:{tone:CityTone;active:boolean}){
+  const arms:[[number,number,number],[number,number,number]][]=[[[0,.52,-1.35],[.45,.3,1.5]],[[0,.52,1.35],[.45,.3,1.5]],[[-1.35,.52,0],[1.5,.3,.45]],[[1.35,.52,0],[1.5,.3,.45]]];
+  return <group><InkMesh geometry={CYLINDER} tone={tone} active={active} surface="accent" position={[0,.72,0]} scale={[.7,1.15,.7]} edge="strong"/>{arms.map(([position,scale],index)=><InkMesh key={index} tone={tone} active={active} position={position} scale={scale} edge="medium"/>)}{[[-1.85,.55,0],[1.85,.55,0],[0,.55,-1.85],[0,.55,1.85]].map(([x,y,z],index)=><InkMesh key={index} tone={tone} active={active} position={[x,y,z]} scale={[.55,1.1,.55]}/>)}</group>;
+}
+function RouterWings({tone,active}:{tone:CityTone;active:boolean}){
+  return <group><InkMesh geometry={CYLINDER} tone={tone} active={active} surface="accent" position={[0,.65,0]} scale={[.55,1.3,.55]} edge="strong"/>{[[-1.5,0],[1.5,0],[0,-1.45],[0,1.45]].map(([x,z],index)=><group key={index}><InkMesh tone={tone} active={active} position={[x,.62,z]} scale={[.9,1.24,.75]} edge="strong"/><InkMesh tone={tone} active={active} surface="glass" position={[x/2,.66,z/2]} scale={[Math.abs(x)>.1?.95:.18,.12,Math.abs(z)>.1?.95:.18]} edges={false}/></group>)}</group>;
+}
+function MemoryWarehouse({tone,active}:{tone:CityTone;active:boolean}){
+  return <group><InkMesh tone={tone} active={active} position={[0,.14,0]} scale={[3,.28,1.7]} edge="strong"/>{[.48,.9,1.32,1.74].map((y,index)=><InkMesh key={y} tone={tone} active={active} surface={index%2?"roof":"face"} position={[0,y,0]} scale={[2.4,.22,1.35]} edge="medium"/>)}<InkMesh tone={tone} active={active} surface="accent" position={[1.3,1.1,0]} scale={[.18,1.65,1.36]}/></group>;
+}
+function CompressionSteps({tone,active}:{tone:CityTone;active:boolean}){
+  return <group>{[[0,2.6,.45],[-.15,2,.85],[-.3,1.4,1.25],[-.45,.82,1.62]].map(([x,width,y],index)=><InkMesh key={index} tone={tone} active={active} surface={index===3?"accent":"face"} position={[x,y,0]} scale={[width,.42,1.45-index*.14]} edge={index===0?"strong":"medium"}/>)}</group>;
+}
+function Lineage({tone,active,variant}:{tone:CityTone;active:boolean;variant:string}){
+  const heights=variant==="gpt"?[.7,1.05,1.65,2.25]:variant==="gemini"?[1.2,1.75,1.25]:variant==="claude"?[.85,1.35,1.85]:variant==="llama"?[.65,.95,1.25,1.55]:[.7,1.1,1.5];
+  const start=-(heights.length-1)*.52;
+  return <group><InkMesh tone={tone} active={active} position={[0,.13,0]} scale={[heights.length*1.18,.26,1.7]} edge="strong"/>{heights.map((height,index)=><group key={index} position={[start+index*1.05,0,0]}><InkMesh tone={tone} active={active} position={[0,.28+height/2,0]} scale={[.72,height,.9]} edge={index===heights.length-1?"strong":"medium"}/>{index?<InkMesh tone={tone} active={active} surface="accent" position={[-.52,.46,0]} scale={[.34,.1,.18]} edges={false}/>:null}</group>)}</group>;
+}
+function OpenStructure({tone,active}:{tone:CityTone;active:boolean}){
+  return <group><InkMesh tone={tone} active={active} position={[0,.1,0]} scale={[3.2,.2,1.8]} edge="strong"/><Instances geometry={CYLINDER} material={materials[tone].accent} items={[-1.2,-.6,0,.6,1.2].map(x=>({position:[x,.75,-.5],scale:[.07,1.35,.07]}))}/><InkMesh tone={tone} active={active} surface="roof" position={[0,1.48,-.5]} scale={[2.8,.16,.55]}/><InkMesh tone={tone} active={active} position={[.95,.72,.45]} scale={[.9,1.4,.65]} edge="strong"/></group>;
+}
+function DualSystem({tone,active}:{tone:CityTone;active:boolean}){
+  return <group><InkMesh tone={tone} active={active} position={[-.7,.4,-.7]} scale={[3.4,.8,.55]} edge="strong"/><InkMesh tone={tone} active={active} position={[.95,.65,.7]} scale={[1.35,1.3,1.15]} edge="strong"/><InkMesh tone={tone} active={active} surface="glass" position={[.25,.72,.05]} scale={[.18,.12,1.2]} edges={false}/></group>;
+}
+function BranchControl({tone,active}:{tone:CityTone;active:boolean}){
+  return <group><InkMesh tone={tone} active={active} position={[0,.15,-.8]} scale={[.28,.3,2.1]} edge="strong"/><InkMesh tone={tone} active={active} position={[-.75,.15,.7]} rotation={[0,-.55,0]} scale={[.22,.3,1.7]}/><InkMesh tone={tone} active={active} position={[.75,.15,.7]} rotation={[0,.55,0]} scale={[.22,.3,1.7]}/><Checkpoint tone={tone} active={active}/></group>;
+}
+
+function SemanticArchitecture({form,kind,tone,active,variant}:{form:SemanticForm;kind:BuildingKind;tone:CityTone;active:boolean;variant:string}){
+  if(form==="campus"||form==="institute")return <Institute tone={tone} active={active}/>;
+  if(form==="library")return <SmallBuilding kind="library" tone={tone} active={active}/>;
+  if(form==="workshop")return <Workshop tone={tone} active={active}/>;
+  if(form==="refinery")return <Refinery tone={tone} active={active}/>;
+  if(form==="operations")return <Station tone={tone} active={active}/>;
+  if(form==="archive-bridge")return <DualSystem tone={tone} active={active}/>;
+  if(form==="multiwing")return <Multiwing tone={tone} active={active}/>;
+  if(form==="checkpoint")return <Checkpoint tone={tone} active={active}/>;
+  if(form==="modular-stack")return <ModularStack tone={tone} active={active}/>;
+  if(form==="attention-hub")return <AttentionHub tone={tone} active={active}/>;
+  if(form==="router-wings")return <RouterWings tone={tone} active={active}/>;
+  if(form==="memory-warehouse")return <MemoryWarehouse tone={tone} active={active}/>;
+  if(form==="compression-steps")return <CompressionSteps tone={tone} active={active}/>;
+  if(form==="lineage")return <Lineage tone={tone} active={active} variant={variant}/>;
+  if(form==="generation")return <SmallBuilding kind="block" tone={tone} active={active}/>;
+  if(form==="rail-axis")return <Station tone={tone} active={active}/>;
+  if(form==="forum")return <Plaza tone={tone} active={active}/>;
+  if(form==="open-structure")return <OpenStructure tone={tone} active={active}/>;
+  if(form==="dual-system")return <DualSystem tone={tone} active={active}/>;
+  if(form==="branch-control")return <BranchControl tone={tone} active={active}/>;
+  if(form==="observatory")return <Observatory tone={tone} active={active}/>;
+  if(form==="headquarters")return <Organization tone={tone} active={active} variant={variant}/>;
+  return kind==="towers"?<Towers tone={tone} active={active}/>:<SmallBuilding kind={kind} tone={tone} active={active}/>;
+}
+
 export function CityScenery(){
   const trees=[[-9,-3],[-8,-5],[-4,-6],[4,-5],[8,-4],[9,1],[-9,2],[-4,7],[5,7],[9,7],[0,-8]].map(([x,z])=>({position:[x,.45,z] as Vector3Tuple,scale:[.25,.9,.25] as Vector3Tuple}));
   const canopies=trees.map(item=>({position:[item.position[0],1.15,item.position[2]] as Vector3Tuple,scale:[.58,.72,.58] as Vector3Tuple}));
   return <group dispose={null}><Instances geometry={CYLINDER} material={trunkMaterial} items={trees}/><Instances geometry={DOME} material={landscapeMaterial} items={canopies}/><Instances material={landscapeMaterial} items={[[ -8.4,.18,-1.2],[ -3.2,.18,-5.3],[3.8,.18,-5.4],[8.6,.18,2.2],[-7.7,.18,6.3],[5.8,.18,7.2]].map(([x,y,z])=>({position:[x,y,z] as Vector3Tuple,scale:[1.15,.36,.62] as Vector3Tuple}))}/></group>;
 }
 
-export function KnowledgeBuilding({kind,tone,label,kicker,variant,position,scale=1,hovered,active,muted=false,onHover,onSelect}:{kind:BuildingKind;tone:CityTone;label:string;kicker:string;variant:string;position:Vector3Tuple;scale?:number;hovered:boolean;active:boolean;muted?:boolean;onHover:(hovered:boolean)=>void;onSelect:()=>void}){
-  const emphasized=hovered||active;const building=tone==="organizations"&&variant!=="organizations"?<Organization tone={tone} active={emphasized} variant={variant}/>:kind==="institute"?<Institute tone={tone} active={emphasized}/>:kind==="towers"?<Towers tone={tone} active={emphasized}/>:kind==="station"?<Station tone={tone} active={emphasized}/>:kind==="office"?<Organization tone={tone} active={emphasized} variant={variant}/>:kind==="plaza"?<Plaza tone={tone} active={emphasized}/>:kind==="observatory"?<Observatory tone={tone} active={emphasized}/>:<SmallBuilding kind={kind} tone={tone} active={emphasized}/>;
-  const labelHeight=kind==="towers"?5.6:kind==="institute"?3.25:kind==="observatory"?3.15:2.75;
-  return <group dispose={null} position={position} scale={scale} onPointerEnter={event=>{event.stopPropagation();onHover(true);document.body.style.cursor="pointer"}} onPointerLeave={()=>{onHover(false);document.body.style.cursor=""}} onClick={event=>{event.stopPropagation();onSelect()}}>
-    {active?<InkMesh geometry={CYLINDER} tone={tone} surface="accent" edges={false} position={[0,.015,0]} scale={[2.65,.025,2.65]}/>:null}{building}
-    <mesh geometry={CYLINDER} position={[0,labelHeight-.18,0]} scale={[.018,.45,.018]} material={insetMaterial}/>
-    <Html center position={[0,labelHeight+.3,0]} distanceFactor={15} zIndexRange={[20,0]} style={{pointerEvents:"none"}}><span className="city3dLabel" data-active={active} data-hovered={hovered} data-muted={muted}><b>{label}</b><small>{kicker}</small></span></Html>
+export function KnowledgeBuilding({kind,semanticForm,tone,label,kicker,variant,position,collapsedPosition,scale=1,level,revealed,labelVisible,interactive,hovered,active,muted=false,reducedMotion=false,onHover,onSelect}:{kind:BuildingKind;semanticForm:SemanticForm;tone:CityTone;label:string;kicker:string;variant:string;position:Vector3Tuple;collapsedPosition:Vector3Tuple;scale?:number;level:number;revealed:boolean;labelVisible:boolean;interactive:boolean;hovered:boolean;active:boolean;muted?:boolean;reducedMotion?:boolean;onHover:(hovered:boolean)=>void;onSelect:()=>void}){
+  const group=useRef<Group>(null);const initialized=useRef(false);const invalidate=useThree(state=>state.invalidate);const [showDetail,setShowDetail]=useState(revealed||level===0);
+  useEffect(()=>{if(revealed){setShowDetail(true);return}if(level===0)return;const timer=window.setTimeout(()=>setShowDetail(false),reducedMotion?0:360);return()=>window.clearTimeout(timer)},[level,reducedMotion,revealed]);
+  useLayoutEffect(()=>{if(!group.current)return;if(!initialized.current){group.current.position.set(...(revealed?position:collapsedPosition));group.current.scale.setScalar(revealed?scale:level===1?.08:.035);initialized.current=true}invalidate()},[collapsedPosition,invalidate,level,position,revealed,scale]);
+  useFrame((_,delta)=>{const node=group.current;if(!node)return;const targetPosition=revealed?position:collapsedPosition;const targetScale=revealed?scale:level===1?.08:.035;if(reducedMotion){node.position.set(...targetPosition);node.scale.setScalar(targetScale);return}const lambda=revealed?11:15;node.position.x=MathUtils.damp(node.position.x,targetPosition[0],lambda,delta);node.position.y=MathUtils.damp(node.position.y,targetPosition[1],lambda,delta);node.position.z=MathUtils.damp(node.position.z,targetPosition[2],lambda,delta);const nextScale=MathUtils.damp(node.scale.x,targetScale,lambda,delta);node.scale.setScalar(nextScale);if(Math.abs(node.position.x-targetPosition[0])>.006||Math.abs(node.position.z-targetPosition[2])>.006||Math.abs(nextScale-targetScale)>.004)invalidate()});
+  const emphasized=hovered||active;const labelHeight=semanticForm==="lineage"?3.5:semanticForm==="modular-stack"?3.15:semanticForm==="observatory"?3.15:semanticForm==="campus"||semanticForm==="institute"?3.25:2.75;
+  return <group ref={group} dispose={null} onPointerEnter={interactive?event=>{event.stopPropagation();onHover(true);document.body.style.cursor="pointer"}:undefined} onPointerLeave={interactive?()=>{onHover(false);document.body.style.cursor=""}:undefined} onClick={interactive?event=>{event.stopPropagation();onSelect()}:undefined}>
+    {active?<InkMesh geometry={CYLINDER} tone={tone} surface="accent" edges={false} position={[0,.015,0]} scale={[2.65,.025,2.65]}/>:null}
+    {showDetail?<SemanticArchitecture form={semanticForm} kind={kind} tone={tone} active={emphasized} variant={variant}/>:<InkMesh tone={tone} active={false} position={[0,.45,0]} scale={[1.2,.9,1.1]} edge="light"/>}
+    {labelVisible?<><mesh geometry={CYLINDER} position={[0,labelHeight-.18,0]} scale={[.018,.45,.018]} material={insetMaterial}/><Html center position={[0,labelHeight+.3,0]} distanceFactor={15} zIndexRange={[20,0]} style={{pointerEvents:"none"}}><span className="city3dLabel" data-level={level} data-active={active} data-hovered={hovered} data-muted={muted}><b>{label}</b><small>{kicker}</small></span></Html></>:null}
   </group>;
 }

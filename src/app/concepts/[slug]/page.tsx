@@ -1,6 +1,7 @@
 import type {Metadata} from "next";
 import Link from "next/link";
 import {ContentMeta} from "@/components/content/content-meta";
+import {DirectionalLink} from "@/components/motion/directional-link";
 import {conceptDocuments,events,getSource,issueDocuments} from "@/lib/content";
 import {getConceptStudyGuide} from "@/lib/concept-study-guides";
 import {buildContentMetadata} from "@/lib/content-metadata";
@@ -21,11 +22,14 @@ export default async function Concept({params}:{params:Promise<{slug:string}>}){
   const guide=getConceptStudyGuide(slug);
   const relatedEvents=events.filter(event=>event.conceptIds.includes(slug)).slice(0,8);
   const relatedIssues=issueDocuments.filter(issue=>issue.conceptIds.includes(slug));
+  const conceptIndex=conceptDocuments.findIndex(item=>item.slug===slug);
+  const previousConcept=conceptIndex>0?conceptDocuments[conceptIndex-1]:undefined;
+  const nextConcept=conceptIndex<conceptDocuments.length-1?conceptDocuments[conceptIndex+1]:undefined;
 
   return <main id="main-content" className="detail conceptDetail">
     <Link href="/concepts/" className="back">← 개념 목록</Link>
     <p className="sectionLabel">{concept.level} · {guide?"TECHNICAL STUDY GUIDE":"CONCEPT INDEX"}</p>
-    <h1>{concept.titleKo}</h1>
+    <h1 style={{viewTransitionName:"concept-title"}}>{concept.titleKo}</h1>
     <p className="detailEn">{concept.titleEn}</p>
     <p className="lead">{concept.summary}</p>
     <ContentMeta metadata={buildContentMetadata({status:guide?"draft":"index",contentDepth:guide?"full":"stub",sourceIds:concept.sourceIds})}/>
@@ -67,5 +71,9 @@ export default async function Concept({params}:{params:Promise<{slug:string}>}){
     <section><h2>관련 사건</h2>{relatedEvents.length?relatedEvents.map(event=><p key={event.slug}><Link className="textLink" href={`/timeline/${event.slug}/`}>{event.date} · {event.title} →</Link></p>):<p>현재 직접 연결된 사건이 없습니다.</p>}</section>
     <section><h2>관련 이슈</h2>{relatedIssues.length?relatedIssues.map(issue=><p key={issue.slug}><Link className="textLink" href={`/issues/${issue.slug}/`}>{issue.titleKo} →</Link></p>):<p>현재 직접 연결된 이슈가 없습니다.</p>}</section>
     <section><h2>기본 출처</h2>{concept.sourceIds.map(id=>{const source=getSource(id);return source?<a className="source" href={source.url} key={id} target="_blank" rel="noreferrer"><span>Tier {source.tier??1} · {source.publisher}</span><b>{source.title} ↗</b><small>{source.year} · 최종 검증 {source.verifiedAt??"미확인"}</small></a>:null})}</section>
+    <nav className="articleNavigator" aria-label="이전 및 다음 개념">
+      {previousConcept?<DirectionalLink direction="previous" href={`/concepts/${previousConcept.slug}/`}><span>← 이전 개념</span><b>{previousConcept.titleKo}</b></DirectionalLink>:<span/>}
+      {nextConcept?<DirectionalLink direction="next" href={`/concepts/${nextConcept.slug}/`}><span>다음 개념 →</span><b>{nextConcept.titleKo}</b></DirectionalLink>:<span/>}
+    </nav>
   </main>;
 }

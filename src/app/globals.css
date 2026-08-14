@@ -272,6 +272,7 @@ footer{max-width:var(--content);margin:auto;padding:34px 28px 25px;display:flex;
 .readingRail a{display:flex;gap:10px;padding:9px 0 9px 14px;color:var(--muted);font-size:14px;line-height:1.4;transition:color .15s,border-color .15s}
 .readingRail a span{flex:none;font-family:var(--sans);font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums}
 .readingRail a.active{margin-left:-1px;border-left:2px solid var(--accent);color:var(--ink);font-weight:720}
+.readingProgress{position:fixed;left:0;right:0;top:67px;z-index:80;height:2px;pointer-events:none}.readingProgress i{display:block;height:100%;background:var(--accent);transition:width 90ms linear}.articleNavigator{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:68px;border:1px solid var(--line);background:var(--line)}.articleNavigator>a,.articleNavigator>span{min-height:126px;padding:24px;background:var(--paper);color:var(--ink);text-decoration:none}.articleNavigator>a{display:flex;flex-direction:column;justify-content:space-between}.articleNavigator>a:last-child{text-align:right}.articleNavigator a span{color:var(--muted);font-size:13px}.articleNavigator a b{font-size:22px}.routeLeaving main.detail{pointer-events:none}.routeLeaving[data-route-direction="next"] main.detail{animation:articleLeaveNext 170ms ease-in both}.routeLeaving[data-route-direction="previous"] main.detail{animation:articleLeavePrevious 170ms ease-in both}@keyframes articleLeaveNext{to{opacity:.25;transform:translateX(-24px)}}@keyframes articleLeavePrevious{to{opacity:.25;transform:translateX(24px)}}
 
 /* Search and states */
 .wide{max-width:780px;margin:25px 0 36px}
@@ -492,6 +493,7 @@ footer{max-width:var(--content);margin:auto;padding:34px 28px 25px;display:flex;
   .cosmosNote{position:absolute;left:0;right:0;bottom:0;width:100%;padding:18px 19px 16px;border-inline:0;transform:none}.cosmosNote::before{display:none}.cosmosNote h3{font-size:24px}.cosmosNote>div{font-size:13px;line-height:1.5}
   .cosmosFooter{display:none}
   .layout-root .cosmosCanvas{translate:0 0;scale:1;cursor:default;touch-action:pan-y}.cosmosCameraControls{display:none}
+  .readingProgress{top:59px}.articleNavigator{grid-template-columns:1fr;margin-top:45px}.articleNavigator>a,.articleNavigator>span{min-height:105px}.articleNavigator>span:empty{display:none}.articleNavigator>a:last-child{text-align:left}
 }
 
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}

@@ -9,6 +9,7 @@ export function ReadingRail() {
   const pathname = usePathname();
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [active, setActive] = useState("");
+  const [progress,setProgress]=useState(0);
 
   useEffect(() => {
     const nodes = Array.from(document.querySelectorAll<HTMLElement>("main.detail section > h2"));
@@ -25,12 +26,14 @@ export function ReadingRail() {
       if (visible?.target.id) setActive(visible.target.id);
     }, { rootMargin: "-18% 0px -70%", threshold: 0 });
     nodes.forEach(node => observer.observe(node));
-    return () => observer.disconnect();
+    const updateProgress=()=>{const root=document.documentElement;const distance=root.scrollHeight-window.innerHeight;setProgress(distance>0?Math.min(100,Math.max(0,window.scrollY/distance*100)):0)};
+    updateProgress();window.addEventListener("scroll",updateProgress,{passive:true});
+    return () => {observer.disconnect();window.removeEventListener("scroll",updateProgress)};
   }, [pathname]);
 
   if (headings.length < 3) return null;
-  return <aside className="readingRail" aria-label="이 페이지의 목차">
+  return <><div className="readingProgress" aria-hidden="true"><i style={{width:`${progress}%`}}/></div><aside className="readingRail" aria-label="이 페이지의 목차">
     <p>이 페이지에서</p>
     <ol>{headings.map((heading, index) => <li key={heading.id}><a className={active === heading.id ? "active" : ""} href={`#${heading.id}`}><span>{String(index + 1).padStart(2, "0")}</span>{heading.label}</a></li>)}</ol>
-  </aside>;
+  </aside></>;
 }

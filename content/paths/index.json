@@ -1,7 +1,77 @@
 [
- {"slug":"llm-basics","titleKo":"LLM이 답을 만드는 과정","summary":"토큰 → 어텐션 → 트랜스포머 → 생성","conceptIds":["tokenization","embedding","attention","transformer"],"sourceIds":["transformer"]},
- {"slug":"chatgpt-lineage","titleKo":"ChatGPT까지의 기술 계보","summary":"사전학습 → 지시문 튜닝 → RLHF → 대화형 제품","conceptIds":["pretraining","instruction-tuning","rlhf","alignment"],"sourceIds":["instructgpt","chatgpt"]},
- {"slug":"rag-to-agents","titleKo":"RAG에서 에이전트까지","summary":"검색 → 근거 연결 → 도구 호출 → 검증","conceptIds":["semantic-search","retrieval-augmented-generation","function-calling","agents"],"sourceIds":["rag","react"]},
- {"slug":"multimodal-and-efficient","titleKo":"멀티모달과 효율적인 모델","summary":"멀티모달 → 전문가 혼합 → 양자화 → 서빙","conceptIds":["multimodality","mixture-of-experts","quantization","inference-serving"],"sourceIds":["gemini","mixtral","qlora"]},
- {"slug":"agi-basics","titleKo":"AGI 논쟁을 읽기 위한 기초","summary":"평가 → 환각 → 정렬 → 전망","conceptIds":["evaluation","hallucination","alignment","reasoning"],"sourceIds":["mmlu","truthfulqa"]}
+  {
+    "slug": "llm-basics",
+    "titleKo": "LLM이 답을 만드는 과정",
+    "summary": "토큰 → 어텐션 → 트랜스포머 → 생성",
+    "conceptIds": [
+      "tokenization",
+      "embedding",
+      "attention",
+      "transformer"
+    ],
+    "sourceIds": [
+      "transformer"
+    ]
+  },
+  {
+    "slug": "chatgpt-lineage",
+    "titleKo": "ChatGPT까지의 기술 계보",
+    "summary": "사전학습 → 지시문 튜닝 → RLHF → 대화형 제품",
+    "conceptIds": [
+      "pretraining",
+      "instruction-tuning",
+      "rlhf",
+      "alignment"
+    ],
+    "sourceIds": [
+      "instructgpt",
+      "chatgpt"
+    ]
+  },
+  {
+    "slug": "rag-to-agents",
+    "titleKo": "RAG에서 에이전트까지",
+    "summary": "검색 → 근거 연결 → 도구 호출 → 검증",
+    "conceptIds": [
+      "semantic-search",
+      "retrieval-augmented-generation",
+      "function-calling",
+      "agents"
+    ],
+    "sourceIds": [
+      "rag",
+      "react"
+    ]
+  },
+  {
+    "slug": "multimodal-and-efficient",
+    "titleKo": "멀티모달과 효율적인 모델",
+    "summary": "멀티모달 → 전문가 혼합 → 양자화 → 서빙",
+    "conceptIds": [
+      "multimodality",
+      "mixture-of-experts",
+      "quantization",
+      "inference-serving"
+    ],
+    "sourceIds": [
+      "gemini",
+      "mixtral",
+      "qlora"
+    ]
+  },
+  {
+    "slug": "agi-basics",
+    "titleKo": "AGI 논쟁을 읽기 위한 기초",
+    "summary": "평가 → 환각 → 정렬 → 전망",
+    "conceptIds": [
+      "evaluation",
+      "hallucination",
+      "alignment",
+      "reasoning"
+    ],
+    "sourceIds": [
+      "mmlu",
+      "truthfulqa"
+    ]
+  }
 ]

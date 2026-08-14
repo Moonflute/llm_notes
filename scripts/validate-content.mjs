@@ -12,6 +12,29 @@ const releaseKeys = [...timelineKeys, ...releases.map((release) => release.famil
 const profileKeys = profiles.map((profile) => profile.familySlug + "/" + profile.releaseSlug);
 const errors = [];
 const fail = (condition, message) => { if (condition) errors.push(message); };
+const duplicateGroups = (items, key) => [...Map.groupBy(items, key)].filter(([, group]) => group.length > 1);
+const normalizedUrl = (url) => url.trim().replace(/\/$/, "").toLowerCase();
+
+fail(duplicateGroups(events, event => event.id).length > 0, "duplicate canonical event id");
+fail(duplicateGroups(events, event => event.slug).length > 0, "duplicate event slug");
+fail(duplicateGroups(events, event => `${event.date}|${event.title.trim().toLowerCase()}`).length > 0, "duplicate event date/title");
+fail(duplicateGroups(sources, source => source.id).length > 0, "duplicate source id");
+fail(duplicateGroups(sources, source => normalizedUrl(source.url)).length > 0, "duplicate source URL");
+for (let index = 1; index < events.length; index += 1) fail(events[index - 1].date > events[index].date, `timeline out of order: ${events[index - 1].slug} -> ${events[index].slug}`);
+for (const event of events) {
+  fail(!/^evt-[a-z0-9-]+$/.test(event.id), `invalid canonical event id: ${event.slug}`);
+  fail(event.year !== Number(event.date.slice(0, 4)), `event year/date mismatch: ${event.slug}`);
+  fail(!sourceIds.has(event.sourceId), `event source missing: ${event.slug}/${event.sourceId}`);
+}
+for (const source of sources) {
+  fail(!source.sourceType, `source type missing: ${source.id}`);
+  fail(!source.authorOrOrganization, `source author/organization missing: ${source.id}`);
+  fail(!source.publicationDate, `source publication date missing: ${source.id}`);
+  fail(!source.verificationDate, `source verification date missing: ${source.id}`);
+  fail(!source.classification, `source classification missing: ${source.id}`);
+  fail(!source.validationStatus, `source validation status missing: ${source.id}`);
+  fail(!source.supportsClaims?.length, `source claim linkage missing: ${source.id}`);
+}
 
 fail(new Set(profileKeys).size !== profileKeys.length, "duplicate model profile key");
 fail(new Set(releaseKeys).size !== releaseKeys.length, "duplicate model release key");
@@ -40,3 +63,4 @@ if (errors.length) {
   process.exit(1);
 }
 console.log("content QA passed: " + profiles.length + " model profiles, " + events.length + " timeline events, " + sources.length + " sources");
+console.log("source claim QA: " + sources.filter(source => source.validationStatus === "claim-verified").length + " claim-verified, " + sources.filter(source => source.validationStatus === "linked-not-claim-verified").length + " linked pending review");

@@ -1,5 +1,6 @@
 [
   {
+    "id": "evt-transformer",
     "slug": "transformer",
     "date": "2017.06",
     "year": 2017,
@@ -16,6 +17,7 @@
     "sourceId": "transformer"
   },
   {
+    "id": "evt-elmo",
     "slug": "elmo",
     "date": "2018.02",
     "year": 2018,
@@ -32,6 +34,7 @@
     "sourceId": "elmo"
   },
   {
+    "id": "evt-gpt-1",
     "slug": "gpt-1",
     "date": "2018.06",
     "year": 2018,
@@ -48,6 +51,7 @@
     "sourceId": "gpt-1"
   },
   {
+    "id": "evt-bert",
     "slug": "bert",
     "date": "2018.10",
     "year": 2018,
@@ -64,6 +68,7 @@
     "sourceId": "bert"
   },
   {
+    "id": "evt-gpt-2",
     "slug": "gpt-2",
     "date": "2019.02",
     "year": 2019,
@@ -80,6 +85,7 @@
     "sourceId": "gpt-2"
   },
   {
+    "id": "evt-xlnet",
     "slug": "xlnet",
     "date": "2019.06",
     "year": 2019,
@@ -96,6 +102,7 @@
     "sourceId": "xlnet"
   },
   {
+    "id": "evt-roberta",
     "slug": "roberta",
     "date": "2019.07",
     "year": 2019,
@@ -112,6 +119,7 @@
     "sourceId": "roberta"
   },
   {
+    "id": "evt-megatron-lm",
     "slug": "megatron-lm",
     "date": "2019.09",
     "year": 2019,
@@ -128,6 +136,7 @@
     "sourceId": "megatron-lm"
   },
   {
+    "id": "evt-t5",
     "slug": "t5",
     "date": "2019.10",
     "year": 2019,
@@ -144,6 +153,7 @@
     "sourceId": "t5"
   },
   {
+    "id": "evt-scaling-laws",
     "slug": "scaling-laws",
     "date": "2020.01",
     "year": 2020,
@@ -160,6 +170,7 @@
     "sourceId": "scaling-laws"
   },
   {
+    "id": "evt-gpt-3",
     "slug": "gpt-3",
     "date": "2020.05",
     "year": 2020,
@@ -176,6 +187,7 @@
     "sourceId": "gpt3"
   },
   {
+    "id": "evt-rag",
     "slug": "rag",
     "date": "2020.05",
     "year": 2020,
@@ -192,6 +204,7 @@
     "sourceId": "rag"
   },
   {
+    "id": "evt-mmlu",
     "slug": "mmlu",
     "date": "2020.09",
     "year": 2020,
@@ -208,6 +221,7 @@
     "sourceId": "mmlu"
   },
   {
+    "id": "evt-switch-transformer",
     "slug": "switch-transformer",
     "date": "2021.01",
     "year": 2021,
@@ -224,6 +238,7 @@
     "sourceId": "switch-transformer"
   },
   {
+    "id": "evt-clip",
     "slug": "clip",
     "date": "2021.03",
     "year": 2021,
@@ -240,6 +255,7 @@
     "sourceId": "clip"
   },
   {
+    "id": "evt-lamda",
     "slug": "lamda",
     "date": "2021.05",
     "year": 2021,
@@ -256,6 +272,7 @@
     "sourceId": "lamda"
   },
   {
+    "id": "evt-lora",
     "slug": "lora",
     "date": "2021.06",
     "year": 2021,
@@ -272,6 +289,7 @@
     "sourceId": "lora"
   },
   {
+    "id": "evt-codex",
     "slug": "codex",
     "date": "2021.07",
     "year": 2021,
@@ -288,6 +306,7 @@
     "sourceId": "codex"
   },
   {
+    "id": "evt-flan",
     "slug": "flan",
     "date": "2021.09",
     "year": 2021,
@@ -304,6 +323,7 @@
     "sourceId": "flan"
   },
   {
+    "id": "evt-truthfulqa",
     "slug": "truthfulqa",
     "date": "2021.09",
     "year": 2021,
@@ -320,6 +340,7 @@
     "sourceId": "truthfulqa"
   },
   {
+    "id": "evt-ernie-3",
     "slug": "ernie-3",
     "date": "2021.12",
     "year": 2021,
@@ -336,6 +357,7 @@
     "sourceId": "ernie-3"
   },
   {
+    "id": "evt-gopher",
     "slug": "gopher",
     "date": "2021.12",
     "year": 2021,
@@ -352,6 +374,7 @@
     "sourceId": "gopher"
   },
   {
+    "id": "evt-alpha-code",
     "slug": "alpha-code",
     "date": "2022.03",
     "year": 2022,
@@ -368,6 +391,7 @@
     "sourceId": "alpha-code"
   },
   {
+    "id": "evt-chinchilla",
     "slug": "chinchilla",
     "date": "2022.03",
     "year": 2022,
@@ -384,6 +408,7 @@
     "sourceId": "chinchilla"
   },
   {
+    "id": "evt-instructgpt",
     "slug": "instructgpt",
     "date": "2022.03",
     "year": 2022,
@@ -400,6 +425,7 @@
     "sourceId": "instructgpt"
   },
   {
+    "id": "evt-dalle-2",
     "slug": "dalle-2",
     "date": "2022.04",
     "year": 2022,
@@ -416,6 +442,7 @@
     "sourceId": "dalle-2"
   },
   {
+    "id": "evt-flamingo",
     "slug": "flamingo",
     "date": "2022.04",
     "year": 2022,
@@ -432,6 +459,7 @@
     "sourceId": "flamingo"
   },
   {
+    "id": "evt-palm",
     "slug": "palm",
     "date": "2022.04",
     "year": 2022,
@@ -448,6 +476,7 @@
     "sourceId": "palm"
   },
   {
+    "id": "evt-flashattention",
     "slug": "flashattention",
     "date": "2022.05",
     "year": 2022,
@@ -464,6 +493,7 @@
     "sourceId": "flashattention"
   },
   {
+    "id": "evt-bloom",
     "slug": "bloom",
     "date": "2022.07",
     "year": 2022,
@@ -480,6 +510,7 @@
     "sourceId": "bloom"
   },
   {
+    "id": "evt-stable-diffusion",
     "slug": "stable-diffusion",
     "date": "2022.08",
     "year": 2022,
@@ -496,6 +527,7 @@
     "sourceId": "stable-diffusion"
   },
   {
+    "id": "evt-whisper",
     "slug": "whisper",
     "date": "2022.09",
     "year": 2022,
@@ -512,6 +544,7 @@
     "sourceId": "whisper"
   },
   {
+    "id": "evt-react",
     "slug": "react",
     "date": "2022.10",
     "year": 2022,
@@ -528,6 +561,7 @@
     "sourceId": "react"
   },
   {
+    "id": "evt-chatgpt",
     "slug": "chatgpt",
     "date": "2022.11",
     "year": 2022,
@@ -544,6 +578,7 @@
     "sourceId": "chatgpt"
   },
   {
+    "id": "evt-speculative-decoding",
     "slug": "speculative-decoding",
     "date": "2022.11",
     "year": 2022,
@@ -560,6 +595,7 @@
     "sourceId": "speculative-decoding"
   },
   {
+    "id": "evt-constitutional-ai",
     "slug": "constitutional-ai",
     "date": "2022.12",
     "year": 2022,
@@ -576,6 +612,7 @@
     "sourceId": "constitutional-ai"
   },
   {
+    "id": "evt-blip-2",
     "slug": "blip-2",
     "date": "2023.01",
     "year": 2023,
@@ -592,6 +629,7 @@
     "sourceId": "blip-2"
   },
   {
+    "id": "evt-llama",
     "slug": "llama",
     "date": "2023.02",
     "year": 2023,
@@ -608,23 +646,8 @@
     "sourceId": "llama-original"
   },
   {
+    "id": "evt-tool-use",
     "slug": "tool-use",
-    "date": "2023.02",
-    "year": 2023,
-    "organization": "Meta AI",
-    "type": "research",
-    "title": "Toolformer",
-    "titleEn": "Language models and tools",
-    "summary": "A self-supervised approach for tool use by language models was proposed.",
-    "importance": 3,
-    "concepts": [
-      "Tools",
-      "Agents"
-    ],
-    "sourceId": "tool-use"
-  },
-  {
-    "slug": "toolformer",
     "date": "2023.02",
     "year": 2023,
     "organization": "Meta AI",
@@ -640,6 +663,7 @@
     "sourceId": "toolformer"
   },
   {
+    "id": "evt-gpt-4",
     "slug": "gpt-4",
     "date": "2023.03",
     "year": 2023,
@@ -656,6 +680,7 @@
     "sourceId": "gpt4"
   },
   {
+    "id": "evt-llava",
     "slug": "llava",
     "date": "2023.04",
     "year": 2023,
@@ -672,6 +697,7 @@
     "sourceId": "llava"
   },
   {
+    "id": "evt-segment-anything",
     "slug": "segment-anything",
     "date": "2023.04",
     "year": 2023,
@@ -688,6 +714,7 @@
     "sourceId": "segment-anything"
   },
   {
+    "id": "evt-dpo",
     "slug": "dpo",
     "date": "2023.05",
     "year": 2023,
@@ -704,6 +731,7 @@
     "sourceId": "dpo"
   },
   {
+    "id": "evt-palm-2",
     "slug": "palm-2",
     "date": "2023.05",
     "year": 2023,
@@ -720,6 +748,7 @@
     "sourceId": "palm-2"
   },
   {
+    "id": "evt-qlora",
     "slug": "qlora",
     "date": "2023.05",
     "year": 2023,
@@ -736,6 +765,7 @@
     "sourceId": "qlora"
   },
   {
+    "id": "evt-starcoder",
     "slug": "starcoder",
     "date": "2023.05",
     "year": 2023,
@@ -752,6 +782,7 @@
     "sourceId": "starcoder"
   },
   {
+    "id": "evt-function-calling",
     "slug": "function-calling",
     "date": "2023.06",
     "year": 2023,
@@ -768,6 +799,7 @@
     "sourceId": "function-calling"
   },
   {
+    "id": "evt-llama-2",
     "slug": "llama-2",
     "date": "2023.07",
     "year": 2023,
@@ -784,6 +816,7 @@
     "sourceId": "llama"
   },
   {
+    "id": "evt-code-llama",
     "slug": "code-llama",
     "date": "2023.08",
     "year": 2023,
@@ -800,6 +833,7 @@
     "sourceId": "code-llama"
   },
   {
+    "id": "evt-vllm",
     "slug": "vllm",
     "date": "2023.09",
     "year": 2023,
@@ -816,6 +850,7 @@
     "sourceId": "vllm"
   },
   {
+    "id": "evt-mistral-7b",
     "slug": "mistral-7b",
     "date": "2023.10",
     "year": 2023,
@@ -832,6 +867,7 @@
     "sourceId": "mistral"
   },
   {
+    "id": "evt-self-rag",
     "slug": "self-rag",
     "date": "2023.10",
     "year": 2023,
@@ -848,6 +884,7 @@
     "sourceId": "self-rag"
   },
   {
+    "id": "evt-zephyr",
     "slug": "zephyr",
     "date": "2023.10",
     "year": 2023,
@@ -864,6 +901,7 @@
     "sourceId": "zephyr"
   },
   {
+    "id": "evt-openhermes",
     "slug": "openhermes",
     "date": "2023.11",
     "year": 2023,
@@ -880,6 +918,7 @@
     "sourceId": "openhermes"
   },
   {
+    "id": "evt-gemini",
     "slug": "gemini",
     "date": "2023.12",
     "year": 2023,
@@ -896,6 +935,7 @@
     "sourceId": "gemini"
   },
   {
+    "id": "evt-mamba",
     "slug": "mamba",
     "date": "2023.12",
     "year": 2023,
@@ -912,6 +952,7 @@
     "sourceId": "mamba"
   },
   {
+    "id": "evt-mixtral",
     "slug": "mixtral",
     "date": "2023.12",
     "year": 2023,
@@ -928,6 +969,7 @@
     "sourceId": "mixtral"
   },
   {
+    "id": "evt-gemini-1-5",
     "slug": "gemini-1-5",
     "date": "2024.02",
     "year": 2024,
@@ -944,6 +986,7 @@
     "sourceId": "gemini-1-5"
   },
   {
+    "id": "evt-gemma",
     "slug": "gemma",
     "date": "2024.02",
     "year": 2024,
@@ -960,6 +1003,7 @@
     "sourceId": "gemma"
   },
   {
+    "id": "evt-olmo",
     "slug": "olmo",
     "date": "2024.02",
     "year": 2024,
@@ -976,6 +1020,7 @@
     "sourceId": "olmo"
   },
   {
+    "id": "evt-claude-3",
     "slug": "claude-3",
     "date": "2024.03",
     "year": 2024,
@@ -992,22 +1037,7 @@
     "sourceId": "claude"
   },
   {
-    "slug": "claude-3-source",
-    "date": "2024.03",
-    "year": 2024,
-    "organization": "Anthropic",
-    "type": "model",
-    "title": "Claude 3",
-    "titleEn": "Model family",
-    "summary": "A model family with different capability and cost profiles was announced.",
-    "importance": 3,
-    "concepts": [
-      "Model family",
-      "Multimodality"
-    ],
-    "sourceId": "claude-3-source"
-  },
-  {
+    "id": "evt-command-r",
     "slug": "command-r",
     "date": "2024.03",
     "year": 2024,
@@ -1024,6 +1054,7 @@
     "sourceId": "command-r"
   },
   {
+    "id": "evt-dbrx",
     "slug": "dbrx",
     "date": "2024.03",
     "year": 2024,
@@ -1040,6 +1071,7 @@
     "sourceId": "dbrx"
   },
   {
+    "id": "evt-jamba",
     "slug": "jamba",
     "date": "2024.03",
     "year": 2024,
@@ -1056,6 +1088,7 @@
     "sourceId": "jamba"
   },
   {
+    "id": "evt-llama-3",
     "slug": "llama-3",
     "date": "2024.04",
     "year": 2024,
@@ -1072,6 +1105,7 @@
     "sourceId": "llama-3"
   },
   {
+    "id": "evt-phi-3",
     "slug": "phi-3",
     "date": "2024.04",
     "year": 2024,
@@ -1088,6 +1122,7 @@
     "sourceId": "phi-3"
   },
   {
+    "id": "evt-deepseek-v2",
     "slug": "deepseek-v2",
     "date": "2024.05",
     "year": 2024,
@@ -1104,6 +1139,7 @@
     "sourceId": "deepseek-v2"
   },
   {
+    "id": "evt-gpt-4o",
     "slug": "gpt-4o",
     "date": "2024.05",
     "year": 2024,
@@ -1120,6 +1156,7 @@
     "sourceId": "gpt-4o"
   },
   {
+    "id": "evt-qwen2",
     "slug": "qwen2",
     "date": "2024.06",
     "year": 2024,
@@ -1136,6 +1173,7 @@
     "sourceId": "qwen2"
   },
   {
+    "id": "evt-llama-3-1",
     "slug": "llama-3-1",
     "date": "2024.07",
     "year": 2024,
@@ -1152,6 +1190,7 @@
     "sourceId": "llama-3-1"
   },
   {
+    "id": "evt-mistral-nemo",
     "slug": "mistral-nemo",
     "date": "2024.07",
     "year": 2024,
@@ -1168,6 +1207,7 @@
     "sourceId": "mistral-nemo"
   },
   {
+    "id": "evt-smollm",
     "slug": "smollm",
     "date": "2024.07",
     "year": 2024,
@@ -1184,6 +1224,7 @@
     "sourceId": "smollm"
   },
   {
+    "id": "evt-structured-output",
     "slug": "structured-output",
     "date": "2024.08",
     "year": 2024,
@@ -1200,6 +1241,7 @@
     "sourceId": "structured-output"
   },
   {
+    "id": "evt-o1",
     "slug": "o1",
     "date": "2024.09",
     "year": 2024,
@@ -1216,6 +1258,7 @@
     "sourceId": "o1"
   },
   {
+    "id": "evt-deepseek-v3",
     "slug": "deepseek-v3",
     "date": "2024.12",
     "year": 2024,
@@ -1232,6 +1275,7 @@
     "sourceId": "deepseek-v3"
   },
   {
+    "id": "evt-qwen2-5",
     "slug": "qwen2-5",
     "date": "2024.12",
     "year": 2024,
@@ -1248,6 +1292,7 @@
     "sourceId": "qwen2-5"
   },
   {
+    "id": "evt-deepseek-r1",
     "slug": "deepseek-r1",
     "date": "2025.01",
     "year": 2025,
@@ -1264,22 +1309,7 @@
     "sourceId": "deepseek"
   },
   {
-    "slug": "deepseek-r1-paper",
-    "date": "2025.01",
-    "year": 2025,
-    "organization": "DeepSeek",
-    "type": "model",
-    "title": "DeepSeek-R1",
-    "titleEn": "Reasoning capability",
-    "summary": "A reasoning model approach using reinforcement learning and distillation was published.",
-    "importance": 3,
-    "concepts": [
-      "Reasoning",
-      "Reinforcement learning"
-    ],
-    "sourceId": "deepseek-r1-paper"
-  },
-  {
+    "id": "evt-gpt-4-5",
     "slug": "gpt-4-5",
     "date": "2025.02",
     "year": 2025,
@@ -1296,6 +1326,7 @@
     "sourceId": "openai-gpt-4-5"
   },
   {
+    "id": "evt-gemini-2-5-pro",
     "slug": "gemini-2-5-pro",
     "date": "2025.03",
     "year": 2025,
@@ -1312,6 +1343,7 @@
     "sourceId": "google-gemini-2-5"
   },
   {
+    "id": "evt-llama-4",
     "slug": "llama-4",
     "date": "2025.04",
     "year": 2025,
@@ -1328,6 +1360,7 @@
     "sourceId": "meta-llama-4"
   },
   {
+    "id": "evt-openai-o3-o4-mini",
     "slug": "openai-o3-o4-mini",
     "date": "2025.04",
     "year": 2025,
@@ -1344,6 +1377,7 @@
     "sourceId": "openai-o3-o4-mini"
   },
   {
+    "id": "evt-claude-4",
     "slug": "claude-4",
     "date": "2025.05",
     "year": 2025,
@@ -1360,6 +1394,7 @@
     "sourceId": "anthropic-claude-4"
   },
   {
+    "id": "evt-gemini-2-5-ga",
     "slug": "gemini-2-5-ga",
     "date": "2025.06",
     "year": 2025,
@@ -1376,6 +1411,7 @@
     "sourceId": "google-gemini-2-5-ga"
   },
   {
+    "id": "evt-deepseek-v3-2",
     "slug": "deepseek-v3-2",
     "date": "2025.12",
     "year": 2025,
@@ -1392,6 +1428,7 @@
     "sourceId": "deepseek-v3-2"
   },
   {
+    "id": "evt-gpt-5-4",
     "slug": "gpt-5-4",
     "date": "2026.03",
     "year": 2026,
@@ -1409,6 +1446,7 @@
     "sourceId": "openai-gpt-5-4"
   },
   {
+    "id": "evt-deepseek-v4",
     "slug": "deepseek-v4",
     "date": "2026.04",
     "year": 2026,
@@ -1425,6 +1463,7 @@
     "sourceId": "deepseek-v4"
   },
   {
+    "id": "evt-gpt-5-5",
     "slug": "gpt-5-5",
     "date": "2026.04",
     "year": 2026,
@@ -1442,6 +1481,7 @@
     "sourceId": "openai-gpt-5-5"
   },
   {
+    "id": "evt-gpt-rosalind",
     "slug": "gpt-rosalind",
     "date": "2026.04",
     "year": 2026,
@@ -1458,6 +1498,7 @@
     "sourceId": "openai-gpt-rosalind"
   },
   {
+    "id": "evt-meta-muse-spark",
     "slug": "meta-muse-spark",
     "date": "2026.04",
     "year": 2026,
@@ -1475,6 +1516,7 @@
     "sourceId": "meta-muse-spark"
   },
   {
+    "id": "evt-claude-sonnet-5",
     "slug": "claude-sonnet-5",
     "date": "2026.06",
     "year": 2026,
@@ -1492,6 +1534,7 @@
     "sourceId": "anthropic-claude-sonnet-5"
   },
   {
+    "id": "evt-claude-tag",
     "slug": "claude-tag",
     "date": "2026.06",
     "year": 2026,
@@ -1508,6 +1551,7 @@
     "sourceId": "anthropic-claude-tag"
   },
   {
+    "id": "evt-meta-muse-image",
     "slug": "meta-muse-image",
     "date": "2026.07",
     "year": 2026,
@@ -1525,6 +1569,7 @@
     "sourceId": "meta-muse-image"
   },
   {
+    "id": "evt-gpt-5-6",
     "slug": "gpt-5-6",
     "date": "2026.08",
     "year": 2026,

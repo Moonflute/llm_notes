@@ -3,6 +3,7 @@ import Link from "next/link";
 import {ContentMeta} from "@/components/content/content-meta";
 import {conceptDocuments,events,getSource,issueDocuments} from "@/lib/content";
 import {getConceptStudyGuide} from "@/lib/concept-study-guides";
+import {buildContentMetadata} from "@/lib/content-metadata";
 import {notFound} from "next/navigation";
 
 export function generateStaticParams(){return conceptDocuments.map(({slug})=>({slug}))}
@@ -27,7 +28,7 @@ export default async function Concept({params}:{params:Promise<{slug:string}>}){
     <h1>{concept.titleKo}</h1>
     <p className="detailEn">{concept.titleEn}</p>
     <p className="lead">{concept.summary}</p>
-    <ContentMeta/>
+    <ContentMeta metadata={buildContentMetadata({status:guide?"draft":"index",contentDepth:guide?"full":"stub",sourceIds:concept.sourceIds})}/>
 
     {guide ? <>
       <aside className="studyBrief" aria-label="학습 목표">

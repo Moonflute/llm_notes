@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentMeta } from "@/components/content/content-meta";
+import { buildContentMetadata } from "@/lib/content-metadata";
 import { conceptDocuments, getModelProfile, getSource, modelFamilies, modelReleases } from "@/lib/content";
 import { notFound } from "next/navigation";
 
@@ -17,7 +18,7 @@ export default async function Release({ params }: { params: Promise<{ slug: stri
   const index = releases.findIndex((entry) => entry.slug === release); const previous = releases[index - 1]; const next = releases[index + 1];
   const specs: [string,string][] = [["개발사",profile.spec.developer],["최초 공개",profile.spec.released],["입력 · 출력",profile.spec.modalities],["컨텍스트",profile.spec.context],["하위 모델",profile.spec.variants],["파라미터",profile.spec.parameters],["제공 방식",profile.spec.access],["가중치 · 라이선스",profile.spec.weights]];
   return <main id="main-content" className="detail modelDetail">
-    <nav className="breadcrumb" aria-label="현재 위치"><Link href="/models/">모델</Link><span>›</span><Link href={"/models/"+family+"/"}>{modelFamily.titleKo}</Link><span>›</span><b>{item.title}</b></nav><p className="sectionLabel">모델 릴리스 · {item.date}</p><h1>{item.title}</h1><ContentMeta verifiedAt={profile.verifiedAt} />
+    <nav className="breadcrumb" aria-label="현재 위치"><Link href="/models/">모델</Link><span>›</span><Link href={"/models/"+family+"/"}>{modelFamily.titleKo}</Link><span>›</span><b>{item.title}</b></nav><p className="sectionLabel">모델 릴리스 · {item.date}</p><h1>{item.title}</h1><ContentMeta metadata={buildContentMetadata({status:"draft",contentDepth:"partial",sourceIds:[...new Set([...item.sourceIds,...profile.notableEvents.flatMap(event=>event.sourceIds)])],lastReviewed:profile.verifiedAt})}/>
     <section><h2>요약</h2><p className="lead">{profile.summaryKo}</p></section>
     <section><h2>특징</h2><ul className="featureList">{profile.features.map((feature)=><li key={feature}>{feature}</li>)}</ul></section>
     <section><h2>주요 사건과 성과</h2><div className="notableEvents">{profile.notableEvents.map((event)=><article key={event.date+"-"+event.title}><time>{event.date}</time><h3>{event.title}</h3><p>{event.description}</p><div className="eventSources">{event.sourceIds.map((id)=>{const source=getSource(id);return source?<a href={source.url} key={id} target="_blank" rel="noreferrer">{source.publisher} 원문 ↗</a>:null})}</div></article>)}</div></section>

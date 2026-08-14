@@ -82,7 +82,7 @@
     "titleEn": "Claude 3.5",
     "summary": "Claude 3 이후의 성능·도구 사용 개선을 발표한 릴리스입니다.",
     "sourceIds": [
-      "claude-3-source"
+      "claude"
     ],
     "conceptIds": [
       "reasoning",

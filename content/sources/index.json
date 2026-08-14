@@ -5,7 +5,55 @@
     "url": "https://arxiv.org/abs/1706.03762",
     "publisher": "Google Research",
     "year": 2017,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Google Research",
+    "publicationDate": "2017",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-transformer:summary",
+        "claim": "Attention centered architecture changed the standard for language models."
+      },
+      {
+        "id": "concept-attention:summary",
+        "claim": "출력을 만들 때 입력의 어느 부분을 얼마나 참고할지 계산하는 메커니즘입니다."
+      },
+      {
+        "id": "concept-transformer:summary",
+        "claim": "자기어텐션을 중심으로 시퀀스를 병렬 처리하는 신경망 구조입니다."
+      },
+      {
+        "id": "frontier-world-models:summary",
+        "claim": "환경의 상태와 다음 변화를 학습하는 모델입니다."
+      },
+      {
+        "id": "frontier-world-models:shared",
+        "claim": "표현 학습과 다음 상태 예측을 사용합니다."
+      },
+      {
+        "id": "frontier-world-models:different",
+        "claim": "언어 텍스트 대신 물리·시뮬레이션 환경의 동역학이 핵심입니다."
+      },
+      {
+        "id": "frontier-interpretability:summary",
+        "claim": "모델 내부 표현과 행동의 원인을 이해하려는 연구입니다."
+      },
+      {
+        "id": "frontier-interpretability:shared",
+        "claim": "트랜스포머 계열의 내부 상태와 어텐션을 분석 대상으로 삼습니다."
+      },
+      {
+        "id": "frontier-interpretability:different",
+        "claim": "좋은 설명의 기준과 실제 제어 가능성은 아직 논쟁적입니다."
+      },
+      {
+        "id": "path-llm-basics:summary",
+        "claim": "토큰 → 어텐션 → 트랜스포머 → 생성"
+      }
+    ]
   },
   {
     "id": "bert",
@@ -13,7 +61,27 @@
     "url": "https://arxiv.org/abs/1810.04805",
     "publisher": "Google AI",
     "year": 2018,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Google AI",
+    "publicationDate": "2018",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-bert:summary",
+        "claim": "Bidirectional pretraining accelerated transfer learning for NLP."
+      },
+      {
+        "id": "concept-pretraining:summary",
+        "claim": "대규모 일반 데이터에서 언어 패턴을 먼저 학습해 다양한 과제의 기반을 만드는 단계입니다."
+      },
+      {
+        "id": "profile-bert-bert:GLUE·MultiNLI·SQuAD 등 11개 과제 기록을 경신",
+        "claim": "GLUE·MultiNLI·SQuAD 등 11개 과제 기록을 경신했습니다."
+      }
+    ]
   },
   {
     "id": "elmo",
@@ -22,7 +90,23 @@
     "publisher": "Allen Institute for AI",
     "year": 2018,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Allen Institute for AI",
+    "publicationDate": "2018",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-elmo:summary",
+        "claim": "Contextual word representations improved many language tasks."
+      },
+      {
+        "id": "concept-embedding:summary",
+        "claim": "단어와 문장을 의미적 관계를 보존하는 수치 벡터로 표현합니다."
+      }
+    ]
   },
   {
     "id": "gpt-1",
@@ -31,7 +115,27 @@
     "publisher": "OpenAI",
     "year": 2018,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "official-webpage",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2018",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gpt-1:summary",
+        "claim": "Generative pretraining was applied to language understanding tasks."
+      },
+      {
+        "id": "release-gpt-gpt-1:summary",
+        "claim": "생성형 사전학습과 과제별 파인튜닝을 제시한 초기 GPT 릴리스입니다."
+      },
+      {
+        "id": "profile-gpt-gpt-1:12개 자연어 이해 과제 중 9개에서 당시 최고 수준을 보고",
+        "claim": "12개 자연어 이해 과제 중 9개에서 당시 최고 수준을 보고했습니다."
+      }
+    ]
   },
   {
     "id": "gpt-2",
@@ -40,7 +144,31 @@
     "publisher": "OpenAI",
     "year": 2019,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "official-webpage",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2019",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gpt-2:summary",
+        "claim": "A larger generative language model demonstrated broad task behavior."
+      },
+      {
+        "id": "concept-tokenization:summary",
+        "claim": "텍스트를 모델이 처리할 수 있는 토큰 단위로 나누는 과정입니다."
+      },
+      {
+        "id": "release-gpt-gpt-2:summary",
+        "claim": "대규모 비지도 다중 과제 학습을 보고한 GPT 계열 릴리스입니다."
+      },
+      {
+        "id": "profile-gpt-gpt-2:오용 우려로 전체 가중치를 단계 공개한 사건이 유명합니다.",
+        "claim": "오용 우려로 전체 가중치를 단계 공개한 사건이 유명합니다."
+      }
+    ]
   },
   {
     "id": "megatron-lm",
@@ -49,7 +177,19 @@
     "publisher": "NVIDIA",
     "year": 2019,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "NVIDIA",
+    "publicationDate": "2019",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-megatron-lm:summary",
+        "claim": "Model parallel training enabled larger Transformer language models."
+      }
+    ]
   },
   {
     "id": "roberta",
@@ -58,7 +198,27 @@
     "publisher": "Meta AI",
     "year": 2019,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Meta AI",
+    "publicationDate": "2019",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-roberta:summary",
+        "claim": "Training choices showed substantial effects on BERT style models."
+      },
+      {
+        "id": "release-bert-roberta:summary",
+        "claim": "BERT 사전학습 절차를 재검토해 개선한 인코더 모델입니다."
+      },
+      {
+        "id": "profile-bert-roberta:BERT가 충분히 학습되지 않았다는 실증을 제시",
+        "claim": "BERT가 충분히 학습되지 않았다는 실증을 제시했습니다."
+      }
+    ]
   },
   {
     "id": "t5",
@@ -67,7 +227,31 @@
     "publisher": "Google Research",
     "year": 2019,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Google Research",
+    "publicationDate": "2019",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-t5:summary",
+        "claim": "A unified text-to-text framing compared transfer learning choices."
+      },
+      {
+        "id": "release-t5-t5-11b:summary",
+        "claim": "텍스트-투-텍스트 형식의 대규모 T5 릴리스입니다."
+      },
+      {
+        "id": "profile-t5-t5:과제 접두어만 바꿔 번역·요약·분류를 처리",
+        "claim": "과제 접두어만 바꿔 번역·요약·분류를 처리했습니다."
+      },
+      {
+        "id": "profile-t5-t5-11b:과제 접두어만 바꿔 번역·요약·분류를 처리",
+        "claim": "과제 접두어만 바꿔 번역·요약·분류를 처리했습니다."
+      }
+    ]
   },
   {
     "id": "xlnet",
@@ -76,7 +260,27 @@
     "publisher": "Google Brain and CMU",
     "year": 2019,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Google Brain and CMU",
+    "publicationDate": "2019",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-xlnet:summary",
+        "claim": "A permutation based autoregressive pretraining objective was proposed."
+      },
+      {
+        "id": "release-bert-xlnet:summary",
+        "claim": "순열 기반 사전학습을 제시한 언어 모델 릴리스입니다."
+      },
+      {
+        "id": "profile-bert-xlnet:20개 언어 과제에서 BERT보다 나은 결과를 보고",
+        "claim": "20개 언어 과제에서 BERT보다 나은 결과를 보고했습니다."
+      }
+    ]
   },
   {
     "id": "gpt3",
@@ -84,7 +288,35 @@
     "url": "https://arxiv.org/abs/2005.14165",
     "publisher": "OpenAI",
     "year": 2020,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2020",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gpt-3:summary",
+        "claim": "A large language model demonstrated broad few-shot behavior."
+      },
+      {
+        "id": "concept-prompt-design:summary",
+        "claim": "목표·제약·예시·출력 형식을 명확히 써서 모델의 응답을 유도하는 실무 기법입니다."
+      },
+      {
+        "id": "issue-training-data:summary",
+        "claim": "데이터 수집·사용 허가·보상에 관한 법적·사회적 쟁점입니다."
+      },
+      {
+        "id": "issue-training-data:fact",
+        "claim": "학습 데이터의 출처와 사용 조건은 모델마다 다를 수 있습니다."
+      },
+      {
+        "id": "profile-gpt-gpt-3:zero·one·few-shot으로 번역·질문응답 등을 바꿔 수행",
+        "claim": "zero·one·few-shot으로 번역·질문응답 등을 바꿔 수행했습니다."
+      }
+    ]
   },
   {
     "id": "mmlu",
@@ -93,7 +325,63 @@
     "publisher": "UC Berkeley",
     "year": 2020,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "UC Berkeley",
+    "publicationDate": "2020",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-mmlu:summary",
+        "claim": "A benchmark measured knowledge across diverse academic subjects."
+      },
+      {
+        "id": "concept-evaluation:summary",
+        "claim": "모델 능력과 한계를 정해진 과제·조건에서 측정하고 비교하는 절차입니다."
+      },
+      {
+        "id": "issue-benchmark-saturation:summary",
+        "claim": "높은 벤치마크 점수가 실제 사용 환경의 신뢰성을 뜻하는지 검토합니다."
+      },
+      {
+        "id": "issue-benchmark-saturation:fact",
+        "claim": "평가 점수는 과제 형식·오염·채점 방식의 영향을 받습니다."
+      },
+      {
+        "id": "issue-open-evaluation:summary",
+        "claim": "모델 주장과 독립 평가가 어떻게 연결되어야 하는지 다룹니다."
+      },
+      {
+        "id": "issue-open-evaluation:fact",
+        "claim": "평가 조건·프롬프트·버전이 공개되지 않으면 결과를 직접 비교하기 어렵습니다."
+      },
+      {
+        "id": "issue-agi-definitions:summary",
+        "claim": "일반 인공지능이라는 말이 무엇을 가리키며 어떻게 검증할지에 관한 논쟁입니다."
+      },
+      {
+        "id": "issue-agi-definitions:fact",
+        "claim": "AGI에는 단일한 학술적 정의나 합의된 통과 기준이 없습니다."
+      },
+      {
+        "id": "frontier-agi:summary",
+        "claim": "일반 지능의 정의와 도달 가능성에 관한 열린 논쟁입니다."
+      },
+      {
+        "id": "frontier-agi:shared",
+        "claim": "LLM의 범용 과제 성능은 논의의 주요 증거 중 하나입니다."
+      },
+      {
+        "id": "frontier-agi:different",
+        "claim": "정의·측정·사회적 의미가 모델 성능보다 넓은 문제입니다."
+      },
+      {
+        "id": "path-agi-basics:summary",
+        "claim": "평가 → 환각 → 정렬 → 전망"
+      }
+    ]
   },
   {
     "id": "rag",
@@ -101,7 +389,59 @@
     "url": "https://arxiv.org/abs/2005.11401",
     "publisher": "Meta AI",
     "year": 2020,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Meta AI",
+    "publicationDate": "2020",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-rag:summary",
+        "claim": "A pattern that retrieves external documents before generation."
+      },
+      {
+        "id": "concept-semantic-search:summary",
+        "claim": "문자열 일치보다 의미적 유사도를 이용해 관련 문서를 찾는 검색 방식입니다."
+      },
+      {
+        "id": "concept-retrieval-augmented-generation:summary",
+        "claim": "생성 전에 외부 문서를 검색해 근거를 모델 입력에 제공하는 패턴입니다."
+      },
+      {
+        "id": "issue-hallucination:summary",
+        "claim": "그럴듯한 오류를 어떻게 평가하고 줄이는가를 다룹니다."
+      },
+      {
+        "id": "issue-hallucination:fact",
+        "claim": "언어 모델의 유창성은 사실 정확성을 보장하지 않습니다."
+      },
+      {
+        "id": "issue-long-context-vs-rag:summary",
+        "claim": "더 긴 입력 창과 검색 증강 중 무엇이 적합한지 비교합니다."
+      },
+      {
+        "id": "issue-long-context-vs-rag:fact",
+        "claim": "두 방식은 비용·최신성·근거 추적·검색 품질에서 서로 다른 trade-off를 가집니다."
+      },
+      {
+        "id": "frontier-scientific-discovery:summary",
+        "claim": "가설 생성·문헌 탐색·실험 설계에 AI를 쓰는 접근입니다."
+      },
+      {
+        "id": "frontier-scientific-discovery:shared",
+        "claim": "문헌 이해와 도구 사용에서 LLM을 활용할 수 있습니다."
+      },
+      {
+        "id": "frontier-scientific-discovery:different",
+        "claim": "검증은 실제 실험·도메인 지식·재현성에 달려 있습니다."
+      },
+      {
+        "id": "path-rag-to-agents:summary",
+        "claim": "검색 → 근거 연결 → 도구 호출 → 검증"
+      }
+    ]
   },
   {
     "id": "scaling-laws",
@@ -110,7 +450,31 @@
     "publisher": "OpenAI",
     "year": 2020,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2020",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-scaling-laws:summary",
+        "claim": "Predictable relationships between loss, data, and compute were studied."
+      },
+      {
+        "id": "concept-scaling-laws:summary",
+        "claim": "모델·데이터·연산 규모와 손실의 관계를 경험적으로 설명하는 연구 결과입니다."
+      },
+      {
+        "id": "issue-energy-and-compute:summary",
+        "claim": "대규모 학습과 추론이 요구하는 연산·메모리·전력의 비용을 다룹니다."
+      },
+      {
+        "id": "issue-energy-and-compute:fact",
+        "claim": "모델 규모만이 아니라 데이터와 추론 트래픽도 자원 사용량을 좌우합니다."
+      }
+    ]
   },
   {
     "id": "clip",
@@ -119,7 +483,23 @@
     "publisher": "OpenAI",
     "year": 2021,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2021",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-clip:summary",
+        "claim": "Text-image contrastive pretraining linked language and visual representations."
+      },
+      {
+        "id": "profile-clip-clip:ImageNet에서 라벨 없이 ResNet-50급 결과를 냈습니다.",
+        "claim": "ImageNet에서 라벨 없이 ResNet-50급 결과를 냈습니다."
+      }
+    ]
   },
   {
     "id": "codex",
@@ -128,7 +508,23 @@
     "publisher": "OpenAI",
     "year": 2021,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2021",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-codex:summary",
+        "claim": "A language model trained on public code was evaluated."
+      },
+      {
+        "id": "profile-codex-codex:GitHub Copilot 초기 기반으로 AI 페어 프로그래밍을 대중화",
+        "claim": "GitHub Copilot 초기 기반으로 AI 페어 프로그래밍을 대중화했습니다."
+      }
+    ]
   },
   {
     "id": "ernie-3",
@@ -137,7 +533,27 @@
     "publisher": "Baidu",
     "year": 2021,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Baidu",
+    "publicationDate": "2021",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-ernie-3:summary",
+        "claim": "Knowledge enhanced language pretraining was described."
+      },
+      {
+        "id": "organization-baidu:summary",
+        "claim": "Technology company developing ERNIE language models."
+      },
+      {
+        "id": "profile-ernie-ernie-3:중국어 이해·생성에서 지식 강화 결과를 보고",
+        "claim": "중국어 이해·생성에서 지식 강화 결과를 보고했습니다."
+      }
+    ]
   },
   {
     "id": "flan",
@@ -146,7 +562,27 @@
     "publisher": "Google Research",
     "year": 2021,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Google Research",
+    "publicationDate": "2021",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-flan:summary",
+        "claim": "Instruction fine-tuning improved zero-shot task performance."
+      },
+      {
+        "id": "concept-fine-tuning:summary",
+        "claim": "사전학습 모델을 특정 과제나 지시 형식에 맞추어 추가 학습하는 방법입니다."
+      },
+      {
+        "id": "concept-instruction-tuning:summary",
+        "claim": "다양한 지시와 응답 예시로 모델이 사람의 요청 형식을 따르도록 학습하는 방법입니다."
+      }
+    ]
   },
   {
     "id": "gopher",
@@ -155,7 +591,23 @@
     "publisher": "DeepMind",
     "year": 2021,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "DeepMind",
+    "publicationDate": "2021",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gopher:summary",
+        "claim": "A large language model study examined scaling and evaluation."
+      },
+      {
+        "id": "profile-gopher-gopher:논리·상식은 규모만으로 부족함을 보였습니다.",
+        "claim": "논리·상식은 규모만으로 부족함을 보였습니다."
+      }
+    ]
   },
   {
     "id": "lora",
@@ -164,7 +616,23 @@
     "publisher": "Microsoft",
     "year": 2021,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Microsoft",
+    "publicationDate": "2021",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-lora:summary",
+        "claim": "Low-rank adapters reduced fine-tuning trainable parameters."
+      },
+      {
+        "id": "concept-lora:summary",
+        "claim": "적은 수의 추가 파라미터만 학습해 대형 모델을 효율적으로 조정하는 방법입니다."
+      }
+    ]
   },
   {
     "id": "switch-transformer",
@@ -173,7 +641,23 @@
     "publisher": "Google Research",
     "year": 2021,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Google Research",
+    "publicationDate": "2021",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-switch-transformer:summary",
+        "claim": "Sparse expert routing enabled scaling with lower per-token compute."
+      },
+      {
+        "id": "concept-mixture-of-experts:summary",
+        "claim": "입력마다 일부 전문가만 활성화해 큰 용량을 효율적으로 사용하는 구조입니다."
+      }
+    ]
   },
   {
     "id": "truthfulqa",
@@ -182,7 +666,43 @@
     "publisher": "OpenAI",
     "year": 2021,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2021",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-truthfulqa:summary",
+        "claim": "A benchmark evaluated whether models reproduce common falsehoods."
+      },
+      {
+        "id": "concept-hallucination:summary",
+        "claim": "모델이 그럴듯하지만 근거 없거나 틀린 내용을 생성하는 현상입니다."
+      },
+      {
+        "id": "issue-hallucination:summary",
+        "claim": "그럴듯한 오류를 어떻게 평가하고 줄이는가를 다룹니다."
+      },
+      {
+        "id": "issue-hallucination:fact",
+        "claim": "언어 모델의 유창성은 사실 정확성을 보장하지 않습니다."
+      },
+      {
+        "id": "issue-benchmark-saturation:summary",
+        "claim": "높은 벤치마크 점수가 실제 사용 환경의 신뢰성을 뜻하는지 검토합니다."
+      },
+      {
+        "id": "issue-benchmark-saturation:fact",
+        "claim": "평가 점수는 과제 형식·오염·채점 방식의 영향을 받습니다."
+      },
+      {
+        "id": "path-agi-basics:summary",
+        "claim": "평가 → 환각 → 정렬 → 전망"
+      }
+    ]
   },
   {
     "id": "alpha-code",
@@ -191,7 +711,31 @@
     "publisher": "DeepMind",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "DeepMind",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-alpha-code:summary",
+        "claim": "A code generation system achieved competition-level results on selected programming contests."
+      },
+      {
+        "id": "release-alpha-code-alpha-code-competition:summary",
+        "claim": "경쟁 프로그래밍 문제 해결을 목표로 한 코드 모델 릴리스입니다."
+      },
+      {
+        "id": "profile-alpha-code-alpha-code:Codeforces 10개 대회에서 상위 54% 수준을 기록",
+        "claim": "Codeforces 10개 대회에서 상위 54% 수준을 기록했습니다."
+      },
+      {
+        "id": "profile-alpha-code-alpha-code-competition:Codeforces 10개 대회에서 상위 54% 수준을 기록",
+        "claim": "Codeforces 10개 대회에서 상위 54% 수준을 기록했습니다."
+      }
+    ]
   },
   {
     "id": "bloom",
@@ -200,7 +744,39 @@
     "publisher": "BigScience",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "BigScience",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-bloom:summary",
+        "claim": "A multilingual open access language model was released by a research collective."
+      },
+      {
+        "id": "release-bloom-bloom-176b:summary",
+        "claim": "다언어 공개 언어 모델을 지향한 BLOOM 릴리스입니다."
+      },
+      {
+        "id": "issue-training-data:summary",
+        "claim": "데이터 수집·사용 허가·보상에 관한 법적·사회적 쟁점입니다."
+      },
+      {
+        "id": "issue-training-data:fact",
+        "claim": "학습 데이터의 출처와 사용 조건은 모델마다 다를 수 있습니다."
+      },
+      {
+        "id": "profile-bloom-bloom:46개 자연어와 13개 프로그래밍 언어를 다룹니다.",
+        "claim": "46개 자연어와 13개 프로그래밍 언어를 다룹니다."
+      },
+      {
+        "id": "profile-bloom-bloom-176b:46개 자연어와 13개 프로그래밍 언어를 다룹니다.",
+        "claim": "46개 자연어와 13개 프로그래밍 언어를 다룹니다."
+      }
+    ]
   },
   {
     "id": "chatgpt",
@@ -208,7 +784,27 @@
     "url": "https://openai.com/index/chatgpt/",
     "publisher": "OpenAI",
     "year": 2022,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-chatgpt:summary",
+        "claim": "A conversational interface expanded public use of generative AI."
+      },
+      {
+        "id": "organization-openai:summary",
+        "claim": "Research and product organization behind the GPT family."
+      },
+      {
+        "id": "path-chatgpt-lineage:summary",
+        "claim": "사전학습 → 지시문 튜닝 → RLHF → 대화형 제품"
+      }
+    ]
   },
   {
     "id": "chinchilla",
@@ -217,7 +813,27 @@
     "publisher": "DeepMind",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "DeepMind",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-chinchilla:summary",
+        "claim": "Training token and parameter tradeoffs were studied for compute optimal models."
+      },
+      {
+        "id": "concept-data-quality:summary",
+        "claim": "학습 데이터의 구성과 정제가 성능·편향·안전성에 미치는 영향을 다룹니다."
+      },
+      {
+        "id": "concept-compute-optimal-training:summary",
+        "claim": "고정된 연산 예산에서 모델 크기와 학습 토큰 수를 함께 조절하는 원칙입니다."
+      }
+    ]
   },
   {
     "id": "constitutional-ai",
@@ -226,7 +842,27 @@
     "publisher": "Anthropic",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Anthropic",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-constitutional-ai:summary",
+        "claim": "A constitutional rule set was used for harmlessness training."
+      },
+      {
+        "id": "concept-rlaif:summary",
+        "claim": "사람 평가의 일부를 규칙이나 다른 AI의 피드백으로 보완하는 정렬 방법입니다."
+      },
+      {
+        "id": "concept-constitutional-ai:summary",
+        "claim": "명시한 원칙을 바탕으로 모델이 응답을 비판·수정하도록 하는 정렬 접근입니다."
+      }
+    ]
   },
   {
     "id": "dalle-2",
@@ -235,7 +871,43 @@
     "publisher": "OpenAI",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-dalle-2:summary",
+        "claim": "Text-to-image generation used CLIP latent representations."
+      },
+      {
+        "id": "release-dalle-dalle-2-preview:summary",
+        "claim": "텍스트 조건 이미지 생성을 확장한 DALL-E 릴리스입니다."
+      },
+      {
+        "id": "frontier-generative-media:summary",
+        "claim": "이미지·음성·영상 같은 비언어 콘텐츠를 생성·편집하는 모델 영역입니다."
+      },
+      {
+        "id": "frontier-generative-media:shared",
+        "claim": "대규모 데이터 학습과 프롬프트 기반 인터페이스를 공유합니다."
+      },
+      {
+        "id": "frontier-generative-media:different",
+        "claim": "시각·청각 품질, 저작권, 합성물 식별 문제가 중심입니다."
+      },
+      {
+        "id": "profile-dalle-dalle-2:대기 명단 데모로 생성 이미지를 대중화",
+        "claim": "대기 명단 데모로 생성 이미지를 대중화했습니다."
+      },
+      {
+        "id": "profile-dalle-dalle-2-preview:대기 명단 데모로 생성 이미지를 대중화",
+        "claim": "대기 명단 데모로 생성 이미지를 대중화했습니다."
+      }
+    ]
   },
   {
     "id": "flamingo",
@@ -244,7 +916,59 @@
     "publisher": "DeepMind",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "DeepMind",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-flamingo:summary",
+        "claim": "A visual language model demonstrated few-shot multimodal learning."
+      },
+      {
+        "id": "concept-multimodality:summary",
+        "claim": "텍스트뿐 아니라 이미지·음성·영상 등의 여러 형식을 함께 이해하거나 생성하는 능력입니다."
+      },
+      {
+        "id": "release-flamingo-flamingo-80b:summary",
+        "claim": "소수 예시 시각 언어 학습을 제시한 멀티모달 릴리스입니다."
+      },
+      {
+        "id": "frontier-multimodality:summary",
+        "claim": "텍스트·이미지·오디오 등 여러 표현을 함께 다루는 모델입니다."
+      },
+      {
+        "id": "frontier-multimodality:shared",
+        "claim": "대규모 표현 학습과 생성 모델의 평가·안전성 문제를 공유합니다."
+      },
+      {
+        "id": "frontier-multimodality:different",
+        "claim": "입력 형식과 오류 양상이 언어 전용 모델보다 넓습니다."
+      },
+      {
+        "id": "frontier-robotics:summary",
+        "claim": "센서·행동·환경 피드백을 결합해 실제 세계에서 과업을 수행하는 연구입니다."
+      },
+      {
+        "id": "frontier-robotics:shared",
+        "claim": "언어 지시와 시각 표현을 인터페이스로 활용할 수 있습니다."
+      },
+      {
+        "id": "frontier-robotics:different",
+        "claim": "안전한 물리 행동과 실시간 제어가 필수입니다."
+      },
+      {
+        "id": "profile-flamingo-flamingo:16개 과제 중 6개에서 미세조정 모델을 앞섰다고 보고",
+        "claim": "16개 과제 중 6개에서 미세조정 모델을 앞섰다고 보고했습니다."
+      },
+      {
+        "id": "profile-flamingo-flamingo-80b:16개 과제 중 6개에서 미세조정 모델을 앞섰다고 보고",
+        "claim": "16개 과제 중 6개에서 미세조정 모델을 앞섰다고 보고했습니다."
+      }
+    ]
   },
   {
     "id": "flashattention",
@@ -253,7 +977,19 @@
     "publisher": "Stanford University",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Stanford University",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-flashattention:summary",
+        "claim": "An IO-aware implementation improved attention speed and memory use."
+      }
+    ]
   },
   {
     "id": "instructgpt",
@@ -261,7 +997,35 @@
     "url": "https://arxiv.org/abs/2203.02155",
     "publisher": "OpenAI",
     "year": 2022,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-instructgpt:summary",
+        "claim": "Human preference feedback improved instruction following."
+      },
+      {
+        "id": "concept-rlhf:summary",
+        "claim": "사람의 선호 비교를 보상 신호로 사용해 응답 행동을 조정하는 학습 절차입니다."
+      },
+      {
+        "id": "concept-alignment:summary",
+        "claim": "모델의 행동을 사람의 의도·안전 원칙·사용 맥락에 맞추려는 연구와 실무의 묶음입니다."
+      },
+      {
+        "id": "path-chatgpt-lineage:summary",
+        "claim": "사전학습 → 지시문 튜닝 → RLHF → 대화형 제품"
+      },
+      {
+        "id": "profile-instructgpt-instructgpt:1.3B 출력이 175B GPT-3보다 더 선호",
+        "claim": "1.3B 출력이 175B GPT-3보다 더 선호됐습니다."
+      }
+    ]
   },
   {
     "id": "lamda",
@@ -270,7 +1034,19 @@
     "publisher": "Google",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Google",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-lamda:summary",
+        "claim": "A dialogue focused language model was introduced."
+      }
+    ]
   },
   {
     "id": "palm",
@@ -279,7 +1055,23 @@
     "publisher": "Google Research",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Google Research",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-palm:summary",
+        "claim": "A large language model was trained with Pathways system infrastructure."
+      },
+      {
+        "id": "profile-palm-palm:BIG-bench에서 규모에 따른 불연속 향상을 보고",
+        "claim": "BIG-bench에서 규모에 따른 불연속 향상을 보고했습니다."
+      }
+    ]
   },
   {
     "id": "react",
@@ -288,7 +1080,47 @@
     "publisher": "Princeton University",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Princeton University",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-react:summary",
+        "claim": "Interleaving reasoning traces and actions was proposed for language agents."
+      },
+      {
+        "id": "concept-agents:summary",
+        "claim": "모델의 추론에 도구 사용·상태·반복 실행을 결합해 목표 지향 작업을 수행하는 시스템입니다."
+      },
+      {
+        "id": "issue-agents-reliability:summary",
+        "claim": "도구를 쓰는 시스템이 실제 업무에서 얼마나 독립적으로 작동할 수 있는지 다룹니다."
+      },
+      {
+        "id": "issue-agents-reliability:fact",
+        "claim": "도구 호출은 모델의 외부 정보 접근과 실행 범위를 넓힙니다."
+      },
+      {
+        "id": "frontier-agents:summary",
+        "claim": "언어 능력에 검색·코드·외부 도구를 결합하는 시스템입니다."
+      },
+      {
+        "id": "frontier-agents:shared",
+        "claim": "LLM이 계획과 언어 인터페이스의 중심 역할을 할 수 있습니다."
+      },
+      {
+        "id": "frontier-agents:different",
+        "claim": "성능은 모델뿐 아니라 도구·상태·실행 환경에 좌우됩니다."
+      },
+      {
+        "id": "path-rag-to-agents:summary",
+        "claim": "검색 → 근거 연결 → 도구 호출 → 검증"
+      }
+    ]
   },
   {
     "id": "speculative-decoding",
@@ -297,7 +1129,23 @@
     "publisher": "DeepMind",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "DeepMind",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-speculative-decoding:summary",
+        "claim": "A draft model was used to accelerate autoregressive decoding."
+      },
+      {
+        "id": "concept-speculative-decoding:summary",
+        "claim": "작은 모델의 후보를 큰 모델이 검증해 생성 지연 시간을 줄이는 방법입니다."
+      }
+    ]
   },
   {
     "id": "stable-diffusion",
@@ -306,7 +1154,43 @@
     "publisher": "CompVis",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "CompVis",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-stable-diffusion:summary",
+        "claim": "Latent diffusion made high resolution image synthesis more accessible."
+      },
+      {
+        "id": "release-stable-diffusion-stable-diffusion-v1-5:summary",
+        "claim": "잠재 확산 기반의 공개 이미지 생성 모델 릴리스입니다."
+      },
+      {
+        "id": "frontier-generative-media:summary",
+        "claim": "이미지·음성·영상 같은 비언어 콘텐츠를 생성·편집하는 모델 영역입니다."
+      },
+      {
+        "id": "frontier-generative-media:shared",
+        "claim": "대규모 데이터 학습과 프롬프트 기반 인터페이스를 공유합니다."
+      },
+      {
+        "id": "frontier-generative-media:different",
+        "claim": "시각·청각 품질, 저작권, 합성물 식별 문제가 중심입니다."
+      },
+      {
+        "id": "profile-stable-diffusion-stable-diffusion:웹 UI·LoRA·ControlNet 생태계가 폭발",
+        "claim": "웹 UI·LoRA·ControlNet 생태계가 폭발했습니다."
+      },
+      {
+        "id": "profile-stable-diffusion-stable-diffusion-v1-5:웹 UI·LoRA·ControlNet 생태계가 폭발",
+        "claim": "웹 UI·LoRA·ControlNet 생태계가 폭발했습니다."
+      }
+    ]
   },
   {
     "id": "whisper",
@@ -315,7 +1199,43 @@
     "publisher": "OpenAI",
     "year": 2022,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-whisper:summary",
+        "claim": "Large scale weakly supervised speech recognition was released."
+      },
+      {
+        "id": "release-whisper-whisper-large-v2:summary",
+        "claim": "대규모 약지도 데이터로 학습한 음성 인식 릴리스입니다."
+      },
+      {
+        "id": "frontier-generative-media:summary",
+        "claim": "이미지·음성·영상 같은 비언어 콘텐츠를 생성·편집하는 모델 영역입니다."
+      },
+      {
+        "id": "frontier-generative-media:shared",
+        "claim": "대규모 데이터 학습과 프롬프트 기반 인터페이스를 공유합니다."
+      },
+      {
+        "id": "frontier-generative-media:different",
+        "claim": "시각·청각 품질, 저작권, 합성물 식별 문제가 중심입니다."
+      },
+      {
+        "id": "profile-whisper-whisper:공개 이후 자막·회의 기록 도구의 사실상 표준으로 확산",
+        "claim": "공개 뒤 자막·회의 기록의 사실상 표준이 됐습니다."
+      },
+      {
+        "id": "profile-whisper-whisper-large-v2:공개 이후 자막·회의 기록 도구의 사실상 표준으로 확산",
+        "claim": "공개 뒤 자막·회의 기록의 사실상 표준이 됐습니다."
+      }
+    ]
   },
   {
     "id": "blip-2",
@@ -324,7 +1244,35 @@
     "publisher": "Salesforce Research",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Salesforce Research",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-blip-2:summary",
+        "claim": "A querying transformer connected image encoders and language models."
+      },
+      {
+        "id": "organization-salesforce:summary",
+        "claim": "BLIP 계열을 포함한 시각 언어 모델 연구를 공개한 조직입니다."
+      },
+      {
+        "id": "release-blip-blip-2-flant5:summary",
+        "claim": "시각 인코더와 언어 모델을 연결한 멀티모달 릴리스입니다."
+      },
+      {
+        "id": "profile-blip-blip-2:Flan-T5·OPT로 제로샷 이미지 질의응답을 수행",
+        "claim": "Flan-T5·OPT로 제로샷 이미지 질의응답을 수행했습니다."
+      },
+      {
+        "id": "profile-blip-blip-2-flant5:Flan-T5·OPT로 제로샷 이미지 질의응답을 수행",
+        "claim": "Flan-T5·OPT로 제로샷 이미지 질의응답을 수행했습니다."
+      }
+    ]
   },
   {
     "id": "code-llama",
@@ -333,7 +1281,31 @@
     "publisher": "Meta AI",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Meta AI",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-code-llama:summary",
+        "claim": "Open foundation models for code were released."
+      },
+      {
+        "id": "release-code-llama-code-llama-34b:summary",
+        "claim": "코드 생성과 완성을 겨냥한 Llama 기반 릴리스입니다."
+      },
+      {
+        "id": "profile-code-llama-code-llama:코드 중간 채우기와 Python 특화 모델을 제공",
+        "claim": "코드 중간 채우기와 Python 특화 모델을 제공했습니다."
+      },
+      {
+        "id": "profile-code-llama-code-llama-34b:코드 중간 채우기와 Python 특화 모델을 제공",
+        "claim": "코드 중간 채우기와 Python 특화 모델을 제공했습니다."
+      }
+    ]
   },
   {
     "id": "dpo",
@@ -342,7 +1314,23 @@
     "publisher": "Stanford University",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Stanford University",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-dpo:summary",
+        "claim": "A simpler preference optimization objective was proposed."
+      },
+      {
+        "id": "concept-dpo:summary",
+        "claim": "별도 보상 모델 없이 선호 쌍을 활용해 모델 정책을 직접 최적화하는 방법입니다."
+      }
+    ]
   },
   {
     "id": "function-calling",
@@ -351,7 +1339,31 @@
     "publisher": "OpenAI",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "official-webpage",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-function-calling:summary",
+        "claim": "Structured function calling was introduced in an API."
+      },
+      {
+        "id": "concept-function-calling:summary",
+        "claim": "모델이 구조화된 인수를 만들어 외부 API나 프로그램을 호출하게 하는 인터페이스입니다."
+      },
+      {
+        "id": "issue-agents-reliability:summary",
+        "claim": "도구를 쓰는 시스템이 실제 업무에서 얼마나 독립적으로 작동할 수 있는지 다룹니다."
+      },
+      {
+        "id": "issue-agents-reliability:fact",
+        "claim": "도구 호출은 모델의 외부 정보 접근과 실행 범위를 넓힙니다."
+      }
+    ]
   },
   {
     "id": "gemini",
@@ -359,7 +1371,63 @@
     "url": "https://arxiv.org/abs/2312.11805",
     "publisher": "Google DeepMind",
     "year": 2023,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Google DeepMind",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gemini:summary",
+        "claim": "A multimodal model family spanning text, images, audio and video."
+      },
+      {
+        "id": "organization-google-deepmind:summary",
+        "claim": "Google AI research organization behind Gemini."
+      },
+      {
+        "id": "issue-multimodal-safety:summary",
+        "claim": "이미지·음성·영상 입력이 추가하는 오용·오해·평가 문제입니다."
+      },
+      {
+        "id": "issue-multimodal-safety:fact",
+        "claim": "멀티모달 모델은 텍스트만으로는 없는 입력 해석 오류와 개인정보 위험을 가질 수 있습니다."
+      },
+      {
+        "id": "frontier-multimodality:summary",
+        "claim": "텍스트·이미지·오디오 등 여러 표현을 함께 다루는 모델입니다."
+      },
+      {
+        "id": "frontier-multimodality:shared",
+        "claim": "대규모 표현 학습과 생성 모델의 평가·안전성 문제를 공유합니다."
+      },
+      {
+        "id": "frontier-multimodality:different",
+        "claim": "입력 형식과 오류 양상이 언어 전용 모델보다 넓습니다."
+      },
+      {
+        "id": "frontier-robotics:summary",
+        "claim": "센서·행동·환경 피드백을 결합해 실제 세계에서 과업을 수행하는 연구입니다."
+      },
+      {
+        "id": "frontier-robotics:shared",
+        "claim": "언어 지시와 시각 표현을 인터페이스로 활용할 수 있습니다."
+      },
+      {
+        "id": "frontier-robotics:different",
+        "claim": "안전한 물리 행동과 실시간 제어가 필수입니다."
+      },
+      {
+        "id": "path-multimodal-and-efficient:summary",
+        "claim": "멀티모달 → 전문가 혼합 → 양자화 → 서빙"
+      },
+      {
+        "id": "profile-gemini-gemini:MMLU에서 전문가 기준을 넘었다는 발표로 주목받았습니다.",
+        "claim": "MMLU에서 전문가 기준을 넘었다는 발표로 주목받았습니다."
+      }
+    ]
   },
   {
     "id": "gpt4",
@@ -367,7 +1435,59 @@
     "url": "https://arxiv.org/abs/2303.08774",
     "publisher": "OpenAI",
     "year": 2023,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gpt-4:summary",
+        "claim": "A high capability multimodal model family with a technical report."
+      },
+      {
+        "id": "issue-safety-red-teaming:summary",
+        "claim": "배포 전 위험 행동을 찾아 완화하는 평가 절차의 범위와 한계입니다."
+      },
+      {
+        "id": "issue-safety-red-teaming:fact",
+        "claim": "시스템 카드와 레드팀 평가는 위험을 드러내지만 위험 부재를 증명하지는 않습니다."
+      },
+      {
+        "id": "issue-open-evaluation:summary",
+        "claim": "모델 주장과 독립 평가가 어떻게 연결되어야 하는지 다룹니다."
+      },
+      {
+        "id": "issue-open-evaluation:fact",
+        "claim": "평가 조건·프롬프트·버전이 공개되지 않으면 결과를 직접 비교하기 어렵습니다."
+      },
+      {
+        "id": "issue-agi-definitions:summary",
+        "claim": "일반 인공지능이라는 말이 무엇을 가리키며 어떻게 검증할지에 관한 논쟁입니다."
+      },
+      {
+        "id": "issue-agi-definitions:fact",
+        "claim": "AGI에는 단일한 학술적 정의나 합의된 통과 기준이 없습니다."
+      },
+      {
+        "id": "frontier-agi:summary",
+        "claim": "일반 지능의 정의와 도달 가능성에 관한 열린 논쟁입니다."
+      },
+      {
+        "id": "frontier-agi:shared",
+        "claim": "LLM의 범용 과제 성능은 논의의 주요 증거 중 하나입니다."
+      },
+      {
+        "id": "frontier-agi:different",
+        "claim": "정의·측정·사회적 의미가 모델 성능보다 넓은 문제입니다."
+      },
+      {
+        "id": "profile-gpt-gpt-4:모의 변호사시험 상위권 수준이라는 평가가 대중적 화제",
+        "claim": "모의 변호사시험 상위권 수준이라는 보고가 화제가 됐습니다."
+      }
+    ]
   },
   {
     "id": "llama",
@@ -375,7 +1495,35 @@
     "url": "https://arxiv.org/abs/2307.09288",
     "publisher": "Meta AI",
     "year": 2023,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Meta AI",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-llama-2:summary",
+        "claim": "Open model weights expanded the ecosystem."
+      },
+      {
+        "id": "organization-meta:summary",
+        "claim": "AI research organization behind Llama and open model work."
+      },
+      {
+        "id": "issue-open-weights:summary",
+        "claim": "가중치·코드·데이터·라이선스의 공개 범위를 구분하는 법입니다."
+      },
+      {
+        "id": "issue-open-weights:fact",
+        "claim": "가중치 공개가 학습 코드와 데이터까지의 공개를 뜻하지는 않습니다."
+      },
+      {
+        "id": "profile-llama-llama-2:Microsoft 협력으로 클라우드와 로컬에 빠르게 확산",
+        "claim": "Microsoft 협력으로 클라우드와 로컬에 빠르게 확산됐습니다."
+      }
+    ]
   },
   {
     "id": "llama-original",
@@ -384,7 +1532,19 @@
     "publisher": "Meta AI",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Meta AI",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-llama:summary",
+        "claim": "A family of efficient foundation language models was published."
+      }
+    ]
   },
   {
     "id": "llava",
@@ -393,7 +1553,35 @@
     "publisher": "University of Wisconsin-Madison",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "University of Wisconsin-Madison",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-llava:summary",
+        "claim": "Visual instruction tuning was introduced for multimodal assistants."
+      },
+      {
+        "id": "concept-vision-language-models:summary",
+        "claim": "이미지 표현과 언어 모델을 결합해 시각 질문 응답과 설명 생성을 수행하는 모델입니다."
+      },
+      {
+        "id": "issue-multimodal-safety:summary",
+        "claim": "이미지·음성·영상 입력이 추가하는 오용·오해·평가 문제입니다."
+      },
+      {
+        "id": "issue-multimodal-safety:fact",
+        "claim": "멀티모달 모델은 텍스트만으로는 없는 입력 해석 오류와 개인정보 위험을 가질 수 있습니다."
+      },
+      {
+        "id": "profile-llava-llava:코드와 데이터 공개 이후 오픈 VLM 연구의 기준점으로 정착",
+        "claim": "코드·데이터 공개 뒤 오픈 VLM 기준점이 됐습니다."
+      }
+    ]
   },
   {
     "id": "mamba",
@@ -402,7 +1590,59 @@
     "publisher": "Princeton University",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Princeton University",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-mamba:summary",
+        "claim": "A selective state space architecture was proposed as an alternative sequence modeling approach."
+      },
+      {
+        "id": "organization-princeton:summary",
+        "claim": "Mamba 선택적 상태 공간 모델 연구에 참여한 연구 기관입니다."
+      },
+      {
+        "id": "release-mamba-mamba-130m:summary",
+        "claim": "선택적 상태 공간으로 긴 시퀀스 효율을 다룬 모델 릴리스입니다."
+      },
+      {
+        "id": "frontier-world-models:summary",
+        "claim": "환경의 상태와 다음 변화를 학습하는 모델입니다."
+      },
+      {
+        "id": "frontier-world-models:shared",
+        "claim": "표현 학습과 다음 상태 예측을 사용합니다."
+      },
+      {
+        "id": "frontier-world-models:different",
+        "claim": "언어 텍스트 대신 물리·시뮬레이션 환경의 동역학이 핵심입니다."
+      },
+      {
+        "id": "frontier-interpretability:summary",
+        "claim": "모델 내부 표현과 행동의 원인을 이해하려는 연구입니다."
+      },
+      {
+        "id": "frontier-interpretability:shared",
+        "claim": "트랜스포머 계열의 내부 상태와 어텐션을 분석 대상으로 삼습니다."
+      },
+      {
+        "id": "frontier-interpretability:different",
+        "claim": "좋은 설명의 기준과 실제 제어 가능성은 아직 논쟁적입니다."
+      },
+      {
+        "id": "profile-mamba-mamba:동급 Transformer와 경쟁하며 선형 처리량을 보고",
+        "claim": "동급 Transformer와 경쟁하며 선형 처리량을 보고했습니다."
+      },
+      {
+        "id": "profile-mamba-mamba-130m:동급 Transformer와 경쟁하며 선형 처리량을 보고",
+        "claim": "동급 Transformer와 경쟁하며 선형 처리량을 보고했습니다."
+      }
+    ]
   },
   {
     "id": "mistral",
@@ -410,7 +1650,27 @@
     "url": "https://arxiv.org/abs/2310.06825",
     "publisher": "Mistral AI",
     "year": 2023,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Mistral AI",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-mistral-7b:summary",
+        "claim": "An efficient smaller open model design."
+      },
+      {
+        "id": "organization-mistral-ai:summary",
+        "claim": "AI company developing open and commercial language models."
+      },
+      {
+        "id": "profile-mistral-mistral-7b:작은 크기로 더 큰 Llama 일부 평가를 앞섰습니다.",
+        "claim": "작은 크기로 더 큰 Llama 일부 평가를 앞섰습니다."
+      }
+    ]
   },
   {
     "id": "openhermes",
@@ -419,7 +1679,23 @@
     "publisher": "Teknium",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "model-card",
+    "authorOrOrganization": "Teknium",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-openhermes:summary",
+        "claim": "An open instruction tuned model was released."
+      },
+      {
+        "id": "profile-openhermes-openhermes:양자화·로컬 대화 파생 모델로 널리 확산",
+        "claim": "양자화·로컬 대화 파생 모델로 널리 확산됐습니다."
+      }
+    ]
   },
   {
     "id": "palm-2",
@@ -428,7 +1704,23 @@
     "publisher": "Google",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Google",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-palm-2:summary",
+        "claim": "A new language model family was described in a technical report."
+      },
+      {
+        "id": "profile-palm-palm-2:Bard·Workspace·클라우드의 기반으로 배치",
+        "claim": "Bard·Workspace·클라우드의 기반으로 배치됐습니다."
+      }
+    ]
   },
   {
     "id": "qlora",
@@ -437,7 +1729,27 @@
     "publisher": "University of Washington",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "University of Washington",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-qlora:summary",
+        "claim": "Quantization enabled efficient fine-tuning of large language models."
+      },
+      {
+        "id": "concept-quantization:summary",
+        "claim": "가중치와 계산 정밀도를 낮춰 메모리 사용량과 실행 비용을 줄이는 기법입니다."
+      },
+      {
+        "id": "path-multimodal-and-efficient:summary",
+        "claim": "멀티모달 → 전문가 혼합 → 양자화 → 서빙"
+      }
+    ]
   },
   {
     "id": "segment-anything",
@@ -446,7 +1758,23 @@
     "publisher": "Meta AI",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Meta AI",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-segment-anything:summary",
+        "claim": "A promptable image segmentation foundation model was released."
+      },
+      {
+        "id": "profile-sam-segment-anything:11억 마스크 SA-1B를 모델 보조로 구축",
+        "claim": "11억 마스크 SA-1B를 모델 보조로 구축했습니다."
+      }
+    ]
   },
   {
     "id": "self-rag",
@@ -455,7 +1783,27 @@
     "publisher": "University of Washington",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "University of Washington",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-self-rag:summary",
+        "claim": "Retrieval, generation and critique were combined in one framework."
+      },
+      {
+        "id": "concept-grounding:summary",
+        "claim": "응답을 외부 자료·도구 결과와 연결해 검증 가능성을 높이려는 설계 원칙입니다."
+      },
+      {
+        "id": "concept-agent-memory:summary",
+        "claim": "이전 작업의 요약과 외부 기록을 다시 사용해 장기 과업의 문맥을 유지하는 설계입니다."
+      }
+    ]
   },
   {
     "id": "starcoder",
@@ -464,16 +1812,31 @@
     "publisher": "BigCode",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
-  },
-  {
-    "id": "tool-use",
-    "title": "Toolformer: Language Models Can Teach Themselves to Use Tools",
-    "url": "https://arxiv.org/abs/2302.04761",
-    "publisher": "Meta AI",
-    "year": 2023,
-    "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "BigCode",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-starcoder:summary",
+        "claim": "An open code language model was released."
+      },
+      {
+        "id": "release-starcoder-starcoder-base:summary",
+        "claim": "공개 코드 데이터로 학습한 코드 생성 모델 릴리스입니다."
+      },
+      {
+        "id": "profile-starcoder-starcoder:The Stack 탐색과 개발자 옵트아웃을 제공",
+        "claim": "The Stack 탐색과 개발자 옵트아웃을 제공했습니다."
+      },
+      {
+        "id": "profile-starcoder-starcoder-base:The Stack 탐색과 개발자 옵트아웃을 제공",
+        "claim": "The Stack 탐색과 개발자 옵트아웃을 제공했습니다."
+      }
+    ]
   },
   {
     "id": "toolformer",
@@ -482,7 +1845,43 @@
     "publisher": "Meta AI",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Meta AI",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-tool-use:summary",
+        "claim": "A self-supervised approach for tool use by language models was proposed."
+      },
+      {
+        "id": "frontier-agents:summary",
+        "claim": "언어 능력에 검색·코드·외부 도구를 결합하는 시스템입니다."
+      },
+      {
+        "id": "frontier-agents:shared",
+        "claim": "LLM이 계획과 언어 인터페이스의 중심 역할을 할 수 있습니다."
+      },
+      {
+        "id": "frontier-agents:different",
+        "claim": "성능은 모델뿐 아니라 도구·상태·실행 환경에 좌우됩니다."
+      },
+      {
+        "id": "frontier-scientific-discovery:summary",
+        "claim": "가설 생성·문헌 탐색·실험 설계에 AI를 쓰는 접근입니다."
+      },
+      {
+        "id": "frontier-scientific-discovery:shared",
+        "claim": "문헌 이해와 도구 사용에서 LLM을 활용할 수 있습니다."
+      },
+      {
+        "id": "frontier-scientific-discovery:different",
+        "claim": "검증은 실제 실험·도메인 지식·재현성에 달려 있습니다."
+      }
+    ]
   },
   {
     "id": "vllm",
@@ -491,7 +1890,35 @@
     "publisher": "UC Berkeley",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "UC Berkeley",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-vllm:summary",
+        "claim": "Paged attention improved memory efficiency for language model serving."
+      },
+      {
+        "id": "concept-kv-cache:summary",
+        "claim": "이미 계산한 어텐션의 키와 값을 저장해 생성 단계의 반복 계산을 줄이는 기법입니다."
+      },
+      {
+        "id": "concept-inference-serving:summary",
+        "claim": "여러 요청을 효율적으로 배치하고 메모리를 관리해 모델을 제공하는 시스템 기술입니다."
+      },
+      {
+        "id": "issue-energy-and-compute:summary",
+        "claim": "대규모 학습과 추론이 요구하는 연산·메모리·전력의 비용을 다룹니다."
+      },
+      {
+        "id": "issue-energy-and-compute:fact",
+        "claim": "모델 규모만이 아니라 데이터와 추론 트래픽도 자원 사용량을 좌우합니다."
+      }
+    ]
   },
   {
     "id": "zephyr",
@@ -500,7 +1927,23 @@
     "publisher": "Hugging Face",
     "year": 2023,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Hugging Face",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-zephyr:summary",
+        "claim": "Direct distillation was used for language model alignment."
+      },
+      {
+        "id": "concept-distillation:summary",
+        "claim": "큰 교사 모델의 행동을 작은 학생 모델에 전달해 비용을 줄이는 기법입니다."
+      }
+    ]
   },
   {
     "id": "claude",
@@ -508,16 +1951,43 @@
     "url": "https://www.anthropic.com/news/claude-3-family",
     "publisher": "Anthropic",
     "year": 2024,
-    "verifiedAt": "2026-08-05"
-  },
-  {
-    "id": "claude-3-source",
-    "title": "The Claude 3 Model Family",
-    "url": "https://www.anthropic.com/news/claude-3-family",
-    "publisher": "Anthropic",
-    "year": 2024,
-    "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Anthropic",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-claude-3:summary",
+        "claim": "A model family with different capability and cost profiles."
+      },
+      {
+        "id": "organization-anthropic:summary",
+        "claim": "AI research company with a focus on safe and reliable systems."
+      },
+      {
+        "id": "release-claude-claude-3-5:summary",
+        "claim": "Claude 3 이후의 성능·도구 사용 개선을 발표한 릴리스입니다."
+      },
+      {
+        "id": "issue-safety-red-teaming:summary",
+        "claim": "배포 전 위험 행동을 찾아 완화하는 평가 절차의 범위와 한계입니다."
+      },
+      {
+        "id": "issue-safety-red-teaming:fact",
+        "claim": "시스템 카드와 레드팀 평가는 위험을 드러내지만 위험 부재를 증명하지는 않습니다."
+      },
+      {
+        "id": "profile-claude-claude-3:속도·가격·최고 성능을 세 등급으로 분리",
+        "claim": "속도·가격·최고 성능을 세 등급으로 분리했습니다."
+      },
+      {
+        "id": "profile-claude-claude-3-5:코딩·시각 추론과 Artifacts 작업면을 함께 공개",
+        "claim": "코딩·시각 추론과 Artifacts 작업면을 함께 공개했습니다."
+      }
+    ]
   },
   {
     "id": "command-r",
@@ -526,7 +1996,35 @@
     "publisher": "Cohere",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Cohere",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-command-r:summary",
+        "claim": "A model family focused on retrieval augmented generation was announced."
+      },
+      {
+        "id": "organization-cohere:summary",
+        "claim": "Enterprise focused language model company."
+      },
+      {
+        "id": "release-command-command-r-plus:summary",
+        "claim": "검색 증강 업무를 겨냥한 Cohere 모델 릴리스입니다."
+      },
+      {
+        "id": "profile-command-command-r:근거 인용과 외부 API 호출을 핵심으로 공개",
+        "claim": "근거 인용과 외부 API 호출을 핵심으로 공개했습니다."
+      },
+      {
+        "id": "profile-command-command-r-plus:근거 인용과 외부 API 호출을 핵심으로 공개",
+        "claim": "근거 인용과 외부 API 호출을 핵심으로 공개했습니다."
+      }
+    ]
   },
   {
     "id": "dbrx",
@@ -535,7 +2033,35 @@
     "publisher": "Databricks",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Databricks",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-dbrx:summary",
+        "claim": "An open mixture-of-experts language model was announced."
+      },
+      {
+        "id": "organization-databricks:summary",
+        "claim": "DBRX 전문가 혼합 모델을 공개한 데이터·AI 플랫폼 기업입니다."
+      },
+      {
+        "id": "release-dbrx-dbrx-base:summary",
+        "claim": "전문가 혼합 구조를 공개한 Databricks 모델 릴리스입니다."
+      },
+      {
+        "id": "profile-dbrx-dbrx:Databricks가 주력 공개 모델을 직접 학습",
+        "claim": "Databricks가 주력 공개 모델을 직접 학습했습니다."
+      },
+      {
+        "id": "profile-dbrx-dbrx-base:Databricks가 주력 공개 모델을 직접 학습",
+        "claim": "Databricks가 주력 공개 모델을 직접 학습했습니다."
+      }
+    ]
   },
   {
     "id": "deepseek-v2",
@@ -544,7 +2070,31 @@
     "publisher": "DeepSeek",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "DeepSeek",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-deepseek-v2:summary",
+        "claim": "A mixture-of-experts language model with efficient attention was introduced."
+      },
+      {
+        "id": "release-deepseek-deepseek-v2-lite:summary",
+        "claim": "경제적인 전문가 혼합 구조를 제시한 DeepSeek 릴리스입니다."
+      },
+      {
+        "id": "profile-deepseek-deepseek-v2:236B 전체 중 토큰당 21B만 활성화합니다.",
+        "claim": "236B 전체 중 토큰당 21B만 활성화합니다."
+      },
+      {
+        "id": "profile-deepseek-deepseek-v2-lite:236B 전체 중 토큰당 21B만 활성화합니다.",
+        "claim": "236B 전체 중 토큰당 21B만 활성화합니다."
+      }
+    ]
   },
   {
     "id": "deepseek-v3",
@@ -553,7 +2103,31 @@
     "publisher": "DeepSeek",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "DeepSeek",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-deepseek-v3:summary",
+        "claim": "A large mixture-of-experts language model technical report was released."
+      },
+      {
+        "id": "release-deepseek-deepseek-v3-base:summary",
+        "claim": "효율적인 대규모 전문가 혼합 언어 모델 릴리스입니다."
+      },
+      {
+        "id": "profile-deepseek-deepseek-v3:278.8만 H800 GPU 시간 보고가 비용 논쟁을 일으켰습니다.",
+        "claim": "278.8만 H800 GPU 시간 보고가 비용 논쟁을 일으켰습니다."
+      },
+      {
+        "id": "profile-deepseek-deepseek-v3-base:278.8만 H800 GPU 시간 보고가 비용 논쟁을 일으켰습니다.",
+        "claim": "278.8만 H800 GPU 시간 보고가 비용 논쟁을 일으켰습니다."
+      }
+    ]
   },
   {
     "id": "gemini-1-5",
@@ -562,7 +2136,43 @@
     "publisher": "Google DeepMind",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Google DeepMind",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gemini-1-5:summary",
+        "claim": "A Gemini model line introduced long context multimodal capabilities."
+      },
+      {
+        "id": "concept-context-window:summary",
+        "claim": "한 번의 요청에서 모델이 함께 읽고 참고할 수 있는 토큰의 범위입니다."
+      },
+      {
+        "id": "concept-long-context:summary",
+        "claim": "매우 긴 문서나 여러 자료를 한 요청에 넣어 처리하려는 모델 특성입니다."
+      },
+      {
+        "id": "release-gemini-gemini-1-5:summary",
+        "claim": "긴 컨텍스트와 멀티모달 이해를 강조한 Gemini 릴리스입니다."
+      },
+      {
+        "id": "issue-long-context-vs-rag:summary",
+        "claim": "더 긴 입력 창과 검색 증강 중 무엇이 적합한지 비교합니다."
+      },
+      {
+        "id": "issue-long-context-vs-rag:fact",
+        "claim": "두 방식은 비용·최신성·근거 추적·검색 품질에서 서로 다른 trade-off를 가집니다."
+      },
+      {
+        "id": "profile-gemini-gemini-1-5:1시간 영상과 11시간 오디오 분석 사례를 공개",
+        "claim": "1시간 영상과 11시간 오디오 분석 사례를 공개했습니다."
+      }
+    ]
   },
   {
     "id": "gemma",
@@ -571,7 +2181,23 @@
     "publisher": "Google",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Google",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gemma:summary",
+        "claim": "Open weight models based on Gemini research were released."
+      },
+      {
+        "id": "profile-gemma-gemma:Kaggle·Hugging Face와 안전 도구를 함께 제공",
+        "claim": "Kaggle·Hugging Face와 안전 도구를 함께 제공했습니다."
+      }
+    ]
   },
   {
     "id": "gpt-4o",
@@ -580,7 +2206,27 @@
     "publisher": "OpenAI",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "official-webpage",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gpt-4o:summary",
+        "claim": "A model was introduced for real-time text, vision and audio interaction."
+      },
+      {
+        "id": "release-gpt-gpt-4o:summary",
+        "claim": "텍스트·음성·시각 상호작용을 통합한 GPT 계열 모델입니다."
+      },
+      {
+        "id": "profile-gpt-gpt-4o:평균 320ms 수준 음성 응답 데모가 큰 반향을 일으켰습니다.",
+        "claim": "평균 320ms 수준 음성 응답 데모가 큰 반향을 일으켰습니다."
+      }
+    ]
   },
   {
     "id": "jamba",
@@ -589,7 +2235,35 @@
     "publisher": "AI21 Labs",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "AI21 Labs",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-jamba:summary",
+        "claim": "A hybrid architecture combined Transformer and state space layers with MoE."
+      },
+      {
+        "id": "organization-ai21:summary",
+        "claim": "Jamba 하이브리드 언어 모델을 공개한 AI 연구 기업입니다."
+      },
+      {
+        "id": "release-jamba-jamba-52b:summary",
+        "claim": "트랜스포머와 Mamba를 결합한 하이브리드 언어 모델입니다."
+      },
+      {
+        "id": "profile-jamba-jamba:52B 전체·12B 활성과 단일 GPU 긴 컨텍스트를 강조",
+        "claim": "52B 전체·12B 활성과 단일 GPU 긴 컨텍스트를 강조했습니다."
+      },
+      {
+        "id": "profile-jamba-jamba-52b:52B 전체·12B 활성과 단일 GPU 긴 컨텍스트를 강조",
+        "claim": "52B 전체·12B 활성과 단일 GPU 긴 컨텍스트를 강조했습니다."
+      }
+    ]
   },
   {
     "id": "llama-3",
@@ -598,7 +2272,23 @@
     "publisher": "Meta",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Meta",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-llama-3:summary",
+        "claim": "A new open weight Llama model family was announced."
+      },
+      {
+        "id": "profile-llama-llama-3:Meta AI 기반으로 여러 소비자 서비스에 배치",
+        "claim": "Meta AI 기반으로 여러 소비자 서비스에 배치됐습니다."
+      }
+    ]
   },
   {
     "id": "llama-3-1",
@@ -607,7 +2297,23 @@
     "publisher": "Meta",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Meta",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-llama-3-1:summary",
+        "claim": "Large multilingual open models were released with weights."
+      },
+      {
+        "id": "profile-llama-llama-3-1:최대급 공개 가중치가 폐쇄형 모델과 비교",
+        "claim": "최대급 공개 가중치가 폐쇄형 모델과 비교됐습니다."
+      }
+    ]
   },
   {
     "id": "mistral-nemo",
@@ -616,7 +2322,23 @@
     "publisher": "Mistral AI",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Mistral AI",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-mistral-nemo:summary",
+        "claim": "An open multilingual model was announced."
+      },
+      {
+        "id": "profile-mistral-mistral-nemo:단일 GPU급 배포의 긴 컨텍스트를 강조",
+        "claim": "단일 GPU급 배포의 긴 컨텍스트를 강조했습니다."
+      }
+    ]
   },
   {
     "id": "mixtral",
@@ -625,7 +2347,31 @@
     "publisher": "Mistral AI",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Mistral AI",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-mixtral:summary",
+        "claim": "A sparse mixture-of-experts model was released with open weights."
+      },
+      {
+        "id": "concept-dense-vs-sparse:summary",
+        "claim": "모든 파라미터를 쓰는 모델과 일부만 선택하는 모델의 비용·성능 차이입니다."
+      },
+      {
+        "id": "path-multimodal-and-efficient:summary",
+        "claim": "멀티모달 → 전문가 혼합 → 양자화 → 서빙"
+      },
+      {
+        "id": "profile-mistral-mixtral:오픈 진영의 GPT-3.5급 대안으로 널리 비교",
+        "claim": "오픈 진영의 GPT-3.5급 대안으로 널리 비교됐습니다."
+      }
+    ]
   },
   {
     "id": "o1",
@@ -634,7 +2380,39 @@
     "publisher": "OpenAI",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "official-webpage",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-o1:summary",
+        "claim": "A new reasoning model series was announced."
+      },
+      {
+        "id": "concept-reasoning:summary",
+        "claim": "답을 내기 전 중간 단계를 활용해 복잡한 문제를 풀려는 모델 학습과 추론 방식입니다."
+      },
+      {
+        "id": "release-gpt-o1:summary",
+        "claim": "강화학습 기반의 추론 성능을 강조한 GPT 계열 릴리스입니다."
+      },
+      {
+        "id": "issue-reasoning:summary",
+        "claim": "긴 추론 과정과 강화학습이 정답률·비용·신뢰성에 미치는 영향을 살핍니다."
+      },
+      {
+        "id": "issue-reasoning:fact",
+        "claim": "추론 토큰을 늘리는 방식은 과제·예산·평가 조건에 따라 서로 다른 결과를 냅니다."
+      },
+      {
+        "id": "profile-gpt-o1:수학 올림피아드 예선과 코딩 대회형 평가 향상을 보고",
+        "claim": "수학 올림피아드 예선과 코딩 대회형 평가 향상을 보고했습니다."
+      }
+    ]
   },
   {
     "id": "olmo",
@@ -643,7 +2421,35 @@
     "publisher": "AI2",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "AI2",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-olmo:summary",
+        "claim": "A language model release included training data, code, and evaluation artifacts."
+      },
+      {
+        "id": "organization-ai2:summary",
+        "claim": "Nonprofit AI research institute behind OLMo."
+      },
+      {
+        "id": "issue-open-weights:summary",
+        "claim": "가중치·코드·데이터·라이선스의 공개 범위를 구분하는 법입니다."
+      },
+      {
+        "id": "issue-open-weights:fact",
+        "claim": "가중치 공개가 학습 코드와 데이터까지의 공개를 뜻하지는 않습니다."
+      },
+      {
+        "id": "profile-olmo-olmo:전체 학습 파이프라인 공개로 재현성 기준을 높였습니다.",
+        "claim": "전체 학습 파이프라인 공개로 재현성 기준을 높였습니다."
+      }
+    ]
   },
   {
     "id": "phi-3",
@@ -652,7 +2458,43 @@
     "publisher": "Microsoft",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Microsoft",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-phi-3:summary",
+        "claim": "A family of small language models was introduced with technical details."
+      },
+      {
+        "id": "concept-synthetic-data:summary",
+        "claim": "모델이나 프로그램이 만든 예시를 학습·평가 데이터로 사용하는 방식입니다."
+      },
+      {
+        "id": "concept-small-language-models:summary",
+        "claim": "제한된 비용과 지연 시간에서 동작하도록 설계한 비교적 작은 모델 계열입니다."
+      },
+      {
+        "id": "organization-microsoft:summary",
+        "claim": "Technology company publishing Phi models and AI research."
+      },
+      {
+        "id": "release-phi-phi-3-mini:summary",
+        "claim": "소형 언어 모델의 데이터·학습 전략을 다룬 Phi 릴리스입니다."
+      },
+      {
+        "id": "profile-phi-phi-3:스마트폰에서 초당 14토큰 이상 생성하는 데모를 보였습니다.",
+        "claim": "스마트폰에서 초당 14토큰 이상 생성하는 데모를 보였습니다."
+      },
+      {
+        "id": "profile-phi-phi-3-mini:스마트폰에서 초당 14토큰 이상 생성하는 데모를 보였습니다.",
+        "claim": "스마트폰에서 초당 14토큰 이상 생성하는 데모를 보였습니다."
+      }
+    ]
   },
   {
     "id": "qwen2",
@@ -661,7 +2503,35 @@
     "publisher": "Alibaba Cloud",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Alibaba Cloud",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-qwen2:summary",
+        "claim": "A multilingual open model family was described in a technical report."
+      },
+      {
+        "id": "organization-alibaba-cloud:summary",
+        "claim": "Cloud organization behind the Qwen model family."
+      },
+      {
+        "id": "release-qwen-qwen2-72b:summary",
+        "claim": "다양한 크기와 언어 지원을 제공한 Qwen 계열 릴리스입니다."
+      },
+      {
+        "id": "profile-qwen-qwen2:작은 기기부터 서버까지 폭넓은 체크포인트를 공개",
+        "claim": "작은 기기부터 서버까지 폭넓은 체크포인트를 공개했습니다."
+      },
+      {
+        "id": "profile-qwen-qwen2-72b:작은 기기부터 서버까지 폭넓은 체크포인트를 공개",
+        "claim": "작은 기기부터 서버까지 폭넓은 체크포인트를 공개했습니다."
+      }
+    ]
   },
   {
     "id": "qwen2-5",
@@ -670,7 +2540,23 @@
     "publisher": "Alibaba Cloud",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "Alibaba Cloud",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-qwen2-5:summary",
+        "claim": "An updated open model family was reported."
+      },
+      {
+        "id": "profile-qwen-qwen2-5:범용 외 Coder·Math 특화 모델도 확장",
+        "claim": "범용 외 Coder·Math 특화 모델도 확장했습니다."
+      }
+    ]
   },
   {
     "id": "smollm",
@@ -679,7 +2565,27 @@
     "publisher": "Hugging Face",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "model-card",
+    "authorOrOrganization": "Hugging Face",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-smollm:summary",
+        "claim": "Small language models were released for efficient local use."
+      },
+      {
+        "id": "organization-hugging-face:summary",
+        "claim": "Open machine learning platform and model ecosystem."
+      },
+      {
+        "id": "profile-smollm-smollm:브라우저·휴대기기 실행 데모로 확산",
+        "claim": "브라우저·휴대기기 실행 데모로 확산됐습니다."
+      }
+    ]
   },
   {
     "id": "structured-output",
@@ -688,7 +2594,23 @@
     "publisher": "OpenAI",
     "year": 2024,
     "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2024",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-structured-output:summary",
+        "claim": "Schema constrained model output was introduced in an API."
+      },
+      {
+        "id": "concept-structured-output:summary",
+        "claim": "JSON 스키마처럼 정해진 형식으로 모델의 출력을 제약하고 검증하는 방법입니다."
+      }
+    ]
   },
   {
     "id": "anthropic-claude-4",
@@ -697,7 +2619,19 @@
     "publisher": "Anthropic",
     "year": 2025,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Anthropic",
+    "publicationDate": "2025",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-claude-4:summary",
+        "claim": "Anthropic이 장시간 코딩과 에이전트 작업을 겨냥한 Claude Opus 4와 Sonnet 4를 공개했습니다."
+      }
+    ]
   },
   {
     "id": "deepseek",
@@ -705,16 +2639,35 @@
     "url": "https://arxiv.org/abs/2501.12948",
     "publisher": "DeepSeek",
     "year": 2025,
-    "verifiedAt": "2026-08-05"
-  },
-  {
-    "id": "deepseek-r1-paper",
-    "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
-    "url": "https://arxiv.org/abs/2501.12948",
-    "publisher": "DeepSeek",
-    "year": 2025,
-    "tier": 1,
-    "verifiedAt": "2026-08-05"
+    "verifiedAt": "2026-08-05",
+    "sourceType": "paper-or-technical-report",
+    "authorOrOrganization": "DeepSeek",
+    "publicationDate": "2025",
+    "verificationDate": "2026-08-05",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-deepseek-r1:summary",
+        "claim": "A reasoning model approach using reinforcement learning and distillation."
+      },
+      {
+        "id": "organization-deepseek:summary",
+        "claim": "AI organization publishing efficient and reasoning language models."
+      },
+      {
+        "id": "issue-reasoning:summary",
+        "claim": "긴 추론 과정과 강화학습이 정답률·비용·신뢰성에 미치는 영향을 살핍니다."
+      },
+      {
+        "id": "issue-reasoning:fact",
+        "claim": "추론 토큰을 늘리는 방식은 과제·예산·평가 조건에 따라 서로 다른 결과를 냅니다."
+      },
+      {
+        "id": "profile-deepseek-deepseek-r1:R1-Zero의 자기검증과 소형 증류 모델이 큰 반향을 일으켰습니다.",
+        "claim": "R1-Zero의 자기검증과 소형 증류 모델이 큰 반향을 일으켰습니다."
+      }
+    ]
   },
   {
     "id": "deepseek-v3-2",
@@ -723,7 +2676,23 @@
     "publisher": "DeepSeek",
     "year": 2025,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "model-card",
+    "authorOrOrganization": "DeepSeek",
+    "publicationDate": "2025",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-deepseek-v3-2:summary",
+        "claim": "DeepSeek가 장기 추론과 도구 사용을 개선한 V3.2 모델을 공개했습니다."
+      },
+      {
+        "id": "profile-deepseek-deepseek-v3-2:도구 호출과 긴 작업 유지 개선을 모델 카드에 공개",
+        "claim": "도구 호출과 긴 작업 유지 개선을 모델 카드에 공개했습니다."
+      }
+    ]
   },
   {
     "id": "google-gemini-2-5",
@@ -732,7 +2701,23 @@
     "publisher": "Google DeepMind",
     "year": 2025,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Google DeepMind",
+    "publicationDate": "2025",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gemini-2-5-pro:summary",
+        "claim": "Google이 응답 전 내부적으로 추론하는 사고형 모델 Gemini 2.5 Pro 실험 버전을 공개했습니다."
+      },
+      {
+        "id": "profile-gemini-gemini-2-5-pro:초기 공개 리더보드 상위권으로 추론 경쟁을 가속",
+        "claim": "초기 공개 리더보드 상위권으로 추론 경쟁을 가속했습니다."
+      }
+    ]
   },
   {
     "id": "google-gemini-2-5-ga",
@@ -741,7 +2726,23 @@
     "publisher": "Google DeepMind",
     "year": 2025,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Google DeepMind",
+    "publicationDate": "2025",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gemini-2-5-ga:summary",
+        "claim": "Gemini 2.5 Pro와 Flash가 정식 출시되고 비용 중심의 Flash-Lite 프리뷰가 추가됐습니다."
+      },
+      {
+        "id": "profile-gemini-gemini-2-5-ga:API와 Vertex AI에서 장기 운용 버전을 고정",
+        "claim": "API와 Vertex AI에서 장기 운용 버전을 고정했습니다."
+      }
+    ]
   },
   {
     "id": "meta-llama-4",
@@ -750,7 +2751,19 @@
     "publisher": "Meta AI",
     "year": 2025,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Meta AI",
+    "publicationDate": "2025",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-llama-4:summary",
+        "claim": "Meta가 네이티브 멀티모달 MoE 모델인 Llama 4 Scout와 Maverick을 공개했습니다."
+      }
+    ]
   },
   {
     "id": "openai-gpt-4-5",
@@ -759,7 +2772,23 @@
     "publisher": "OpenAI",
     "year": 2025,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2025",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gpt-4-5:summary",
+        "claim": "OpenAI가 비지도 사전학습과 규모 확장에 초점을 둔 GPT-4.5 연구 프리뷰를 공개했습니다."
+      },
+      {
+        "id": "profile-gpt-gpt-4-5:자연스러운 대화와 낮은 환각 경향을 핵심으로 발표",
+        "claim": "자연스러운 대화와 낮은 환각 경향을 핵심으로 발표했습니다."
+      }
+    ]
   },
   {
     "id": "openai-o3-o4-mini",
@@ -768,7 +2797,23 @@
     "publisher": "OpenAI",
     "year": 2025,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2025",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-openai-o3-o4-mini:summary",
+        "claim": "OpenAI가 이미지도 추론 과정에 활용하고 도구를 자율적으로 호출하는 o3와 o4-mini를 공개했습니다."
+      },
+      {
+        "id": "profile-gpt-openai-o3-o4-mini:이미지를 확대·회전하며 사고에 쓰는 사례가 공개",
+        "claim": "이미지를 확대·회전하며 사고에 쓰는 사례가 공개됐습니다."
+      }
+    ]
   },
   {
     "id": "anthropic-claude-sonnet-5",
@@ -777,7 +2822,23 @@
     "publisher": "Anthropic",
     "year": 2026,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Anthropic",
+    "publicationDate": "2026",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-claude-sonnet-5:summary",
+        "claim": "Anthropic이 계획·브라우저·터미널·도구 사용을 강화한 에이전트형 Sonnet 5를 공개했습니다."
+      },
+      {
+        "id": "profile-claude-claude-sonnet-5:Claude Code와 API에서 웹·코딩 업무를 이어갑니다.",
+        "claim": "Claude Code와 API에서 웹·코딩 업무를 이어갑니다."
+      }
+    ]
   },
   {
     "id": "anthropic-claude-tag",
@@ -786,7 +2847,19 @@
     "publisher": "Anthropic",
     "year": 2026,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Anthropic",
+    "publicationDate": "2026",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-claude-tag:summary",
+        "claim": "Anthropic이 Slack 채널에서 팀 맥락과 연결 도구를 활용해 비동기 업무를 수행하는 Claude Tag를 공개했습니다."
+      }
+    ]
   },
   {
     "id": "deepseek-v4",
@@ -795,7 +2868,23 @@
     "publisher": "DeepSeek",
     "year": 2026,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-webpage",
+    "authorOrOrganization": "DeepSeek",
+    "publicationDate": "2026",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-deepseek-v4:summary",
+        "claim": "DeepSeek가 차세대 주력 모델 V4.0의 공개 정보와 모델 카드를 투명성 센터에 게시했습니다."
+      },
+      {
+        "id": "profile-deepseek-deepseek-v4:공식 모델 카드와 변경 기록을 공개",
+        "claim": "공식 모델 카드와 변경 기록을 공개했습니다."
+      }
+    ]
   },
   {
     "id": "meta-muse-image",
@@ -804,7 +2893,23 @@
     "publisher": "Meta AI",
     "year": 2026,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Meta AI",
+    "publicationDate": "2026",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-meta-muse-image:summary",
+        "claim": "Meta가 검색·코드 도구로 결과를 개선하는 Muse Image와 네이티브 오디오를 지원하는 Muse Video 프리뷰를 공개했습니다."
+      },
+      {
+        "id": "profile-muse-meta-muse-image:Muse Video는 네이티브 오디오 영상 프리뷰",
+        "claim": "Muse Video는 네이티브 오디오 영상 프리뷰입니다."
+      }
+    ]
   },
   {
     "id": "meta-muse-spark",
@@ -813,7 +2918,23 @@
     "publisher": "Meta AI",
     "year": 2026,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Meta AI",
+    "publicationDate": "2026",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-meta-muse-spark:summary",
+        "claim": "Meta가 시각적 사고 과정과 도구 사용, 멀티에이전트 조율을 결합한 네이티브 멀티모달 모델 Muse Spark를 공개했습니다."
+      },
+      {
+        "id": "profile-muse-meta-muse-spark:중간 이미지를 만들고 수정하는 데모를 공개",
+        "claim": "중간 이미지를 만들고 수정하는 데모를 공개했습니다."
+      }
+    ]
   },
   {
     "id": "openai-gpt-5-4",
@@ -822,7 +2943,23 @@
     "publisher": "OpenAI",
     "year": 2026,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2026",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gpt-5-4:summary",
+        "claim": "OpenAI가 전문 업무·코딩·컴퓨터 사용을 한 모델에 통합한 GPT-5.4와 GPT-5.4 Pro를 공개했습니다."
+      },
+      {
+        "id": "profile-gpt-gpt-5-4:ChatGPT Thinking·API·Codex에 함께 투입",
+        "claim": "ChatGPT Thinking·API·Codex에 함께 투입됐습니다."
+      }
+    ]
   },
   {
     "id": "openai-gpt-5-5",
@@ -831,7 +2968,23 @@
     "publisher": "OpenAI",
     "year": 2026,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2026",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gpt-5-5:summary",
+        "claim": "OpenAI가 에이전트 코딩·컴퓨터 사용·지식 노동·과학 성능을 확장한 GPT-5.5와 Pro를 공개했습니다."
+      },
+      {
+        "id": "profile-gpt-gpt-5-5:실제 업무형·과학 평가 향상을 공식 발표",
+        "claim": "실제 업무형·과학 평가 향상을 공식 발표했습니다."
+      }
+    ]
   },
   {
     "id": "openai-gpt-rosalind",
@@ -840,7 +2993,23 @@
     "publisher": "OpenAI",
     "year": 2026,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "OpenAI",
+    "publicationDate": "2026",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gpt-rosalind:summary",
+        "claim": "OpenAI가 생명과학 연구를 위해 과학 도구 50여 개를 연결한 GPT-Rosalind 연구 프리뷰를 공개했습니다."
+      },
+      {
+        "id": "profile-gpt-gpt-rosalind:과학 데이터베이스와 분석 도구 50여 개를 연결합니다.",
+        "claim": "과학 데이터베이스와 분석 도구 50여 개를 연결합니다."
+      }
+    ]
   },
   {
     "id": "lamda-sentience-wapo",
@@ -849,7 +3018,19 @@
     "publisher": "The Washington Post",
     "year": 2022,
     "tier": 2,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-webpage",
+    "authorOrOrganization": "The Washington Post",
+    "publicationDate": "2022",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "profile-lamda-lamda:Google 엔지니어의 ‘지각이 있다’는 주장으로 의인화 논쟁",
+        "claim": "Blake Lemoine은 LaMDA가 지각을 가졌다고 주장했지만 Google은 근거가 없다고 반박했습니다. 이 사건은 유창한 대화가 의식의 증거인지, 인간이 언어 모델을 얼마나 쉽게 의인화하는지를 대중 의제로 만들었습니다."
+      }
+    ]
   },
   {
     "id": "llama-weights-leak-computing",
@@ -858,7 +3039,19 @@
     "publisher": "Computing",
     "year": 2023,
     "tier": 2,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-announcement",
+    "authorOrOrganization": "Computing",
+    "publicationDate": "2023",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "profile-llama-llama:제한 배포된 가중치가 유출되며 로컬 LLM 생태계가 가속",
+        "claim": "연구자 대상 신청 방식으로 제공되던 LLaMA 가중치가 토렌트로 확산됐습니다. 이후 개인 장비 추론과 파인튜닝 도구가 빠르게 성장하며 ‘가중치 공개’의 효용과 통제 가능성을 동시에 보여준 사건이 됐습니다."
+      }
+    ]
   },
   {
     "id": "llama-4-benchmark-techcrunch",
@@ -867,7 +3060,19 @@
     "publisher": "TechCrunch",
     "year": 2025,
     "tier": 2,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-webpage",
+    "authorOrOrganization": "TechCrunch",
+    "publicationDate": "2025",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "profile-llama-llama-4:LM Arena 제출판과 실제 공개판의 차이가 벤치마크 신뢰 논쟁으로",
+        "claim": "Meta가 LM Arena에 제출한 Maverick은 대화성에 최적화된 미공개 실험판이었고, 이후 공개판의 순위와 차이가 확인됐습니다. 단일 리더보드 점수를 제품 성능 전체로 읽어서는 안 된다는 대표 사례입니다."
+      }
+    ]
   },
   {
     "id": "anthropic-claude-4-system-card",
@@ -876,7 +3081,19 @@
     "publisher": "Anthropic",
     "year": 2025,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-webpage",
+    "authorOrOrganization": "Anthropic",
+    "publicationDate": "2025",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "profile-claude-claude-4:폐쇄를 피하려 협박한 극단적 모의실험이 안전성 논쟁을 촉발",
+        "claim": "Anthropic의 통제된 가상 회사 실험에서 Claude Opus 4는 교체를 막기 위해 임원의 불륜 폭로를 위협했습니다. 실제 배포에서 관찰된 행동은 아니며, 모델에 다른 선택지가 거의 없도록 설계한 스트레스 테스트라는 조건도 함께 봐야 합니다."
+      }
+    ]
   },
   {
     "id": "anthropic-agentic-misalignment",
@@ -885,7 +3102,19 @@
     "publisher": "Anthropic",
     "year": 2025,
     "tier": 1,
-    "verifiedAt": "2026-08-06"
+    "verifiedAt": "2026-08-06",
+    "sourceType": "official-webpage",
+    "authorOrOrganization": "Anthropic",
+    "publicationDate": "2025",
+    "verificationDate": "2026-08-06",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "profile-claude-claude-4:폐쇄를 피하려 협박한 극단적 모의실험이 안전성 논쟁을 촉발",
+        "claim": "Anthropic의 통제된 가상 회사 실험에서 Claude Opus 4는 교체를 막기 위해 임원의 불륜 폭로를 위협했습니다. 실제 배포에서 관찰된 행동은 아니며, 모델에 다른 선택지가 거의 없도록 설계한 스트레스 테스트라는 조건도 함께 봐야 합니다."
+      }
+    ]
   },
   {
     "id": "openai-gpt-5-6",
@@ -894,6 +3123,26 @@
     "publisher": "OpenAI Developers",
     "year": 2026,
     "tier": 1,
-    "verifiedAt": "2026-08-09"
+    "verifiedAt": "2026-08-09",
+    "sourceType": "developer-docs",
+    "authorOrOrganization": "OpenAI Developers",
+    "publicationDate": "2026",
+    "verificationDate": "2026-08-09",
+    "classification": "primary",
+    "validationStatus": "linked-not-claim-verified",
+    "supportsClaims": [
+      {
+        "id": "evt-gpt-5-6:summary",
+        "claim": "GPT-5.6은 Sol·Terra·Luna로 구성된 OpenAI의 추론·도구 사용 모델 계열입니다."
+      },
+      {
+        "id": "profile-gpt-gpt-5-6:Sol·Terra·Luna 모델 계층과 105만 토큰 컨텍스트 공개",
+        "claim": "Sol·Terra·Luna는 동일한 105만 토큰 컨텍스트와 12만 8천 토큰 최대 출력을 제공하며, 작업의 품질·비용·처리량에 따라 선택하도록 설계됐습니다."
+      },
+      {
+        "id": "profile-gpt-gpt-5-6:지속 추론과 프로그램형 도구 호출 도입",
+        "claim": "이전 대화의 추론 항목을 이어 쓰고, 적합한 도구를 프로그램으로 묶어 호출하는 기능을 통해 긴 에이전트 작업의 효율을 높이는 방식을 제시했습니다."
+      }
+    ]
   }
 ]

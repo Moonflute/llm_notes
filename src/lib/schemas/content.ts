@@ -1,9 +1,31 @@
 import { z } from "zod";
 
-export const contentStatus = z.enum(["draft", "review", "published", "needs-update", "archived"]);
+export const contentStatus = z.enum(["verified", "draft", "index", "needs-review"]);
+export const contentDepth = z.enum(["full", "partial", "stub"]);
+export const contentMetadataSchema = z.object({
+  status: contentStatus,
+  lastReviewed: z.string().date().optional(),
+  contentDepth,
+  sourcesVerified: z.boolean(),
+});
 export const historicalDate = z.object({ value: z.string().regex(/^\d{4}(-\d{2})?(-\d{2})?$/), precision: z.enum(["year", "month", "day"]), kind: z.enum(["paper_published", "announced", "preview_started", "api_released", "product_released", "weights_released", "general_availability"]), sourceIds: z.array(z.string()).min(1) });
-export const sourceSchema = z.object({ id:z.string().regex(/^[a-z0-9-]+$/), title:z.string().min(1), url:z.url(), publisher:z.string().min(1), year:z.number().int().min(1950), tier:z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4)]).default(1), verifiedAt:z.string().date().optional() });
-export const eventSchema = z.object({ slug:z.string().regex(/^[a-z0-9-]+$/), date:z.string().regex(/^\d{4}\.\d{2}$/), year:z.number().int().min(1950), organization:z.string().min(1), type:z.enum(["연구","모델","제품","방법","데이터셋","벤치마크","정책","산업"]), title:z.string().min(1), titleEn:z.string().min(1), summary:z.string().min(12), importance:z.union([z.literal(1),z.literal(2),z.literal(3)]), concepts:z.array(z.string()).min(1), sourceId:z.string().min(1) });
+export const sourceSchema = z.object({
+  id:z.string().regex(/^[a-z0-9-]+$/),
+  title:z.string().min(1),
+  url:z.url(),
+  publisher:z.string().min(1),
+  year:z.number().int().min(1950),
+  tier:z.union([z.literal(1),z.literal(2),z.literal(3),z.literal(4)]).default(1),
+  verifiedAt:z.string().date(),
+  sourceType:z.enum(["paper-or-technical-report","model-card","developer-docs","official-announcement","official-webpage","secondary-analysis"]),
+  authorOrOrganization:z.string().min(1),
+  publicationDate:z.string().regex(/^\d{4}(-\d{2})?(-\d{2})?$/),
+  verificationDate:z.string().date(),
+  classification:z.enum(["primary","secondary"]),
+  validationStatus:z.enum(["linked-not-claim-verified","claim-verified","needs-review"]),
+  supportsClaims:z.array(z.object({id:z.string().min(1),claim:z.string().min(8)})).min(1),
+});
+export const eventSchema = z.object({ id:z.string().regex(/^evt-[a-z0-9-]+$/), slug:z.string().regex(/^[a-z0-9-]+$/), date:z.string().regex(/^\d{4}\.\d{2}$/), year:z.number().int().min(1950), organization:z.string().min(1), type:z.enum(["연구","모델","제품","방법","데이터셋","벤치마크","정책","산업"]), title:z.string().min(1), titleEn:z.string().min(1), summary:z.string().min(12), importance:z.union([z.literal(1),z.literal(2),z.literal(3)]), concepts:z.array(z.string()).min(1), sourceId:z.string().min(1) });
 export const organizationSchema = z.object({slug:z.string().regex(/^[a-z0-9-]+$/),titleKo:z.string(),titleEn:z.string(),summary:z.string(),founded:z.string(),sourceIds:z.array(z.string()).min(1)});
 export const modelFamilySchema = z.object({slug:z.string().regex(/^[a-z0-9-]+$/),titleKo:z.string(),titleEn:z.string(),organizationSlug:z.string(),summary:z.string(),releaseSlugs:z.array(z.string()).min(1),sourceIds:z.array(z.string()).min(1)});
 export const conceptSchema = z.object({slug:z.string().regex(/^[a-z0-9-]+$/),titleKo:z.string(),titleEn:z.string(),summary:z.string(),level:z.enum(["입문","중급","심화"]),prerequisites:z.array(z.string()),next:z.array(z.string()),sourceIds:z.array(z.string()).min(1)});

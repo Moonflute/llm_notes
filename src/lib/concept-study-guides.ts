@@ -281,6 +281,187 @@ export const conceptStudyGuides: Record<string, ConceptStudyGuide> = {
       { type: "원 논문", title: "Self-RAG", url: "https://arxiv.org/abs/2310.11511", note: "검색·생성·비평을 학습 신호로 결합하는 후속 흐름." },
       { type: "추가 읽기", title: "RAGAS documentation", url: "https://docs.ragas.io/", note: "RAG 평가 지표를 적용할 때는 데이터셋과 판정 모델의 한계도 함께 검토한다." }
     ]
+  },
+  embedding: {
+    estimatedMinutes: 32,
+    objectives: [
+      "토큰 임베딩, 문맥 임베딩, 문장 임베딩을 서로 다른 목적의 표현으로 구분한다.",
+      "lookup table의 tensor shape와 학습 과정, 출력층과의 weight tying을 설명한다.",
+      "검색용 임베딩에서 거리 함수·대조 학습·index 품질이 왜 함께 중요한지 판단한다."
+    ],
+    sections: [
+      {
+        title: "이산적인 토큰 ID를 연속적인 계산 공간으로 옮긴다",
+        paragraphs: [
+          "토크나이저가 만든 정수 ID에는 그 자체로 의미적 거리가 없다. ID 101과 102가 101과 900보다 비슷하다는 뜻은 아니다. 임베딩 층은 어휘 크기 |V|와 hidden dimension d를 갖는 행렬 E∈R^{|V|×d}에서 각 ID에 대응하는 행을 꺼내 연속 벡터로 바꾼다. 길이 n인 한 문장은 이 과정을 거쳐 X∈R^{n×d}가 되고 Transformer block의 입력이 된다.",
+          "초기 벡터는 보통 무작위에 가깝지만 다음 토큰 예측 손실의 역전파를 받으며 바뀐다. 비슷한 문맥에서 비슷한 예측에 기여하는 토큰은 계산에 유용한 방향을 공유하게 된다. 이것을 사람이 정의한 사전적 의미 좌표로 해석해서는 안 된다. 모델이 과제를 풀기 위해 만든 고차원 내부 표현이다."
+        ],
+        formula: {label:"토큰 lookup",value:"X[b, i, :] = E[token_id[b, i], :]   ·   E: |V|×d",note:"batch B, sequence n이면 출력 shape는 B×n×d다. gather 연산 뒤 위치 정보가 더해지거나 RoPE가 attention 내부에 적용된다."}
+      },
+      {
+        title: "고정 단어 벡터에서 문맥에 따라 달라지는 표현으로",
+        paragraphs: [
+          "word2vec·GloVe 계열은 하나의 단어에 대체로 하나의 벡터를 부여했다. 그래서 bank가 은행인지 강둑인지 입력 문장에 따라 표현 자체를 바꾸기 어렵다. ELMo와 BERT 이후에는 주변 토큰을 처리한 hidden state가 문맥별 표현 역할을 하게 됐다. 같은 토큰 ID라도 layer와 위치, 앞뒤 문맥에 따라 최종 벡터가 달라진다.",
+          "따라서 모델 입력의 token embedding과 검색 시스템의 sentence embedding을 같은 것으로 부르면 혼동이 생긴다. 전자는 Transformer가 처리할 초기 상태이고, 후자는 문장이나 문서를 하나의 고정 길이 벡터로 압축해 유사도 검색·분류에 쓰려는 출력이다. 후자는 pooling 방식과 대조 학습 목적이 품질을 크게 좌우한다."
+        ]
+      },
+      {
+        title: "출력 확률과 연결되는 weight tying",
+        paragraphs: [
+          "decoder-only LLM의 마지막 hidden state h∈R^d는 어휘별 logit z∈R^{|V|}로 투영된다. 입력 임베딩 행렬 E의 전치를 출력 투영에 재사용하면 z=Eh로 쓸 수 있다. 이를 weight tying이라 하며 입력과 출력에서 같은 어휘 공간을 공유하고 파라미터 수를 줄인다. 모든 모델이 반드시 같은 방식을 쓰는 것은 아니므로 공개 configuration을 확인해야 한다.",
+          "학습 중에는 등장한 토큰 행만 읽었더라도 출력 softmax가 전체 어휘와 관계를 만든다. 추론에서는 임베딩 lookup 자체보다 뒤의 attention·FFN과 거대한 출력 projection이 더 큰 비용이 될 수 있다. 어휘가 커지면 표현 범위는 넓어지지만 embedding/output matrix의 메모리와 softmax 비용도 커진다."
+        ]
+      },
+      {
+        title: "검색 임베딩은 모델 하나가 아니라 평가 가능한 파이프라인이다",
+        paragraphs: [
+          "검색에서는 query encoder와 document encoder가 관련 쌍을 가깝게, 비관련 쌍을 멀게 배치하도록 대조 학습한다. cosine similarity는 벡터 방향을, dot product는 크기까지 반영한다. 어떤 metric으로 학습했는지와 vector database가 어떤 metric으로 검색하는지를 일치시켜야 한다. normalize 여부가 달라지면 순위가 달라질 수 있다.",
+          "문서 chunking, 언어와 도메인, hard negative, 최신 문서 반영, approximate nearest-neighbor index의 recall이 모두 최종 성능에 관여한다. 임베딩 모델의 공개 benchmark 점수만으로 제품 검색 품질을 결론내리지 말고 실제 질의에서 Recall@k·nDCG와 후속 reranker, 답변 근거성을 분리 평가한다."
+        ],
+        caution: "벡터에서 가까운 것은 학습 목적과 데이터가 정의한 유사성이다. 사실이 같음, 인과적으로 관련됨, 사용자의 의도에 맞음이 자동으로 동일해지지는 않는다."
+      }
+    ],
+    implementationChecklist: ["token ID 범위, padding ID, embedding matrix shape를 검증한다.", "입력·출력 weight tying 여부와 dtype을 checkpoint 설정에서 확인한다.", "검색 벡터의 pooling·normalize·distance metric을 인덱스 설정과 일치시킨다.", "자체 질의와 hard negative를 포함한 검색 평가셋으로 모델·chunk·index를 함께 평가한다."],
+    misconceptions: [
+      {myth:"임베딩의 각 차원은 사람이 읽을 수 있는 하나의 의미다.",correction:"의미는 여러 차원의 분산된 패턴과 이후 층의 계산에 걸쳐 표현된다."},
+      {myth:"cosine similarity가 높으면 두 문장의 사실관계도 같다.",correction:"주제와 표현이 비슷해도 부정, 수치, 시간, 주체가 달라 사실은 반대일 수 있다."}
+    ],
+    resources: [
+      {type:"원 논문",title:"Efficient Estimation of Word Representations in Vector Space",url:"https://arxiv.org/abs/1301.3781",note:"분포 기반 정적 단어 표현의 중요한 출발점을 본다."},
+      {type:"원 논문",title:"Deep contextualized word representations",url:"https://arxiv.org/abs/1802.05365",note:"문맥에 따라 달라지는 표현으로의 전환을 확인한다."},
+      {type:"원 논문",title:"Sentence-BERT",url:"https://arxiv.org/abs/1908.10084",note:"문장 단위 임베딩과 siamese 대조 구조의 목적을 본다."}
+    ]
+  },
+  "positional-encoding": {
+    estimatedMinutes: 36,
+    objectives: ["self-attention에 별도 위치 정보가 필요한 이유를 설명한다.", "절대 위치 임베딩·상대 위치 bias·RoPE의 차이를 구분한다.", "RoPE의 2차원 회전과 query-key 내적이 상대 거리로 연결되는 과정을 이해한다."],
+    sections: [
+      {
+        title:"Attention만으로는 순서를 알 수 없다",
+        paragraphs:[
+          "self-attention은 입력 행을 같은 방식으로 재배열하면 출력도 그 순서를 따라 재배열되는 성질이 있다. 토큰 집합만 주고 위치 신호를 주지 않으면 ‘개가 사람을 물었다’와 ‘사람이 개를 물었다’의 순서를 구조적으로 구별할 근거가 부족하다. causal mask는 미래를 가리지만 각 과거 토큰이 얼마나 멀리 있는지까지 표현하지는 않는다.",
+          "원 Transformer는 차원마다 다른 주기의 sine과 cosine 값을 token embedding에 더했다. 학습 가능한 absolute embedding은 위치별 벡터를 직접 학습한다. 상대 위치 방식은 i와 j 자체보다 거리 i−j가 attention score에 영향을 주게 한다. 선택에 따라 외삽, 최대 길이, 구현 복잡도와 cache 동작이 달라진다."
+        ],
+        formula:{label:"sinusoidal absolute encoding",value:"PE(pos,2k)=sin(pos/10000^(2k/d)),  PE(pos,2k+1)=cos(pos/10000^(2k/d))",note:"여러 주기의 신호를 d차원에 배치한다. token embedding과 더하므로 hidden shape n×d는 유지된다."}
+      },
+      {
+        title:"RoPE는 query와 key의 좌표계를 위치에 따라 회전한다",
+        paragraphs:[
+          "RoPE는 hidden dimension을 두 차원씩 묶고 위치 m에 비례하는 각도로 query와 key를 회전한다. 2차원 쌍 (x₁,x₂)에 회전 행렬 R(mθ)를 곱하므로 벡터 크기를 보존한다. value를 회전시키는 것이 핵심이 아니라 attention score를 만드는 query와 key에 위치별 회전을 적용하는 것이 핵심이다.",
+          "회전된 q_m과 k_n의 내적은 qᵀR((n−m)θ)k 형태로 정리된다. 입력에는 절대 위치 m,n을 사용했지만 두 벡터의 관계에는 상대 차이 n−m이 나타난다. 이것이 RoPE가 absolute position을 회전으로 인코딩하면서 attention 계산에 explicit relative dependency를 넣는다는 뜻이다."
+        ],
+        formula:{label:"RoPE의 상대 위치 성질",value:"(R_m q)ᵀ(R_n k) = qᵀ R_(n−m) k",note:"R_mᵀR_n=R_(n−m)인 회전 행렬 성질을 쓴다. 실제 구현은 여러 주파수를 head dimension의 쌍마다 적용한다."}
+      },
+      {
+        title:"긴 문맥은 위치 공식을 바꾸는 것만으로 해결되지 않는다",
+        paragraphs:[
+          "훈련 길이보다 훨씬 긴 위치에 원래 RoPE 주파수를 그대로 적용하면 모델이 보지 못한 위상 패턴에 노출된다. 실무에서는 position interpolation, 주파수 scaling, YaRN 계열 등 여러 확장법을 쓴다. 그러나 긴 길이에서 loss가 안정적이라는 사실과 멀리 떨어진 증거를 실제로 회수·조합한다는 능력은 다르다.",
+          "context extension은 attention 계산량, KV cache 메모리, 데이터의 장거리 의존성, 평가 설계와 함께 본다. needle 테스트 하나만 통과해도 긴 문서 전체의 시간 순서·다중 근거·정확한 인용이 해결됐다고 볼 수 없다. 모델별 scaling 방식은 공개 설정이나 기술 보고서에서 확인해야 한다."
+        ]
+      },
+      {
+        title:"구현에서는 offset과 cache가 자주 틀린다",
+        paragraphs:[
+          "training에서는 보통 0…n−1 위치를 한 번에 만든다. autoregressive decoding에서는 이미 cache된 길이가 p라면 새 토큰은 position p부터 시작해야 한다. batch 안 요청마다 유효 길이가 다르거나 left padding을 쓰면 position IDs를 단순 arange로 공유할 수 없는 경우가 생긴다.",
+          "RoPE tensor는 흔히 batch·head에 broadcast되는 [sequence, head_dim] 또는 cos/sin cache로 준비된다. interleaved pairing인지 half-rotation인지 checkpoint 구현과 일치해야 한다. 같은 이름의 RoPE라도 base frequency, scaling, position offset이 다르면 출력이 깨진다."
+        ],
+        caution:"RoPE는 토큰 순서를 모델에 제공하는 장치이지, 모델이 임의 길이를 정확히 이해하도록 보장하는 장치가 아니다."
+      }
+    ],
+    implementationChecklist:["checkpoint의 RoPE base·scaling·pairing convention을 확인한다.","prefill과 decode에서 position offset이 cache 길이와 맞는지 검사한다.","padding과 packed sequence에서 요청별 position IDs를 검증한다.","훈련 길이 안팎을 나눠 perplexity와 장거리 과제를 평가한다."],
+    misconceptions:[{myth:"causal mask가 있으니 위치 인코딩은 필요 없다.",correction:"mask는 볼 수 있는 범위를 제한하지만 과거 토큰 사이의 거리와 순서를 충분히 표현하지 않는다."},{myth:"RoPE scaling을 켜면 context window만큼의 정보가 모두 유지된다.",correction:"형식상 입력 가능 길이와 실제 장거리 검색·추론 품질은 별도 평가 대상이다."}],
+    resources:[{type:"원 논문",title:"Attention Is All You Need",url:"https://arxiv.org/abs/1706.03762",note:"sinusoidal positional encoding의 원 설계와 attention 구조를 함께 본다."},{type:"원 논문",title:"RoFormer: Enhanced Transformer with Rotary Position Embedding",url:"https://arxiv.org/abs/2104.09864",note:"회전 공식과 상대 위치 의존성의 유도를 확인한다."},{type:"추가 읽기",title:"YaRN: Efficient Context Window Extension of Large Language Models",url:"https://arxiv.org/abs/2309.00071",note:"RoPE 기반 문맥 확장의 후속 흐름과 평가를 본다."}]
+  },
+  "mixture-of-experts": {
+    estimatedMinutes: 38,
+    objectives:["dense FFN과 sparse MoE layer의 계산 경로를 비교한다.","router·top-k·capacity·load balancing이 왜 필요한지 설명한다.","총 파라미터, 활성 파라미터, 실제 latency를 구분해 모델 효율 주장을 읽는다."],
+    sections:[
+      {title:"모든 토큰에 모든 파라미터를 쓰지 않는 조건부 계산",paragraphs:[
+        "일반 Transformer block의 FFN은 모든 토큰이 같은 두 선형층을 지난다. MoE layer는 이 FFN을 여러 expert로 복제하고 router가 토큰별로 일부 expert만 고른다. expert가 N개여도 top-k 중 k개만 활성화하면 모델 용량을 크게 늘리면서 토큰당 FFN 계산 증가는 제한할 수 있다. attention은 대개 공유되고 FFN 부분만 sparse하게 바뀐다.",
+        "여기서 총 파라미터 수는 저장해야 하는 모든 expert를 포함하지만 활성 파라미터 수는 한 토큰이 실제로 거치는 expert만 포함한다. 그렇다고 배포가 같은 활성 크기의 dense 모델만큼 간단한 것은 아니다. 모든 expert weight를 장치에 올리고 토큰을 해당 장치로 보내며 결과를 다시 모아야 하기 때문이다."
+      ],formula:{label:"top-k MoE layer",value:"y(x)=Σ_(i∈TopK(g(x))) p_i(x)·E_i(x)",note:"router g가 expert 점수와 가중치 p를 만들고 선택된 expert E_i만 계산한다. 실제 구현은 용량 제한과 dispatch/collective 통신을 추가한다."}},
+      {title:"Router는 분류기가 아니라 자원 할당기이기도 하다",paragraphs:[
+        "router는 각 token hidden state를 expert logits로 투영하고 softmax 또는 유사한 규칙으로 top-k를 고른다. top-1은 계산과 통신이 단순하지만 하나의 선택 실패에 민감하고, top-2 이상은 여러 expert 출력을 섞어 품질과 비용을 교환한다. router가 무엇을 전문화하는지는 데이터와 학습 동역학의 결과이지 사람이 미리 붙인 직업명이 아니다.",
+        "일부 expert로 토큰이 몰리면 해당 장치의 capacity를 넘고 나머지 장치는 빈다. 그래서 load-balancing auxiliary loss, router z-loss, capacity factor, token dropping 또는 dropless routing을 사용한다. 균형 손실을 너무 강하게 주면 의미 있는 전문화를 방해할 수 있고 너무 약하면 병목과 학습 불안정이 생긴다."
+      ]},
+      {title:"학습의 핵심 병목은 all-to-all 통신",paragraphs:[
+        "expert parallelism에서는 expert를 여러 GPU에 나눈 뒤 각 GPU의 토큰을 선택된 expert가 있는 장치로 all-to-all 전송한다. expert 계산 자체는 큰 matrix multiplication으로 효율적이어도 네트워크 대역폭, token 분포의 불균형, 작은 expert batch가 처리량을 제한할 수 있다. data·tensor·pipeline parallelism과 어떻게 조합하는지도 중요하다.",
+        "혼합 정밀도에서 router logits가 불안정하거나 특정 expert만 계속 선택되면 expert collapse가 일어날 수 있다. routing 통계, expert별 token 수, dropped token, auxiliary loss와 통신 시간을 관측해야 한다. 품질 지표만 보면 시스템 병목을 놓친다."
+      ]},
+      {title:"추론 비용은 FLOPs만으로 결정되지 않는다",paragraphs:[
+        "MoE는 활성 FLOPs 대비 큰 지식 용량을 제공할 수 있지만 메모리에서 expert weight를 읽는 비용과 분산 통신이 남는다. batch가 작고 latency가 중요한 온라인 서비스에서는 필요한 expert가 장치 곳곳에 흩어져 dense 모델보다 비효율적일 수 있다. 반대로 충분한 batch와 좋은 routing locality가 있으면 높은 처리량을 얻을 수 있다.",
+        "모델 비교에서 ‘X billion parameters’가 총 파라미터인지 토큰당 활성 파라미터인지 확인한다. 공개되지 않은 expert 수·top-k·shared expert·routing 방식은 추정하지 않는다. 같은 활성 파라미터라도 attention 크기, KV cache, sequence length와 serving stack 때문에 실제 비용이 달라진다."
+      ],caution:"MoE의 expert 이름을 관찰된 몇 개 token만으로 언어·분야 전문가라고 단정하지 않는다. routing은 층마다 다르고 해석 가능한 분업과 일치하지 않을 수 있다."},
+      {title:"Switch에서 shared expert와 fine-grained routing까지",paragraphs:[
+        "초기 sparse MoE 이후 Switch Transformer는 top-1 routing으로 구조를 단순화하고 대규모 학습의 안정성 문제를 다뤘다. 이후 모델들은 top-2, shared expert, 더 잘게 나눈 expert, 보조 손실을 줄이는 balancing 등 다양한 선택을 사용한다. 어느 방식이 항상 우수한 것이 아니라 하드웨어·batch·품질 목표의 결합이다.",
+        "2026년의 MoE 논의를 읽을 때는 architecture 공개 범위를 먼저 본다. 파라미터 수 마케팅보다 expert 배치, 활성 수, routing granularity, training token, 추론 환경과 독립 평가를 함께 확인해야 계통 간 비교가 가능하다."
+      ]}
+    ],
+    implementationChecklist:["총/활성 파라미터와 token당 선택 expert 수를 따로 기록한다.","expert별 token·capacity overflow·routing entropy를 계층별로 관측한다.","all-to-all 시간과 expert GEMM 시간을 분리 profile한다.","동일 latency·memory 조건에서 dense baseline과 품질 및 처리량을 비교한다."],
+    misconceptions:[{myth:"활성 파라미터가 같으면 MoE와 dense 모델의 실행 비용도 같다.",correction:"weight memory, dispatch, 통신, load imbalance가 추가되므로 실제 latency와 throughput을 측정해야 한다."},{myth:"expert는 자동으로 사람이 이해할 수 있는 분야별 전문가가 된다.",correction:"router가 만든 분업은 분산되고 층마다 달라 명시적 직업 분류와 같지 않다."}],
+    resources:[{type:"원 논문",title:"Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer",url:"https://arxiv.org/abs/1701.06538",note:"학습 가능한 sparse gate와 조건부 계산의 초기 대규모 구현을 본다."},{type:"원 논문",title:"Switch Transformers",url:"https://arxiv.org/abs/2101.03961",note:"top-1 routing, 균형, 대규모 학습의 안정성 문제를 본다."},{type:"추가 읽기",title:"Mixtral of Experts",url:"https://arxiv.org/abs/2401.04088",note:"공개 가중치 Transformer MoE의 구조와 평가 사례를 확인한다."}]
+  },
+  "kv-cache": {
+    estimatedMinutes: 34,
+    objectives:["prefill과 decode에서 KV cache가 제거하는 반복 계산을 설명한다.","layer·KV head·sequence·head dimension으로 cache 메모리를 계산한다.","MHA·MQA·GQA와 paging·prefix sharing이 serving에 미치는 영향을 구분한다."],
+    sections:[
+      {title:"이전 토큰의 key와 value를 다시 계산하지 않는다",paragraphs:[
+        "autoregressive 생성에서 t번째 token은 앞선 1…t−1 token을 모두 참고한다. cache가 없다면 매 단계마다 전체 prefix를 Transformer에 다시 넣어 과거 token의 K와 V를 반복 계산한다. KV cache는 각 layer에서 이미 계산한 K,V를 저장하고 새 token의 K,V만 append한다. 새 query는 cache 전체와 attention을 계산한다.",
+        "prompt 전체를 병렬 처리해 초기 cache를 만드는 단계를 prefill, 이후 한 token씩 생성하는 단계를 decode라 부른다. prefill은 큰 행렬 연산으로 compute-bound가 되기 쉽고 decode는 한 token이 거대한 weight와 cache를 읽어 memory-bandwidth-bound가 되기 쉽다. 이 구분이 batching과 latency 최적화의 출발점이다."
+      ]},
+      {title:"메모리 크기를 shape로 계산한다",paragraphs:[
+        "한 요청의 cache는 대략 layers×2(K,V)×sequence×KV_heads×head_dim×bytes 형태다. batch가 늘면 요청별 유효 길이에 따라 합산된다. 예를 들어 32 layers, 8 KV heads, head_dim 128, FP16, 8k tokens라면 약 32×2×8192×8×128×2 bytes, 즉 약 1 GiB가 된다. model weight와 activation 외에 요청 하나가 차지하는 값이다.",
+        "MHA는 query head마다 K,V head가 있다. MQA는 모든 query head가 하나의 K,V head를 공유해 cache를 크게 줄이지만 품질 저하 가능성이 있다. GQA는 여러 query head가 한 K,V head를 공유하는 group을 만들어 중간 지점을 택한다. GQA 논문은 MHA checkpoint를 적은 추가 compute로 uptrain하는 방법과 품질·속도 절충을 제시했다."
+      ],formula:{label:"요청 하나의 근사 KV 메모리",value:"M_KV ≈ L × 2 × T × H_KV × D_head × bytes",note:"구현의 tensor padding, block 할당, quantization, beam/prefix sharing에 따라 실제 사용량은 달라진다."}},
+      {title:"연속 메모리 예약이 fragmentation을 만든다",paragraphs:[
+        "생성 길이는 요청마다 다르고 미리 정확히 알 수 없다. 최대 길이만큼 연속 공간을 예약하면 내부 낭비가 커지고, 요청이 끝났다 시작되며 빈 공간이 흩어진다. 결국 GPU에 여유 byte가 있어도 새 cache를 연속으로 배치하지 못하는 fragmentation이 생긴다.",
+        "PagedAttention은 운영체제의 paging과 비슷하게 KV를 고정 크기 block으로 나누고 논리적 token 위치를 물리 block에 매핑한다. 필요한 만큼 block을 할당하고 비연속 공간을 사용할 수 있으며 prefix나 beam 간 block 공유도 가능하다. 논문 평가의 처리량 배수는 해당 hardware·workload의 결과이므로 모든 서비스의 보장 수치로 재사용하지 않는다."
+      ]},
+      {title:"cache 정책은 context 관리 정책이다",paragraphs:[
+        "긴 대화에서 cache를 무한히 유지할 수는 없다. sliding window는 오래된 token을 버리고 최근 window만 남긴다. prefix caching은 동일한 system prompt나 문서 prefix의 block을 요청 간 재사용한다. cache quantization은 K,V 정밀도를 낮춰 capacity를 늘리지만 attention 품질과 dequantization 비용을 검증해야 한다.",
+        "모델이 특정 sliding-window attention이나 recurrent state를 사용하면 layer마다 보존 범위가 다를 수 있다. tool call 뒤 prompt를 재구성하거나 chat template가 한 글자라도 바뀌면 prefix cache hit가 깨질 수 있다. cache key에는 model·token IDs·position scheme·adapter 등 출력을 바꾸는 요소가 포함돼야 한다."
+      ],caution:"KV cache는 모델의 장기 기억이 아니다. 현재 forward pass의 과거 key/value tensor를 보존하는 계산 최적화이며 대화 밖의 지속 기억과는 별개다."}
+    ],
+    implementationChecklist:["모델 config로 layer·KV head·head dimension·dtype별 bytes/token을 계산한다.","prefill latency, time-to-first-token, inter-token latency를 나눠 측정한다.","요청 길이 분포에서 block waste와 eviction, prefix hit rate를 기록한다.","position IDs·adapter·model revision을 cache key에 반영한다."],
+    misconceptions:[{myth:"KV cache를 쓰면 attention이 길이에 무관한 상수 시간이 된다.",correction:"과거 K,V 재계산은 줄지만 새 query가 읽는 cache와 attention 범위는 sequence length에 따라 커진다."},{myth:"큰 context window면 cache도 항상 충분하다.",correction:"모델의 허용 길이와 serving 시스템이 동시 요청에 할당 가능한 KV 메모리는 다른 제한이다."}],
+    resources:[{type:"원 논문",title:"GQA: Training Generalized Multi-Query Transformer Models",url:"https://arxiv.org/abs/2305.13245",note:"KV head 공유가 품질과 추론 속도 사이를 어떻게 절충하는지 본다."},{type:"원 논문",title:"Efficient Memory Management for Large Language Model Serving with PagedAttention",url:"https://arxiv.org/abs/2309.06180",note:"KV block 관리, fragmentation과 sharing 설계를 본다."},{type:"공식 구현",title:"vLLM documentation",url:"https://docs.vllm.ai/",note:"실제 cache configuration과 serving 동작은 사용 버전 문서에서 확인한다."}]
+  },
+  "inference-serving": {
+    estimatedMinutes: 42,
+    objectives:["LLM serving을 scheduler·model executor·cache manager·API 계층으로 분해한다.","latency, throughput, goodput와 prefill/decode 병목을 구분한다.","continuous batching·paged KV·prefix caching·speculative decoding의 적용 조건을 판단한다."],
+    sections:[
+      {title:"모델 forward를 호출하는 것과 서비스를 운영하는 것은 다르다",paragraphs:[
+        "추론 서빙은 요청을 받고 token화한 뒤 GPU에 배치하고, prefill과 반복 decode를 스케줄하며, KV cache와 sampling 상태를 관리하고, token을 streaming하고, 취소·timeout·오류를 처리하는 시스템이다. 같은 checkpoint라도 scheduler와 kernel, batch 정책에 따라 비용과 체감 속도가 크게 달라진다.",
+        "온라인 chat은 첫 token이 빨리 보여야 하고 token 간 간격도 안정적이어야 한다. offline batch는 개별 지연보다 시간당 처리 token이 중요할 수 있다. 목표가 다르면 최적 batch와 queue 정책도 달라진다. 평균 latency 하나만 보고 두 workload를 비교하면 잘못된 결론을 낸다."
+      ]},
+      {title:"TTFT, TPOT, throughput, goodput을 따로 본다",paragraphs:[
+        "time to first token(TTFT)은 queue와 tokenization, prompt prefill을 포함해 첫 출력까지 걸리는 시간이다. time per output token(TPOT) 또는 inter-token latency는 이후 decode 속도를 본다. end-to-end latency는 둘과 출력 길이를 합친 사용자 경험이다. throughput은 초당 요청이나 token 수지만 SLO를 넘긴 느린 응답까지 포함할 수 있다.",
+        "goodput은 TTFT·TPOT 같은 품질 기준을 지키며 완료한 처리량을 강조한다. p50만 보면 긴 prompt나 burst 때의 p95/p99 악화를 숨긴다. prompt 길이, output 길이, 동시성, sampling, tool schema를 기록한 대표 workload로 측정하고 warm-up·cold start·cache hit를 분리한다."
+      ],formula:{label:"단순화한 생성 지연",value:"latency ≈ queue + prefill(prompt) + Σ decode_step(output tokens)",note:"각 항은 batch와 cache 상태에 따라 달라진다. speculative decoding이나 parallel sampling이 있으면 단순 합보다 복잡해진다."}},
+      {title:"Continuous batching은 완료된 자리를 즉시 재사용한다",paragraphs:[
+        "정적 batch는 모든 요청이 끝날 때까지 같은 묶음을 유지해 짧은 요청이 긴 요청을 기다리게 한다. continuous batching은 decode iteration 경계에서 완료·취소 요청을 제거하고 대기 요청을 투입한다. GPU utilization을 높이지만 새 prefill이 진행 중 decode의 지연을 방해하지 않도록 token budget과 우선순위가 필요하다.",
+        "prefill은 많은 token을 병렬 계산하고 decode는 요청당 보통 한 token을 계산한다. 둘을 같은 batch에 섞는 정책, chunked prefill로 큰 prompt를 나누는 정책, 별도 worker로 분리하는 정책은 TTFT와 TPOT를 서로 다르게 바꾼다. 사용자의 SLO와 traffic 분포가 선택 기준이다."
+      ]},
+      {title:"메모리 관리가 동시성을 결정한다",paragraphs:[
+        "GPU 메모리는 model weights, temporary activation/workspace, CUDA graph buffer, KV cache가 나눈다. weight quantization으로 model 영역을 줄여도 KV가 긴 요청과 동시성에 따라 커진다. PagedAttention은 KV를 block 단위로 할당해 fragmentation과 사전 예약 낭비를 줄이고 더 많은 요청을 수용하도록 설계됐다.",
+        "prefix caching은 반복되는 system prompt나 공통 문서 prefix의 prefill을 줄인다. 그러나 token sequence가 정확히 같고 position·model·adapter 상태가 호환될 때만 안전하다. cache hit rate만 높이려고 서로 다른 권한의 prompt를 공유하면 정보 누출 위험이 생긴다. tenant와 ACL 경계를 cache 설계에 포함한다."
+      ]},
+      {title:"병렬화는 통신과 batch 크기의 교환이다",paragraphs:[
+        "tensor parallelism은 한 layer의 matrix를 여러 장치에 나누고 collective 통신을 매 layer 수행한다. pipeline parallelism은 layer 구간을 나눠 microbatch를 흘리며 bubble을 관리한다. data parallel replica는 요청을 복제본에 분산한다. expert parallelism은 MoE expert와 token dispatch를 나눈다. 모델 크기, interconnect와 workload에 맞춰 조합한다.",
+        "작은 batch의 저지연 요청에서는 장치를 늘려도 통신 때문에 빨라지지 않을 수 있다. 반대로 큰 offline batch는 처리량을 위해 높은 병렬도를 활용할 수 있다. benchmark에는 GPU 종류·수, precision, prompt/output length, concurrency와 측정 percentile이 반드시 따라야 한다."
+      ]},
+      {title:"최적화는 정확성과 운영 계약을 보존해야 한다",paragraphs:[
+        "quantization, fused kernel, speculative decoding, CUDA graph는 속도를 높일 수 있지만 출력 분포·지원 sampling·최대 길이·adapter 호환성에 영향을 줄 수 있다. speculative decoding은 draft가 제안한 여러 token을 target이 검증해 target forward 횟수를 줄이지만 acceptance rate가 낮으면 이득이 작다.",
+        "production에서는 backpressure, rate limit, cancellation, retry, admission control, model revision pinning과 관측이 필요하다. timeout 뒤 GPU 작업이 계속되면 capacity가 새고, 무제한 긴 prompt는 다른 사용자의 SLO를 무너뜨린다. 성능 최적화와 제품 정책을 별도 층으로 두되 metric은 함께 연결한다."
+      ],caution:"논문이나 vendor가 보고한 처리량 배수를 자사 서비스 수치로 옮기지 않는다. hardware, 길이 분포, batch, precision과 baseline이 다르면 배수는 재현되지 않는다."},
+      {title:"실전 용량 계획은 분포와 실패 모드에서 시작한다",paragraphs:[
+        "평균 prompt 1k라는 값만으로는 부족하다. p95 prompt와 output, burst concurrency, streaming 연결 시간, 긴 tool result가 capacity를 결정한다. load test는 실제 길이의 결합 분포와 도착 패턴을 재현하고 saturation 이전·이후의 queue 증가를 관찰해야 한다.",
+        "OOM, worker crash, network partition, cache eviction storm, tokenizer mismatch, model reload를 주입해 복구를 확인한다. 품질 회귀 test도 배포 gate에 둔다. 더 빠른 kernel이 특정 입력에서 NaN이나 token 차이를 만든다면 serving 개선이 아니다."
+      ]}
+    ],
+    implementationChecklist:["TTFT·TPOT·E2E·throughput·goodput을 prompt/output 길이별 percentile로 기록한다.","scheduler queue, prefill/decode token budget, KV 사용량과 eviction을 tracing한다.","대표 traffic에서 continuous batching과 chunked prefill 정책을 비교한다.","취소·timeout·OOM·worker 재시작과 권한별 prefix cache 격리를 시험한다.","모델·runtime·kernel revision과 benchmark 조건을 함께 보관한다."],
+    misconceptions:[{myth:"GPU utilization이 높으면 좋은 serving 시스템이다.",correction:"높은 utilization이 queue와 tail latency를 악화시킬 수 있다. SLO를 지키는 goodput이 더 직접적인 목표다."},{myth:"batch를 키우면 언제나 효율이 좋아진다.",correction:"처리량은 늘 수 있지만 TTFT·TPOT와 메모리가 악화되며 어느 지점부터 포화된다."},{myth:"서빙 최적화는 모델 출력과 무관한 엔지니어링이다.",correction:"precision, kernel, cache와 decoding 전략이 수치 안정성 및 출력 분포에 영향을 줄 수 있어 품질 검증이 필요하다."}],
+    resources:[{type:"원 논문",title:"Efficient Memory Management for Large Language Model Serving with PagedAttention",url:"https://arxiv.org/abs/2309.06180",note:"KV memory fragmentation과 block 기반 관리, serving 평가 방법을 본다."},{type:"원 논문",title:"Orca: A Distributed Serving System for Transformer-Based Generative Models",url:"https://www.usenix.org/conference/osdi22/presentation/yu",note:"iteration-level scheduling과 selective batching의 시스템 배경을 본다."},{type:"공식 구현",title:"vLLM documentation",url:"https://docs.vllm.ai/",note:"continuous batching, distributed serving와 지원 기능은 현재 버전 문서로 확인한다."}]
   }
 };
 

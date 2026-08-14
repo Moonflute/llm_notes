@@ -282,6 +282,7 @@
       "dense-vs-sparse"
     ],
     "sourceIds": [
+      "sparse-moe",
       "switch-transformer"
     ]
   },
@@ -346,6 +347,7 @@
       "inference-serving"
     ],
     "sourceIds": [
+      "gqa-paper",
       "vllm"
     ]
   },
@@ -637,5 +639,15 @@
     "sourceIds": [
       "gpt3"
     ]
+  },
+  {
+    "slug": "positional-encoding",
+    "titleKo": "위치 인코딩과 RoPE",
+    "titleEn": "Positional encoding and RoPE",
+    "summary": "순서 자체를 알지 못하는 어텐션에 토큰의 절대·상대 위치 정보를 주입하는 방법입니다.",
+    "level": "중급",
+    "prerequisites": ["embedding", "attention"],
+    "next": ["transformer", "long-context"],
+    "sourceIds": ["transformer", "roformer"]
   }
 ]

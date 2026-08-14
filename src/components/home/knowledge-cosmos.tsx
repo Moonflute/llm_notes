@@ -1,309 +1,185 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
-import { conceptDocuments, frontierDocuments, issueDocuments, modelFamilies, modelReleases, organizationDocuments } from "@/lib/content";
+import {useRouter} from "next/navigation";
+import {useCallback,useEffect,useMemo,useRef,useState,type CSSProperties} from "react";
+import {SpatialViewport,type SpatialCamera,type SpatialViewportHandle} from "@/components/home/spatial-viewport";
+import {conceptClusters} from "@/lib/concept-taxonomy";
+import {conceptDocuments,frontierDocuments,issueDocuments,modelFamilies,modelReleases,organizationDocuments} from "@/lib/content";
 
-type Tone = "models" | "concepts" | "organizations" | "history" | "issues" | "frontiers";
-type AtlasNode = {
-  id: string;
-  label: string;
-  kicker: string;
-  summary: string;
-  href?: string;
-  tone: Tone;
-  children?: AtlasNode[];
+type Tone="models"|"concepts"|"organizations"|"history"|"issues"|"frontiers";
+type Position={x:number;y:number;presence:number;mobileX?:number;mobileY?:number};
+type AtlasNode={id:string;label:string;kicker:string;summary:string;tone:Tone;href?:string;children?:AtlasNode[];presence?:number};
+type FocusEntry={node:AtlasNode;position:Position};
+type AtlasHistoryState={path:string[];camera:SpatialCamera;previousCameraState:SpatialCamera|null};
+type HoverState={key:string;parentKey:string}|null;
+
+const ROOT_CAMERA:SpatialCamera={x:0,y:0,scale:1};
+const STORAGE_KEY="llm-history:home-atlas";
+const preferredModels=["gpt","gemini","claude","llama","deepseek","mistral","qwen","gemma"];
+const preferredOrganizations=["openai","google-deepmind","anthropic","meta","mistral-ai","deepseek","alibaba-cloud","ai2"];
+const rootPositions:Record<Tone,Position>={
+  concepts:{x:31,y:51,mobileX:25,mobileY:50,presence:1.34},models:{x:66,y:42,mobileX:73,mobileY:41,presence:1.3},history:{x:53,y:73,mobileX:42,mobileY:72,presence:1.16},
+  organizations:{x:79,y:66,mobileX:76,mobileY:65,presence:.88},issues:{x:19,y:31,mobileX:18,mobileY:27,presence:.84},frontiers:{x:66,y:20,mobileX:68,mobileY:18,presence:.93},
 };
 
-type Position = { x: number; y: number; scale: number; ring: "outer" | "middle" | "inner" };
-
-const preferredModels = ["gpt", "gemini", "claude", "llama", "deepseek", "mistral", "qwen", "gemma"];
-const preferredConcepts = ["transformer", "attention", "pretraining", "rlhf", "retrieval-augmented-generation", "mixture-of-experts", "reasoning", "agents", "multimodality", "alignment"];
-const preferredOrganizations = ["openai", "google-deepmind", "anthropic", "meta", "mistral-ai", "deepseek", "alibaba-cloud", "ai2"];
-
-const historyNodes: AtlasNode[] = [
-  { id: "foundations", label: "기반 연구", kicker: "2017—2019", summary: "Transformer와 사전학습이 오늘날 언어 모델의 기본 구조를 만든 시기입니다.", href: "/timeline/?from=2017-01&to=2019-12", tone: "history" },
-  { id: "scaling", label: "스케일링", kicker: "2020—2021", summary: "규모와 데이터, 연산량의 관계가 모델 개발의 중심축이 된 시기입니다.", href: "/timeline/?from=2020-01&to=2021-12", tone: "history" },
-  { id: "chat", label: "대화형 AI", kicker: "2022", summary: "지시학습과 RLHF가 대화형 인터페이스로 이어진 시기입니다.", href: "/timeline/?from=2022-01&to=2022-12", tone: "history" },
-  { id: "multimodal", label: "멀티모달", kicker: "2023—2024", summary: "텍스트와 이미지, 음성을 함께 다루는 모델이 빠르게 확산된 시기입니다.", href: "/timeline/?from=2023-01&to=2024-12", tone: "history" },
-  { id: "reasoning-agents", label: "추론과 에이전트", kicker: "2024—현재", summary: "긴 추론과 도구 사용, 자율 실행이 새로운 경쟁축으로 떠오른 시기입니다.", href: "/timeline/?from=2024-01&to=2026-12", tone: "history" },
-  { id: "all-history", label: "전체 타임라인", kicker: "2017—2026", summary: "연구와 제품, 모델의 전체 계보를 가로형 시간 지도에서 확인합니다.", href: "/timeline/", tone: "history" },
+const historyNodes:AtlasNode[]=[
+  {id:"foundations",label:"기반 연구",kicker:"2017—2019",summary:"Transformer와 사전학습이 언어 모델의 기본 구조를 만든 시기",href:"/timeline/?from=2017-01&to=2019-12",tone:"history"},
+  {id:"scaling",label:"스케일링",kicker:"2020—2021",summary:"규모·데이터·연산량의 관계가 개발의 중심축이 된 시기",href:"/timeline/?from=2020-01&to=2021-12",tone:"history"},
+  {id:"chat",label:"대화형 AI",kicker:"2022",summary:"지시학습과 RLHF가 대화형 제품으로 이어진 시기",href:"/timeline/?from=2022-01&to=2022-12",tone:"history"},
+  {id:"multimodal-era",label:"멀티모달",kicker:"2023—2024",summary:"텍스트·이미지·음성을 함께 다루는 모델이 확산된 시기",href:"/timeline/?from=2023-01&to=2024-12",tone:"history"},
+  {id:"reasoning-era",label:"추론과 에이전트",kicker:"2024—현재",summary:"추론·도구 사용·자율 실행이 새로운 경쟁축이 된 시기",href:"/timeline/?from=2024-01&to=2026-12",tone:"history"},
+  {id:"timeline-all",label:"전체 타임라인",kicker:"2017—2026",summary:"연구와 제품, 모델의 전체 계보",href:"/timeline/",tone:"history"},
 ];
 
-function positionRing(index: number, count: number, ring: "outer" | "inner", offset: number): Position {
-  const angle = offset + index * Math.PI * 2 / count;
-  // SVG 궤도(rx 45 / 29, ry 22 / 14, -8°)와 동일한 좌표를 쓴다.
-  // 노드의 기준점(원형 마커)이 궤도선 위에 정확히 놓인다.
-  const radiusX = ring === "outer" ? 45 : 29;
-  const radiusY = ring === "outer" ? 22 : 14;
-  const rawX = Math.cos(angle) * radiusX;
-  const rawY = Math.sin(angle) * radiusY;
-  const tilt = -0.14;
-  const x = 50 + rawX * Math.cos(tilt) - rawY * Math.sin(tilt);
-  const y = 51 + rawX * Math.sin(tilt) + rawY * Math.cos(tilt);
-  return { x, y, scale: .86 + y / 245, ring };
-}
-
-function layoutNodes(count: number): Position[] {
-  if (count <= 7) return Array.from({ length: count }, (_, index) => positionRing(index, count, "outer", -2.72));
-  const outerCount = Math.ceil(count * .62);
-  return Array.from({ length: count }, (_, index) => index < outerCount
-    ? positionRing(index, outerCount, "outer", -2.72)
-    : positionRing(index - outerCount, count - outerCount, "inner", -2.15));
-}
-
-const rootPositions: Position[] = [
-  { x: 74.8, y: 49.6, scale: 1.12, ring: "inner" },
-  { x: 25.2, y: 54.4, scale: 1.03, ring: "inner" },
-  { x: 69.8, y: 36.6, scale: 1, ring: "middle" },
-  { x: 30.3, y: 67.5, scale: 1.04, ring: "middle" },
-  { x: 12.1, y: 43.7, scale: .98, ring: "outer" },
-  { x: 88.1, y: 60.1, scale: 1.03, ring: "outer" },
-];
-
-const rootMobilePositions: Position[] = [
-  { x: 89, y: 50, scale: 1, ring: "inner" },
-  { x: 11, y: 60, scale: 1, ring: "inner" },
-  { x: 80, y: 33, scale: 1, ring: "middle" },
-  { x: 20, y: 76, scale: 1, ring: "middle" },
-  { x: 7, y: 27, scale: 1, ring: "outer" },
-  { x: 93, y: 78, scale: 1, ring: "outer" },
-];
-
-function layoutSequence(count: number): Position[] {
-  const columns = Math.min(5, Math.max(3, Math.ceil(Math.sqrt(count * 1.8))));
-  const rows = Math.ceil(count / columns);
-  return Array.from({ length: count }, (_, index) => {
-    const row = Math.floor(index / columns);
-    const columnInRow = index % columns;
-    const rowCount = Math.min(columns, count - row * columns);
-    const column = row % 2 ? rowCount - 1 - columnInRow : columnInRow;
-    const x = rowCount === 1 ? 50 : 13 + column * 74 / (rowCount - 1);
-    const y = rows === 1 ? 52 : 28 + row * 48 / Math.max(1, rows - 1);
-    return { x, y: y + Math.sin(index * 1.35) * 2.2, scale: 1, ring: "outer" as const };
+function compact(value:string,limit=22){return value.length>limit?`${value.slice(0,limit).trim()}…`:value}
+function childPositions(parent:Position,count:number,depth:number):Position[]{
+  const radiusX=depth===1?17:10.5;const radiusY=depth===1?14:8.7;const offset=depth===1?-2.35:-1.72;
+  return Array.from({length:count},(_,index)=>{
+    const angle=offset+index*2.399963229728653;const pulse=1+(index%3)*.12;
+    const mobileRadiusX=depth===1?27:19;const mobileRadiusY=depth===1?13:9.5;
+    return {x:parent.x+Math.cos(angle)*radiusX*pulse,y:parent.y+Math.sin(angle)*radiusY*(1+(index%2)*.1),mobileX:(parent.mobileX??parent.x)+Math.cos(angle)*mobileRadiusX*pulse,mobileY:(parent.mobileY??parent.y)+Math.sin(angle)*mobileRadiusY*(1+(index%2)*.1),presence:depth===1?1:.88};
   });
 }
+function focusScale(depth:number){return depth===1?1.46:Math.min(2.2,1.72+(depth-1)*.32)}
+function ease(value:number){return 1-Math.pow(1-value,4)}
 
-function sequenceTrailPath(positions: Position[]) {
-  if (!positions.length) return "";
-  return positions.slice(1).reduce((path, position, index) => {
-    const previous = positions[index];
-    const rowTurn = Math.abs(previous.x - position.x) < 1 && Math.abs(previous.y - position.y) > 10;
-    if (rowTurn) {
-      const controlX = previous.x > 50 ? 96 : 4;
-      return `${path} Q ${controlX} ${(previous.y + position.y) / 2} ${position.x} ${position.y}`;
-    }
-    return `${path} Q ${(previous.x + position.x) / 2} ${(previous.y + position.y) / 2 + (index % 2 ? .55 : -.55)} ${position.x} ${position.y}`;
-  }, `M ${positions[0].x} ${positions[0].y}`);
-}
-
-function compactLabel(label: string, limit = 17) {
-  return label.length > limit ? `${label.slice(0, limit).trim()}…` : label;
-}
-
-function DriftingNode({ node, position, mobilePosition, index, sequence, selected, onOpen }: { node: AtlasNode; position: Position; mobilePosition?: Position; index: number; sequence: boolean; selected: boolean; onOpen: () => void }) {
-  const nodeStyle = {
-    "--x": `${position.x}%`,
-    "--y": `${position.y}%`,
-    "--mobile-x": `${mobilePosition?.x ?? position.x}%`,
-    "--mobile-y": `${mobilePosition?.y ?? position.y}%`,
-    "--node-scale": position.scale,
-    "--push-x": "0px",
-    "--push-y": "0px",
-    "--drift-delay": `${index * -.47}s`,
-    "--drift-duration": `${13 + index * 1.7}s`,
-  } as CSSProperties;
-
-  return <button
-    type="button"
-    style={nodeStyle}
-    title={node.label}
-    data-side={sequence ? "center" : position.x > 66 ? "left" : "right"}
-    data-mobile-side={mobilePosition && mobilePosition.x > 50 ? "left" : "right"}
-    className={`cosmosNode tone-${node.tone} ${position.ring} ${sequence ? "sequenceNode" : ""} ${selected ? "selected" : ""}`}
-    data-cosmos-interactive="true"
-    onClick={onOpen}
-  >
-    <span className="cosmosNodeDrift">
-      {sequence ? <span className="sequenceIndex" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span> : null}
-      <span className="inkMark" aria-hidden="true"><i /></span>
-      <span className="cosmosNodeBody"><small>{node.kicker}</small><b>{compactLabel(node.label)}</b></span>
-    </span>
+function SpatialNode({node,nodeKey,parentKey,position,depth,active,ancestor,hovered,departing,onHover,onSelect}:{node:AtlasNode;nodeKey:string;parentKey:string;position:Position;depth:number;active:boolean;ancestor:boolean;hovered:HoverState;departing:boolean;onHover:(state:HoverState)=>void;onSelect:()=>void}){
+  const related=!hovered||hovered.key===nodeKey||hovered.parentKey===parentKey;
+  const style={"--node-x":`${position.x}%`,"--node-y":`${position.y}%`,"--node-mobile-x":`${position.mobileX??position.x}%`,"--node-mobile-y":`${position.mobileY??position.y}%`,"--presence":position.presence,viewTransitionName:departing?(node.href?.startsWith("/concepts/")?"concept-title":node.href?.startsWith("/models/")?"model-title":"atlas-leaf"):undefined} as CSSProperties;
+  return <button type="button" className={`spatialNode tone-${node.tone}`} style={style} data-spatial-node data-depth={depth} data-active={active} data-ancestor={ancestor} data-related={related} onPointerEnter={()=>onHover({key:nodeKey,parentKey})} onPointerLeave={()=>onHover(null)} onFocus={()=>onHover({key:nodeKey,parentKey})} onBlur={()=>onHover(null)} onClick={onSelect} title={node.summary}>
+    <i aria-hidden="true"/><span><small>{node.kicker}</small><b>{compact(node.label)}</b></span>
   </button>;
 }
 
-export function KnowledgeCosmos() {
-  const roots = useMemo<AtlasNode[]>(() => {
-    const modelNodes = preferredModels.flatMap(slug => {
-      const family = modelFamilies.find(item => item.slug === slug);
-      if (!family) return [];
-      const releases = modelReleases.filter(item => item.familySlug === slug).sort((a, b) => a.date.localeCompare(b.date));
-      return [{
-        id: family.slug,
-        label: family.titleKo,
-        kicker: `${releases.length}개 릴리스`,
-        summary: family.summary,
-        href: `/models/${family.slug}/`,
-        tone: "models" as const,
-        children: releases.map(release => ({ id: release.slug, label: release.title, kicker: release.date, summary: release.summary, href: `/models/${family.slug}/${release.slug}/`, tone: "models" as const })),
-      }];
+export function KnowledgeCosmos(){
+  const router=useRouter();
+  const viewport=useRef<SpatialViewportHandle>(null);
+  const animationFrame=useRef<number|null>(null);
+  const cameraRef=useRef<SpatialCamera>(ROOT_CAMERA);
+  const [camera,setCameraState]=useState<SpatialCamera>(ROOT_CAMERA);
+  const [path,setPath]=useState<FocusEntry[]>([]);
+  const [previousCameraState,setPreviousCameraState]=useState<SpatialCamera|null>(null);
+  const [hovered,setHovered]=useState<HoverState>(null);
+  const [departingLeaf,setDepartingLeaf]=useState<string|null>(null);
+
+  const roots=useMemo<AtlasNode[]>(()=>{
+    const concepts:AtlasNode[]=conceptClusters.map(cluster=>({
+      id:cluster.id,label:cluster.titleKo,kicker:cluster.label,summary:cluster.description,tone:"concepts",presence:cluster.id==="architecture"?1.12:1,
+      children:cluster.conceptIds.flatMap(id=>{const item=conceptDocuments.find(concept=>concept.slug===id);return item?[{id:item.slug,label:item.titleKo,kicker:item.level,summary:item.summary,tone:"concepts" as const,href:`/concepts/${item.slug}/`}]:[]}),
+    }));
+    const models:AtlasNode[]=preferredModels.flatMap(slug=>{
+      const family=modelFamilies.find(item=>item.slug===slug);if(!family)return [];
+      const releases=modelReleases.filter(item=>item.familySlug===slug).sort((a,b)=>a.date.localeCompare(b.date));
+      return [{id:family.slug,label:family.titleKo,kicker:`${releases.length} RELEASES`,summary:family.summary,tone:"models" as const,presence:slug==="gpt"?1.14:1,children:releases.map(release=>({id:release.slug,label:release.title,kicker:release.date,summary:release.summary,tone:"models" as const,href:`/models/${family.slug}/${release.slug}/`}))}];
     });
-    const concepts = preferredConcepts.flatMap(slug => {
-      const item = conceptDocuments.find(entry => entry.slug === slug);
-      return item ? [{ id: item.slug, label: item.titleKo, kicker: item.level, summary: item.summary, href: `/concepts/${item.slug}/`, tone: "concepts" as const }] : [];
-    });
-    const organizations = preferredOrganizations.flatMap(slug => {
-      const item = organizationDocuments.find(entry => entry.slug === slug);
-      return item ? [{ id: item.slug, label: item.titleKo, kicker: `${item.founded} 설립`, summary: item.summary, href: `/organizations/${item.slug}/`, tone: "organizations" as const }] : [];
-    });
-    const issues = issueDocuments.slice(0, 9).map(item => ({ id: item.slug, label: item.titleKo, kicker: "ISSUE", summary: item.summary, href: `/issues/${item.slug}/`, tone: "issues" as const }));
-    const frontiers = frontierDocuments.map(item => ({ id: item.slug, label: item.titleKo, kicker: "FRONTIER", summary: item.summary, href: `/frontiers/${item.slug}/`, tone: "frontiers" as const }));
+    const organizations:AtlasNode[]=preferredOrganizations.flatMap(slug=>{const item=organizationDocuments.find(entry=>entry.slug===slug);return item?[{id:item.slug,label:item.titleKo,kicker:item.founded,summary:item.summary,tone:"organizations" as const,href:`/organizations/${item.slug}/`}]:[]});
     return [
-      { id: "models", label: "모델", kicker: "MODEL FAMILIES", summary: "GPT, Gemini, Claude를 비롯한 주요 모델 계열과 개별 릴리스를 따라갑니다.", href: "/models/", tone: "models", children: modelNodes },
-      { id: "concepts", label: "용어·개념", kicker: "CONCEPTS", summary: "구조, 학습, 추론과 배포를 이해하는 데 필요한 핵심 개념을 연결합니다.", href: "/concepts/", tone: "concepts", children: concepts },
-      { id: "organizations", label: "회사·연구소", kicker: "ORGANIZATIONS", summary: "모델과 연구 흐름을 만들어 온 주요 조직을 살펴봅니다.", href: "/organizations/", tone: "organizations", children: organizations },
-      { id: "history", label: "역사", kicker: "TIMELINE", summary: "기반 연구에서 추론형 모델까지, 생성형 AI의 변화를 시대별로 탐색합니다.", href: "/timeline/", tone: "history", children: historyNodes },
-      { id: "issues", label: "이슈·논쟁", kicker: "ISSUES", summary: "환각, 저작권, 평가와 안전처럼 아직 합의되지 않은 질문을 검토합니다.", href: "/issues/", tone: "issues", children: issues },
-      { id: "frontiers", label: "프런티어", kicker: "FRONTIERS", summary: "에이전트, 월드 모델과 AGI 논의 등 다음 연구 경계를 살펴봅니다.", href: "/frontiers/", tone: "frontiers", children: frontiers },
+      {id:"concepts",label:"용어·개념",kicker:"CONCEPTS",summary:"기초 표현에서 추론·에이전트까지 이어지는 기술 구조",tone:"concepts",presence:1.34,children:concepts},
+      {id:"models",label:"모델",kicker:"MODEL FAMILIES",summary:"주요 모델 계열과 세대별 릴리스",tone:"models",presence:1.3,children:models},
+      {id:"history",label:"역사",kicker:"TIMELINE",summary:"연구와 제품이 이어진 시간의 흐름",tone:"history",presence:1.16,children:historyNodes},
+      {id:"organizations",label:"회사·연구소",kicker:"ORGANIZATIONS",summary:"모델과 연구 흐름을 만든 조직",tone:"organizations",presence:.88,children:organizations},
+      {id:"issues",label:"이슈·논쟁",kicker:"ISSUES",summary:"환각·저작권·평가·안전을 둘러싼 질문",tone:"issues",presence:.84,children:issueDocuments.slice(0,9).map(item=>({id:item.slug,label:item.titleKo,kicker:"ISSUE",summary:item.summary,tone:"issues",href:`/issues/${item.slug}/`}))},
+      {id:"frontiers",label:"프런티어",kicker:"FRONTIERS",summary:"에이전트·월드 모델·AGI로 이어지는 연구 경계",tone:"frontiers",presence:.93,children:frontierDocuments.map(item=>({id:item.slug,label:item.titleKo,kicker:"FRONTIER",summary:item.summary,tone:"frontiers",href:`/frontiers/${item.slug}/`}))},
     ];
-  }, []);
+  },[]);
 
-  const [path, setPath] = useState<AtlasNode[]>([]);
-  const [selectedLeaf, setSelectedLeaf] = useState<AtlasNode | null>(null);
-  const [motion, setMotion] = useState({ serial: 0, direction: "rest", x: 50, y: 51 });
-  const [camera, setCamera] = useState({ x: 0, y: 0, scale: 1 });
-  const cameraRef = useRef(camera);
-  const cameraDrag = useRef<{pointerId:number;startX:number;startY:number;originX:number;originY:number;lastX:number;lastY:number;lastTime:number;velocityX:number;velocityY:number}|null>(null);
-  const cameraFrame = useRef<number|null>(null);
-  const cameraTransitionTimer = useRef<number|null>(null);
-  const canvasRef = useRef<HTMLDivElement>(null);
-  const current = path.at(-1);
-  const nodes = current?.children ?? roots;
-  const rootMap = !current;
-  const sequence = Boolean(current && (current.id === "history" || preferredModels.includes(current.id)));
-  const positions = rootMap ? rootPositions : sequence ? layoutSequence(nodes.length) : layoutNodes(nodes.length);
-  const layoutMode = rootMap ? "root" : sequence ? "sequence" : "orbit";
+  const setCamera=(next:SpatialCamera)=>{cameraRef.current=next;setCameraState(next)};
+  const cameraFor=(position:Position,depth:number)=>{
+    const rect=viewport.current?.getRect();const scale=focusScale(depth);
+    const mobile=window.matchMedia("(max-width: 700px)").matches;const x=mobile?(position.mobileX??position.x):position.x;const y=mobile?(position.mobileY??position.y):position.y;
+    return rect?{x:(50-x)/100*rect.width*scale,y:(50-y)/100*rect.height*scale,scale}:{x:0,y:0,scale};
+  };
+  const animateCamera=useCallback((target:SpatialCamera,duration=520)=>{
+    if(animationFrame.current!==null)cancelAnimationFrame(animationFrame.current);
+    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){setCamera(target);return}
+    const start=cameraRef.current;const began=performance.now();
+    const tick=(now:number)=>{const progress=Math.min(1,(now-began)/duration);const value=ease(progress);setCamera({x:start.x+(target.x-start.x)*value,y:start.y+(target.y-start.y)*value,scale:start.scale+(target.scale-start.scale)*value});if(progress<1)animationFrame.current=requestAnimationFrame(tick);else animationFrame.current=null};
+    animationFrame.current=requestAnimationFrame(tick);
+  },[]);
+  useEffect(()=>()=>{if(animationFrame.current!==null)cancelAnimationFrame(animationFrame.current)},[]);
 
-  useEffect(() => {
-    const handleKey = (event: KeyboardEvent) => {
-      if (event.key !== "Escape") return;
-      if (selectedLeaf) setSelectedLeaf(null);
-      else if (path.length) retreat(path.length - 2);
-    };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  });
-  useEffect(()=>()=>{if(cameraFrame.current!==null)cancelAnimationFrame(cameraFrame.current);if(cameraTransitionTimer.current!==null)window.clearTimeout(cameraTransitionTimer.current)},[]);
-
-  const updateCamera=(next:{x:number;y:number;scale:number})=>{cameraRef.current=next;setCamera(next)};
-  const resetCamera=()=>updateCamera({x:0,y:0,scale:1});
-  const beginCameraDrag=(event:ReactPointerEvent<HTMLDivElement>)=>{
-    if(window.matchMedia("(max-width: 700px)").matches)return;
-    const target=event.target as HTMLElement;
-    if(target.closest("[data-cosmos-interactive],a,button"))return;
-    if(cameraFrame.current!==null)cancelAnimationFrame(cameraFrame.current);
-    const now=performance.now();cameraDrag.current={pointerId:event.pointerId,startX:event.clientX,startY:event.clientY,originX:cameraRef.current.x,originY:cameraRef.current.y,lastX:event.clientX,lastY:event.clientY,lastTime:now,velocityX:0,velocityY:0};
-    event.currentTarget.setPointerCapture(event.pointerId);
-  };
-  const moveCamera=(event:ReactPointerEvent<HTMLDivElement>)=>{
-    const drag=cameraDrag.current;if(!drag||drag.pointerId!==event.pointerId)return;
-    const now=performance.now();const elapsed=Math.max(1,now-drag.lastTime);drag.velocityX=(event.clientX-drag.lastX)/elapsed*16;drag.velocityY=(event.clientY-drag.lastY)/elapsed*16;drag.lastX=event.clientX;drag.lastY=event.clientY;drag.lastTime=now;
-    updateCamera({...cameraRef.current,x:Math.max(-180,Math.min(180,drag.originX+event.clientX-drag.startX)),y:Math.max(-110,Math.min(110,drag.originY+event.clientY-drag.startY))});
-  };
-  const endCameraDrag=(event:ReactPointerEvent<HTMLDivElement>)=>{
-    const drag=cameraDrag.current;if(!drag||drag.pointerId!==event.pointerId)return;cameraDrag.current=null;
-    if(event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.releasePointerCapture(event.pointerId);
-    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
-    let velocityX=drag.velocityX,velocityY=drag.velocityY;
-    const coast=()=>{velocityX*=.88;velocityY*=.88;const current=cameraRef.current;updateCamera({...current,x:Math.max(-180,Math.min(180,current.x+velocityX)),y:Math.max(-110,Math.min(110,current.y+velocityY))});if(Math.abs(velocityX)+Math.abs(velocityY)<.35){cameraFrame.current=null;return}cameraFrame.current=requestAnimationFrame(coast)};
-    cameraFrame.current=requestAnimationFrame(coast);
-  };
-  const zoomCamera=(event:ReactWheelEvent<HTMLDivElement>)=>{
-    if(window.matchMedia("(max-width: 700px)").matches)return;
-    event.preventDefault();const next=Math.max(.82,Math.min(1.42,cameraRef.current.scale-event.deltaY*.0012));updateCamera({...cameraRef.current,scale:next});
-  };
-
-  const dive = (node: AtlasNode, position: Position) => {
-    if (!node.children?.length) {
-      setSelectedLeaf(node);
-      return;
+  const resolvePath=useCallback((ids:string[])=>{
+    const resolved:FocusEntry[]=[];let options=roots;let parent:Position|null=null;
+    for(let depth=0;depth<ids.length;depth+=1){
+      const node=options.find(item=>item.id===ids[depth]);if(!node)break;
+      const position:Position=depth===0?rootPositions[node.tone]:childPositions(parent!,options.length,depth)[options.indexOf(node)];
+      resolved.push({node,position});parent=position;options=node.children??[];
     }
-    setSelectedLeaf(null);
-    setMotion(previous => ({ serial: previous.serial + 1, direction: "in", x: position.x, y: position.y }));
-    const rect=canvasRef.current?.getBoundingClientRect();
-    const targetCamera=rect&&!window.matchMedia("(max-width: 700px)").matches?{x:(50-position.x)/100*rect.width,y:(51-position.y)/100*rect.height,scale:1.34}:{x:0,y:0,scale:1.08};
-    updateCamera(targetCamera);
-    if(cameraTransitionTimer.current!==null)window.clearTimeout(cameraTransitionTimer.current);
-    cameraTransitionTimer.current=window.setTimeout(()=>{setPath(previous=>[...previous,node]);updateCamera({x:0,y:0,scale:1.08});cameraTransitionTimer.current=null},360);
+    return resolved;
+  },[roots]);
+  const writeHistory=(entries:FocusEntry[],nextCamera:SpatialCamera,previous:SpatialCamera|null,mode:"push"|"replace")=>{
+    const ids=entries.map(entry=>entry.node.id);const state:AtlasHistoryState={path:ids,camera:nextCamera,previousCameraState:previous};
+    const url=ids.length?`#${ids.join("/")}`:window.location.pathname+window.location.search;
+    if(mode==="push")window.history.pushState({...window.history.state,llmAtlas:state},"",url);
+    else window.history.replaceState({...window.history.state,llmAtlas:state},"",url);
+    window.sessionStorage.setItem(STORAGE_KEY,JSON.stringify({...state,hash:ids.join("/")}));
+  };
+  useEffect(()=>{
+    const fromState=(window.history.state as {llmAtlas?:AtlasHistoryState}|null)?.llmAtlas;
+    let restored=fromState;
+    if(!restored){try{const saved=JSON.parse(window.sessionStorage.getItem(STORAGE_KEY)??"null") as (AtlasHistoryState&{hash?:string})|null;const hash=window.location.hash.slice(1);if(saved&&saved.hash===hash)restored=saved}catch{}}
+    const hashIds=window.location.hash.slice(1).split("/").filter(Boolean);
+    const entries=resolvePath(restored?.path??hashIds);const restoredCamera=restored?.camera??(entries.length?cameraFor(entries.at(-1)!.position,entries.length):ROOT_CAMERA);
+    setPath(entries);setPreviousCameraState(restored?.previousCameraState??null);setCamera(restoredCamera);
+    writeHistory(entries,restoredCamera,restored?.previousCameraState??null,"replace");
+    const pop=()=>{const state=(window.history.state as {llmAtlas?:AtlasHistoryState}|null)?.llmAtlas;const ids=state?.path??window.location.hash.slice(1).split("/").filter(Boolean);const next=resolvePath(ids);const target=state?.camera??(next.length?cameraFor(next.at(-1)!.position,next.length):ROOT_CAMERA);setPath(next);setPreviousCameraState(state?.previousCameraState??null);animateCamera(target,460)};
+    window.addEventListener("popstate",pop);return()=>window.removeEventListener("popstate",pop);
+  },[resolvePath]);
+
+  const commitCamera=(next:SpatialCamera)=>{setCamera(next);writeHistory(path,next,previousCameraState,"replace")};
+  const focusNode=(node:AtlasNode,position:Position,root=false)=>{
+    if(node.href&&!node.children?.length){openLeaf(node,`${root?"root":path.length}-${node.id}`);return}
+    const next=root?[{node,position}]:[...path,{node,position}];const target=cameraFor(position,next.length);const previous=cameraRef.current;
+    setPreviousCameraState(previous);setPath(next);writeHistory(next,target,previous,"push");animateCamera(target,Math.min(640,390+Math.hypot(target.x-previous.x,target.y-previous.y)*.22));
+  };
+  const openLeaf=(node:AtlasNode,key:string)=>{
+    if(!node.href)return;commitCamera(cameraRef.current);setDepartingLeaf(key);
+    const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const go=()=>router.push(node.href!);
+    if(reduced){go();return}
+    requestAnimationFrame(()=>{
+      const transition=(document as Document&{startViewTransition?:(callback:()=>Promise<void>)=>unknown}).startViewTransition;
+      if(transition)transition.call(document,()=>new Promise<void>(resolve=>{
+        const previousPath=window.location.pathname;go();const began=performance.now();
+        const wait=()=>{if(window.location.pathname!==previousPath||performance.now()-began>900){requestAnimationFrame(()=>resolve());return}requestAnimationFrame(wait)};requestAnimationFrame(wait);
+      }));else go();
+    });
+  };
+  const goBack=()=>{if(path.length)window.history.back()};
+  const overview=()=>{
+    if(!path.length){animateCamera(ROOT_CAMERA,400);writeHistory([],ROOT_CAMERA,cameraRef.current,"replace");return}
+    const previous=cameraRef.current;setPath([]);setPreviousCameraState(previous);writeHistory([],ROOT_CAMERA,previous,"push");animateCamera(ROOT_CAMERA,560);
   };
 
-  const retreat = (index: number) => {
-    setSelectedLeaf(null);
-    setMotion(previous => ({ serial: previous.serial + 1, direction: "out", x: 50, y: 51 }));
-    setPath(previous => previous.slice(0, index + 1));
-    updateCamera({x:0,y:0,scale:.9});
-    if(cameraTransitionTimer.current!==null)window.clearTimeout(cameraTransitionTimer.current);
-    cameraTransitionTimer.current=window.setTimeout(()=>{updateCamera({x:0,y:0,scale:1});cameraTransitionTimer.current=null},20);
-  };
+  const current=path.at(-1);
+  const visibleLayers=path.map((entry,index)=>({entry,children:entry.node.children??[],positions:childPositions(entry.position,entry.node.children?.length??0,index+1),layer:index+1}));
+  const rootLines:[[Tone,Tone],string][]=[[["concepts","models"],"M 31 51 Q 49 31 66 42"],[["concepts","history"],"M 31 51 Q 35 72 53 73"],[["models","history"],"M 66 42 Q 70 64 53 73"],[["models","organizations"],"M 66 42 Q 82 45 79 66"],[["concepts","issues"],"M 31 51 Q 15 49 19 31"],[["models","frontiers"],"M 66 42 Q 61 30 66 20"]];
 
-  const reset = () => retreat(-1);
-  const sceneStyle = { "--origin-x": `${motion.x}%`, "--origin-y": `${motion.y}%` } as CSSProperties;
-  const cameraStyle={"--camera-x":`${camera.x}px`,"--camera-y":`${camera.y}px`,"--camera-scale":camera.scale} as CSSProperties;
-
-  return <section className="cosmosStage" aria-label="LLM 지식 지도">
-    <header className="cosmosToolbar">
-      <nav aria-label="현재 지도 위치">
-        <button type="button" onClick={reset} aria-current={!path.length ? "page" : undefined}>전체 지도</button>
-        {path.map((item, index) => <span key={item.id}><i>/</i><button type="button" onClick={() => retreat(index)} aria-current={index === path.length - 1 ? "page" : undefined}>{item.label}</button></span>)}
-      </nav>
-      {path.length ? <button className="cosmosBack" type="button" onClick={() => retreat(path.length - 2)}>− 축소</button> : null}
+  const density=path.length?"focused":camera.scale>1.16?"mid":"overview";
+  return <section className="atlasStage" data-depth={path.length} data-density={density} data-hovering={Boolean(hovered)} aria-label="LLM 지식 지도">
+    <header className="atlasChrome">
+      <nav aria-label="현재 지도 위치"><button type="button" onClick={overview}>Atlas</button>{path.map((entry,index)=><span key={`${entry.node.id}-${index}`}><i>/</i><button type="button" onClick={()=>{const steps=path.length-index-1;if(steps>0)window.history.go(-steps)}} aria-current={index===path.length-1?"page":undefined}>{compact(entry.node.label,14)}</button></span>)}</nav>
+      <div><button type="button" onClick={goBack} disabled={!path.length} aria-label="이전 공간">←</button><button type="button" onClick={overview} aria-label="전체 지도">◎</button></div>
     </header>
-
-    <div className={`cosmosWorld layout-${layoutMode} motion-${motion.direction}`} style={sceneStyle}>
-      <div className="cosmosCaption">
-        <p>{current?.kicker ?? "AN ATLAS OF GENERATIVE AI"}</p>
-        <h2 title={current?.label}>{compactLabel(current?.label ?? "LLM 지식 지도", 22)}</h2>
-        <span>{current?.summary ?? "모델과 개념, 조직과 사건이 어떻게 연결되는지 한 장의 지도에서 따라가 보세요."}</span>
-        {current?.href ? <Link href={current.href}>이 항목 전체 읽기 ↗</Link> : null}
-      </div>
-
-      <div ref={canvasRef} className="cosmosViewport" onPointerDown={beginCameraDrag} onPointerMove={moveCamera} onPointerUp={endCameraDrag} onPointerCancel={endCameraDrag} onWheel={zoomCamera}>
-      <div className="cosmosCanvas" style={cameraStyle}>
-        <svg className="cosmosOrbits" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          {rootMap ? <>
-            <g className="desktopRootOrbits">
-              <ellipse className="rootOrbit rootOrbitInner" cx="50" cy="52" rx="25" ry="11" transform="rotate(-8 50 52)" />
-              <ellipse className="rootOrbit rootOrbitMiddle" cx="50" cy="52" rx="35" ry="16" transform="rotate(-8 50 52)" />
-              <ellipse className="rootOrbit rootOrbitOuter" cx="50" cy="52" rx="46" ry="22" transform="rotate(-8 50 52)" />
-            </g>
-            <g className="mobileRootOrbits">
-              <ellipse className="rootOrbit rootOrbitInner" cx="50" cy="55" rx="39" ry="8" transform="rotate(-7 50 55)" />
-              <ellipse className="rootOrbit rootOrbitMiddle" cx="50" cy="55" rx="41" ry="23" transform="rotate(-7 50 55)" />
-              <ellipse className="rootOrbit rootOrbitOuter" cx="50" cy="53" rx="46" ry="34" transform="rotate(-7 50 53)" />
-            </g>
-          </> : sequence ? <>
-            <path className="sequenceTrail" d={sequenceTrailPath(positions)} />
-          </> : <>
-            <ellipse cx="50" cy="51" rx="45" ry="22" transform="rotate(-8 50 51)" />
-            {nodes.length > 7 ? <ellipse className="orbitInner" cx="50" cy="51" rx="29" ry="14" transform="rotate(-8 50 51)" /> : null}
-          </>}
-        </svg>
-
-        {!sequence ? <div className="cosmosCenter" aria-hidden="true"><span>{path.length ? String(path.length).padStart(2, "0") : "AI"}</span><b>{compactLabel(current?.label ?? "LLM", 13)}</b></div> : <p className="sequenceDirection" aria-hidden="true">앞선 모델 <span>→</span> 다음 모델</p>}
-
-        {nodes.map((node, index) => <DriftingNode key={node.id} node={node} position={positions[index]} mobilePosition={rootMap ? rootMobilePositions[index] : undefined} index={index} sequence={sequence} selected={selectedLeaf?.id === node.id} onOpen={() => dive(node, positions[index])} />)}
-      </div>
-      </div>
-
-      {!path.length?<div className="cosmosCameraControls" aria-label="지도 보기 조절"><button type="button" onClick={()=>updateCamera({...cameraRef.current,scale:Math.max(.82,cameraRef.current.scale-.12)})} aria-label="축소">−</button><button type="button" onClick={resetCamera} aria-label="전체 지도">◎</button><button type="button" onClick={()=>updateCamera({...cameraRef.current,scale:Math.min(1.42,cameraRef.current.scale+.12)})} aria-label="확대">＋</button></div>:null}
-
-      {path.length ? <button className="cosmosZoomOut" type="button" onClick={() => retreat(path.length - 2)}><b>↖</b><span>이전 지도</span><small>{path.length > 1 ? compactLabel(path[path.length - 2].label, 12) : "전체 보기"}</small></button> : null}
-
-      {selectedLeaf ? <aside className={`cosmosNote tone-${selectedLeaf.tone}`} aria-live="polite">
-        <button type="button" onClick={() => setSelectedLeaf(null)} aria-label="주석 닫기">×</button>
-        <p>{selectedLeaf.kicker}</p><h3 title={selectedLeaf.label}>{compactLabel(selectedLeaf.label, 28)}</h3><div>{selectedLeaf.summary}</div>
-        {selectedLeaf.href ? <Link href={selectedLeaf.href}>상세 문서로 이동 ↗</Link> : null}
-      </aside> : null}
-    </div>
+    <SpatialViewport ref={viewport} camera={camera} onCameraChange={setCamera} onCameraCommit={commitCamera} onEscape={goBack} onOverview={overview}>
+      <svg className="atlasRelations" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        {rootLines.map(([[from,to],d])=><path key={`${from}-${to}`} d={d} data-related={!hovered||hovered.key===`root-${from}`||hovered.key===`root-${to}`}/>) }
+        {visibleLayers.map(({entry,positions,layer})=>positions.map((position,index)=><path className="clusterRelation" key={`${entry.node.id}-${layer}-${index}`} d={`M ${entry.position.x} ${entry.position.y} Q ${(entry.position.x+position.x)/2+(index%2?1.3:-1.3)} ${(entry.position.y+position.y)/2} ${position.x} ${position.y}`} data-layer={layer} data-related={!hovered||hovered.parentKey===entry.node.id}/>))}
+      </svg>
+      <div className="atlasOrigin" aria-hidden="true"><small>GENERATIVE AI</small><b>LLM</b></div>
+      {roots.map(root=>{
+        const position=rootPositions[root.tone];const entryIndex=path.findIndex(entry=>entry.node.id===root.id);return <SpatialNode key={root.id} node={root} nodeKey={`root-${root.id}`} parentKey="root" position={{...position,presence:root.presence??position.presence}} depth={0} active={entryIndex===0} ancestor={entryIndex===0&&path.length>1} hovered={hovered} departing={false} onHover={setHovered} onSelect={()=>focusNode(root,position,true)}/>;
+      })}
+      {!path.length?roots.flatMap(root=>{
+        const position=rootPositions[root.tone];const children=root.children??[];const positions=childPositions(position,children.length,1);
+        return children.slice(0,2).map((node,index)=><span className={`atlasPreviewNode tone-${root.tone}`} style={{"--node-x":`${positions[index].x}%`,"--node-y":`${positions[index].y}%`} as CSSProperties} key={`preview-${root.id}-${node.id}`} aria-hidden="true">{compact(node.label,13)}</span>);
+      }):null}
+      {visibleLayers.map(({entry,children,positions,layer},layerIndex)=>children.map((node,index)=>{
+        const key=`${path.slice(0,layerIndex+1).map(item=>item.node.id).join("-")}-${node.id}`;const selected=path[layerIndex+1]?.node.id===node.id;const isCurrentLayer=layerIndex===path.length-1;
+        return <SpatialNode key={key} node={node} nodeKey={key} parentKey={entry.node.id} position={{...positions[index],presence:(node.presence??1)*positions[index].presence}} depth={layer} active={selected||isCurrentLayer} ancestor={selected&&layerIndex<path.length-1} hovered={hovered} departing={departingLeaf===key} onHover={setHovered} onSelect={()=>focusNode(node,positions[index])}/>;
+      }))}
+    </SpatialViewport>
+    <aside className="atlasReadout" aria-live="polite"><p>{current?.node.kicker??"AN ATLAS OF GENERATIVE AI"}</p><h2>{current?.node.label??"LLM 지식 지도"}</h2><span>{current?.node.summary??"모델·개념·역사와 논쟁 사이를 직접 이동하며 탐색하세요."}</span></aside>
+    <div className="atlasZoomControls" aria-label="지도 확대·축소"><button type="button" onClick={()=>commitCamera({...cameraRef.current,scale:Math.max(.72,cameraRef.current.scale-.18)})} aria-label="축소">−</button><button type="button" onClick={()=>commitCamera({...cameraRef.current,scale:Math.min(2.35,cameraRef.current.scale+.18)})} aria-label="확대">＋</button></div>
   </section>;
 }

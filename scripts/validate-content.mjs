@@ -6,6 +6,8 @@ const events = read("content/events/index.json");
 const releases = read("content/model-releases/index.json");
 const families = read("content/model-families/index.json");
 const sources = read("content/sources/index.json");
+const concepts = read("content/concepts/index.json");
+const guideSource = fs.readFileSync("src/lib/concept-study-guides.ts", "utf8");
 const sourceIds = new Set(sources.map((source) => source.id));
 const timelineKeys = families.flatMap((family) => family.releaseSlugs.map((slug) => family.slug + "/" + slug));
 const releaseKeys = [...timelineKeys, ...releases.map((release) => release.familySlug + "/" + release.slug)];
@@ -46,6 +48,10 @@ for (const profile of profiles) {
   fail(profile.summaryKo.length < 28, "short summary: " + key);
   fail(profile.features.length < 1, "missing distinct feature or limitation: " + key);
   fail(profile.announcement.length < 1, "missing distinct release-context paragraph: " + key);
+  const normalized = (value) => value.replace(/\s+/g, " ").replace(/[.。]$/, "").trim();
+  const summary = normalized(profile.summaryKo);
+  fail(profile.features.some((item) => normalized(item) === summary), "summary duplicated as feature: " + key);
+  fail(profile.announcement.some((item) => normalized(item) === summary || normalized(item).includes(summary)), "summary duplicated as interpretation: " + key);
   fail(!profile.notableEvents?.length, "missing notable event: " + key);
   fail(!/^\d{4}-\d{2}-\d{2}$/.test(profile.verifiedAt), "invalid verification date: " + key);
   for (const event of profile.notableEvents ?? []) {
@@ -53,6 +59,10 @@ for (const profile of profiles) {
     for (const id of event.sourceIds) fail(!sourceIds.has(id), "missing notable event source " + id + ": " + key);
   }
 }
+const guideObjectSource = guideSource.split("export const conceptStudyGuides")[1] ?? "";
+const guideIds = new Set([...guideObjectSource.matchAll(/^  (?:"([a-z-]+)"|([a-z][a-z-]*)): \{/gm)].map((match) => match[1] ?? match[2]));
+for (const id of guideIds) fail(!concepts.some((concept) => concept.slug === id), "orphan study guide: " + id);
+fail(guideIds.size < 25, "fewer than 25 full study guides");
 const contentText = [profiles, events, releases].map(JSON.stringify).join("\n");
 for (const pattern of ["\uFFFD", "??", "\uC744(\uB97C)", "\uC774 \uD398\uC774\uC9C0\uB294 \uACF5\uC2DD \uC6D0\uBB38", "\uD655\uC778\uB41C \uC218\uCE58 \uC5C6\uC74C"]) {
   fail(contentText.includes(pattern), "forbidden corruption/template pattern: " + JSON.stringify(pattern));
@@ -64,3 +74,4 @@ if (errors.length) {
 }
 console.log("content QA passed: " + profiles.length + " model profiles, " + events.length + " timeline events, " + sources.length + " sources");
 console.log("source claim QA: " + sources.filter(source => source.validationStatus === "claim-verified").length + " claim-verified, " + sources.filter(source => source.validationStatus === "linked-not-claim-verified").length + " linked pending review");
+console.log("study guide QA: " + guideIds.size + " full guides, " + (concepts.length - guideIds.size) + " indexed stubs");

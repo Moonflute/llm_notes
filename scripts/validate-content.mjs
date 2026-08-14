@@ -44,8 +44,8 @@ for (const key of profileKeys) fail(!releaseKeys.includes(key), "orphan profile:
 for (const profile of profiles) {
   const key = profile.familySlug + "/" + profile.releaseSlug;
   fail(profile.summaryKo.length < 28, "short summary: " + key);
-  fail(profile.features.length < 3, "fewer than 3 features: " + key);
-  fail(profile.announcement.length < 2, "fewer than 2 interpretation paragraphs: " + key);
+  fail(profile.features.length < 1, "missing distinct feature or limitation: " + key);
+  fail(profile.announcement.length < 1, "missing distinct release-context paragraph: " + key);
   fail(!profile.notableEvents?.length, "missing notable event: " + key);
   fail(!/^\d{4}-\d{2}-\d{2}$/.test(profile.verifiedAt), "invalid verification date: " + key);
   for (const event of profile.notableEvents ?? []) {

@@ -649,5 +649,45 @@
     "prerequisites": ["embedding", "attention"],
     "next": ["transformer", "long-context"],
     "sourceIds": ["transformer", "roformer"]
+  },
+  {
+    "slug": "normalization",
+    "titleKo": "LayerNorm과 RMSNorm",
+    "titleEn": "LayerNorm and RMSNorm",
+    "summary": "잔차 스트림의 크기를 안정화해 깊은 Transformer의 학습과 추론을 다루기 쉽게 만드는 정규화 계층입니다.",
+    "level": "중급",
+    "prerequisites": ["transformer"],
+    "next": ["mixture-of-experts"],
+    "sourceIds": ["rmsnorm-paper"]
+  },
+  {
+    "slug": "ffn-swiglu",
+    "titleKo": "FFN과 SwiGLU",
+    "titleEn": "Feed-forward networks and SwiGLU",
+    "summary": "각 토큰의 특징을 독립적으로 확장·변환하는 Transformer 블록의 채널 혼합 계층입니다.",
+    "level": "중급",
+    "prerequisites": ["transformer"],
+    "next": ["mixture-of-experts"],
+    "sourceIds": ["glu-variants"]
+  },
+  {
+    "slug": "attention-variants",
+    "titleKo": "MHA·MQA·GQA",
+    "titleEn": "MHA, MQA and GQA",
+    "summary": "query와 key/value head의 공유 방식을 바꿔 품질, KV 캐시 크기와 decode 속도를 절충합니다.",
+    "level": "심화",
+    "prerequisites": ["attention", "kv-cache"],
+    "next": ["inference-serving"],
+    "sourceIds": ["gqa-paper", "flashattention"]
+  },
+  {
+    "slug": "state-space-models",
+    "titleKo": "상태공간 모델과 Mamba",
+    "titleEn": "State-space models and Mamba",
+    "summary": "시퀀스를 고정 크기 상태로 갱신하며 긴 입력을 선형 시간에 처리하려는 attention 대안 계열입니다.",
+    "level": "심화",
+    "prerequisites": ["transformer"],
+    "next": ["long-context"],
+    "sourceIds": ["mamba"]
   }
 ]

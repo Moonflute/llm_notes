@@ -28,8 +28,7 @@
     "shared": "표현 학습과 다음 상태 예측을 사용합니다.",
     "different": "언어 텍스트 대신 물리·시뮬레이션 환경의 동역학이 핵심입니다.",
     "sourceIds": [
-      "mamba",
-      "transformer"
+      "world-models-paper"
     ]
   },
   {
@@ -39,8 +38,7 @@
     "shared": "LLM의 범용 과제 성능은 논의의 주요 증거 중 하나입니다.",
     "different": "정의·측정·사회적 의미가 모델 성능보다 넓은 문제입니다.",
     "sourceIds": [
-      "gpt4",
-      "mmlu"
+      "levels-of-agi"
     ]
   },
   {
@@ -50,8 +48,7 @@
     "shared": "언어 지시와 시각 표현을 인터페이스로 활용할 수 있습니다.",
     "different": "안전한 물리 행동과 실시간 제어가 필수입니다.",
     "sourceIds": [
-      "flamingo",
-      "gemini"
+      "rt2-paper"
     ]
   },
   {
@@ -61,8 +58,7 @@
     "shared": "문헌 이해와 도구 사용에서 LLM을 활용할 수 있습니다.",
     "different": "검증은 실제 실험·도메인 지식·재현성에 달려 있습니다.",
     "sourceIds": [
-      "toolformer",
-      "rag"
+      "coscientist"
     ]
   },
   {
@@ -84,8 +80,7 @@
     "shared": "트랜스포머 계열의 내부 상태와 어텐션을 분석 대상으로 삼습니다.",
     "different": "좋은 설명의 기준과 실제 제어 가능성은 아직 논쟁적입니다.",
     "sourceIds": [
-      "transformer",
-      "mamba"
+      "scaling-monosemanticity"
     ]
   }
 ]

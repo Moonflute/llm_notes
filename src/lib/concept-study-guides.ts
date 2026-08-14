@@ -462,6 +462,110 @@ export const conceptStudyGuides: Record<string, ConceptStudyGuide> = {
     implementationChecklist:["TTFT·TPOT·E2E·throughput·goodput을 prompt/output 길이별 percentile로 기록한다.","scheduler queue, prefill/decode token budget, KV 사용량과 eviction을 tracing한다.","대표 traffic에서 continuous batching과 chunked prefill 정책을 비교한다.","취소·timeout·OOM·worker 재시작과 권한별 prefix cache 격리를 시험한다.","모델·runtime·kernel revision과 benchmark 조건을 함께 보관한다."],
     misconceptions:[{myth:"GPU utilization이 높으면 좋은 serving 시스템이다.",correction:"높은 utilization이 queue와 tail latency를 악화시킬 수 있다. SLO를 지키는 goodput이 더 직접적인 목표다."},{myth:"batch를 키우면 언제나 효율이 좋아진다.",correction:"처리량은 늘 수 있지만 TTFT·TPOT와 메모리가 악화되며 어느 지점부터 포화된다."},{myth:"서빙 최적화는 모델 출력과 무관한 엔지니어링이다.",correction:"precision, kernel, cache와 decoding 전략이 수치 안정성 및 출력 분포에 영향을 줄 수 있어 품질 검증이 필요하다."}],
     resources:[{type:"원 논문",title:"Efficient Memory Management for Large Language Model Serving with PagedAttention",url:"https://arxiv.org/abs/2309.06180",note:"KV memory fragmentation과 block 기반 관리, serving 평가 방법을 본다."},{type:"원 논문",title:"Orca: A Distributed Serving System for Transformer-Based Generative Models",url:"https://www.usenix.org/conference/osdi22/presentation/yu",note:"iteration-level scheduling과 selective batching의 시스템 배경을 본다."},{type:"공식 구현",title:"vLLM documentation",url:"https://docs.vllm.ai/",note:"continuous batching, distributed serving와 지원 기능은 현재 버전 문서로 확인한다."}]
+  },
+  normalization: {
+    estimatedMinutes: 30,
+    objectives:["LayerNorm과 RMSNorm의 수식·shape·차이를 설명한다.","Pre-Norm과 Post-Norm이 residual 경로와 gradient에 미치는 영향을 구분한다.","epsilon, dtype, fused kernel에서 생기는 수치 문제를 점검한다."],
+    sections:[
+      {title:"정규화는 token별 hidden vector의 규모를 다룬다",paragraphs:[
+        "Transformer의 residual stream은 여러 attention·FFN 출력을 계속 더한다. 층이 깊어질수록 activation 규모와 gradient 경로가 불안정해질 수 있다. LayerNorm은 각 token의 d차원 hidden vector 안에서 평균과 분산을 계산해 표준화하고 학습 가능한 scale γ와 bias β를 적용한다. batch token끼리 통계를 섞는 BatchNorm과 다르다.",
+        "입력이 B×T×D라면 통계는 마지막 D축에서 각 B,T 위치별로 계산된다. 그래서 길이가 다른 요청이나 batch 크기가 달라도 같은 token vector의 정규화 방식은 변하지 않는다. 모델 config의 normalized_shape와 실제 hidden dimension이 맞아야 한다."
+      ],formula:{label:"LayerNorm",value:"LN(x)=γ⊙(x−μ)/sqrt(σ²+ε)+β",note:"μ와 σ²는 token 하나의 D개 feature에서 계산한다. 출력 shape는 입력과 같은 B×T×D다."}},
+      {title:"RMSNorm은 평균을 빼지 않고 크기만 맞춘다",paragraphs:[
+        "RMSNorm은 re-centering을 생략하고 root mean square로 나눈다. RMS(x)=sqrt(mean(x²)+ε)이고 출력은 γ⊙x/RMS(x)다. 원 논문은 LayerNorm의 re-centering invariance가 필수인지 질문하고 더 단순한 연산을 제안했다. 현대 LLM에서 널리 쓰이지만 모든 구조에서 무조건 우월하다는 뜻은 아니다.",
+        "bias가 없고 평균 계산이 빠져 kernel을 단순화할 수 있다. 다만 실제 속도 차이는 fused implementation, memory traffic과 전체 block 비용에 좌우된다. checkpoint가 LayerNorm으로 학습됐는데 RMSNorm으로 임의 교체하면 같은 함수가 아니므로 정상 동작을 기대할 수 없다."
+      ],formula:{label:"RMSNorm",value:"RMSNorm(x)=γ⊙x/sqrt(mean(x²)+ε)",note:"평균 μ를 빼지 않는다. scale parameter는 D개이며 구현에 따라 unit offset 등 세부 convention이 다를 수 있다."}},
+      {title:"Pre-Norm과 Post-Norm은 residual의 위치가 다르다",paragraphs:[
+        "Post-Norm은 원 Transformer처럼 sublayer 출력을 residual에 더한 뒤 정규화한다: y=Norm(x+F(x)). Pre-Norm은 먼저 정규화한 입력을 sublayer에 넣고 residual에는 identity 경로를 둔다: y=x+F(Norm(x)). Pre-Norm은 깊은 네트워크에서 gradient가 identity path를 따라 흐르기 쉬워 학습 안정성이 좋은 경우가 많다.",
+        "구조 선택은 최종 normalization, residual scaling, initialization과 함께 본다. 같은 ‘RMSNorm 사용’이라는 설명만으로 block ordering을 알 수 없다. 공개 architecture diagram과 구현을 확인하고 state dict key만으로 섣불리 추정하지 않는다."
+      ]},
+      {title:"수치 안정성과 fused implementation",paragraphs:[
+        "FP16/BF16 입력의 제곱과 합은 overflow·정밀도 손실에 민감할 수 있어 통계를 FP32로 누적한 뒤 원 dtype으로 되돌리는 구현이 흔하다. ε는 0에 가까운 분모를 막지만 모델이 학습한 값과 다른 epsilon은 작은 출력 차이를 누적시킬 수 있다.",
+        "실전 runtime은 residual add와 normalization을 하나의 fused kernel로 묶어 memory round trip을 줄인다. tensor parallel에서 hidden dimension이 분할돼 있으면 통계가 local shard만이 아니라 전체 normalized dimension을 반영하는지 구현을 확인한다."
+      ],caution:"‘normalization이 activation을 항상 평균 0, 분산 1로 만든다’는 설명은 RMSNorm에는 맞지 않으며, γ·β 적용 뒤의 최종 출력에도 그대로 맞지 않는다."}
+    ],
+    implementationChecklist:["정규화 축과 hidden dimension, γ/β shape를 확인한다.","checkpoint의 epsilon·bias·unit-offset convention을 보존한다.","저정밀 입력에서도 통계 누적 dtype과 NaN 발생을 시험한다.","fused/unfused kernel의 출력 오차와 latency를 함께 비교한다."],
+    misconceptions:[{myth:"LayerNorm과 RMSNorm은 이름만 다르고 교체 가능하다.",correction:"평균 제거 여부와 parameterization이 달라 재학습 없이 함수적으로 교체할 수 없다."},{myth:"Pre-Norm이면 깊이에 관계없이 학습이 자동으로 안정적이다.",correction:"initialization, residual scale, optimizer와 정밀도 등 다른 조건도 함께 작용한다."}],
+    resources:[{type:"원 논문",title:"Layer Normalization",url:"https://arxiv.org/abs/1607.06450",note:"sample별 feature 통계를 쓰는 원 정의를 본다."},{type:"원 논문",title:"Root Mean Square Layer Normalization",url:"https://arxiv.org/abs/1910.07467",note:"re-centering을 제거한 수식과 실험을 확인한다."},{type:"추가 읽기",title:"On Layer Normalization in the Transformer Architecture",url:"https://arxiv.org/abs/2002.04745",note:"Pre-LN과 Post-LN의 gradient 관점을 본다."}]
+  },
+  "ffn-swiglu": {
+    estimatedMinutes: 31,
+    objectives:["attention과 FFN의 token·channel 혼합 역할을 구분한다.","표준 FFN과 GLU/SwiGLU의 tensor shape와 파라미터 비용을 계산한다.","MoE가 왜 대개 FFN expert의 묶음으로 구현되는지 연결한다."],
+    sections:[
+      {title:"Attention이 token을 섞고 FFN이 채널을 변환한다",paragraphs:[
+        "Transformer block의 FFN은 각 token 위치에 같은 함수를 독립 적용한다. B×T×D 입력을 펼쳐 보면 B·T개의 D차원 벡터에 동일한 MLP를 쓰는 셈이다. attention이 서로 다른 위치의 정보를 모은 뒤 FFN은 각 위치에서 feature를 확장하고 비선형적으로 재조합한다.",
+        "표준 FFN은 D에서 D_ff로 넓힌 뒤 activation을 적용하고 다시 D로 줄인다. 원 Transformer는 ReLU와 대략 4D의 intermediate width를 사용했다. 현대 decoder는 GELU, SiLU와 gated variant를 많이 쓰며 폭의 비율도 parameter budget에 맞춰 조정한다."
+      ],formula:{label:"표준 position-wise FFN",value:"FFN(x)=W₂ φ(W₁x+b₁)+b₂",note:"x shape B×T×D, W₁은 D×D_ff, W₂는 D_ff×D이며 token 축에는 같은 가중치가 적용된다."}},
+      {title:"GLU는 내용 경로와 gate 경로를 곱한다",paragraphs:[
+        "gated FFN은 입력을 두 번 투영한다. 한 경로에 activation을 적용해 gate를 만들고 다른 내용 경로와 원소별 곱을 한 뒤 output projection을 거친다. SwiGLU는 gate activation으로 Swish/SiLU를 사용한다. 두 input projection이 있으므로 같은 intermediate width라면 표준 FFN보다 파라미터와 계산이 커진다.",
+        "공정한 비교에서는 전체 parameter/FLOP budget을 맞추기 위해 gated FFN의 D_ff를 줄인다. 흔히 보이는 8D/3 부근의 폭은 두 입력 projection과 한 출력 projection의 총 비용을 표준 4D FFN과 비슷하게 맞추려는 계산에서 나온다. 실제 모델의 round-up 배수와 tensor-parallel shard 조건에 따라 값은 달라진다."
+      ],formula:{label:"SwiGLU FFN",value:"SwiGLU(x)=W_o[SiLU(xW_g) ⊙ (xW_u)]",note:"W_g와 W_u는 D×D_ff, W_o는 D_ff×D다. bias 사용 여부와 행렬 표기 방향은 구현마다 다르다."}},
+      {title:"넓은 intermediate는 지식과 계산의 큰 부분을 차지한다",paragraphs:[
+        "decoder LLM에서 FFN weight는 전체 파라미터와 token당 FLOPs의 큰 몫이다. 그래서 양자화, tensor parallel, fused activation, MoE가 FFN을 중심으로 설계된다. activation tensor B×T×D_ff를 완전히 materialize하면 메모리 traffic이 커져 gate·multiply·projection을 fusion하는 kernel이 중요하다.",
+        "학습에서는 backward를 위해 intermediate activation을 저장하거나 recompute한다. inference decode에서는 T가 작아 weight 읽기가 병목이 되기 쉽다. 같은 수식이라도 prefill과 decode에서 최적 kernel tile과 병렬화 전략이 다를 수 있다."
+      ]},
+      {title:"MoE는 하나의 FFN을 여러 조건부 FFN으로 바꾼다",paragraphs:[
+        "MoE Transformer는 대개 attention은 공유하고 FFN 자리에 여러 expert FFN을 둔다. router가 token마다 top-k expert를 선택한다. 따라서 SwiGLU 같은 expert 내부 구조, expert 수와 width, 활성 expert 수를 함께 알아야 활성 계산량을 해석할 수 있다.",
+        "FFN neuron이나 expert를 사실 데이터베이스의 한 항목처럼 해석하면 위험하다. 일부 feature가 특정 사실·패턴과 상관될 수 있지만 표현은 분산되고 activation은 문맥과 layer에 따라 달라진다. 인과적 해석에는 intervention과 재현 평가가 필요하다."
+      ],caution:"SwiGLU가 쓰였다는 사실만으로 모델 품질 향상분을 분리해 귀속할 수 없다. 데이터, 폭, optimizer와 학습 compute를 통제한 비교가 필요하다."}
+    ],
+    implementationChecklist:["W_g·W_u·W_o와 intermediate shape를 checkpoint config에서 확인한다.","표준 FFN 비교 시 총 파라미터와 FLOPs를 맞춘다.","fused kernel과 reference 구현의 출력/gradient 허용 오차를 시험한다.","tensor-parallel shard가 intermediate width를 나눌 수 있는지 확인한다."],
+    misconceptions:[{myth:"Transformer는 attention만으로 계산한다.",correction:"각 block의 FFN은 파라미터와 계산의 큰 부분이며 feature 변환의 핵심이다."},{myth:"SwiGLU는 SiLU로 activation 이름만 바꾼 것이다.",correction:"두 input projection을 곱하는 gated 구조이므로 표준 단일 경로 FFN과 parameterization이 다르다."}],
+    resources:[{type:"원 논문",title:"Attention Is All You Need",url:"https://arxiv.org/abs/1706.03762",note:"원 position-wise FFN의 구조와 폭을 확인한다."},{type:"원 논문",title:"GLU Variants Improve Transformer",url:"https://arxiv.org/abs/2002.05202",note:"GEGLU·SwiGLU 등 gated variant와 비교 조건을 본다."}]
+  },
+  "attention-variants": {
+    estimatedMinutes: 34,
+    objectives:["MHA·MQA·GQA의 Q/K/V head shape를 비교한다.","KV head 공유가 cache bytes와 decode bandwidth를 줄이는 이유를 계산한다.","head sharing과 FlashAttention 같은 kernel 최적화를 서로 다른 축으로 구분한다."],
+    sections:[
+      {title:"MHA는 query마다 독립적인 key/value 표현을 둔다",paragraphs:[
+        "Multi-Head Attention은 hidden D를 H개의 query head로 나눠 각 head가 서로 다른 Q,K,V projection을 학습한다. head dimension d_h=D/H라면 일반적인 MHA의 Q,K,V shape는 B×H×T×d_h다. 여러 관계를 병렬로 표현할 자유가 있지만 decode 때 모든 layer·token의 H개 K,V를 cache해야 한다.",
+        "새 token 하나를 만들 때 query는 한 위치뿐이어도 과거 K,V 전체를 GPU memory에서 읽는다. 긴 context와 많은 동시 요청에서는 arithmetic보다 이 memory traffic이 병목이 된다. 이 문제를 줄이기 위해 query head는 유지하고 K,V head만 공유하는 계열이 등장했다."
+      ]},
+      {title:"MQA는 하나, GQA는 몇 개의 KV head를 공유한다",paragraphs:[
+        "Multi-Query Attention은 H개의 query head가 K,V head 하나를 공유한다. KV cache는 대략 MHA의 1/H로 줄지만, K,V 표현의 자유를 크게 제한해 task나 모델에 따라 품질 손실이 생길 수 있다. Grouped-Query Attention은 H_q query head를 H_kv group으로 나누고 각 group이 하나의 K,V head를 공유한다.",
+        "예를 들어 H_q=32, H_kv=8이면 query 4개가 K,V 한 쌍을 공유하고 cache는 같은 d_h의 MHA 대비 약 1/4이다. GQA 논문은 기존 MHA checkpoint를 원 pretraining compute의 일부로 uptrain하는 방법을 제시하고 MHA에 가까운 품질과 MQA에 가까운 속도를 보고했다. 이 결과는 논문의 설정 안에서 해석한다."
+      ],formula:{label:"KV cache head 축 절감",value:"cache ratio vs MHA ≈ H_kv / H_q",note:"layer·sequence·head_dim·dtype이 같다는 단순화다. 실제 latency는 kernel, batch와 memory layout에 좌우된다."}},
+      {title:"Training과 decode에서 이득의 크기가 다르다",paragraphs:[
+        "training과 prefill은 많은 token을 병렬 처리해 QKᵀ와 FFN 계산 비중이 크다. K,V projection과 activation이 줄어드는 이점은 있지만 전체 학습 FLOPs가 cache 비율만큼 줄지는 않는다. decode는 한 step마다 긴 cache를 읽으므로 KV head 감소의 memory bandwidth 이득이 더 직접적이다.",
+        "모델 architecture를 읽을 때 num_attention_heads와 num_key_value_heads를 따로 확인한다. 둘이 같으면 MHA, KV head가 1이면 MQA, 그 사이면 GQA로 볼 수 있다. head dimension이나 tensor parallel partition 조건이 맞지 않으면 runtime이 느린 fallback kernel을 쓸 수도 있다."
+      ]},
+      {title:"FlashAttention은 head 공유가 아니라 exact attention의 IO 최적화다",paragraphs:[
+        "FlashAttention은 attention score의 거대한 T×T 행렬을 HBM에 전부 저장하지 않고 tile 단위로 계산하며 online softmax를 사용해 memory IO를 줄인다. attention 결과를 근사하는 sparse 방식이 아니며 MHA·GQA 어느 쪽에도 적용 가능한 kernel 축의 최적화다.",
+        "따라서 ‘GQA vs FlashAttention’을 양자택일로 비교하면 범주가 다르다. GQA는 architecture와 cache shape를 바꾸고, FlashAttention은 같은 수학적 attention을 hardware-friendly하게 계산한다. sliding-window·sparse attention은 볼 수 있는 연결 자체를 제한하는 또 다른 축이다."
+      ],caution:"head 수만 보고 품질이나 속도를 단정하지 않는다. head dimension, layer 수, cache dtype, context 길이와 runtime kernel을 함께 봐야 한다."}
+    ],
+    implementationChecklist:["num_attention_heads와 num_key_value_heads를 별도로 기록한다.","K/V repeat 또는 broadcast가 실제 tensor 복사를 만들지 않는지 profile한다.","MHA 대비 cache bytes/token과 decode TPOT를 같은 workload에서 측정한다.","FlashAttention 지원 shape·mask·dtype과 fallback 여부를 확인한다."],
+    misconceptions:[{myth:"GQA는 attention head 수를 줄여 모델 전체를 작게 만든다.",correction:"query head는 유지하고 K,V head를 공유하는 것이 핵심이며 다른 weight와 FFN은 그대로일 수 있다."},{myth:"FlashAttention은 덜 중요한 token을 버리는 근사법이다.",correction:"원 논문 방식은 IO-aware tiling으로 표준 attention을 정확하게 계산한다."}],
+    resources:[{type:"원 논문",title:"Fast Transformer Decoding: One Write-Head is All You Need",url:"https://arxiv.org/abs/1911.02150",note:"MQA가 decoder memory bandwidth를 줄이려는 배경을 본다."},{type:"원 논문",title:"GQA: Training Generalized Multi-Query Transformer Models",url:"https://arxiv.org/abs/2305.13245",note:"GQA 정의와 MHA checkpoint uptraining 비교를 본다."},{type:"원 논문",title:"FlashAttention",url:"https://arxiv.org/abs/2205.14135",note:"IO complexity와 exact tiled attention을 구분한다."}]
+  },
+  "state-space-models": {
+    estimatedMinutes: 40,
+    objectives:["상태공간 recurrence와 convolution 관점을 연결한다.","Mamba의 input-dependent selective parameters와 hardware-aware scan의 역할을 설명한다.","attention 대비 선형 시간·고정 상태의 장점과 정보 압축 한계를 함께 평가한다."],
+    sections:[
+      {title:"전체 과거를 다시 읽는 대신 상태를 갱신한다",paragraphs:[
+        "state-space sequence model은 입력 x_t를 받아 이전 상태 h_{t−1}을 h_t로 갱신하고 상태에서 출력 y_t를 읽는다. 선형 시간 불변 시스템의 이산형은 h_t=A h_{t−1}+B x_t, y_t=C h_t+D x_t로 쓸 수 있다. 현재 state가 과거를 압축하므로 autoregressive inference에서 sequence 길이에 비례해 커지는 KV cache가 필요하지 않다.",
+        "이 recurrence는 순차적으로는 O(T)에 계산되며 특정 조건에서는 긴 convolution kernel로 바꿔 training을 병렬화할 수 있다. 고전 RNN과 다른 점은 긴 의존성을 안정적으로 모델링하도록 구조화된 state matrix와 효율적인 parallel scan/convolution 알고리즘을 설계한다는 데 있다."
+      ],formula:{label:"이산 상태공간 갱신",value:"h_t = A h_(t−1) + B x_t,   y_t = C h_t + D x_t",note:"실제 SSM은 연속 시스템의 discretization, 구조화된 A와 여러 channel/batch 차원을 사용한다."}},
+      {title:"고정된 dynamics는 내용에 따라 기억하고 잊기 어렵다",paragraphs:[
+        "time-invariant A,B,C가 모든 token에 같으면 입력 내용에 따라 특정 정보를 선택적으로 보존하거나 무시하기 어렵다. 단순히 오래 기억하는 필터와 문맥에서 중요한 이름·지시를 골라 유지하는 것은 다른 문제다. attention은 query에 따라 과거 위치를 직접 선택하지만 SSM은 state update에 선택성을 넣어야 한다.",
+        "Mamba는 SSM parameter 일부를 입력에 의존하게 만들어 token 내용에 따라 정보를 state에 넣거나 유지하는 방식을 제안한다. 이 변화는 고정 convolution만으로는 계산할 수 없게 만들지만 hardware-aware parallel scan으로 GPU에서 효율적으로 처리하도록 함께 설계됐다."
+      ]},
+      {title:"Mamba block은 selective SSM과 local mixing을 결합한다",paragraphs:[
+        "Mamba 계열 block은 입력 projection, 짧은 causal convolution, activation과 selective SSM scan, gate, output projection을 결합한다. 구체적 tensor layout과 expansion factor는 구현과 세대에 따라 다르므로 ‘attention 없는 RNN’ 한 문장으로 환원하면 실제 병목을 놓친다.",
+        "training에서는 sequence 전체에 parallel scan을 사용하고 inference에서는 현재 state만 갱신한다. 긴 sequence에서 attention의 T² score matrix를 피하는 장점이 있지만 큰 matrix projection과 scan kernel의 memory access는 남는다. 이론적 complexity만으로 wall-clock 우위를 보장하지 않는다."
+      ]},
+      {title:"고정 크기 상태는 장점이자 병목이다",paragraphs:[
+        "attention은 과거 token별 K,V를 보관해 필요할 때 세부 내용을 직접 참조한다. SSM은 과거를 제한된 state에 압축한다. streaming과 매우 긴 입력에는 유리할 수 있지만, 정확한 문자열 회수나 여러 멀리 떨어진 증거를 보존하는 과제에서는 압축 병목이 나타날 수 있다.",
+        "그래서 현대 architecture는 pure attention, pure SSM뿐 아니라 attention과 SSM/conv를 섞는 hybrid도 사용한다. 어느 쪽이 낫다는 일반론보다 품질, training throughput, decode latency, state/cache memory, 지원 kernel과 목표 context 과제로 비교한다."
+      ]},
+      {title:"평가는 language modeling loss 밖까지 본다",paragraphs:[
+        "perplexity와 일반 benchmark가 비슷해도 긴 문맥에서 exact recall, copying, induction, 시간 순서, in-context learning 특성이 다를 수 있다. 길이에 따른 품질 곡선과 state precision, chunk boundary, reset 정책을 시험한다. 문서 사이에서 state를 잘못 이어 붙이면 독립 요청의 정보가 섞일 수 있다.",
+        "Mamba 원 논문은 selective SSM과 hardware-aware algorithm이 언어·audio·genomics에서 경쟁력 있는 결과를 보였다고 보고했다. 이후 모델의 개선을 원 Mamba의 동일한 구조로 가정하지 말고 각 기술 보고서에서 attention hybrid 여부와 공개 범위를 확인한다."
+      ],caution:"선형 시간이라는 말은 무한한 기억이나 완벽한 long-context 이해를 뜻하지 않는다. 계산 복잡도와 정보 보존 능력은 별개의 질문이다."}
+    ],
+    implementationChecklist:["training parallel scan과 token-by-token inference state update를 각각 검증한다.","state dtype·reset·batch reorder가 요청 경계를 침범하지 않는지 시험한다.","동일 hardware와 품질 목표에서 attention baseline의 throughput·latency·memory를 비교한다.","길이별 exact recall과 장거리 추론 평가를 perplexity와 함께 실행한다."],
+    misconceptions:[{myth:"SSM은 과거 token을 모두 state 안에 손실 없이 저장한다.",correction:"고정 크기 state는 과거를 압축하며 과제에 따라 정보 손실이 발생할 수 있다."},{myth:"O(T)이면 언제나 Transformer보다 빠르다.",correction:"kernel 효율, projection, sequence와 batch 크기, hardware에 따라 실제 속도는 달라진다."}],
+    resources:[{type:"원 논문",title:"Efficiently Modeling Long Sequences with Structured State Spaces",url:"https://arxiv.org/abs/2111.00396",note:"S4의 구조화 state-space와 긴 sequence 배경을 본다."},{type:"원 논문",title:"Mamba: Linear-Time Sequence Modeling with Selective State Spaces",url:"https://arxiv.org/abs/2312.00752",note:"input-dependent selection과 hardware-aware scan의 결합을 확인한다."},{type:"추가 읽기",title:"Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality",url:"https://arxiv.org/abs/2405.21060",note:"후속 state-space duality 관점을 원 논문과 구분해 읽는다."}]
   }
 };
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
 import { conceptDocuments, frontierDocuments, issueDocuments, modelFamilies, modelReleases, organizationDocuments } from "@/lib/content";
 
 type Tone = "models" | "concepts" | "organizations" | "history" | "issues" | "frontiers";
@@ -239,6 +239,10 @@ export function KnowledgeCosmos() {
   const [path, setPath] = useState<AtlasNode[]>([]);
   const [selectedLeaf, setSelectedLeaf] = useState<AtlasNode | null>(null);
   const [motion, setMotion] = useState({ serial: 0, direction: "rest", x: 50, y: 51 });
+  const [camera, setCamera] = useState({ x: 0, y: 0, scale: 1 });
+  const cameraRef = useRef(camera);
+  const cameraDrag = useRef<{pointerId:number;startX:number;startY:number;originX:number;originY:number;lastX:number;lastY:number;lastTime:number;velocityX:number;velocityY:number}|null>(null);
+  const cameraFrame = useRef<number|null>(null);
   const current = path.at(-1);
   const nodes = current?.children ?? roots;
   const rootMap = !current;
@@ -255,6 +259,33 @@ export function KnowledgeCosmos() {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   });
+  useEffect(()=>()=>{if(cameraFrame.current!==null)cancelAnimationFrame(cameraFrame.current)},[]);
+
+  const updateCamera=(next:{x:number;y:number;scale:number})=>{cameraRef.current=next;setCamera(next)};
+  const resetCamera=()=>updateCamera({x:0,y:0,scale:1});
+  const beginCameraDrag=(event:ReactPointerEvent<HTMLDivElement>)=>{
+    if(event.target!==event.currentTarget||window.matchMedia("(max-width: 700px)").matches)return;
+    if(cameraFrame.current!==null)cancelAnimationFrame(cameraFrame.current);
+    const now=performance.now();cameraDrag.current={pointerId:event.pointerId,startX:event.clientX,startY:event.clientY,originX:cameraRef.current.x,originY:cameraRef.current.y,lastX:event.clientX,lastY:event.clientY,lastTime:now,velocityX:0,velocityY:0};
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+  const moveCamera=(event:ReactPointerEvent<HTMLDivElement>)=>{
+    const drag=cameraDrag.current;if(!drag||drag.pointerId!==event.pointerId)return;
+    const now=performance.now();const elapsed=Math.max(1,now-drag.lastTime);drag.velocityX=(event.clientX-drag.lastX)/elapsed*16;drag.velocityY=(event.clientY-drag.lastY)/elapsed*16;drag.lastX=event.clientX;drag.lastY=event.clientY;drag.lastTime=now;
+    updateCamera({...cameraRef.current,x:Math.max(-180,Math.min(180,drag.originX+event.clientX-drag.startX)),y:Math.max(-110,Math.min(110,drag.originY+event.clientY-drag.startY))});
+  };
+  const endCameraDrag=(event:ReactPointerEvent<HTMLDivElement>)=>{
+    const drag=cameraDrag.current;if(!drag||drag.pointerId!==event.pointerId)return;cameraDrag.current=null;
+    if(event.currentTarget.hasPointerCapture(event.pointerId))event.currentTarget.releasePointerCapture(event.pointerId);
+    if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+    let velocityX=drag.velocityX,velocityY=drag.velocityY;
+    const coast=()=>{velocityX*=.88;velocityY*=.88;const current=cameraRef.current;updateCamera({...current,x:Math.max(-180,Math.min(180,current.x+velocityX)),y:Math.max(-110,Math.min(110,current.y+velocityY))});if(Math.abs(velocityX)+Math.abs(velocityY)<.35){cameraFrame.current=null;return}cameraFrame.current=requestAnimationFrame(coast)};
+    cameraFrame.current=requestAnimationFrame(coast);
+  };
+  const zoomCamera=(event:ReactWheelEvent<HTMLDivElement>)=>{
+    if(window.matchMedia("(max-width: 700px)").matches)return;
+    event.preventDefault();const next=Math.max(.82,Math.min(1.42,cameraRef.current.scale-event.deltaY*.0012));updateCamera({...cameraRef.current,scale:next});
+  };
 
   const dive = (node: AtlasNode, position: Position) => {
     if (!node.children?.length) {
@@ -262,18 +293,21 @@ export function KnowledgeCosmos() {
       return;
     }
     setSelectedLeaf(null);
+    resetCamera();
     setMotion(previous => ({ serial: previous.serial + 1, direction: "in", x: position.x, y: position.y }));
     setPath(previous => [...previous, node]);
   };
 
   const retreat = (index: number) => {
     setSelectedLeaf(null);
+    resetCamera();
     setMotion(previous => ({ serial: previous.serial + 1, direction: "out", x: 50, y: 51 }));
     setPath(previous => previous.slice(0, index + 1));
   };
 
   const reset = () => retreat(-1);
   const sceneStyle = { "--origin-x": `${motion.x}%`, "--origin-y": `${motion.y}%` } as CSSProperties;
+  const cameraStyle={"--camera-x":`${camera.x}px`,"--camera-y":`${camera.y}px`,"--camera-scale":camera.scale} as CSSProperties;
 
   return <section className="cosmosStage" aria-label="LLM 지식 지도">
     <header className="cosmosToolbar">
@@ -292,7 +326,7 @@ export function KnowledgeCosmos() {
         {current?.href ? <Link href={current.href}>이 항목 전체 읽기 ↗</Link> : null}
       </div>
 
-      <div className="cosmosCanvas">
+      <div className="cosmosCanvas" style={cameraStyle} onPointerDown={beginCameraDrag} onPointerMove={moveCamera} onPointerUp={endCameraDrag} onPointerCancel={endCameraDrag} onWheel={zoomCamera}>
         <svg className="cosmosOrbits" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           {rootMap ? <>
             <g className="desktopRootOrbits">
@@ -317,6 +351,8 @@ export function KnowledgeCosmos() {
 
         {nodes.map((node, index) => <DriftingNode key={node.id} node={node} position={positions[index]} mobilePosition={rootMap ? rootMobilePositions[index] : undefined} index={index} sequence={sequence} selected={selectedLeaf?.id === node.id} onOpen={() => dive(node, positions[index])} />)}
       </div>
+
+      {!path.length?<div className="cosmosCameraControls" aria-label="지도 보기 조절"><button type="button" onClick={()=>updateCamera({...cameraRef.current,scale:Math.max(.82,cameraRef.current.scale-.12)})} aria-label="축소">−</button><button type="button" onClick={resetCamera} aria-label="전체 지도">◎</button><button type="button" onClick={()=>updateCamera({...cameraRef.current,scale:Math.min(1.42,cameraRef.current.scale+.12)})} aria-label="확대">＋</button></div>:null}
 
       {path.length ? <button className="cosmosZoomOut" type="button" onClick={() => retreat(path.length - 2)}><b>↖</b><span>이전 지도</span><small>{path.length > 1 ? compactLabel(path[path.length - 2].label, 12) : "전체 보기"}</small></button> : null}
 
